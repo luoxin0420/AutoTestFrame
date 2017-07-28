@@ -12,16 +12,15 @@ import os
 from os import path
 
 import configuration
-import myglobal
 import uiautomator
-from library.myglobal import logger
+
 
 
 class Device(object):
 
     def __init__(self, uid):
         self.CONFIG = configuration.configuration()
-        self.CONFIG.fileConfig(myglobal.CONFIGURATONINI)
+        self.CONFIG.fileConfig('test')
         self.uid = uid
         self.pkg = self.CONFIG.getValue(uid,'apppackage')
         self.activity = self.CONFIG.getValue(uid,'appactivity')
@@ -30,7 +29,7 @@ class Device(object):
     @staticmethod
     def shellPIPE(cmd):
 
-        p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         out, err = p.communicate()
         return out
 
@@ -239,7 +238,7 @@ class Device(object):
             expe_time = datetime.datetime.strftime(expe_time,'%m%d%H%M%Y.00')
             cmd = 'adb -s {0} shell date {1} ; am broadcast -a android.intent.action.TIME_SET'.format(self.uid,expe_time)
 
-        self.shellPIPE(cmd)
+
 
     def uninstall_app(self):
 

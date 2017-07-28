@@ -22,10 +22,10 @@ import platform
 import zipfile
 
 import configuration
-import myglobal
+
 
 CONFIG = configuration.configuration()
-CONFIG.fileConfig(myglobal.CONFIGURATONINI)
+CONFIG.fileConfig('xxxx')
 
 
 def send_mail(subj, att):

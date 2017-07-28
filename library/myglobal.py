@@ -1,13 +1,33 @@
 __author__ = 'Xuxh'
 
-global CONFIGURATONINI
+import os
+
 from library.mylog import log
-from library.db import dbmysql
+from library import configuration
 
-CONFIGURATONINI = "config/configuration.ini"
-CONFIGUI = "config/uiconfig.ini"
+__all__= ['logger','theme_config','magazine_config','device_config']
 
-logsignleton = log.LogSignleton('../config/logconfig.ini')
+PATH = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), p)
+)
+logsignleton = log.LogSignleton(PATH('../config/logconfig.ini'))
 logger = logsignleton.get_logger()
 
-autodb = dbmysql.MysqlDB('../config/dbconfig.ini')
+# theme configuration file
+theme_config = configuration.configuration()
+fname = PATH('../config/theme.ini')
+theme_config.fileConfig(fname)
+
+# magazine configuration file
+magazine_config = configuration.configuration()
+fname = PATH('../config/magazine.ini')
+magazine_config.fileConfig(fname)
+
+# device config
+device_config = configuration.configuration()
+fname = PATH('../config/device.ini')
+device_config.fileConfig(fname)
+
+
+
+POSITIVE_VP_TYPE = ['CONTAIN', 'EQUAL', 'MATCH']

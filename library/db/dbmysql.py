@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-__author__ = 'xuxh'
-
 import sys
 import mysql.connector
 import mysql.connector.cursor

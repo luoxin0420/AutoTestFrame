@@ -8,11 +8,8 @@ except(ImportError):
     import unittest
 
 from library import device
-from library import configuration
-from library import myglobal
-from testcases import test_startup_register
-from testcases import test_module_update
-from testcases import test_tasks_new
+from library.myglobal import device_config
+
 
 if __name__ == '__main__':
 
@@ -30,7 +27,6 @@ if __name__ == '__main__':
     if uid is None:
         sys.exit(0)
 
-
     # verify if device is connected
     devices = device.Device.get_connected_devices()
     if uid not in devices:
@@ -38,23 +34,10 @@ if __name__ == '__main__':
         sys.exit(0)
 
     try:
-        # verify if device is configuration
-        config = configuration.configuration()
-        config.fileConfig(myglobal.CONFIGURATONINI)
-    except Exception, ex:
-        print "There is no related configuration information"
-        sys.exit(0)
-
-    try:
-        case_list = config.getValue(uid,'test_list').split(';')
-        for cases in case_list:
-            if cases.startswith('test_startup_register'):
-                test_startup_register.run(uid, loop_number, loop_type)
-            if cases.startswith('test_tasks'):
-                test_tasks_new.run(uid, loop_number, loop_type)
-            if cases.startswith('test_module'):
-                myglobal.logger.debug('Start to test module')
-                test_module_update.run(uid, loop_number, loop_type, myglobal.logger)
+        # automation test database
+        device_config.setValue(uid,'suite_info',1)
+        from testcases import test_tasks_new
+        test_tasks_new.run(uid, loop_number, loop_type)
 
     except Exception, ex:
         print ex

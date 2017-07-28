@@ -12,14 +12,15 @@ from library import desktop
 
 class DumpLogcatFileReader(threading.Thread):
 
-    def __init__(self, mainlog, uid, pkg, filter='', pid_index=0):
+    def __init__(self, mainlog, uid, pid=[], pkg='', index=0, filter=[]):
 
         threading.Thread.__init__(self)
         self._mainlog = mainlog
         self._uid = uid
         self._pkg = pkg
-        self._pindex = pid_index
+        self._pid = pid
         self._filter = filter
+        self._index = index
         self.outfile = None
 
     def clear_logcat(self):
@@ -77,25 +78,31 @@ class DumpLogcatFileReader(threading.Thread):
 
         fcmd = ''
         pcmd = ''
+        pid_cmd = ''
         basic_cmd = self.__get_basic_filter_command()
         basic_cmd = 'adb -s {0} '.format(self._uid) + basic_cmd
-        try:
-            if self._pkg.find('system') == -1:
+
+        # query according to pid
+        if len(self._pid) !=0:
+            temp = '|'.join(self._pid)
+            pid_cmd = ''.join([' | ', 'grep -E ','"', temp ,'"'])
+
+        # query according to pkg
+        if len(self._pkg) != 0:
+            try:
                 pid = self.__get_unique_PID()
                 if len(pid) > 0:
                     value = pid.strip()
                     pcmd = ''.join([' | ', 'grep ', '"', value, '"'])
-        except Exception,ex:
-            print ex
+            except Exception,ex:
+                print ex
 
-        if self._filter != '':
-            filter_condition = self._filter.split(';')
-            for cond in filter_condition:
-                fcmd = fcmd + ''.join([' | ', 'grep -E ','"', cond,'"'])
+        for cond in self._filter:
+            fcmd = fcmd + ''.join([' | ', 'grep -E ','"', cond,'"'])
 
 
         #cmd = ''.join([basic_cmd, pcmd, fcmd, limit_num, '| awk "{print $7}"'])
-        cmd = ''.join([basic_cmd, pcmd, fcmd])
+        cmd = ''.join([basic_cmd, pid_cmd, pcmd, fcmd])
         #print cmd
         return cmd
 
