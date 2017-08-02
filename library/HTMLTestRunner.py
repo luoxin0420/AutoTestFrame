@@ -667,7 +667,7 @@ class _TestResult(TestResult):
 class HTMLTestRunner(Template_mixin):
     """
     """
-    def __init__(self, stream=sys.stdout, verbosity=1, title=None, description=None,name=None):
+    def __init__(self, stream=sys.stdout, verbosity=1, loop=1, title=None, description=None,name=None):
         self.stream = stream
         self.verbosity = verbosity
         if title is None:
@@ -684,6 +684,7 @@ class HTMLTestRunner(Template_mixin):
             self.description = description
 
         self.startTime = datetime.datetime.now()
+        self.loop = loop
 
 
     def run(self, test):
@@ -812,6 +813,7 @@ class HTMLTestRunner(Template_mixin):
             rows.append(row)
 
             for tid, (n,t,o,e) in enumerate(cls_results):
+
                 self._generate_report_test(rows, cid, tid, n, t, o, e)
 
         report = self.REPORT_TMPL % dict(
@@ -827,7 +829,7 @@ class HTMLTestRunner(Template_mixin):
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
         has_output = bool(o or e)
-        tid = (n == 0 and 'p' or n==3 and 's' or 'f') + 't%s.%s' % (cid+1,tid+1)
+        tid = (n == 0 and 'p' or n==3 and 's' or 'f') + 't%s.%s' % (cid+1,str(self.loop)+str(tid+1))
         name = t.id().split('.')[-1]
         doc = t.shortDescription() or ""
         desc = doc and ('%s: %s' % (name, doc)) or name

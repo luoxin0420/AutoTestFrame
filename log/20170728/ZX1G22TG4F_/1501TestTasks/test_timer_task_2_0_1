@@ -1,0 +1,42 @@
+12-07 02:18:00.981 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][17977593][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+12-07 02:18:00.982 11883 11883 D NewDownloadProvider: [NewDownloadProvider][17977597][tid_1](377)[new_download] [download_net_change] networkChange
+12-07 02:18:00.991 11883 11883 I qk      : [qk][17977607][tid_1](244)currentApn:WIFI
+12-07 02:18:00.992 11883 11883 I qk      : [qk][17977607][tid_1](213)currentApn:WIFI
+12-07 02:18:00.994 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][17977610][tid_1](31)[download_net_change] the network has connected
+12-07 02:18:00.995 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][17977610][tid_1](33)[download_net_change] time:876815743,runTime:876708864
+12-07 02:18:00.995 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][17977611][tid_1](35)Product.lenovo:false
+12-07 02:18:00.996 11883 11883 I TaskServiceProvider: [TaskServiceProvider][17977611][tid_1](146)VlifeExecutorService executing n.kt@d168e0d
+12-07 02:18:00.996 11883 11883 I TaskServiceProvider: [TaskServiceProvider][17977612][tid_1](186)PackageName is com.vlife.ipro.magazine
+12-07 02:18:00.997 11883 11883 D TaskServiceProvider: [TaskServiceProvider][17977612][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+12-07 02:18:00.997 11883 11883 I vv      : [vv][17977613][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 02:18:00.997 11883 11883 I TaskServiceProvider: [TaskServiceProvider][17977613][tid_1](156)shell product start vlife task
+12-07 02:18:00.998 11883 11883 W wf      : [wf][17977613][tid_1](52)create preferences name:userinfo
+12-07 02:18:01.008 11883 11883 I ki      : [ki][17977624][tid_1](267)random and http error for test
+12-07 02:18:01.008 11883 11883 I TaskServiceProvider: [TaskServiceProvider][17977624][tid_1](162)shell product start vlife task
+12-07 02:18:02.485 11883 11883 D NewDownloadProvider: [NewDownloadProvider][17979099][tid_1](408)[download_net_change] handleMessage
+12-07 02:18:02.486 11883 11883 D fk      : [fk][17979101][tid_1](49)[download_net_change] refreshNetworkType
+12-07 02:18:02.493 11883 11883 D fk      : [fk][17979107][tid_1](51)changeNetWork 16 -> 1, start
+12-07 02:18:02.494 11883 11883 D NewDownloadProvider: [NewDownloadProvider][17979109][tid_1](338)[new_download] [download_net_change] =======>start [oldType:16] [currentType:1]
+12-07 02:18:02.497 11883 11883 D fk      : [fk][17979112][tid_1](59)changeNetWork end
+12-07 02:18:07.545 11883 12342 I up      : [up][17984160][tid_101](46)http send list:[]
+12-07 02:18:07.546 11883 12342 I uw      : [uw][17984161][tid_101](28)getRidAndIncrement :9
+12-07 02:18:07.547 11883 12342 I uo      : [uo][17984162][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b4f@a1.stage.vlife.com
+12-07 02:18:07.551 11883 12342 I uo      : [uo][17984166][tid_101](121)Request content : <body rid="9" count="0" wait="2" sid="7f549c0310006b4f@a1.stage.vlife.com"></body>
+12-07 02:18:07.551 11883 12342 D uo      : [uo][17984167][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-07 02:18:07.552 11883 12342 D uo      : [uo][17984168][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-07 02:18:07.554 11883 12342 I ki      : [ki][17984169][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@92b180e
+12-07 02:18:07.562 11883 12342 I DefaultRequestDirector: I/O exception (java.net.SocketException) caught when processing request: Broken pipe
+12-07 02:18:07.564 11883 12342 I DefaultRequestDirector: Retrying request
+12-07 02:18:09.614 11883 12342 I ki      : [ki][17986229][tid_101](320)response = org.apache.http.message.BasicHttpResponse@181b22f
+12-07 02:18:09.615 11883 12342 D ki      : [ki][17986230][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b4f@a1.stage.vlife.com
+12-07 02:18:09.618 11883 12342 D ki      : [ki][17986231][tid_101](325)header name = platform, value = android
+12-07 02:18:09.621 11883 12342 D ki      : [ki][17986234][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-07 02:18:09.623 11883 12342 I ki      : [ki][17986237][tid_101](378)doGetAllHeaders
+12-07 02:18:09.624 11883 12342 I ki      : [ki][17986240][tid_101](336)doGetStatusCode
+12-07 02:18:09.627 11883 12342 I uo      : [uo][17986241][tid_101](137)response code:206
+12-07 02:18:09.628 11883 12342 I ki      : [ki][17986244][tid_101](352)doGetEntityByteArray
+12-07 02:18:09.631 11883 12342 I ui      : [ui][17986247][tid_101](47)inflate length:65
+12-07 02:18:09.632 11883 12342 I uo      : [uo][17986248][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="9"></body>
+12-07 02:18:09.634 11883 12342 I up      : [up][17986249][tid_101](58)http send type:OK
+12-07 02:18:09.634 11883 12342 I up      : [up][17986250][tid_101](43)http send thread run
+12-07 02:18:09.634 11883 12342 D ut      : [ut][17986250][tid_101](72)waiting list Condition signal heartIndex:5 waitTime:0

@@ -1,0 +1,50 @@
+08-01 17:36:09.426  1160  1522 D go      : [go][46188][tid_59](67)size
+08-01 17:36:09.428  1160  1522 I TaskServiceProvider: [TaskServiceProvider][46190][tid_59](85)kill self service, size=0
+08-01 17:36:09.429  1160  1522 I TaskServiceProvider: [TaskServiceProvider][46192][tid_59](87)kill self service success
+08-01 17:36:09.430  1160  1522 I vv      : [vv][46193][tid_59](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-01 17:36:09.431  1160  1522 D TaskServiceProvider: [TaskServiceProvider][46194][tid_59](89)vlife_task_service_for_3part
+08-02 00:36:31.633  1160  1160 D NetChangeReceiverHandler: [NetChangeReceiverHandler][78393][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@3f9e368,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+08-02 00:36:31.634  1160  1160 D NewDownloadProvider: [NewDownloadProvider][78394][tid_1](377)[new_download] [download_net_change] networkChange
+08-02 00:36:31.651  1160  1160 I qk      : [qk][78411][tid_1](244)currentApn:WIFI
+08-02 00:36:31.652  1160  1160 I qk      : [qk][78412][tid_1](213)currentApn:WIFI
+08-02 00:36:31.652  1160  1160 D NetChangeReceiverHandler: [NetChangeReceiverHandler][78413][tid_1](31)[download_net_change] the network has connected
+08-02 00:36:31.653  1160  1160 D NetChangeReceiverHandler: [NetChangeReceiverHandler][78413][tid_1](33)[download_net_change] time:95782,runTime:23504
+08-02 00:36:31.654  1160  1160 D NetChangeReceiverHandler: [NetChangeReceiverHandler][78414][tid_1](35)Product.lenovo:false
+08-02 00:36:31.655  1160  1160 I TaskServiceProvider: [TaskServiceProvider][78415][tid_1](146)VlifeExecutorService executing n.kt@88d4996
+08-02 00:36:31.656  1160  1160 I TaskServiceProvider: [TaskServiceProvider][78416][tid_1](186)PackageName is com.vlife.ipro.magazine
+08-02 00:36:31.657  1160  1160 D TaskServiceProvider: [TaskServiceProvider][78417][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+08-02 00:36:31.657  1160  1160 I vv      : [vv][78418][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-02 00:36:31.658  1160  1160 I TaskServiceProvider: [TaskServiceProvider][78418][tid_1](156)shell product start vlife task
+08-02 00:36:31.658  1160  1160 W wf      : [wf][78418][tid_1](52)create preferences name:userinfo
+08-02 00:36:31.663  1160  1160 I qw      : [qw][78423][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+08-02 00:36:31.664  1160  1513 I TaskServiceProvider: [TaskServiceProvider][78425][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=NetChangeReceiverTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+08-02 00:36:31.664  1160  1513 D TaskServiceProvider: [TaskServiceProvider][78425][tid_53](558)pyramidney:null
+08-02 00:36:31.665  1160  1513 D go      : [go][78425][tid_53](33)TaskSignalQueue-add n.gn@33156ed
+08-02 00:36:31.666  1160  1160 D gp      : [gp][78426][tid_1](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+08-02 00:36:31.669  1160  2614 D TaskServiceProvider: [TaskServiceProvider][78430][tid_76](254)Bundle=Bundle[{}] taskType=NetChangeReceiverTask
+08-02 00:36:31.669  1160  2614 D TaskServiceProvider: [TaskServiceProvider][78430][tid_76](258)getVlifeTask vlifeTask=n.kt@d5d4fb3
+08-02 00:36:31.670  1160  2614 I TaskServiceProvider: [TaskServiceProvider][78430][tid_76](351)[VlifeTaskService]  TaskRunnable  running task : NetChangeReceiverTask ,delay : 0, cycle : 0 
+08-02 00:36:31.670  1160  2614 I TaskServiceProvider: [TaskServiceProvider][78431][tid_76](377)backstage task system start up timing task ,task type is :NetChangeReceiverTask, awaking type :awake by system broadCastReceiver
+08-02 00:36:31.670  1160  2614 D kt      : [kt][78431][tid_76](45)[download_net_change] NetChangeReceiverTask run
+08-02 00:36:31.671  1160  2614 W wf      : [wf][78431][tid_76](52)create preferences name:userinfo
+08-02 00:36:31.671  1160  2614 I wf      : [wf][78432][tid_76](79)preference name:userinfo getString key:last_day,value:19700318
+08-02 00:36:31.672  1160  2614 I wf      : [wf][78433][tid_76](84)preference name:userinfo putStringAndCommit key:last_day,value:20170802
+08-02 00:36:31.685  1160  2614 W wf      : [wf][78446][tid_76](89)userinfo putString last_day
+08-02 00:36:31.686  1160  2614 I ot      : [ot][78446][tid_76](99)last_day 19700318, today 20170802, last_day_count 23, this=n.ot@675a970
+08-02 00:36:31.686  1160  2614 I wf      : [wf][78447][tid_76](114)preference name:userinfo putIntAndCommit key:last_day_count,value:23
+08-02 00:36:31.697  1160  2614 W wf      : [wf][78458][tid_76](119)userinfo putInt last_day_count
+08-02 00:36:31.698  1160  2614 W wf      : [wf][78458][tid_76](52)create preferences name:timing_network_preference
+08-02 00:36:31.698  1160  2614 W jz      : [jz][78459][tid_76](33)canConnectNetWork result == false
+08-02 00:36:31.698  1160  2614 I TaskServiceProvider: [TaskServiceProvider][78459][tid_76](379)[VlifeTaskService]  end  task : NetChangeReceiverTask
+08-02 00:36:31.699  1160  2614 D go      : [go][78459][tid_76](48)TaskSignalQueue-remove n.gn@33156ed
+08-02 00:36:31.699  1160  2614 D go      : [go][78459][tid_76](53)TaskSignalQueue- call empty
+08-02 00:36:33.135  1160  1160 D NewDownloadProvider: [NewDownloadProvider][79896][tid_1](408)[download_net_change] handleMessage
+08-02 00:36:33.136  1160  1160 D fk      : [fk][79896][tid_1](49)[download_net_change] refreshNetworkType
+08-02 00:36:33.139  1160  1160 D fk      : [fk][79899][tid_1](51)changeNetWork 16 -> 1, start
+08-02 00:36:33.140  1160  1160 D NewDownloadProvider: [NewDownloadProvider][79900][tid_1](338)[new_download] [download_net_change] =======>start [oldType:16] [currentType:1]
+08-02 00:36:33.141  1160  1160 D fk      : [fk][79901][tid_1](59)changeNetWork end
+08-02 00:37:11.741  1160  1522 D go      : [go][118501][tid_59](67)size
+08-02 00:37:11.742  1160  1522 I TaskServiceProvider: [TaskServiceProvider][118502][tid_59](85)kill self service, size=0
+08-02 00:37:11.743  1160  1522 I TaskServiceProvider: [TaskServiceProvider][118503][tid_59](87)kill self service success
+08-02 00:37:11.744  1160  1522 I vv      : [vv][118504][tid_59](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-02 00:37:11.746  1160  1522 D TaskServiceProvider: [TaskServiceProvider][118506][tid_59](89)vlife_task_service_for_3part

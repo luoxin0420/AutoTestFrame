@@ -11,20 +11,15 @@ import platform
 import os
 from os import path
 
-import configuration
 import uiautomator
-
+from library.myglobal import device_config
 
 
 class Device(object):
 
     def __init__(self, uid):
-        self.CONFIG = configuration.configuration()
-        self.CONFIG.fileConfig('test')
         self.uid = uid
-        self.pkg = self.CONFIG.getValue(uid,'apppackage')
-        self.activity = self.CONFIG.getValue(uid,'appactivity')
-        self.name = self.CONFIG.getValue(uid,'name')
+        self.name = device_config.getValue(uid,'name')
 
     @staticmethod
     def shellPIPE(cmd):
@@ -112,18 +107,11 @@ class Device(object):
         except Exception,ex:
             print ex
 
-    def app_operation(self,action,path='',service=''):
-
-        if service != '':
-            pkg = service
-            pname = service
-        else:
-            pkg = self.pkg
-            pname = ''.join([pkg, '/', self.activity])
+    def app_operation(self,action,pkg='',path=''):
 
         if pkg != '':
             if action.upper() == "LAUNCH":
-                cmd = "".join(["adb -s ", self.uid, " shell am start -n ", pname])
+                cmd = "".join(["adb -s ", self.uid, " shell am start -n ", pkg])
             if action.upper() == "START":
                 cmd = "".join(["adb -s ", self.uid, " shell am start ", pkg])
             if action.upper() == "CLOSE":
@@ -140,6 +128,7 @@ class Device(object):
                 p.wait()
             except Exception,ex:
                 print ex
+
 
     def get_os_version(self):
 
@@ -167,8 +156,8 @@ class Device(object):
 
         # get resolution of screen
         width,height = self.get_screen_size()
-        unlock_style = self.CONFIG.getValue(self.uid,'unlock_style')
-        unlock_location = self.CONFIG.getValue(self.uid,'unlock_location')
+        unlock_style = device_config.getValue(self.uid,'unlock_style')
+        unlock_location = device_config.getValue(self.uid,'unlock_location')
         if unlock_style.upper() == 'LANDSCAPE':
             cmd = "adb -s {0} shell input swipe {1} {2} {3} {4}".format(self.uid,int(width/5),int(height/2),int(width/5*4),int(height/2))
         else:
@@ -179,10 +168,10 @@ class Device(object):
         self.shellPIPE(cmd)
         sleep(2)
 
-    def find_package(self):
+    def find_package(self,pkg):
 
         out = ''
-        cmd = "".join(["adb -s ", self.uid, " shell pm list package ", self.pkg])
+        cmd = "".join(["adb -s ", self.uid, " shell pm list package ", pkg])
         out = self.shellPIPE(cmd)
         return out
 
@@ -210,7 +199,6 @@ class Device(object):
 
         # delta is interval time, like 1, -1
         interval_num = int(delta)
-        #interval_unit = self.CONFIG.getValue(self.uid, 'frequence_unit')
 
         # get android time, then get expected time stamp
         cmd = "".join(["adb -s ", self.uid, " shell date +%Y%m%d.%H%M%S "])
@@ -237,29 +225,24 @@ class Device(object):
         else:
             expe_time = datetime.datetime.strftime(expe_time,'%m%d%H%M%Y.00')
             cmd = 'adb -s {0} shell date {1} ; am broadcast -a android.intent.action.TIME_SET'.format(self.uid,expe_time)
+        self.shellPIPE(cmd)
 
-
-
-    def uninstall_app(self):
+    def uninstall_app(self,pkg_name):
 
         try:
-            pkg = self.CONFIG.getValue(self.uid,'apppackage')
-            result =self.find_package()
-            if result.find(pkg) != -1:
-                self.app_operation('UNINSTALL')
+            result =self.find_package(pkg_name)
+            if result.find(pkg_name) != -1:
+                self.app_operation('UNINSTALL',pkg_name)
         except Exception,ex:
             print ex
 
-    def device_service_operation(self,action):
+    def device_service_operation(self,action,service):
 
-        service = self.CONFIG.getValue(self.uid,'service')
-
-        if service != "":
-            if action.upper() == "START":
-                cmd = "".join(["adb -s ", self.uid, " shell am startservice -n ", service])
-            if action.upper() == "STOP":
-                cmd = "".join(["adb -s ", self.uid, " shell am stopservice -n ", service])
-            self.shellPIPE(cmd)
+        if action.upper() == "START":
+            cmd = "".join(["adb -s ", self.uid, " shell am startservice -n ", service])
+        if action.upper() == "STOP":
+            cmd = "".join(["adb -s ", self.uid, " shell am stopservice -n ", service])
+        self.shellPIPE(cmd)
 
     def get_device_screenshot(self,fname):
 

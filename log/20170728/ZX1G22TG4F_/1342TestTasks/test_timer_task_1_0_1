@@ -1,0 +1,66 @@
+12-05 21:00:28.439 11883 12342 I up      : [up][13140821][tid_101](46)http send list:[]
+12-05 21:00:28.440 11883 12342 I uw      : [uw][13140823][tid_101](28)getRidAndIncrement :12
+12-05 21:00:28.442 11883 12342 I uo      : [uo][13140824][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b1f@a1.stage.vlife.com
+12-05 21:00:28.447 11883 12342 I uo      : [uo][13140828][tid_101](121)Request content : <body rid="12" count="0" wait="2" sid="7f549c0310006b1f@a1.stage.vlife.com"></body>
+12-05 21:00:28.451 11883 12342 D uo      : [uo][13140833][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-05 21:00:28.453 11883 12342 D uo      : [uo][13140835][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-05 21:00:28.454 11883 12342 I ki      : [ki][13140836][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@d3a387f
+12-05 21:00:28.465 11883 12342 I DefaultRequestDirector: I/O exception (java.net.SocketException) caught when processing request: Broken pipe
+12-05 21:00:28.466 11883 12342 I DefaultRequestDirector: Retrying request
+12-05 21:00:28.476 11883 12342 W uo      : [uo][13140858][tid_101](156)http connection is interrupted,please check network status
+12-05 21:00:28.476 11883 12342 W uo      : org.apache.http.conn.HttpHostConnectException: Connection to http://115.28.84.237 refused
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:193)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:169)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:124)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:466)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:560)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)
+12-05 21:00:28.476 11883 12342 W uo      : 	at n.kj.a(VLIFE-SOURCE:319)
+12-05 21:00:28.476 11883 12342 W uo      : 	at n.uo.a(VLIFE-SOURCE:132)
+12-05 21:00:28.476 11883 12342 W uo      : 	at n.uo.a(VLIFE-SOURCE:66)
+12-05 21:00:28.476 11883 12342 W uo      : 	at n.up.run(VLIFE-SOURCE:50)
+12-05 21:00:28.476 11883 12342 W uo      : Caused by: java.net.ConnectException: Network is unreachable
+12-05 21:00:28.476 11883 12342 W uo      : 	at java.net.PlainSocketImpl.socketConnect(Native Method)
+12-05 21:00:28.476 11883 12342 W uo      : 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:334)
+12-05 21:00:28.476 11883 12342 W uo      : 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:196)
+12-05 21:00:28.476 11883 12342 W uo      : 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+12-05 21:00:28.476 11883 12342 W uo      : 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:356)
+12-05 21:00:28.476 11883 12342 W uo      : 	at java.net.Socket.connect(Socket.java:586)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:124)
+12-05 21:00:28.476 11883 12342 W uo      : 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:149)
+12-05 21:00:28.476 11883 12342 W uo      : 	... 10 more
+12-05 21:00:28.476 11883 12342 I uw      : [uw][13140860][tid_101](40)decrement :1
+12-05 21:00:28.477 11883 12342 I uw      : [uw][13140860][tid_101](28)getRidAndIncrement :12
+12-05 21:00:28.477 11883 12342 I uo      : [uo][13140860][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b1f@a1.stage.vlife.com
+12-05 21:00:28.478 11883 12342 I uo      : [uo][13140861][tid_101](121)Request content : <body rid="12" count="0" wait="2" sid="7f549c0310006b1f@a1.stage.vlife.com"></body>
+12-05 21:00:28.478 11883 12342 D uo      : [uo][13140862][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-05 21:00:28.479 11883 12342 D uo      : [uo][13140862][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-05 21:00:28.479 11883 12342 I ki      : [ki][13140862][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@8ae5daa
+12-05 21:00:28.483 11883 12342 W uo      : [uo][13140865][tid_101](156)http connection is interrupted,please check network status
+12-05 21:00:28.483 11883 12342 W uo      : org.apache.http.conn.HttpHostConnectException: Connection to http://115.28.84.237 refused
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:193)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:169)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:124)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:366)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:560)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)
+12-05 21:00:28.483 11883 12342 W uo      : 	at n.kj.a(VLIFE-SOURCE:319)
+12-05 21:00:28.483 11883 12342 W uo      : 	at n.uo.a(VLIFE-SOURCE:132)
+12-05 21:00:28.483 11883 12342 W uo      : 	at n.uo.a(VLIFE-SOURCE:66)
+12-05 21:00:28.483 11883 12342 W uo      : 	at n.up.run(VLIFE-SOURCE:50)
+12-05 21:00:28.483 11883 12342 W uo      : Caused by: java.net.ConnectException: Network is unreachable
+12-05 21:00:28.483 11883 12342 W uo      : 	at java.net.PlainSocketImpl.socketConnect(Native Method)
+12-05 21:00:28.483 11883 12342 W uo      : 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:334)
+12-05 21:00:28.483 11883 12342 W uo      : 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:196)
+12-05 21:00:28.483 11883 12342 W uo      : 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+12-05 21:00:28.483 11883 12342 W uo      : 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:356)
+12-05 21:00:28.483 11883 12342 W uo      : 	at java.net.Socket.connect(Socket.java:586)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:124)
+12-05 21:00:28.483 11883 12342 W uo      : 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:149)
+12-05 21:00:28.483 11883 12342 W uo      : 	... 10 more
+12-05 21:00:28.484 11883 12342 I uw      : [uw][13140867][tid_101](40)decrement :1
+12-05 21:00:28.484 11883 12342 I up      : [up][13140867][tid_101](58)http send type:RESEND
+12-05 21:00:28.484 11883 12342 I up      : [up][13140868][tid_101](43)http send thread run
+12-05 21:00:28.485 11883 12342 D ut      : [ut][13140868][tid_101](72)waiting list Condition signal heartIndex:5 waitTime:0

@@ -17,7 +17,7 @@ def set_magazine_app_switch(dname,action):
     """
     DEVICE = device.Device(dname)
     activity_name = magazine_config.getValue(dname,'magazine_pkg')
-    DEVICE.app_operation('START', service=activity_name)
+    DEVICE.app_operation('START', pkg=activity_name)
     sleep(1)
     findstr = [u'开启',u'安装',u'允许',u'确定']
     DEVICE.do_popup_windows(6,findstr)
@@ -65,7 +65,7 @@ def set_security_magazine_switch(dname,action):
     # open set security UI
     DEVICE = device.Device(dname)
     value = magazine_config.getValue(dname,'security_setting')
-    DEVICE.app_operation('LAUNCH', service=value)
+    DEVICE.app_operation('LAUNCH', pkg=value)
     sleep(1)
 
      # click setting button

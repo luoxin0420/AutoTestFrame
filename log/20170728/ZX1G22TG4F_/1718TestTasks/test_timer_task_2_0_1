@@ -1,0 +1,20 @@
+12-07 04:41:30.267 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26586882][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+12-07 04:41:30.267 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26586883][tid_1](377)[new_download] [download_net_change] networkChange
+12-07 04:41:30.277 11883 11883 I qk      : [qk][26586893][tid_1](244)currentApn:WIFI
+12-07 04:41:30.278 11883 11883 I qk      : [qk][26586893][tid_1](213)currentApn:WIFI
+12-07 04:41:30.278 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26586893][tid_1](31)[download_net_change] the network has connected
+12-07 04:41:30.278 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26586894][tid_1](33)[download_net_change] time:885425026,runTime:885311462
+12-07 04:41:30.278 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26586894][tid_1](35)Product.lenovo:false
+12-07 04:41:30.279 11883 11883 I TaskServiceProvider: [TaskServiceProvider][26586894][tid_1](146)VlifeExecutorService executing n.kt@fc00c0d
+12-07 04:41:30.279 11883 11883 I TaskServiceProvider: [TaskServiceProvider][26586895][tid_1](186)PackageName is com.vlife.ipro.magazine
+12-07 04:41:30.279 11883 11883 D TaskServiceProvider: [TaskServiceProvider][26586895][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+12-07 04:41:30.279 11883 11883 I vv      : [vv][26586895][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 04:41:30.280 11883 11883 I TaskServiceProvider: [TaskServiceProvider][26586895][tid_1](156)shell product start vlife task
+12-07 04:41:30.280 11883 11883 W wf      : [wf][26586896][tid_1](52)create preferences name:userinfo
+12-07 04:41:30.288 11883 11883 I ki      : [ki][26586903][tid_1](267)random and http error for test
+12-07 04:41:30.288 11883 11883 I TaskServiceProvider: [TaskServiceProvider][26586904][tid_1](162)shell product start vlife task
+12-07 04:41:31.769 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26588384][tid_1](408)[download_net_change] handleMessage
+12-07 04:41:31.770 11883 11883 D fk      : [fk][26588385][tid_1](49)[download_net_change] refreshNetworkType
+12-07 04:41:31.775 11883 11883 D fk      : [fk][26588390][tid_1](51)changeNetWork 16 -> 1, start
+12-07 04:41:31.777 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26588392][tid_1](338)[new_download] [download_net_change] =======>start [oldType:16] [currentType:1]
+12-07 04:41:31.778 11883 11883 D fk      : [fk][26588393][tid_1](59)changeNetWork end

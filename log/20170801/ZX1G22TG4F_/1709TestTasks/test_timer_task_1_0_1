@@ -1,0 +1,937 @@
+08-01 17:10:50.022  2524  2524 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-01 17:10:50.022  2524  2524 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-01 17:10:50.023  2524  2524 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-01 17:10:50.023  2524  2524 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-01 17:10:50.023  2524  2524 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-01 17:10:50.023  2524  2524 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-01 17:10:50.023  2524  2524 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-01 17:10:50.024  2524  2524 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-01 17:10:50.024  2524  2524 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-01 17:10:50.024  2524  2524 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-01 17:10:50.024  2524  2524 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:00.180   836  1001 D NotificationSQLiteLog: Pruned event entries: 0
+08-02 00:10:00.758  2532  2532 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 0 <<<<<<
+08-02 00:10:00.764  2532  2532 D AndroidRuntime: CheckJNI is ON
+08-02 00:10:00.827  2532  2532 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+08-02 00:10:00.908  2532  2532 I Radio-JNI: register_android_hardware_Radio DONE
+08-02 00:10:00.937  2532  2532 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+08-02 00:10:00.971  2539  2539 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:00.971  2539  2539 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:00.971  2539  2539 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:00.971  2539  2539 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:00.972  2539  2539 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:00.972  2539  2539 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:00.972  2539  2539 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:00.972  2539  2539 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:00.972  2539  2539 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:00.972  2539  2539 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:00.972  2539  2539 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:01.015  2310  2310 D BDPushSDK-PushSDK: PushSDK handleOnStart go
+08-02 00:10:01.017  2310  2310 D BDPushSDK-PushSDK: heartbeat networkConnected :false
+08-02 00:10:01.078  2310  2310 D BDPushSDK-PushSDK: heartbeat set : 180 secs
+08-02 00:10:01.162  1066  1066 I AlarmClock: AlarmInitReceiver android.intent.action.TIME_SET
+08-02 00:10:01.192  1066  1163 V AlarmClock: AlarmInitReceiver finished
+08-02 00:10:01.199  2532  2532 D AndroidRuntime: Shutting down VM
+08-02 00:10:01.239  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.239  1823  1823 D BdPreferenceImpl: modified. key: re_nu_t value: 1501600227364
+08-02 00:10:01.240  1823  1823 D BdPreferenceImpl: cache. key: re_nu_t value: 1501589427364
+08-02 00:10:01.240  1823  1823 D BdPreferenceImpl: write to file. key: re_nu_t value: 1501600227364
+08-02 00:10:01.240  1823  1823 D BdPreferenceQueueWorker: wait to finish
+08-02 00:10:01.253  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.254  1823  1823 D BdPreferenceImpl: modified. key: re_nu_t value: 1501614601253
+08-02 00:10:01.254  1823  1823 D BdPreferenceImpl: cache. key: re_nu_t value: 1501600227364
+08-02 00:10:01.254  1823  1823 D BdPreferenceImpl: write to file. key: re_nu_t value: 1501614601253
+08-02 00:10:01.254  1823  1823 D BdPreferenceQueueWorker: wait to finish
+08-02 00:10:01.269  1823  1823 D BdPushOperation: <<< received intent: Intent { act=com.baidu.browser.push.autobind flg=0x14 cmp=com.baidu.browser.apps/com.baidu.browser.push.service.BdPushServiceReceiver (has extras) }
+08-02 00:10:01.277  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.277  1823  1823 D BdPreferenceImpl: modified. key: com.baidu.android.pushservice.PushSettings.hw_proxy_mode value: 1
+08-02 00:10:01.277  1823  1823 D BdPreferenceImpl: cache. key: com.baidu.android.pushservice.PushSettings.hw_proxy_mode value: 1
+08-02 00:10:01.301  1823  1823 I BDPushSDK-Utility: provider name  = com.baidu.android.pushservice.PushInfoProvider  export  = true provider authorities = com.baidu.browser.apps.bdpush
+08-02 00:10:01.302  1823  1823 D BDPushSDK-PushManager: startWork from com.baidu.browser.apps check: true
+08-02 00:10:01.321  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.321  1823  1823 D BdPreferenceImpl: modified. key: com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE value: CONFIG_MANUFACTURER_DEFAULT
+08-02 00:10:01.321  1823  1823 D BdPreferenceImpl: cache. key: com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE value: CONFIG_MANUFACTURER_DEFAULT
+08-02 00:10:01.321  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.321  1823  1823 D BdPreferenceImpl: modified. key: com.baidu.android.pushservice.config.MODE_CONFIG_VERSION value: 1
+08-02 00:10:01.321  1823  1823 D BdPreferenceImpl: cache. key: com.baidu.android.pushservice.config.MODE_CONFIG_VERSION value: 1
+08-02 00:10:01.322  1823  1823 D BDPushSDK-d: Config File Not Matched
+08-02 00:10:01.331  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.331  1823  1823 D BdPreferenceImpl: modified. key: s_e value: enabled
+08-02 00:10:01.331  1823  1823 D BdPreferenceImpl: cache. key: s_e value: enabled
+08-02 00:10:01.331  1823  1823 D BdPreferenceQueueWorker: wait to finish
+08-02 00:10:01.334  1823  1823 D BDPushSDK-Utility: com.baidu.browser.apps: updateServiceInfo isForce = true,isSend = true
+08-02 00:10:01.357  1823  1887 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.358  1823  1887 D BdPreferenceImpl: modified. key: re_net_ali2_1003003 value: 201772
+08-02 00:10:01.360  1823  1887 D BdPreferenceImpl: cache. key: re_net_ali2_1003003 value: 201771
+08-02 00:10:01.360  1823  1887 D BdPreferenceImpl: write to file. key: re_net_ali2_1003003 value: 201772
+08-02 00:10:01.360  1823  1887 D BdPreferenceQueueWorker: wait to finish
+08-02 00:10:01.401  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.401  1823  1823 D BdPreferenceImpl: modified. key: pr_app_v value: 231
+08-02 00:10:01.401  1823  1823 D BdPreferenceImpl: cache. key: pr_app_v value: 231
+08-02 00:10:01.401  1823  1823 D BdPreferenceQueueWorker: wait to finish
+08-02 00:10:01.456  1823  1823 D BDPushSDK-PushManagerHandler: new startWork> sendResult to com.baidu.browser.apps ,method:method_bind ,errorCode : 0 ,content : {"request_id":"638878130","response_params":{"appid":"260149","channel_id":"4309395212920292443","user_id":"800454071979912677"}}
+08-02 00:10:01.535  1823  2549 D BDPushSDK-ServiceUtils: checkAndStartPushService, running is false
+08-02 00:10:01.542  1823  1823 D BdPreferenceImpl: modified size: 1
+08-02 00:10:01.544  1823  1823 D BdPreferenceImpl: modified. key: com.baidu.pushservice.app_id value: 260149
+08-02 00:10:01.544  1823  1823 D BdPreferenceImpl: cache. key: com.baidu.pushservice.app_id value: 260149
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified size: 6
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified. key: bind_status value: true
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: cache. key: bind_status value: true
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified. key: user_id value: 800454071979912677
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: cache. key: user_id value: 800454071979912677
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified. key: appid value: 260149
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: cache. key: appid value: 260149
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified. key: version_code value: 231
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: cache. key: version_code value: 231
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified. key: channel_id value: 4309395212920292443
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: cache. key: channel_id value: 4309395212920292443
+08-02 00:10:01.550  1823  1823 D BdPreferenceImpl: modified. key: request_id value: 638878130
+08-02 00:10:01.551  1823  1823 D BdPreferenceImpl: cache. key: request_id value: 638878130
+08-02 00:10:01.555  1823  2549 D BDPushSDK-ServiceUtils: startPushService go on pkgName = com.baidu.browser.apps
+08-02 00:10:01.563  2310  2310 D BDPushSDK-PushSDK: PushSDK handleOnStart go
+08-02 00:10:01.565  1823  2549 D BDPushSDK-ServiceUtils: startPushService by startService
+08-02 00:10:01.580  2310  2363 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+08-02 00:10:01.589  2310  2363 D BDPushSDK-PushSDK: tryConnect networkConnected :false
+08-02 00:10:06.025  2562  2562 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:06.025  2562  2562 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:06.030  2562  2562 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:06.030  2562  2562 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:06.031  2562  2562 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:06.031  2562  2562 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:06.031  2562  2562 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:06.031  2562  2562 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:06.031  2562  2562 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:06.031  2562  2562 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:06.031  2562  2562 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:06.161  1934  1934 I art     : Waiting for a blocking GC DisableMovingGc
+08-02 00:10:06.167  1934  1934 I art     : WaitForGcToComplete blocked for 6.057ms for cause DisableMovingGc
+08-02 00:10:06.168  1934  1934 I art     : Starting a blocking GC DisableMovingGc
+08-02 00:10:11.084  2564  2564 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:11.084  2564  2564 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:11.085  2564  2564 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:11.085  2564  2564 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:11.085  2564  2564 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:11.085  2564  2564 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:11.085  2564  2564 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:11.085  2564  2564 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:11.086  2564  2564 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:11.086  2564  2564 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:11.086  2564  2564 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:13.013  2091  2127 D go      : [go][58491][tid_140](67)size
+08-02 00:10:13.014  2091  2127 I TaskServiceProvider: [TaskServiceProvider][58493][tid_140](85)kill self service, size=0
+08-02 00:10:13.017  2091  2127 I TaskServiceProvider: [TaskServiceProvider][58494][tid_140](87)kill self service success
+08-02 00:10:13.024  2091  2127 I vv      : [vv][58497][tid_140](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:13.034  2091  2091 I SuicideManagerProvider: [SuicideManagerProvider][58511][tid_1](155)removeSuicideFactor com.vlife.TService@adadcd5
+08-02 00:10:13.041  2091  2122 D StatisticsProvider: [StatisticsProvider][58519][tid_135](432)[statistics_test] =======>write map:n.ep@4ad31bc
+08-02 00:10:13.042  2091  2122 I StatisticsProvider: [StatisticsProvider][58521][tid_135](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:10:13.045  2091  2122 I StatisticsProvider: [StatisticsProvider][58524][tid_135](518)[statistics_test] ====canWrite====
+08-02 00:10:13.050  2091  2091 I AbstractServiceHandler: [AbstractServiceHandler][58529][tid_1](125)service:com.vlife.TService@adadcd5 unregiseter com.vlife.common.lib.abs.AbstractServiceHandler$1@371cea
+08-02 00:10:13.051  2091  2122 D StatisticsProvider: [StatisticsProvider][58525][tid_135](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:10:13.119  2091  2122 I StatisticsProvider: [StatisticsProvider][58598][tid_135](464)[statistics_test] create packet xml : <item ua_action="com.handpet.component.service.TaskServiceProvider$VLifeTaskServiceHandler" dev_value="57" ua_event="dev_service_end" dev_version="6.131.9" ua_time="1501603813035" ua_process="main_page" index="4" />
+08-02 00:10:15.770  2310  2572 E BDPushSDK-PushConnection: Create socket err, errno: 101socketfd: -1
+08-02 00:10:15.773  2310  2572 I BDPushSDK-PushConnection: disconnectedByPeer, mStoped == false
+08-02 00:10:15.781  2310  2572 I BDPushSDK-PushConnection: destroy
+08-02 00:10:16.139  2577  2577 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:16.139  2577  2577 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:16.140  2577  2577 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:16.140  2577  2577 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:16.140  2577  2577 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:16.141  2577  2577 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:16.141  2577  2577 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:16.141  2577  2577 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:16.141  2577  2577 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:16.141  2577  2577 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:16.141  2577  2577 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:18.077  2091  2091 D SuicideManagerProvider: [SuicideManagerProvider][63555][tid_1](175)canBeKill() size=0
+08-02 00:10:18.083  2091  2122 D StatisticsProvider: [StatisticsProvider][63562][tid_135](432)[statistics_test] =======>write map:n.ep@64da545
+08-02 00:10:18.085  2091  2122 I StatisticsProvider: [StatisticsProvider][63564][tid_135](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:10:18.088  2091  2091 I SuicideManagerProvider: [SuicideManagerProvider][63567][tid_1](252)delete using module before kill self
+08-02 00:10:18.090  2091  2091 W wf      : [wf][63568][tid_1](52)create preferences name:database
+08-02 00:10:18.095  2091  2122 I StatisticsProvider: [StatisticsProvider][63575][tid_135](518)[statistics_test] ====canWrite====
+08-02 00:10:18.095  2091  2122 D StatisticsProvider: [StatisticsProvider][63575][tid_135](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:10:18.115  2091  2122 I StatisticsProvider: [StatisticsProvider][63595][tid_135](464)[statistics_test] create packet xml : <item flag="false" ua_event="dev_exit" dev_version="6.131.9" ua_time="1501603818079" ua_process="main_page" index="5" />
+08-02 00:10:18.121  2091  2122 D StatisticsProvider: [StatisticsProvider][63600][tid_135](432)[statistics_test] =======>write map:n.ep@dbf3b01
+08-02 00:10:18.121  2091  2122 I StatisticsProvider: [StatisticsProvider][63600][tid_135](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:10:18.121  2091  2122 I StatisticsProvider: [StatisticsProvider][63601][tid_135](518)[statistics_test] ====canWrite====
+08-02 00:10:18.122  2091  2122 D StatisticsProvider: [StatisticsProvider][63601][tid_135](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:10:18.135  2091  2091 I art     : System.exit called, status: 0
+08-02 00:10:18.135  2091  2091 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+08-02 00:10:21.195  2583  2583 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:21.195  2583  2583 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:21.195  2583  2583 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:21.195  2583  2583 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:21.196  2583  2583 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:21.196  2583  2583 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:21.196  2583  2583 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:21.196  2583  2583 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:21.197  2583  2583 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:21.197  2583  2583 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:21.197  2583  2583 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:25.013  2584  2584 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 0 <<<<<<
+08-02 00:10:25.018  2584  2584 D AndroidRuntime: CheckJNI is ON
+08-02 00:10:25.081  2584  2584 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+08-02 00:10:25.128  2584  2584 I Radio-JNI: register_android_hardware_Radio DONE
+08-02 00:10:25.169  2584  2584 D AndroidRuntime: Calling main entry com.android.commands.svc.Svc
+08-02 00:10:25.188  2584  2584 D AndroidRuntime: Shutting down VM
+08-02 00:10:25.190   399   829 D SoftapController: Softap fwReload - Ok
+08-02 00:10:25.194   399   829 D CommandListener: Setting iface cfg
+08-02 00:10:25.194   399   829 D CommandListener: Trying to bring down wlan0
+08-02 00:10:25.195   399   829 D CommandListener: Clearing all IP addresses on wlan0
+08-02 00:10:25.199   836   991 E WifiMonitor: killSupplicant p2ptrue init.svc.wpa_supplicant=unknown init.svc.p2p_supplicant=unknown
+08-02 00:10:25.864   836   991 D wifi    : set interface wlan0 flags (UP)
+08-02 00:10:25.865   836   991 I WifiHAL : Initializing wifi
+08-02 00:10:25.865   836   991 I WifiHAL : Creating socket
+08-02 00:10:25.873   836   991 I WifiHAL : Initialized Wifi HAL Successfully; vendor cmd = 103
+08-02 00:10:25.874   836   991 D wifi    : Did set static halHandle = 0x97d1ca10
+08-02 00:10:25.874   836   991 D wifi    : halHandle = 0x97d1ca10, mVM = 0xae7b20c0, mCls = 0x101396
+08-02 00:10:25.875   836   991 D wifi    : array field set
+08-02 00:10:25.878   836  2598 I WifiNative-HAL: Waiting for HAL events mWifiHalHandle=-1747858928
+08-02 00:10:25.879   836  2598 D wifi    : waitForHalEvents called, vm = 0xae7b20c0, obj = 0x101396, env = 0x97ca7450
+08-02 00:10:25.915  2600  2600 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:25.915  2600  2600 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:25.919  2600  2600 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:25.919  2600  2600 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:25.919  2600  2600 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:25.919  2600  2600 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:25.919  2600  2600 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:25.919  2600  2600 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:25.920  2600  2600 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:25.920  2600  2600 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:25.920  2600  2600 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:25.943  2599  2599 I wpa_supplicant: Successfully initialized wpa_supplicant
+08-02 00:10:25.984   836   991 D WifiMonitor: startMonitoring(wlan0) with mConnected = false
+08-02 00:10:26.005  2599  2599 I wpa_supplicant: rfkill: Cannot open RFKILL control device
+08-02 00:10:26.065  2599  2599 I wpa_supplicant: rfkill: Cannot get wiphy information
+08-02 00:10:26.088   836   991 I WifiConnectivityManager: User band preference: 0
+08-02 00:10:26.091   836   991 D WifiConfigManager: Loading config and enabling all networks 
+08-02 00:10:26.121   836   991 W WifiNetworkHistory: Upgrading network 0 to android.uid.system:1000
+08-02 00:10:26.122   836   991 W WifiNetworkHistory: Upgrading network 1 to android.uid.system:1000
+08-02 00:10:26.123   836   991 W WifiNetworkHistory: Upgrading network 2 to android.uid.system:1000
+08-02 00:10:26.124   836   991 D WifiConfigManager: loaded 0 passpoint configs
+08-02 00:10:26.134   836   991 D WifiNative-HAL: Setting external_sim to 1
+08-02 00:10:26.135   836   991 D wifi    : setting dfs flag to true, 0x8db2e280
+08-02 00:10:26.135   836   991 D WifiStateMachine: Setting OUI to 92-68-C3
+08-02 00:10:26.136   836   991 D wifi    : setting scan oui 0x8db2e280
+08-02 00:10:26.136   836   991 D WifiHAL : Sending mac address OUI
+08-02 00:10:26.176  2599  2599 I wpa_supplicant: wlan0: CTRL-EVENT-REGDOM-CHANGE init=USER type=COUNTRY alpha2=CN
+08-02 00:10:26.184   836   991 D WifiCountryCode: Succeeded to set country code to: CN
+08-02 00:10:26.185   836   991 D wifi    : android_net_wifi_get_firmware_version = 0x8db2e280
+08-02 00:10:26.185   836   991 D WifiHAL : In DebugCommand::handleResponse
+08-02 00:10:26.185   836   991 D WifiHAL : len = 108, expected len = 256
+08-02 00:10:26.185   836   991 D wifi    : buffer is 0x8db40700, length is 256
+08-02 00:10:26.186   836   991 D wifi    : android_net_wifi_get_driver_version = 0x8db2e280
+08-02 00:10:26.186   836   991 D WifiHAL : In DebugCommand::handleResponse
+08-02 00:10:26.186   836   991 D WifiHAL : len = 108, expected len = 256
+08-02 00:10:26.186   836   991 D wifi    : buffer is 0x8db40700, length is 256
+08-02 00:10:26.186   836   991 D wifi    : android_net_wifi_set_log_handler = 0x8db2e280
+08-02 00:10:26.187   836   991 D wifi    : android_net_wifi_get_ring_buffer_status = 0x8db2e280
+08-02 00:10:26.187   836   991 D WifiHAL : In DebugCommand::handleResponse
+08-02 00:10:26.187   836   991 D wifi    : status is 0x97d13600, number is 3
+08-02 00:10:26.188   836   991 D wifi    : android_net_wifi_start_logging_ring_buffer = 0x8db2e280
+08-02 00:10:26.202   836   991 D wifi    : start logging for ring fw_verbose
+08-02 00:10:26.202   836   991 D wifi    : android_net_wifi_start_logging_ring_buffer = 0x8db2e280
+08-02 00:10:26.208   836   991 D wifi    : start logging for ring fw_event
+08-02 00:10:26.208   836   991 D wifi    : android_net_wifi_start_logging_ring_buffer = 0x8db2e280
+08-02 00:10:26.208   836   991 D wifi    : start logging for ring dhd_event
+08-02 00:10:26.209   836   991 D wifi    : android_net_wifi_start_logging_ring_buffer = 0x8db2e280
+08-02 00:10:26.224   836   991 D wifi    : start logging for ring fw_verbose
+08-02 00:10:26.225   836   991 D wifi    : android_net_wifi_start_logging_ring_buffer = 0x8db2e280
+08-02 00:10:26.230   836   991 D wifi    : start logging for ring fw_event
+08-02 00:10:26.231   836   991 D wifi    : android_net_wifi_start_logging_ring_buffer = 0x8db2e280
+08-02 00:10:26.231   836   991 D wifi    : start logging for ring dhd_event
+08-02 00:10:26.232   836   991 D WifiHAL : Start get packet fate command
+08-02 00:10:26.232   836   991 D WifiHAL : createRequest Monitor packet fate request
+08-02 00:10:26.232   836   991 E WifiHAL : Failed to register get pkt fate response; result = -95
+08-02 00:10:26.232   836   991 E WifiLogger: Failed to start packet fate monitoring
+08-02 00:10:26.283   399   829 W CommandListener: Failed to retrieve HW addr for p2p0 (No such device)
+08-02 00:10:26.284   836   991 D wifi    : android_net_wifi_setLinkLayerStats: 1
+08-02 00:10:26.284   836   991 I WifiConnectivityManager: Set WiFi enabled
+08-02 00:10:26.285   836   991 I WifiConnectivityManager: scheduleWatchdogTimer
+08-02 00:10:26.287   836   836 D RttService: SCAN_AVAILABLE : 3
+08-02 00:10:26.287   836   996 D RttService: DefaultState got{ when=-1ms what=160512 target=com.android.internal.util.StateMachine$SmHandler }
+08-02 00:10:26.288   399   829 D CommandListener: Setting iface cfg
+08-02 00:10:26.288   836   994 I WifiScanningService: wifi driver loaded with scan capabilities: max buckets=8
+08-02 00:10:26.289   836   991 W AlarmManager: Unrecognized alarm listener com.android.server.wifi.WifiConnectivityManager$3@84e068b
+08-02 00:10:26.289   836   991 E WifiScanner: listener cannot be found
+08-02 00:10:26.292   836   989 D WifiMonitor: startMonitoring(p2p0) with mConnected = true
+08-02 00:10:26.302   836   994 I WifiHAL : Got channel list with 11 channels
+08-02 00:10:26.304   836   994 I WifiHAL : Got channel list with 9 channels
+08-02 00:10:26.311   836   989 D WifiNative-HAL: p2pGetDeviceAddress
+08-02 00:10:26.312   836   994 I WifiHAL : Got channel list with 15 channels
+08-02 00:10:26.313   836   989 D WifiNative-HAL: p2pGetDeviceAddress returning e6:90:7e:05:f0:b9
+08-02 00:10:29.401  2599  2599 I wpa_supplicant: p2p-dev-wlan0: CTRL-EVENT-REGDOM-CHANGE init=BEACON_HINT type=UNKNOWN
+08-02 00:10:29.420  2599  2599 I wpa_supplicant: p2p-dev-wlan0: CTRL-EVENT-REGDOM-CHANGE init=BEACON_HINT type=UNKNOWN
+08-02 00:10:29.488   836   991 D WifiStateMachine: CMD_AUTO_CONNECT sup state DisconnectedState my state DisconnectedState nid=1 roam=false
+08-02 00:10:29.488   836   991 D WifiStateMachine: CMD_AUTO_CONNECT will save config -> "1103_5G" nid=1
+08-02 00:10:29.525   836  2605 D WifiNetworkHistory: saving network history: "360免费WiFi-B5"WPA_PSK gw: 00:00:00:00:00:00 Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:"1103_5G"WPA_PSK link:0 status:1 nid:0 hasEverConnected: true
+08-02 00:10:29.525   836  2605 V WifiNetworkHistory: writeKnownNetworkHistory write config "360免费WiFi-B5"WPA_PSK
+08-02 00:10:29.526   836  2605 D WifiNetworkHistory: saving network history: "1103_5G"WPA_PSK gw: 08:00:27:ce:66:47 Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:null link:0 status:1 nid:1 hasEverConnected: true
+08-02 00:10:29.526   836  2605 V WifiNetworkHistory: writeKnownNetworkHistory write config "1103_5G"WPA_PSK
+08-02 00:10:29.527   836  2605 D WifiNetworkHistory: saving network history: "52Rabbit"WPA_PSK gw: null Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:null link:0 status:1 nid:2 hasEverConnected: true
+08-02 00:10:29.527   836  2605 V WifiNetworkHistory: writeKnownNetworkHistory write config "52Rabbit"WPA_PSK
+08-02 00:10:29.534   836   991 D WifiStateMachine: CMD_AUTO_CONNECT did save config ->  nid=1
+08-02 00:10:29.540  2599  2599 I wpa_supplicant: wlan0: Trying to associate with SSID '1103_5G'
+08-02 00:10:29.540   836  2606 D WifiNetworkHistory: saving network history: "360免费WiFi-B5"WPA_PSK gw: 00:00:00:00:00:00 Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:"1103_5G"WPA_PSK link:0 status:1 nid:0 hasEverConnected: true
+08-02 00:10:29.540   836  2606 V WifiNetworkHistory: writeKnownNetworkHistory write config "360免费WiFi-B5"WPA_PSK
+08-02 00:10:29.541   836  2606 D WifiNetworkHistory: saving network history: "1103_5G"WPA_PSK gw: 08:00:27:ce:66:47 Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:null link:0 status:1 nid:1 hasEverConnected: true
+08-02 00:10:29.542   836  2606 V WifiNetworkHistory: writeKnownNetworkHistory write config "1103_5G"WPA_PSK
+08-02 00:10:29.543   836  2606 D WifiNetworkHistory: saving network history: "52Rabbit"WPA_PSK gw: null Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:null link:0 status:1 nid:2 hasEverConnected: true
+08-02 00:10:29.543   836  2606 V WifiNetworkHistory: writeKnownNetworkHistory write config "52Rabbit"WPA_PSK
+08-02 00:10:29.692  2599  2599 I wpa_supplicant: wlan0: Associated with f0:b4:29:f3:c1:04
+08-02 00:10:29.693  2599  2599 I wpa_supplicant: wlan0: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+08-02 00:10:29.916   909   909 I kickstart: STATUS: SAHARA_HELLO: hw_info = 0x01030610, pwrup_reason = 0x00004000
+08-02 00:10:29.917   909   909 I kickstart: STATUS: Wrote to /sys/power/wake_lock
+08-02 00:10:29.944   909   909 E kickstart: ERROR: function: open_file:195 filename = /dev/block/platform/msm_sdcc.1/by-name/mdm1m9kefs2
+08-02 00:10:29.944   909   909 I kickstart: STATUS: Opening file '/dev/block/platform/msm_sdcc.1/by-name/mdm1m9kefs2' for writing
+08-02 00:10:29.955  2599  2599 I wpa_supplicant: wlan0: WPA: Key negotiation completed with f0:b4:29:f3:c1:04 [PTK=CCMP GTK=TKIP]
+08-02 00:10:29.955  2599  2599 I wpa_supplicant: wlan0: CTRL-EVENT-CONNECTED - Connection to f0:b4:29:f3:c1:04 completed [id=1 id_str=%7B%22creatorUid%22%3A%221000%22%2C%22configKey%22%3A%22%5C%221103_5G%5C%22WPA_PSK%22%7D]
+08-02 00:10:29.971   836   991 E WifiScanner: listener cannot be found
+08-02 00:10:29.996   836   991 D WifiHAL : Getting APF capabilities, halHandle = 0x8db2e280
+08-02 00:10:29.996   836   991 I WifiHAL : 
+08-02 00:10:29.996   836   991 I WifiHAL : createRequest: APF get capabilities request
+08-02 00:10:29.996   836   991 I WifiHAL : Request Response failed for APF, result = -95
+08-02 00:10:30.001   836   991 D WifiStateMachine: Start Dhcp Watchdog 2
+08-02 00:10:30.029   836   991 D WifiNative-wlan0: configureNeighborDiscoveryOffload(true)
+08-02 00:10:30.030   836   991 D WifiNative-wlan0: configureNeighborDiscoveryOffload(true) returned: -95
+08-02 00:10:30.096   836  2616 D DhcpClient: Receive thread started
+08-02 00:10:30.195   836  2615 D DhcpClient: Broadcasting DHCPDISCOVER
+08-02 00:10:30.199   836  2616 D DhcpClient: Received packet: e4:90:7e:05:f0:b9 OFFER, ip /10.0.10.121, mask /255.255.0.0, DNS servers: /10.0.0.1 , gateways [/10.0.0.1] lease time 86400, domain null
+08-02 00:10:30.201   836  2615 D DhcpClient: Got pending lease: IP address 10.0.10.121/16 Gateway 10.0.0.1  DNS servers: [ 10.0.0.1 ] Domains  DHCP server /10.0.0.1 Vendor info null lease 86400 seconds
+08-02 00:10:30.203   836  2615 D DhcpClient: Broadcasting DHCPREQUEST ciaddr=0.0.0.0 request=10.0.10.121 serverid=10.0.0.1
+08-02 00:10:30.206   836  2616 D DhcpClient: Received packet: e4:90:7e:05:f0:b9 ACK: your new IP /10.0.10.121, netmask /255.255.0.0, gateways [/10.0.0.1] DNS servers: /10.0.0.1 , lease time 86400
+08-02 00:10:30.207   836  2615 D DhcpClient: Confirmed lease: IP address 10.0.10.121/16 Gateway 10.0.0.1  DNS servers: [ 10.0.0.1 ] Domains  DHCP server /10.0.0.1 Vendor info null lease 86400 seconds
+08-02 00:10:30.214   399   829 D CommandListener: Setting iface cfg
+08-02 00:10:30.242   836   991 E WifiNative-HAL: setBssidBlacklist cmd 2 size 0
+08-02 00:10:30.242   836   991 D wifi    : configure BSSID black list request [4] = 0x8db2e280
+08-02 00:10:30.243   836   991 D wifi    : Added 0 bssids
+08-02 00:10:30.247   836  2615 D DhcpClient: Scheduling renewal in 43199s
+08-02 00:10:30.247   836  2615 D DhcpClient: Scheduling rebind in 75599s
+08-02 00:10:30.247   836  2615 D DhcpClient: Scheduling expiry in 86399s
+08-02 00:10:30.248   836   991 I WifiHAL : Successfully added 0 blacklist bssids
+08-02 00:10:30.278   836   991 E WifiStateMachine: Did not find remoteAddress {10.0.0.1} in /proc/net/arp
+08-02 00:10:30.285   836   991 W AlarmManager: Unrecognized alarm listener com.android.server.wifi.WifiConnectivityManager$3@84e068b
+08-02 00:10:30.286   836   991 E WifiScanner: listener cannot be found
+08-02 00:10:30.337   836   991 D WifiNetworkAgent: NetworkAgent: Received signal strength thresholds: []
+08-02 00:10:30.337   836   991 D WifiNative-HAL: stopRssiMonitoring, cmdId 0
+08-02 00:10:30.370   399   829 V IdletimerController: runCmd(/system/bin/ip6tables -w -t raw -A idletimer_raw_PREROUTING -i wlan0 -j IDLETIMER --timeout 15 --label 1 --send_nl_msg 1) res_ipv4=0, res_ipv6=0
+08-02 00:10:30.424   399   829 V IdletimerController: runCmd(/system/bin/ip6tables -w -t mangle -A idletimer_mangle_POSTROUTING -o wlan0 -j IDLETIMER --timeout 15 --label 1 --send_nl_msg 1) res_ipv4=0, res_ipv6=0
+08-02 00:10:30.436   836  1045 I GnssLocationProvider: WakeLock acquired by sendMessage(5, 0, null)
+08-02 00:10:30.436   836  1045 I GnssLocationProvider: WakeLock acquired by sendMessage(6, 0, null)
+08-02 00:10:30.436   836   849 I GnssLocationProvider: WakeLock acquired by handleInjectNtpTime()
+08-02 00:10:30.437   836   849 I GnssLocationProvider: WakeLock released by handleMessage(5, 0, null)
+08-02 00:10:30.437   836   849 I GnssLocationProvider: WakeLock acquired by handleDownloadXtraData()
+08-02 00:10:30.437   836   849 I GnssLocationProvider: WakeLock released by handleMessage(6, 0, null)
+08-02 00:10:30.444   836  2630 I GnssLocationProvider: WakeLock acquired by sendMessage(10, 0, null)
+08-02 00:10:30.444   836   849 I GnssLocationProvider: WakeLock released by handleMessage(10, 0, null)
+08-02 00:10:30.444   836  2630 I GnssLocationProvider: WakeLock released by handleInjectNtpTime()
+08-02 00:10:30.453  1100  1100 D NetChangeReceiverHandler: [NetChangeReceiverHandler][86023][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@378ff54,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+08-02 00:10:30.453  1100  1100 D NewDownloadProvider: [NewDownloadProvider][86024][tid_1](377)[new_download] [download_net_change] networkChange
+08-02 00:10:30.465  1100  1100 I qk      : [qk][86035][tid_1](244)currentApn:WIFI
+08-02 00:10:30.465  1100  1100 I qk      : [qk][86035][tid_1](213)currentApn:WIFI
+08-02 00:10:30.465  1100  1100 D NetChangeReceiverHandler: [NetChangeReceiverHandler][86036][tid_1](31)[download_net_change] the network has connected
+08-02 00:10:30.466  1100  1100 D NetChangeReceiverHandler: [NetChangeReceiverHandler][86036][tid_1](33)[download_net_change] time:103199,runTime:22372
+08-02 00:10:30.466  1100  1100 D NetChangeReceiverHandler: [NetChangeReceiverHandler][86036][tid_1](35)Product.lenovo:false
+08-02 00:10:30.466  1100  1100 I TaskServiceProvider: [TaskServiceProvider][86037][tid_1](146)VlifeExecutorService executing n.kt@3995227
+08-02 00:10:30.467  1100  1100 I TaskServiceProvider: [TaskServiceProvider][86037][tid_1](186)PackageName is com.vlife.ipro.magazine
+08-02 00:10:30.467  1100  1100 D TaskServiceProvider: [TaskServiceProvider][86037][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+08-02 00:10:30.467  1100  1100 I vv      : [vv][86038][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.468  1100  1100 I TaskServiceProvider: [TaskServiceProvider][86038][tid_1](156)shell product start vlife task
+08-02 00:10:30.468  1100  1100 W wf      : [wf][86038][tid_1](52)create preferences name:userinfo
+08-02 00:10:30.469   836  2633 D WifiNetworkHistory: saving network history: "360免费WiFi-B5"WPA_PSK gw: 00:00:00:00:00:00 Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:"1103_5G"WPA_PSK link:0 status:1 nid:0 hasEverConnected: true
+08-02 00:10:30.469   836  2633 V WifiNetworkHistory: writeKnownNetworkHistory write config "360免费WiFi-B5"WPA_PSK
+08-02 00:10:30.469   836  2633 D WifiNetworkHistory: saving network history: "1103_5G"WPA_PSK gw: 08:00:27:ce:66:47 Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:null link:0 status:0 nid:1 hasEverConnected: true
+08-02 00:10:30.469   836  2633 V WifiNetworkHistory: writeKnownNetworkHistory write config "1103_5G"WPA_PSK
+08-02 00:10:30.470   836  2633 D WifiNetworkHistory: saving network history: "52Rabbit"WPA_PSK gw: null Network Selection-status: NETWORK_SELECTION_ENABLED ephemeral=false choice:null link:0 status:1 nid:2 hasEverConnected: true
+08-02 00:10:30.470   836  2633 V WifiNetworkHistory: writeKnownNetworkHistory write config "52Rabbit"WPA_PSK
+08-02 00:10:30.472  2629  2629 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:30.472  2629  2629 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:30.472  2629  2629 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:30.472  2629  2629 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:30.473  2629  2629 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:30.473  2629  2629 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:30.473  2629  2629 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:30.473  2629  2629 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:30.473  2629  2629 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:30.473  2629  2629 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:30.473  2629  2629 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:30.476  1100  1100 I qw      : [qw][86046][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+08-02 00:10:30.477  1100  1100 D gp      : [gp][86047][tid_1](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+08-02 00:10:30.477  1100  1388 I TaskServiceProvider: [TaskServiceProvider][86047][tid_42](546)vlifeTaskOnStartCommand intent=#Intent;action=NetChangeReceiverTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+08-02 00:10:30.478  1100  1388 D TaskServiceProvider: [TaskServiceProvider][86048][tid_42](558)pyramidney:null
+08-02 00:10:30.479  1100  1388 D go      : [go][86049][tid_42](33)TaskSignalQueue-add n.gn@7cae172
+08-02 00:10:30.483  1100  2634 D TaskServiceProvider: [TaskServiceProvider][86054][tid_76](254)Bundle=Bundle[{}] taskType=NetChangeReceiverTask
+08-02 00:10:30.484  1100  2634 D TaskServiceProvider: [TaskServiceProvider][86054][tid_76](258)getVlifeTask vlifeTask=n.kt@fd52240
+08-02 00:10:30.484  1100  2634 I TaskServiceProvider: [TaskServiceProvider][86054][tid_76](351)[VlifeTaskService]  TaskRunnable  running task : NetChangeReceiverTask ,delay : 0, cycle : 0 
+08-02 00:10:30.484  1100  2634 I TaskServiceProvider: [TaskServiceProvider][86054][tid_76](377)backstage task system start up timing task ,task type is :NetChangeReceiverTask, awaking type :awake by system broadCastReceiver
+08-02 00:10:30.484  1100  2634 D kt      : [kt][86055][tid_76](45)[download_net_change] NetChangeReceiverTask run
+08-02 00:10:30.484  1100  2634 W wf      : [wf][86055][tid_76](52)create preferences name:userinfo
+08-02 00:10:30.485  1100  2634 I wf      : [wf][86055][tid_76](79)preference name:userinfo getString key:last_day,value:19700318
+08-02 00:10:30.486  1100  2634 I wf      : [wf][86056][tid_76](84)preference name:userinfo putStringAndCommit key:last_day,value:20170802
+08-02 00:10:30.504  1100  2634 W wf      : [wf][86074][tid_76](89)userinfo putString last_day
+08-02 00:10:30.504  1100  2634 I ot      : [ot][86075][tid_76](99)last_day 19700318, today 20170802, last_day_count 17, this=n.ot@baf4579
+08-02 00:10:30.504  1100  2634 I wf      : [wf][86075][tid_76](114)preference name:userinfo putIntAndCommit key:last_day_count,value:17
+08-02 00:10:30.511  1100  2634 W wf      : [wf][86082][tid_76](119)userinfo putInt last_day_count
+08-02 00:10:30.512  1100  2634 W wf      : [wf][86082][tid_76](52)create preferences name:timing_network_preference
+08-02 00:10:30.513  1100  2634 W jz      : [jz][86083][tid_76](33)canConnectNetWork result == false
+08-02 00:10:30.513  1100  2634 I TaskServiceProvider: [TaskServiceProvider][86083][tid_76](379)[VlifeTaskService]  end  task : NetChangeReceiverTask
+08-02 00:10:30.513  1100  2634 D go      : [go][86083][tid_76](48)TaskSignalQueue-remove n.gn@7cae172
+08-02 00:10:30.513  1100  2634 D go      : [go][86084][tid_76](53)TaskSignalQueue- call empty
+08-02 00:10:30.521  2635  2642 E art     : Failed writing handshake bytes (-1 of 14): Broken pipe
+08-02 00:10:30.521  2635  2642 I art     : Debugger is no longer active
+08-02 00:10:30.522  2635  2642 I art     : Starting a blocking GC Instrumentation
+08-02 00:10:30.552  2635  2635 I art     : Starting a blocking GC AddRemoveAppImageSpace
+08-02 00:10:30.555  2635  2635 W System  : ClassLoader referenced unknown path: /system/lib/998_top-vlife-ipro-magazine-stage_minify-unsigned-6.131.9-6139-20170728-095954
+08-02 00:10:30.581  2635  2635 I ModuleCreateFactory: curProcessName=com.vlife.ipro.magazine:main
+08-02 00:10:30.583  2635  2635 D ModuleCreateFactory: initModule invoke metaData:Bundle[mParcelledData.dataSize=524]
+08-02 00:10:30.583  2635  2635 D ModuleCreateFactory: initModule invoke product_type:stage
+08-02 00:10:30.590  2635  2635 W asset   : Asset path /data/user/0/com.vlife.ipro.magazine/files/ua/ua_10a9d72f66p131p9e6139.dat is neither a directory nor file (type=1).
+08-02 00:10:30.590  2635  2635 I AbstractModuleApplic...: buildApplication com.vlife.plugin.module.abs.AbstractModuleApplication$1@eb58aca
+08-02 00:10:30.591  2635  2635 I vv      : [vv][0][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.592  2635  2635 I vt      : [vt][0][tid_1](173)shellVersion:140
+08-02 00:10:30.599  2635  2635 I vy      : [vy][7][tid_1](326)set module:status exists:true
+08-02 00:10:30.602  2635  2635 I vy      : [vy][11][tid_1](332)set module:status success com.vlife.common.lib.core.status.ApplicationStatus@9a38758
+08-02 00:10:30.603  2635  2635 I AbstractApplication: [AbstractApplication][11][tid_1](74)com.vlife.HandpetApplication@3eda0b1 getPackageResourcePath:/system/priv-app/998_top-vlife-ipro-magazine-stage_minify-unsigned-6.131.9-6139-20170728-095954.apk
+08-02 00:10:30.610  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][18][tid_1](109)curProcessName=com.vlife.ipro.magazine:main
+08-02 00:10:30.620  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][28][tid_1](151)com.vlife.SplashActivity
+08-02 00:10:30.620  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][29][tid_1](151)com.vlife.GuideActivity
+08-02 00:10:30.622  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][30][tid_1](151)com.vlife.WrapperOnlineActivity
+08-02 00:10:30.622  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][31][tid_1](151)com.vlife.LActivity
+08-02 00:10:30.623  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][31][tid_1](151)com.vlife.EActivity
+08-02 00:10:30.624  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][32][tid_1](151)com.vlife.LEActivity
+08-02 00:10:30.624  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][33][tid_1](151)com.handpet.ui.activity.WallpaperSetPreviewActivity
+08-02 00:10:30.626  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][33][tid_1](151)com.vlife.WActivity
+08-02 00:10:30.629  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][35][tid_1](151)com.facebook.FacebookActivity
+08-02 00:10:30.629  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][38][tid_1](151)com.facebook.CustomTabActivity
+08-02 00:10:30.631  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][39][tid_1](151)com.google.ads.AdActivity
+08-02 00:10:30.632  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][40][tid_1](151)com.vlife.PActivity0
+08-02 00:10:30.634  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][40][tid_1](151)com.vlife.PActivity1
+08-02 00:10:30.634  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][43][tid_1](151)com.vlife.PActivity2
+08-02 00:10:30.634  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][43][tid_1](151)com.vlife.PActivity3
+08-02 00:10:30.635  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][43][tid_1](151)com.vlife.PActivity4
+08-02 00:10:30.635  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][43][tid_1](151)com.vlife.PActivity5
+08-02 00:10:30.635  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][44][tid_1](151)com.vlife.PActivity6
+08-02 00:10:30.636  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][44][tid_1](151)com.vlife.PActivity7
+08-02 00:10:30.636  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][44][tid_1](151)com.vlife.PActivity8
+08-02 00:10:30.637  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][46][tid_1](151)com.vlife.PActivity9
+08-02 00:10:30.637  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][46][tid_1](151)com.vlife.PActivity10
+08-02 00:10:30.638  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][46][tid_1](158)com.vlife.LService
+08-02 00:10:30.639  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][47][tid_1](158)com.vlife.FService
+08-02 00:10:30.639  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][48][tid_1](158)com.handpet.livewallpaper.VlifeWallpaperIPCService
+08-02 00:10:30.640  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][48][tid_1](158)com.vlife.TService
+08-02 00:10:30.640  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][49][tid_1](158)com.vlife.magazine.service.InforShellManagerService
+08-02 00:10:30.640  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][49][tid_1](158)com.vlife.PService0
+08-02 00:10:30.641  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][49][tid_1](158)com.vlife.PService1
+08-02 00:10:30.641  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][49][tid_1](158)com.vlife.PService2
+08-02 00:10:30.641  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][50][tid_1](158)com.vlife.PService3
+08-02 00:10:30.642  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][50][tid_1](158)com.vlife.PService4
+08-02 00:10:30.642  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][50][tid_1](165)com.vlife.BReceiver
+08-02 00:10:30.643  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][51][tid_1](165)com.vlife.SReceiver
+08-02 00:10:30.644  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][53][tid_1](165)com.vlife.NReceiver
+08-02 00:10:30.645  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][53][tid_1](165)com.handpet.livewallpaper.receiver.PetMainReceiver
+08-02 00:10:30.645  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][54][tid_1](165)com.vlife.IReceiver
+08-02 00:10:30.646  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][54][tid_1](165)com.vlife.PReceiver
+08-02 00:10:30.648  2635  2635 D wf      : [wf][56][tid_1](54)create preferences name:function
+08-02 00:10:30.652  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][60][tid_1](376)host:null type:wallpaper value:
+08-02 00:10:30.653  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][60][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.653  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][61][tid_1](392)process wallpaper com.vlife.ipro.magazine
+08-02 00:10:30.654  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][62][tid_1](376)host:null type:lockscreen value::lock
+08-02 00:10:30.655  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][63][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.655  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][64][tid_1](392)process lockscreen com.vlife.ipro.magazine:lock
+08-02 00:10:30.656  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][64][tid_1](376)host:null type:main_page value::main
+08-02 00:10:30.657  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][66][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.657  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][66][tid_1](392)process main_page com.vlife.ipro.magazine:main
+08-02 00:10:30.658  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][66][tid_1](376)host:null type:suspension value::float
+08-02 00:10:30.659  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][67][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.659  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][68][tid_1](392)process suspension com.vlife.ipro.magazine:float
+08-02 00:10:30.660  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][69][tid_1](376)host:null type:pp value::pp
+08-02 00:10:30.661  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][69][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.661  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][70][tid_1](392)process pp com.vlife.ipro.magazine:pp
+08-02 00:10:30.664  2635  2635 I qw      : [qw][72][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class com.vlife.common.lib.core.status.AbstractApplicationStatus$2
+08-02 00:10:30.665  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][73][tid_1](330)not main process
+08-02 00:10:30.666  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][74][tid_1](278)init client
+08-02 00:10:30.667  2635  2635 I ApplicationStatus: [ApplicationStatus][75][tid_1](66)application status init use time:63ms
+08-02 00:10:30.667  2635  2635 I vv      : [vv][75][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.667  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][76][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.668  2635  2635 D AbstractApplicationStatus: [AbstractApplicationStatus][76][tid_1](533)ShellProduct normal host = com.vlife.ipro.magazine:main package=com.vlife.ipro.magazine
+08-02 00:10:30.669  2635  2635 I AbstractApplicationStatus: [AbstractApplicationStatus][77][tid_1](399)packageName:com.vlife.ipro.magazine
+08-02 00:10:30.669  2635  2635 D AbstractApplicationStatus: [AbstractApplicationStatus][77][tid_1](546)getProcessType_host=com.vlife.ipro.magazine:main,ret=main_page package=com.vlife.ipro.magazine context:com.vlife.HandpetApplication@3eda0b1
+08-02 00:10:30.669  2635  2635 D jq      : [jq][78][tid_1](48)next loadVlifePartner
+08-02 00:10:30.670  2635  2635 W wf      : [wf][78][tid_1](52)create preferences name:module
+08-02 00:10:30.672  2635  2653 D wf      : [wf][80][tid_156](54)create preferences name:pet_sys_status
+08-02 00:10:30.675  2635  2635 I IModuleProvider: [IModuleProvider][83][tid_1](355)set module:task_service enable:true
+08-02 00:10:30.675  2635  2635 I vy      : [vy][84][tid_1](326)set module:task_service exists:true
+08-02 00:10:30.676  2635  2635 I vy      : [vy][84][tid_1](332)set module:task_service success com.handpet.component.service.TaskServiceProvider@586b4e9
+08-02 00:10:30.676  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][85][tid_1](480)proxyModule
+08-02 00:10:30.677  2635  2635 I vt      : [vt][85][tid_1](102)add provider:com.handpet.component.service.TaskServiceProvider@586b4e9, module=null, module_name=task_service
+08-02 00:10:30.677  2635  2635 I IModuleProvider: [IModuleProvider][86][tid_1](355)set module:suicide_manager enable:true
+08-02 00:10:30.678  2635  2635 I vy      : [vy][86][tid_1](326)set module:suicide_manager exists:true
+08-02 00:10:30.679  2635  2635 I vy      : [vy][87][tid_1](332)set module:suicide_manager success com.handpet.component.suicide.SuicideManagerProvider@ab0356e
+08-02 00:10:30.680  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][88][tid_1](480)proxyModule
+08-02 00:10:30.680  2635  2635 I vt      : [vt][89][tid_1](102)add provider:com.handpet.component.suicide.SuicideManagerProvider@ab0356e, module=null, module_name=suicide_manager
+08-02 00:10:30.681  2635  2635 I IModuleProvider: [IModuleProvider][90][tid_1](355)set module:statistics enable:true
+08-02 00:10:30.682  2635  2635 I vy      : [vy][90][tid_1](326)set module:statistics exists:true
+08-02 00:10:30.682  2635  2635 I vy      : [vy][91][tid_1](332)set module:statistics success com.vlife.common.lib.data.stat.StatisticsProvider@e62740f
+08-02 00:10:30.682  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][91][tid_1](480)proxyModule
+08-02 00:10:30.683  2635  2635 I vt      : [vt][91][tid_1](102)add provider:com.vlife.common.lib.data.stat.StatisticsProvider@e62740f, module=null, module_name=statistics
+08-02 00:10:30.683  2635  2635 I IModuleProvider: [IModuleProvider][92][tid_1](355)set module:document enable:true
+08-02 00:10:30.683  2635  2635 I vy      : [vy][92][tid_1](326)set module:document exists:true
+08-02 00:10:30.687  2635  2653 D AbstractApplicationStatus: [AbstractApplicationStatus][95][tid_156](564)hasIsHandpetInstalledInSdcard 
+08-02 00:10:30.687  2635  2653 D AbstractApplicationStatus: [AbstractApplicationStatus][96][tid_156](566)getIsHandpetInstalledInSdcard 1 = true
+08-02 00:10:30.688  2635  2653 I AbstractApplicationStatus: [AbstractApplicationStatus][97][tid_156](355)width:1440 height:2392 dpi:560
+08-02 00:10:30.690  2635  2635 I vy      : [vy][98][tid_1](332)set module:document success com.handpet.component.document.DocumentProvider@1e22c9c
+08-02 00:10:30.690  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][98][tid_1](480)proxyModule
+08-02 00:10:30.690  2635  2635 I vt      : [vt][99][tid_1](102)add provider:com.handpet.component.document.DocumentProvider@1e22c9c, module=null, module_name=document
+08-02 00:10:30.691  2635  2635 I IModuleProvider: [IModuleProvider][99][tid_1](355)set module:database enable:true
+08-02 00:10:30.691  2635  2635 I vy      : [vy][99][tid_1](326)set module:database exists:true
+08-02 00:10:30.693  2635  2635 I vy      : [vy][101][tid_1](332)set module:database success com.handpet.component.database.DatabaseProvider@38cb6a5
+08-02 00:10:30.694  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][102][tid_1](480)proxyModule
+08-02 00:10:30.694  2635  2635 I vt      : [vt][102][tid_1](102)add provider:com.handpet.component.database.DatabaseProvider@38cb6a5, module=null, module_name=database
+08-02 00:10:30.696  2635  2635 I IModuleProvider: [IModuleProvider][103][tid_1](355)set module:server enable:true
+08-02 00:10:30.696  2635  2635 I vy      : [vy][104][tid_1](326)set module:server exists:true
+08-02 00:10:30.697  2635  2635 I vy      : [vy][105][tid_1](332)set module:server success com.vlife.framework.connection.ServerProvider@b2e3a7a
+08-02 00:10:30.697  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][106][tid_1](480)proxyModule
+08-02 00:10:30.697  2635  2635 I vt      : [vt][106][tid_1](102)add provider:com.vlife.framework.connection.ServerProvider@b2e3a7a, module=null, module_name=server
+08-02 00:10:30.698  2635  2635 I IModuleProvider: [IModuleProvider][106][tid_1](355)set module:new_download enable:true
+08-02 00:10:30.698  2635  2635 I vy      : [vy][107][tid_1](326)set module:new_download exists:true
+08-02 00:10:30.699  2635  2635 I vy      : [vy][107][tid_1](332)set module:new_download success com.handpet.component.download.NewDownloadProvider@cdc422b
+08-02 00:10:30.699  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][107][tid_1](480)proxyModule
+08-02 00:10:30.699  2635  2635 I vt      : [vt][108][tid_1](102)add provider:com.handpet.component.download.NewDownloadProvider@cdc422b, module=null, module_name=new_download
+08-02 00:10:30.700  2635  2635 I IModuleProvider: [IModuleProvider][108][tid_1](355)set module:suicide_manager enable:true
+08-02 00:10:30.701  2635  2635 I vy      : [vy][109][tid_1](326)set module:suicide_manager exists:true
+08-02 00:10:30.701  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][110][tid_1](480)proxyModule
+08-02 00:10:30.702  2635  2635 I vt      : [vt][110][tid_1](102)add provider:com.handpet.component.suicide.SuicideManagerProvider@ab0356e, module=null, module_name=suicide_manager
+08-02 00:10:30.702  2635  2635 I IModuleProvider: [IModuleProvider][110][tid_1](355)set module:magazine_common enable:true
+08-02 00:10:30.703  2635  2635 I vy      : [vy][111][tid_1](326)set module:magazine_common exists:true
+08-02 00:10:30.704  2635  2635 I vy      : [vy][112][tid_1](332)set module:magazine_common success com.vlife.magazine.vendor.MagazineVendorProvider@e337688
+08-02 00:10:30.704  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][113][tid_1](480)proxyModule
+08-02 00:10:30.707  2635  2635 I AbstractModuleProvider: [AbstractModuleProvider][115][tid_1](431)shell call module:com.vlife.magazine.vendor.MagazineVendorProvider@e337688 method:public java.lang.String java.lang.Object.toString() class:class java.lang.Object
+08-02 00:10:30.708  2635  2635 I vt      : [vt][115][tid_1](102)add provider:com.vlife.magazine.vendor.MagazineVendorProvider@e337688, module=com.vlife.magazine.vendor.MagazineVendorProvider@e337688, module_name=magazine_common
+08-02 00:10:30.709  2635  2635 I AbstractModuleProvider: [AbstractModuleProvider][117][tid_1](431)shell call module:com.vlife.magazine.vendor.MagazineVendorProvider@e337688 method:public abstract java.lang.String com.vlife.plugin.module.IModule.module() class:interface com.vlife.plugin.module.IModule
+08-02 00:10:30.709  2635  2635 I AbstractModuleProvider: [AbstractModuleProvider][117][tid_1](431)shell call module:com.vlife.magazine.vendor.MagazineVendorProvider@e337688 method:public abstract java.lang.String com.vlife.plugin.module.IModule.module() class:interface com.vlife.plugin.module.IModule
+08-02 00:10:30.710  2635  2635 I vt      : [vt][118][tid_1](105)plugin_old_version 140
+08-02 00:10:30.710  2635  2635 I IModuleProvider: [IModuleProvider][119][tid_1](355)set module:push enable:true
+08-02 00:10:30.712  2635  2635 I vy      : [vy][119][tid_1](326)set module:push exists:true
+08-02 00:10:30.713  2635  2635 I vy      : [vy][121][tid_1](332)set module:push success com.vlife.component.push.PushProvider@ccc155d
+08-02 00:10:30.714  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][122][tid_1](480)proxyModule
+08-02 00:10:30.714  2635  2635 I vt      : [vt][123][tid_1](102)add provider:com.vlife.component.push.PushProvider@ccc155d, module=null, module_name=push
+08-02 00:10:30.715  2635  2635 I IModuleProvider: [IModuleProvider][123][tid_1](355)set module:operation enable:true
+08-02 00:10:30.716  2635  2635 I vy      : [vy][124][tid_1](326)set module:operation exists:true
+08-02 00:10:30.717  2635  2635 I vy      : [vy][125][tid_1](332)set module:operation success com.vlife.component.operation.OperationProvider@4559ed2
+08-02 00:10:30.717  2635  2635 D AbstractModuleProvider: [AbstractModuleProvider][125][tid_1](480)proxyModule
+08-02 00:10:30.718  2635  2635 I vt      : [vt][126][tid_1](102)add provider:com.vlife.component.operation.OperationProvider@4559ed2, module=null, module_name=operation
+08-02 00:10:30.718  2635  2635 W hp      : memoryCache() and memoryCacheSize() calls overlap each other
+08-02 00:10:30.719  2635  2635 W hp      : memoryCache() and memoryCacheSize() calls overlap each other
+08-02 00:10:30.731  2635  2635 D TaskServiceProvider: [TaskServiceProvider][139][tid_1](219)initVlifeTask VlifeTaskType=BootReceiverTask,vlifeTaskCreater=n.kd@1688ea0,isContains=false
+08-02 00:10:30.732  2635  2635 D TaskServiceProvider: [TaskServiceProvider][140][tid_1](129)TaskServiceProvicer onCreate process=main_page
+08-02 00:10:30.732  2635  2635 I qw      : [qw][140][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class com.handpet.component.service.TaskServiceProvider$4
+08-02 00:10:30.733  2635  2635 I TaskServiceProvider: [TaskServiceProvider][141][tid_1](136)regTask : initFirstTime
+08-02 00:10:30.734  2635  2635 I vv      : [vv][142][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.735  2635  2635 I ApplicationStatus: [ApplicationStatus][143][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.735  2635  2635 I ApplicationStatus: [ApplicationStatus][143][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.736  2635  2635 D TaskServiceProvider: [TaskServiceProvider][144][tid_1](219)initVlifeTask VlifeTaskType=OperatingStartTask,vlifeTaskCreater=n.gm@2ce7eff,isContains=false
+08-02 00:10:30.737  2635  2635 D TaskServiceProvider: [TaskServiceProvider][145][tid_1](219)initVlifeTask VlifeTaskType=plugin_update,vlifeTaskCreater=n.ajo@e519315,isContains=false
+08-02 00:10:30.737  2635  2635 I qw      : [qw][146][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class com.handpet.component.service.TaskServiceProvider$5
+08-02 00:10:30.738  2635  2635 I vt      : [vt][147][tid_1](201)Application module init use time name:com.handpet.component.service.TaskServiceProvider@586b4e9 time:8ms
+08-02 00:10:30.739  2635  2635 I vt      : [vt][147][tid_1](201)Application module init use time name:com.handpet.component.suicide.SuicideManagerProvider@ab0356e time:0ms
+08-02 00:10:30.739  2635  2635 D jn      : [jn][148][tid_1](58)[CrashHandler] inti.
+08-02 00:10:30.740  2635  2635 I vv      : [vv][148][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.740  2635  2635 I ApplicationStatus: [ApplicationStatus][148][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.741  2635  2656 W wf      : [wf][149][tid_159](52)create preferences name:timing_network_preference
+08-02 00:10:30.742  2635  2635 I ApplicationStatus: [ApplicationStatus][149][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.744  2635  2656 I vy      : [vy][152][tid_159](301)buildEmptyProvider interface com.vlife.common.lib.intf.provider.ILockScreenProvider
+08-02 00:10:30.746  2635  2635 I vy      : [vy][152][tid_1](301)buildEmptyProvider interface com.vlife.common.lib.intf.provider.ILockScreenProvider
+08-02 00:10:30.747  2635  2657 I TaskServiceProvider: [TaskServiceProvider][154][tid_160](426)regTaskReal taskName=plugin_update
+08-02 00:10:30.748  2635  2657 W wf      : [wf][156][tid_160](52)create preferences name:timing_network_preference
+08-02 00:10:30.752  2635  2657 I vy      : [vy][157][tid_160](301)buildEmptyProvider interface com.vlife.common.lib.intf.provider.ILockScreenProvider
+08-02 00:10:30.752  2635  2657 D wf      : [wf][161][tid_160](99)preference:android.app.SharedPreferencesImpl@a454b91 putBooleanAndCommit name:timing_network_preference key:timer_reg_tag_plugin_update value:true
+08-02 00:10:30.757  2635  2657 W wf      : [wf][166][tid_160](104)timing_network_preference putBoolean timer_reg_tag_plugin_update
+08-02 00:10:30.757  2635  2657 I TaskServiceProvider: [TaskServiceProvider][166][tid_160](442)task has started plugin_update
+08-02 00:10:30.762  2635  2635 D pb      : [pb][171][tid_1](81)read file:/storage/emulated/0/Android/data/com.vlife.ipro.magazine/files/vlife_magazine_stage/res/error.dat is null
+08-02 00:10:30.762  2635  2635 I jn      : [jn][171][tid_1](133)init crash handler
+08-02 00:10:30.763  2635  2635 I StatisticsProvider: [StatisticsProvider][171][tid_1](358)[statistics_test] UninstallFileObserver dir : /data/user/0/com.vlife.ipro.magazine
+08-02 00:10:30.766  2635  2635 I vt      : [vt][172][tid_1](201)Application module init use time name:com.vlife.common.lib.data.stat.StatisticsProvider@e62740f time:24ms
+08-02 00:10:30.766  2635  2635 I vt      : [vt][175][tid_1](201)Application module init use time name:com.handpet.component.document.DocumentProvider@1e22c9c time:0ms
+08-02 00:10:30.769  2635  2635 I vt      : [vt][177][tid_1](201)Application module init use time name:com.handpet.component.database.DatabaseProvider@38cb6a5 time:0ms
+08-02 00:10:30.770  2635  2635 D wf      : [wf][178][tid_1](54)create preferences name:front_address_6139
+08-02 00:10:30.773  2635  2635 I ServerProvider: [ServerProvider][182][tid_1](44)onCreate
+08-02 00:10:30.773  2635  2635 I qw      : [qw][182][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class com.vlife.framework.connection.ServerProvider$1
+08-02 00:10:30.776  2635  2653 W wf      : [wf][185][tid_156](52)create preferences name:userinfo
+08-02 00:10:30.778  2635  2635 I vt      : [vt][186][tid_1](201)Application module init use time name:com.vlife.framework.connection.ServerProvider@b2e3a7a time:8ms
+08-02 00:10:30.779  2635  2635 D fk      : [fk][188][tid_1](49)[download_net_change] refreshNetworkType
+08-02 00:10:30.784  2635  2660 D StatisticsProvider: [StatisticsProvider][192][tid_163](403)[statistics_test] daemon Thread running. UninstallFileObserver dir : /data/user/0/com.vlife.ipro.magazine
+08-02 00:10:30.784  2635  2660 W wf      : [wf][193][tid_163](52)create preferences name:important_ua
+08-02 00:10:30.785  2635  2635 D fk      : [fk][191][tid_1](51)changeNetWork 0 -> 1, start
+08-02 00:10:30.788  2635  2653 I wf      : [wf][196][tid_156](79)preference name:userinfo getString key:last_day,value:20170801
+08-02 00:10:30.790  2635  2653 I wf      : [wf][198][tid_156](84)preference name:userinfo putStringAndCommit key:last_day,value:20170802
+08-02 00:10:30.792  2635  2635 D NewDownloadProvider: [NewDownloadProvider][194][tid_1](338)[new_download] [download_net_change] =======>start [oldType:0] [currentType:1]
+08-02 00:10:30.795  2635  2635 D fk      : [fk][203][tid_1](59)changeNetWork end
+08-02 00:10:30.797  2635  2635 D DatabaseProvider: [DatabaseProvider][204][tid_1](254)[dbHelperClass:class n.fp]
+08-02 00:10:30.804  2635  2635 I DatabaseProvider: [DatabaseProvider][212][tid_1](265)database init db:n.fp@fcfe393
+08-02 00:10:30.805  2635  2635 I vv      : [vv][213][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.807  2635  2635 D NewDownloadProvider: [NewDownloadProvider][215][tid_1](75)process type:main_page , download processtype:main_page
+08-02 00:10:30.810  2635  2653 W wf      : [wf][219][tid_156](89)userinfo putString last_day
+08-02 00:10:30.810  2635  2653 I ot      : [ot][219][tid_156](99)last_day 20170801, today 20170802, last_day_count 24, this=n.ot@98cdfd0
+08-02 00:10:30.811  2635  2653 I wf      : [wf][219][tid_156](114)preference name:userinfo putIntAndCommit key:last_day_count,value:24
+08-02 00:10:30.812  2635  2635 D NewDownloadProvider: [NewDownloadProvider][215][tid_1](92)[new_download] [download provider init] [start old task from database]
+08-02 00:10:30.818  2635  2660 W wf      : [wf][226][tid_163](52)create preferences name:ua_level
+08-02 00:10:30.823  2635  2653 W wf      : [wf][232][tid_156](119)userinfo putInt last_day_count
+08-02 00:10:30.824  2635  2635 I vt      : [vt][228][tid_1](201)Application module init use time name:com.handpet.component.download.NewDownloadProvider@cdc422b time:40ms
+08-02 00:10:30.825  2635  2635 I vt      : [vt][233][tid_1](201)Application module init use time name:com.handpet.component.suicide.SuicideManagerProvider@ab0356e time:0ms
+08-02 00:10:30.825  2635  2635 D MagazineCommonProvider: [MagazineCommonProvider][234][tid_1](260)[magazine_provider] create start
+08-02 00:10:30.832  2635  2635 D DatabaseProvider: [DatabaseProvider][238][tid_1](254)[dbHelperClass:class n.aai]
+08-02 00:10:30.835  2635  2635 I DatabaseProvider: [DatabaseProvider][243][tid_1](265)database init db:n.aai@2f47dda
+08-02 00:10:30.836  2635  2635 I vv      : [vv][244][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.836  2635  2635 I vv      : [vv][244][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.836  2635  2635 I ApplicationStatus: [ApplicationStatus][245][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.837  2635  2635 I ApplicationStatus: [ApplicationStatus][245][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.837  2635  2635 D MagazineCommonProvider: [MagazineCommonProvider][245][tid_1](274)[magazine_provider] onCreateVendor [isMainProcess:true systemui:false]
+08-02 00:10:30.842  2635  2660 I StatisticsProvider: [StatisticsProvider][251][tid_163](427)[statistics_test] UninstallFileObserver dir : /data/user/0/com.vlife.ipro.magazine
+08-02 00:10:30.842  2635  2660 D StatisticsProvider: [StatisticsProvider][251][tid_163](432)[statistics_test] =======>write map:n.ep@5ccd8e8
+08-02 00:10:30.842  2635  2660 I StatisticsProvider: [StatisticsProvider][251][tid_163](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:10:30.843  2635  2660 I StatisticsProvider: [StatisticsProvider][252][tid_163](518)[statistics_test] ====canWrite====
+08-02 00:10:30.844  2635  2660 D StatisticsProvider: [StatisticsProvider][252][tid_163](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:10:30.850  2635  2635 D MagazineCommonProvider: [MagazineCommonProvider][258][tid_1](284)[magazine_provider] onCreateVendor [register VirtualServer] [isMainProcess:true systemui:false]
+08-02 00:10:30.856  2635  2635 D xo      : [xo][264][tid_1](58)[communication] [VirtualServer] register
+08-02 00:10:30.856  2635  2635 I vv      : [vv][264][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.859  2635  2635 I vv      : [vv][265][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.861  2635  2635 I ApplicationStatus: [ApplicationStatus][269][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.861  2635  2635 I ApplicationStatus: [ApplicationStatus][270][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.863  2635  2635 D xo      : [xo][270][tid_1](70)[communication] [VirtualServer] register_start main
+08-02 00:10:30.872  2635  2635 D xo      : [xo][280][tid_1](73)[communication] [VirtualServer] register_start main success
+08-02 00:10:30.872  2635  2635 D MagazineCommonProvider: [MagazineCommonProvider][281][tid_1](289)[magazine_provider] onCreateVendor NetChangeReceiverTask [process main:true systemui:false]
+08-02 00:10:30.873  2635  2635 D TaskServiceProvider: [TaskServiceProvider][281][tid_1](219)initVlifeTask VlifeTaskType=NetChangeReceiverTask,vlifeTaskCreater=n.kt@96be3e7,isContains=false
+08-02 00:10:30.873  2635  2635 D MagazineCommonProvider: [MagazineCommonProvider][282][tid_1](270)[magazine_provider] create end
+08-02 00:10:30.875  2635  2635 I vv      : [vv][283][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.875  2635  2635 I vt      : [vt][284][tid_1](201)Application module init use time name:com.vlife.magazine.vendor.MagazineVendorProvider@e337688 time:50ms
+08-02 00:10:30.878  2635  2635 D PushProvider: [PushProvider][284][tid_1](198)initPushTask
+08-02 00:10:30.881  2635  2635 D TaskServiceProvider: [TaskServiceProvider][289][tid_1](219)initVlifeTask VlifeTaskType=handle_push_message,vlifeTaskCreater=n.si@e63863d,isContains=false
+08-02 00:10:30.882  2635  2635 D TaskServiceProvider: [TaskServiceProvider][290][tid_1](219)initVlifeTask VlifeTaskType=get_push_message,vlifeTaskCreater=n.sh@608d783,isContains=false
+08-02 00:10:30.882  2635  2635 I qw      : [qw][291][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class com.handpet.component.service.TaskServiceProvider$5
+08-02 00:10:30.883  2635  2660 I StatisticsProvider: [StatisticsProvider][292][tid_163](464)[statistics_test] create packet xml : <item ua_action="com.vlife.ipro.magazine:main" id="2635" ua_event="dev_process_start" dev_version="6.131.9" ua_time="1501603830842" ua_process="main_page" index="1" />
+08-02 00:10:30.884  2635  2657 I TaskServiceProvider: [TaskServiceProvider][293][tid_160](426)regTaskReal taskName=get_push_message
+08-02 00:10:30.884  2635  2657 W wf      : [wf][293][tid_160](52)create preferences name:timing_network_preference
+08-02 00:10:30.885  2635  2657 D wf      : [wf][293][tid_160](99)preference:android.app.SharedPreferencesImpl@a454b91 putBooleanAndCommit name:timing_network_preference key:timer_reg_tag_get_push_message value:true
+08-02 00:10:30.885  2635  2657 W wf      : [wf][294][tid_160](104)timing_network_preference putBoolean timer_reg_tag_get_push_message
+08-02 00:10:30.886  2635  2657 I TaskServiceProvider: [TaskServiceProvider][294][tid_160](442)task has started get_push_message
+08-02 00:10:30.888  2635  2635 D TaskServiceProvider: [TaskServiceProvider][295][tid_1](219)initVlifeTask VlifeTaskType=ua_time_send,vlifeTaskCreater=n.sj@6074939,isContains=false
+08-02 00:10:30.889  2635  2635 I qw      : [qw][297][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class com.handpet.component.service.TaskServiceProvider$5
+08-02 00:10:30.889  2635  2656 I TaskServiceProvider: [TaskServiceProvider][298][tid_159](426)regTaskReal taskName=ua_time_send
+08-02 00:10:30.890  2635  2656 W wf      : [wf][298][tid_159](52)create preferences name:timing_network_preference
+08-02 00:10:30.890  2635  2656 D wf      : [wf][299][tid_159](99)preference:android.app.SharedPreferencesImpl@a454b91 putBooleanAndCommit name:timing_network_preference key:timer_reg_tag_ua_time_send value:true
+08-02 00:10:30.892  2635  2656 W wf      : [wf][300][tid_159](104)timing_network_preference putBoolean timer_reg_tag_ua_time_send
+08-02 00:10:30.892  2635  2656 I TaskServiceProvider: [TaskServiceProvider][301][tid_159](442)task has started ua_time_send
+08-02 00:10:30.898  2635  2635 I PushProvider: [PushProvider][304][tid_1](193)put module name:switch_type,handler:n.sg@6f768df
+08-02 00:10:30.899  2635  2635 I vt      : [vt][307][tid_1](201)Application module init use time name:com.vlife.component.push.PushProvider@ccc155d time:22ms
+08-02 00:10:30.900  2635  2635 D OperationProvider: [OperationProvider][307][tid_1](41)onCreate
+08-02 00:10:30.901  2635  2635 D DatabaseProvider: [DatabaseProvider][309][tid_1](254)[dbHelperClass:class n.sa]
+08-02 00:10:30.905  2635  2635 I DatabaseProvider: [DatabaseProvider][313][tid_1](265)database init db:n.sa@113b3fb
+08-02 00:10:30.906  2635  2635 D TaskServiceProvider: [TaskServiceProvider][314][tid_1](219)initVlifeTask VlifeTaskType=WindowCheckTask,vlifeTaskCreater=com.vlife.component.operation.core.task.WindowShowCheckTask@3adbc56,isContains=false
+08-02 00:10:30.906  2635  2635 D TaskServiceProvider: [TaskServiceProvider][315][tid_1](219)initVlifeTask VlifeTaskType=OperationUpdateDataTask,vlifeTaskCreater=n.qz@3d611c4,isContains=false
+08-02 00:10:30.907  2635  2635 I PushProvider: [PushProvider][315][tid_1](193)put module name:window,handler:n.rv@36147e2
+08-02 00:10:30.908  2635  2635 I vv      : [vv][316][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.909  2635  2635 I ApplicationStatus: [ApplicationStatus][317][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.909  2635  2635 I ApplicationStatus: [ApplicationStatus][318][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.911  2635  2635 I PushProvider: [PushProvider][319][tid_1](236)put ContentHandler name:window,controller:n.rf@f1ea773
+08-02 00:10:30.913  2635  2635 I PushProvider: [PushProvider][320][tid_1](193)put module name:guide_push,handler:n.rt@4eff2a9
+08-02 00:10:30.914  2635  2635 I vv      : [vv][322][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.914  2635  2635 I ApplicationStatus: [ApplicationStatus][323][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.914  2635  2635 I ApplicationStatus: [ApplicationStatus][323][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.915  2635  2635 I PushProvider: [PushProvider][323][tid_1](236)put ContentHandler name:guide_push,controller:n.rd@dd0002e
+08-02 00:10:30.915  2635  2635 I vv      : [vv][324][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.916  2635  2635 I ApplicationStatus: [ApplicationStatus][324][tid_1](362)isSameProcessType main_page main_page false
+08-02 00:10:30.916  2635  2635 I ApplicationStatus: [ApplicationStatus][324][tid_1](367)isSameProcessType main_page main_page true
+08-02 00:10:30.917  2635  2635 I PushProvider: [PushProvider][325][tid_1](236)put ContentHandler name:panel,controller:n.re@7524de1
+08-02 00:10:30.920  2635  2635 I PushProvider: [PushProvider][328][tid_1](193)put module name:panel,handler:n.ru@ecbe706
+08-02 00:10:30.920   909   909 I kickstart: STATUS: Received file 'm9kefs2'
+08-02 00:10:30.921   909   909 I kickstart: STATUS: 950272 bytes transferred in 0.975959 seconds
+08-02 00:10:30.921   909   909 I kickstart: STATUS: Successfully downloaded files from target 
+08-02 00:10:30.921   909   909 I kickstart: STATUS: Wrote to /sys/power/wake_unlock
+08-02 00:10:30.922  2635  2635 I vy      : [vy][330][tid_1](301)buildEmptyProvider interface com.vlife.framework.provider.intf.IModuleProvider
+08-02 00:10:30.924   909   909 I kickstart: STATUS: Sahara protocol completed
+08-02 00:10:30.928  2635  2635 I vt      : [vt][336][tid_1](201)Application module init use time name:com.vlife.component.operation.OperationProvider@4559ed2 time:29ms
+08-02 00:10:30.931  2635  2635 I vy      : [vy][339][tid_1](301)buildEmptyProvider interface com.vlife.common.lib.intf.provider.IPanelProvider
+08-02 00:10:30.940  2635  2635 D NetChangeReceiverHandler: [NetChangeReceiverHandler][349][tid_1](25)doReceive context:com.vlife.HandpetApplication@3eda0b1,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 cmp=com.vlife.ipro.magazine/com.vlife.NReceiver (has extras) }
+08-02 00:10:30.941  2635  2635 D NewDownloadProvider: [NewDownloadProvider][349][tid_1](377)[new_download] [download_net_change] networkChange
+08-02 00:10:30.943  2635  2635 I qk      : [qk][351][tid_1](244)currentApn:WIFI
+08-02 00:10:30.943  2635  2635 I qk      : [qk][352][tid_1](213)currentApn:WIFI
+08-02 00:10:30.944  2635  2635 D NetChangeReceiverHandler: [NetChangeReceiverHandler][352][tid_1](31)[download_net_change] the network has connected
+08-02 00:10:30.944  2635  2635 D NetChangeReceiverHandler: [NetChangeReceiverHandler][353][tid_1](33)[download_net_change] time:103677,runTime:0
+08-02 00:10:30.944  2635  2635 D NetChangeReceiverHandler: [NetChangeReceiverHandler][353][tid_1](35)Product.lenovo:false
+08-02 00:10:30.945  2635  2635 I TaskServiceProvider: [TaskServiceProvider][353][tid_1](146)VlifeExecutorService executing n.kt@d1ddb60
+08-02 00:10:30.946  2635  2635 I TaskServiceProvider: [TaskServiceProvider][354][tid_1](186)PackageName is com.vlife.ipro.magazine
+08-02 00:10:30.946  2635  2635 D TaskServiceProvider: [TaskServiceProvider][355][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+08-02 00:10:30.946  2635  2635 I vv      : [vv][355][tid_1](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:10:30.947  2635  2635 I TaskServiceProvider: [TaskServiceProvider][355][tid_1](166)VlifeExecutorService task=kt,taskType=NetChangeReceiverTask,intent=#Intent;action=NetChangeReceiverTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+08-02 00:10:30.952  2635  2635 I SuicideManagerProvider: [SuicideManagerProvider][361][tid_1](144)addSuicideFactor com.vlife.TService@dd2d0de
+08-02 00:10:30.954  2635  2660 D StatisticsProvider: [StatisticsProvider][362][tid_163](432)[statistics_test] =======>write map:n.ep@81ac2bf
+08-02 00:10:30.954  2635  2660 I StatisticsProvider: [StatisticsProvider][363][tid_163](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:10:30.954  2635  2660 I StatisticsProvider: [StatisticsProvider][363][tid_163](518)[statistics_test] ====canWrite====
+08-02 00:10:30.954  2635  2660 D StatisticsProvider: [StatisticsProvider][363][tid_163](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:10:30.963  2635  2635 I AbstractServiceHandler: [AbstractServiceHandler][371][tid_1](68)service:com.vlife.TService@dd2d0de regiseter com.vlife.common.lib.abs.AbstractServiceHandler$1@9754d8c
+08-02 00:10:30.971  2635  2635 I TaskServiceProvider: [TaskServiceProvider][379][tid_1](546)vlifeTaskOnStartCommand intent=#Intent;action=NetChangeReceiverTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;S.intent_check=vlife;end
+08-02 00:10:30.971  2635  2635 D TaskServiceProvider: [TaskServiceProvider][379][tid_1](558)pyramidney:null
+08-02 00:10:30.971  2635  2635 D go      : [go][380][tid_1](33)TaskSignalQueue-add n.gn@adadcd5
+08-02 00:10:30.973  2619  2619 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 0 <<<<<<
+08-02 00:10:30.978  2619  2619 D AndroidRuntime: CheckJNI is ON
+08-02 00:10:30.980  2635  2668 D TaskServiceProvider: [TaskServiceProvider][389][tid_172](254)Bundle=Bundle[EMPTY_PARCEL] taskType=NetChangeReceiverTask
+08-02 00:10:30.981  2635  2668 D TaskServiceProvider: [TaskServiceProvider][389][tid_172](258)getVlifeTask vlifeTask=n.kt@1efb678
+08-02 00:10:30.981  2635  2668 I TaskServiceProvider: [TaskServiceProvider][389][tid_172](351)[VlifeTaskService]  TaskRunnable  running task : NetChangeReceiverTask ,delay : 0, cycle : 0 
+08-02 00:10:30.981  2635  2668 I TaskServiceProvider: [TaskServiceProvider][390][tid_172](377)backstage task system start up timing task ,task type is :NetChangeReceiverTask, awaking type :awake by system broadCastReceiver
+08-02 00:10:30.984  2635  2660 I StatisticsProvider: [StatisticsProvider][393][tid_163](464)[statistics_test] create packet xml : <item ua_action="com.handpet.component.service.TaskServiceProvider$VLifeTaskServiceHandler" ua_event="dev_service_create" dev_version="6.131.9" ua_time="1501603830953" ua_process="main_page" index="2" />
+08-02 00:10:30.989  2635  2668 D kt      : [kt][398][tid_172](45)[download_net_change] NetChangeReceiverTask run
+08-02 00:10:30.990  2635  2668 W wf      : [wf][398][tid_172](52)create preferences name:userinfo
+08-02 00:10:30.991  2635  2668 I wf      : [wf][400][tid_172](79)preference name:userinfo getString key:last_day,value:20170802
+08-02 00:10:30.993  2635  2668 W wf      : [wf][402][tid_172](52)create preferences name:timing_network_preference
+08-02 00:10:30.994  2635  2668 W jz      : [jz][402][tid_172](33)canConnectNetWork result == false
+08-02 00:10:30.996  2635  2668 I TaskServiceProvider: [TaskServiceProvider][402][tid_172](379)[VlifeTaskService]  end  task : NetChangeReceiverTask
+08-02 00:10:31.000  2635  2668 D go      : [go][405][tid_172](48)TaskSignalQueue-remove n.gn@adadcd5
+08-02 00:10:31.000  2635  2668 D go      : [go][409][tid_172](53)TaskSignalQueue- call empty
+08-02 00:10:31.037  2619  2619 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+08-02 00:10:31.045   836  2631 I GnssLocationProvider: WakeLock acquired by sendMessage(11, 0, null)
+08-02 00:10:31.045   836  2631 I GnssLocationProvider: WakeLock released by handleDownloadXtraData()
+08-02 00:10:31.045   836   849 I GnssLocationProvider: WakeLock released by handleMessage(11, 0, null)
+08-02 00:10:31.084  2619  2619 I Radio-JNI: register_android_hardware_Radio DONE
+08-02 00:10:31.112  2619  2619 D AndroidRuntime: Calling main entry com.android.commands.svc.Svc
+08-02 00:10:31.116  2619  2619 D AndroidRuntime: Shutting down VM
+08-02 00:10:31.956  1100  1100 D NewDownloadProvider: [NewDownloadProvider][87525][tid_1](408)[download_net_change] handleMessage
+08-02 00:10:31.958  1100  1100 D fk      : [fk][87527][tid_1](49)[download_net_change] refreshNetworkType
+08-02 00:10:31.965  1100  1100 D fk      : [fk][87534][tid_1](51)changeNetWork 16 -> 1, start
+08-02 00:10:31.966  1100  1100 D NewDownloadProvider: [NewDownloadProvider][87536][tid_1](338)[new_download] [download_net_change] =======>start [oldType:16] [currentType:1]
+08-02 00:10:31.968  1100  1100 D fk      : [fk][87538][tid_1](59)changeNetWork end
+08-02 00:10:32.482  2635  2635 D NewDownloadProvider: [NewDownloadProvider][1889][tid_1](408)[download_net_change] handleMessage
+08-02 00:10:32.488  2635  2635 D fk      : [fk][1891][tid_1](49)[download_net_change] refreshNetworkType
+08-02 00:10:32.497  2635  2635 D fk      : [fk][1904][tid_1](51)changeNetWork 1 -> 1, start
+08-02 00:10:32.498  2635  2635 D fk      : [fk][1906][tid_1](59)changeNetWork end
+08-02 00:10:35.506  2692  2692 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:35.506  2692  2692 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:35.507  2692  2692 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:35.507  2692  2692 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:35.508  2692  2692 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:35.508  2692  2692 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:35.508  2692  2692 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:35.508  2692  2692 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:35.508  2692  2692 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:35.508  2692  2692 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:35.508  2692  2692 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:35.948  2635  2665 I rf      : [rf][5355][tid_168](85)[notifyDataChange]
+08-02 00:10:35.950  2635  2665 I PushProvider: [PushProvider][5357][tid_168](175)getContentHandler pushContentType = window
+08-02 00:10:35.952  2635  2665 W rx      : [rx][5359][tid_168](85)db provider query:content://vlife/content
+08-02 00:10:35.974  2635  2665 I fz      : [fz][5382][tid_168](86)getAllDisabled window 0
+08-02 00:10:35.974  2635  2665 I rf      : [rf][5383][tid_168](98)[WindowController] notifyDataChange() diabledWindowDataList = []
+08-02 00:10:35.975  2635  2665 W wf      : [wf][5383][tid_168](52)create preferences name:push_message
+08-02 00:10:35.979  2635  2694 W SharedPreferencesImpl: Attempt to read preferences file /data/user/0/com.vlife.ipro.magazine/shared_prefs/push_message.xml without permission
+08-02 00:10:35.980  2635  2665 I ga      : [ga][5388][tid_168](72)[downloadAll] isDownloading:false
+08-02 00:10:35.980  2635  2665 I PushProvider: [PushProvider][5389][tid_168](175)getContentHandler pushContentType = window
+08-02 00:10:35.982  2635  2665 W rx      : [rx][5389][tid_168](85)db provider query:content://vlife/content
+08-02 00:10:35.984  2635  2665 W wf      : [wf][5393][tid_168](52)create preferences name:push_message
+08-02 00:10:35.988  2635  2695 W SharedPreferencesImpl: Attempt to read preferences file /data/user/0/com.vlife.ipro.magazine/shared_prefs/push_message.xml without permission
+08-02 00:10:35.989  2635  2665 I ga      : [ga][5397][tid_168](72)[downloadAll] isDownloading:false
+08-02 00:10:35.989  2635  2665 I PushProvider: [PushProvider][5397][tid_168](175)getContentHandler pushContentType = guide_push
+08-02 00:10:35.989  2635  2665 W rx      : [rx][5398][tid_168](85)db provider query:content://vlife/content
+08-02 00:10:35.991  2635  2665 W wf      : [wf][5399][tid_168](52)create preferences name:push_message
+08-02 00:10:35.992  2635  2696 W SharedPreferencesImpl: Attempt to read preferences file /data/user/0/com.vlife.ipro.magazine/shared_prefs/push_message.xml without permission
+08-02 00:10:35.993  2635  2665 I ga      : [ga][5402][tid_168](72)[downloadAll] isDownloading:false
+08-02 00:10:35.994  2635  2665 I PushProvider: [PushProvider][5402][tid_168](175)getContentHandler pushContentType = panel
+08-02 00:10:35.994  2635  2665 W rx      : [rx][5403][tid_168](85)db provider query:content://vlife/content
+08-02 00:10:40.573  2697  2697 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:40.573  2697  2697 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:40.575  2697  2697 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:40.575  2697  2697 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:40.575  2697  2697 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:40.575  2697  2697 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:40.575  2697  2697 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:40.575  2697  2697 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:40.575  2697  2697 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:40.576  2697  2697 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:40.576  2697  2697 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:40.861  2635  2665 W fs      : [fs][10268][tid_168](85)db provider query:content://vlife/download_info
+08-02 00:10:45.638  2698  2698 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:45.638  2698  2698 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:45.639  2698  2698 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:45.639  2698  2698 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:45.639  2698  2698 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:45.639  2698  2698 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:45.639  2698  2698 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:45.639  2698  2698 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:45.639  2698  2698 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:45.640  2698  2698 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:45.640  2698  2698 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:46.305   836   994 I WifiHAL : Got channel list with 11 channels
+08-02 00:10:46.310   836   994 I WifiHAL : Got channel list with 9 channels
+08-02 00:10:46.312   836   994 I WifiHAL : Got channel list with 15 channels
+08-02 00:10:50.693  2701  2701 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:50.693  2701  2701 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:50.694  2701  2701 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:50.694  2701  2701 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:50.694  2701  2701 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:50.695  2701  2701 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:50.695  2701  2701 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:50.695  2701  2701 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:50.695  2701  2701 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:50.695  2701  2701 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:50.695  2701  2701 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:51.684   836  2616 D DhcpClient: Received packet: ac:9e:17:f1:49:df ACK: your new IP /0.0.0.0, netmask /255.255.0.0, gateways [/10.0.0.1] DNS servers: /10.0.0.1 , lease time null
+08-02 00:10:55.760  2708  2708 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:10:55.760  2708  2708 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:10:55.761  2708  2708 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:10:55.761  2708  2708 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:10:55.762  2708  2708 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:10:55.762  2708  2708 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:10:55.762  2708  2708 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:10:55.762  2708  2708 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:10:55.762  2708  2708 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:10:55.762  2708  2708 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:10:55.762  2708  2708 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:10:56.290   836  2616 D DhcpClient: Received packet: 00:e0:4c:00:49:3a ACK: your new IP /0.0.0.0, netmask /255.255.0.0, gateways [/10.0.0.1] DNS servers: /10.0.0.1 , lease time null
+08-02 00:11:00.817  2710  2710 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:00.817  2710  2710 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:00.818  2710  2710 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:00.818  2710  2710 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:00.818  2710  2710 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:00.818  2710  2710 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:00.818  2710  2710 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:00.819  2710  2710 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:00.819  2710  2710 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:00.819  2710  2710 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:00.819  2710  2710 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:05.872  2712  2712 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:05.872  2712  2712 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:05.873  2712  2712 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:05.873  2712  2712 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:05.873  2712  2712 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:05.873  2712  2712 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:05.873  2712  2712 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:05.873  2712  2712 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:05.873  2712  2712 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:05.874  2712  2712 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:05.874  2712  2712 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:06.314   836   994 I WifiHAL : Got channel list with 11 channels
+08-02 00:11:06.316   836   994 I WifiHAL : Got channel list with 9 channels
+08-02 00:11:06.320   836   994 I WifiHAL : Got channel list with 15 channels
+08-02 00:11:10.555  1100  1486 D go      : [go][126125][tid_56](67)size
+08-02 00:11:10.556  1100  1486 I TaskServiceProvider: [TaskServiceProvider][126126][tid_56](85)kill self service, size=0
+08-02 00:11:10.557  1100  1486 I TaskServiceProvider: [TaskServiceProvider][126127][tid_56](87)kill self service success
+08-02 00:11:10.559  1100  1486 I vv      : [vv][126128][tid_56](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-02 00:11:10.561  1100  1486 D TaskServiceProvider: [TaskServiceProvider][126130][tid_56](89)vlife_task_service_for_3part
+08-02 00:11:10.940  2713  2713 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:10.940  2713  2713 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:10.941  2713  2713 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:10.941  2713  2713 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:10.941  2713  2713 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:10.941  2713  2713 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:10.941  2713  2713 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:10.941  2713  2713 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:10.941  2713  2713 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:10.942  2713  2713 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:10.942  2713  2713 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:11.043  2635  2665 D go      : [go][40451][tid_168](67)size
+08-02 00:11:11.045  2635  2665 I TaskServiceProvider: [TaskServiceProvider][40452][tid_168](85)kill self service, size=0
+08-02 00:11:11.046  2635  2665 I TaskServiceProvider: [TaskServiceProvider][40454][tid_168](87)kill self service success
+08-02 00:11:11.048  2635  2665 I vv      : [vv][40456][tid_168](22)realPackageName:com.vlife.ipro.magazine vlifePackageName:com.vlife.ipro.magazine
+08-02 00:11:11.059  2635  2635 I SuicideManagerProvider: [SuicideManagerProvider][40465][tid_1](155)removeSuicideFactor com.vlife.TService@dd2d0de
+08-02 00:11:11.064  2635  2660 D StatisticsProvider: [StatisticsProvider][40471][tid_163](432)[statistics_test] =======>write map:n.ep@26a5f42
+08-02 00:11:11.065  2635  2660 I StatisticsProvider: [StatisticsProvider][40473][tid_163](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:11:11.067  2635  2660 I StatisticsProvider: [StatisticsProvider][40475][tid_163](518)[statistics_test] ====canWrite====
+08-02 00:11:11.068  2635  2660 D StatisticsProvider: [StatisticsProvider][40476][tid_163](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:11:11.071  2635  2635 I AbstractServiceHandler: [AbstractServiceHandler][40477][tid_1](125)service:com.vlife.TService@dd2d0de unregiseter com.vlife.common.lib.abs.AbstractServiceHandler$1@9754d8c
+08-02 00:11:11.131  2635  2660 I StatisticsProvider: [StatisticsProvider][40540][tid_163](464)[statistics_test] create packet xml : <item ua_action="com.handpet.component.service.TaskServiceProvider$VLifeTaskServiceHandler" dev_value="40" ua_event="dev_service_end" dev_version="6.131.9" ua_time="1501603871061" ua_process="main_page" index="3" />
+08-02 00:11:15.997  2715  2715 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:15.997  2715  2715 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:15.998  2715  2715 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:15.998  2715  2715 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:15.998  2715  2715 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:15.999  2715  2715 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:15.999  2715  2715 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:15.999  2715  2715 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:15.999  2715  2715 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:15.999  2715  2715 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:15.999  2715  2715 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:16.103  2635  2635 D SuicideManagerProvider: [SuicideManagerProvider][45510][tid_1](175)canBeKill() size=0
+08-02 00:11:16.109  2635  2660 D StatisticsProvider: [StatisticsProvider][45517][tid_163](432)[statistics_test] =======>write map:n.ep@f5cdb53
+08-02 00:11:16.111  2635  2660 I StatisticsProvider: [StatisticsProvider][45519][tid_163](516)[statistics_test] filePath /data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0 
+08-02 00:11:16.115  2635  2660 I StatisticsProvider: [StatisticsProvider][45523][tid_163](518)[statistics_test] ====canWrite====
+08-02 00:11:16.118  2635  2635 I SuicideManagerProvider: [SuicideManagerProvider][45524][tid_1](252)delete using module before kill self
+08-02 00:11:16.119  2635  2635 W wf      : [wf][45527][tid_1](52)create preferences name:database
+08-02 00:11:16.120  2635  2660 D StatisticsProvider: [StatisticsProvider][45528][tid_163](439)[statistics_test] =======>write path:/data/user/0/com.vlife.ipro.magazine/files/ua/no_ua_6.131.9.ain.dat.0
+08-02 00:11:16.157  2635  2635 I art     : System.exit called, status: 0
+08-02 00:11:16.157  2635  2635 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+08-02 00:11:21.052  2721  2721 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:21.052  2721  2721 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:21.053  2721  2721 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:21.053  2721  2721 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:21.054  2721  2721 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:21.054  2721  2721 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:21.054  2721  2721 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:21.054  2721  2721 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:21.054  2721  2721 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:21.054  2721  2721 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:21.054  2721  2721 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:26.095  2726  2726 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:26.095  2726  2726 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:26.095  2726  2726 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:26.095  2726  2726 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:26.096  2726  2726 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:26.096  2726  2726 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:26.096  2726  2726 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:26.096  2726  2726 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:26.096  2726  2726 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:26.096  2726  2726 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:26.096  2726  2726 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:31.155  2728  2728 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:31.156  2728  2728 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:31.157  2728  2728 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:31.157  2728  2728 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:31.157  2728  2728 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:31.157  2728  2728 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:31.157  2728  2728 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:31.157  2728  2728 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:31.158  2728  2728 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:31.158  2728  2728 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:31.158  2728  2728 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:36.216  2730  2730 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:36.216  2730  2730 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:36.217  2730  2730 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:36.217  2730  2730 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:36.218  2730  2730 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:36.218  2730  2730 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:36.218  2730  2730 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:36.218  2730  2730 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:36.218  2730  2730 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:36.218  2730  2730 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:36.218  2730  2730 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:41.271  2731  2731 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:41.271  2731  2731 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:41.272  2731  2731 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:41.272  2731  2731 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:41.272  2731  2731 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:41.273  2731  2731 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:41.273  2731  2731 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:41.273  2731  2731 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:41.273  2731  2731 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:41.274  2731  2731 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:41.274  2731  2731 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:45.340  2732  2732 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:45.340  2732  2732 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:45.341  2732  2732 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:45.341  2732  2732 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:45.341  2732  2732 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:45.341  2732  2732 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:45.341  2732  2732 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:45.342  2732  2732 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:45.342  2732  2732 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:45.342  2732  2732 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:45.342  2732  2732 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services
+08-02 00:11:46.326   836   994 I WifiHAL : Got channel list with 11 channels
+08-02 00:11:46.330   836   994 I WifiHAL : Got channel list with 9 channels
+08-02 00:11:46.333   836   994 I WifiHAL : Got channel list with 15 channels
+08-02 00:11:50.408  2734  2734 D QSEECOMD: : qseecom listener services process entry PPID = 1
+08-02 00:11:50.408  2734  2734 E QSEECOMD: : Listener: index = 0, hierarchy = 0
+08-02 00:11:50.416  2734  2734 D QSEECOMD: : Init dlopen(librpmb.so, RTLD_NOW) succeeds
+08-02 00:11:50.416  2734  2734 D QSEECOMD: : Init::Init dlsym(g_FSHandle rpmb_init_service) succeeds
+08-02 00:11:50.416  2734  2734 I rpmb    : RPMB Mult = 16384, Rel_sec_cnt = 1
+08-02 00:11:50.417  2734  2734 E DrmLibRpmb: rpmb_init succeeded! with ret = 0
+08-02 00:11:50.417  2734  2734 D QSEECOMD: : Init rpmb_init_service ret = 0
+08-02 00:11:50.417  2734  2734 D QSEECOMD: : RPMB system services: init (Listener ID = 8192)
+08-02 00:11:50.417  2734  2734 E QSEECOMD: : Listener: index = 1, hierarchy = 0
+08-02 00:11:50.418  2734  2734 E QSEECOMD: : Init dlopen(libssd.so, RLTD_NOW) is failed....
+08-02 00:11:50.418  2734  2734 E QSEECOMD: : ERROR: SSD_INIT failed, shall not start listener services

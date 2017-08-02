@@ -1,0 +1,1124 @@
+12-06 04:02:09.465 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][13298852][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+12-06 04:02:09.466 11883 11883 D NewDownloadProvider: [NewDownloadProvider][13298852][tid_1](377)[new_download] [download_net_change] networkChange
+12-06 04:02:09.484 11883 11883 I qk      : [qk][13298871][tid_1](244)currentApn:MOBILE
+12-06 04:02:09.485 11883 11883 I qk      : [qk][13298871][tid_1](213)currentApn:MOBILE
+12-06 04:02:09.485 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][13298871][tid_1](31)[download_net_change] the network has connected
+12-06 04:02:09.485 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][13298872][tid_1](33)[download_net_change] time:872137004,runTime:872076266
+12-06 04:02:09.486 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][13298872][tid_1](35)Product.lenovo:false
+12-06 04:02:09.486 11883 11883 I TaskServiceProvider: [TaskServiceProvider][13298873][tid_1](146)VlifeExecutorService executing n.kt@fb052b5
+12-06 04:02:09.486 11883 11883 I TaskServiceProvider: [TaskServiceProvider][13298873][tid_1](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:09.487 11883 11883 D TaskServiceProvider: [TaskServiceProvider][13298873][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+12-06 04:02:09.487 11883 11883 I vv      : [vv][13298874][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.488 11883 11883 I TaskServiceProvider: [TaskServiceProvider][13298874][tid_1](156)shell product start vlife task
+12-06 04:02:09.488 11883 11883 W wf      : [wf][13298875][tid_1](52)create preferences name:userinfo
+12-06 04:02:09.493 11883 11883 I qw      : [qw][13298880][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:09.494 11883 12085 I TaskServiceProvider: [TaskServiceProvider][13298881][tid_45](546)vlifeTaskOnStartCommand intent=#Intent;action=NetChangeReceiverTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:09.494 11883 11883 D gp      : [gp][13298880][tid_1](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:09.494 11883 12085 D TaskServiceProvider: [TaskServiceProvider][13298881][tid_45](558)pyramidney:null
+12-06 04:02:09.495 11883 12085 D go      : [go][13298881][tid_45](33)TaskSignalQueue-add n.gn@dcc8dd8
+12-06 04:02:09.496 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13298883][tid_177](254)Bundle=Bundle[{}] taskType=NetChangeReceiverTask
+12-06 04:02:09.497 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13298883][tid_177](258)getVlifeTask vlifeTask=n.kt@3471197
+12-06 04:02:09.497 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298883][tid_177](351)[VlifeTaskService]  TaskRunnable  running task : NetChangeReceiverTask ,delay : 0, cycle : 0 
+12-06 04:02:09.497 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298884][tid_177](377)backstage task system start up timing task ,task type is :NetChangeReceiverTask, awaking type :awake by system broadCastReceiver
+12-06 04:02:09.497 11883 17914 D kt      : [kt][13298884][tid_177](45)[download_net_change] NetChangeReceiverTask run
+12-06 04:02:09.498 11883 17914 W wf      : [wf][13298884][tid_177](52)create preferences name:userinfo
+12-06 04:02:09.498 11883 17914 I wf      : [wf][13298885][tid_177](79)preference name:userinfo getString key:last_day,value:20171205
+12-06 04:02:09.499 11883 17914 I wf      : [wf][13298886][tid_177](84)preference name:userinfo putStringAndCommit key:last_day,value:20171206
+12-06 04:02:09.515 11883 17914 W wf      : [wf][13298901][tid_177](89)userinfo putString last_day
+12-06 04:02:09.515 11883 17914 I ot      : [ot][13298902][tid_177](99)last_day 20171205, today 20171206, last_day_count 4, this=n.ot@a746b1c
+12-06 04:02:09.515 11883 17914 I wf      : [wf][13298902][tid_177](114)preference name:userinfo putIntAndCommit key:last_day_count,value:4
+12-06 04:02:09.523 11883 17914 W wf      : [wf][13298910][tid_177](119)userinfo putInt last_day_count
+12-06 04:02:09.524 11883 17914 W wf      : [wf][13298910][tid_177](52)create preferences name:timing_network_preference
+12-06 04:02:09.525 11883 17914 I qk      : [qk][13298911][tid_177](244)currentApn:MOBILE
+12-06 04:02:09.525 11883 17914 I qk      : [qk][13298912][tid_177](213)currentApn:MOBILE
+12-06 04:02:09.525 11883 17914 D jz      : [jz][13298912][tid_177](47)canConnectNetWork result == true
+12-06 04:02:09.525 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298912][tid_177](511)try awaking backstage task system,awaking type is :NET_CHANGE, awaking time is :1512504129525
+12-06 04:02:09.526 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298912][tid_177](513)awake backstage task system success, awaking time :1512504129525
+12-06 04:02:09.526 11883 12101 D StatisticsProvider: [StatisticsProvider][13298913][tid_54](432)[statistics_test] =======>write map:n.ep@a23fca1
+12-06 04:02:09.526 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298913][tid_177](146)VlifeExecutorService executing n.gm@dd1cec6
+12-06 04:02:09.527 11883 12101 I StatisticsProvider: [StatisticsProvider][13298914][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:09.527 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298913][tid_177](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:09.527 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13298914][tid_177](188)TaskServiceProvider task=gm,taskType=OperatingStartTask
+12-06 04:02:09.527 11883 12101 I StatisticsProvider: [StatisticsProvider][13298914][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:09.527 11883 12101 D StatisticsProvider: [StatisticsProvider][13298914][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:09.527 11883 17914 I vv      : [vv][13298914][tid_177](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.528 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298914][tid_177](156)shell product start vlife task
+12-06 04:02:09.528 11883 17914 W wf      : [wf][13298915][tid_177](52)create preferences name:userinfo
+12-06 04:02:09.529 11883 17914 I qw      : [qw][13298915][tid_177](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:09.533 11883 12100 I TaskServiceProvider: [TaskServiceProvider][13298919][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=OperatingStartTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:09.533 11883 12100 D TaskServiceProvider: [TaskServiceProvider][13298920][tid_53](558)pyramidney:null
+12-06 04:02:09.533 11883 12100 D go      : [go][13298920][tid_53](33)TaskSignalQueue-add n.gn@2798e87
+12-06 04:02:09.534 11883 17914 D gp      : [gp][13298921][tid_177](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:09.534 11883 17914 I vv      : [vv][13298921][tid_177](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.534 11883 17914 I kt      : [kt][13298921][tid_177](51)[PushTimerReceiver]  PushTimerReceiver running
+12-06 04:02:09.535 11883 17914 D PushProvider: [PushProvider][13298921][tid_177](275)notifyShowPush
+12-06 04:02:09.535 11883 17914 I PushProvider: [PushProvider][13298922][tid_177](209)getPushController pushContentType = window
+12-06 04:02:09.535 11883 17914 D PushProvider: [PushProvider][13298922][tid_177](211)pushController:n.rf@c8fb3f1
+12-06 04:02:09.535 11883 17914 I rf      : [rf][13298922][tid_177](85)[notifyDataChange]
+12-06 04:02:09.536 11883 17914 I PushProvider: [PushProvider][13298922][tid_177](175)getContentHandler pushContentType = window
+12-06 04:02:09.536 11883 17914 W rx      : [rx][13298923][tid_177](85)db provider query:content://vlife/content
+12-06 04:02:09.537 11883 12101 I StatisticsProvider: [StatisticsProvider][13298924][tid_54](464)[statistics_test] create packet xml : <item ua_action="net_change" ua_time="1512504129526" ua_event="awaken_timing_task" ua_process="lockscreen" index="137" />
+12-06 04:02:09.537 11883 17914 I fz      : [fz][13298924][tid_177](86)getAllDisabled window 0
+12-06 04:02:09.538 11883 17914 I rf      : [rf][13298924][tid_177](98)[WindowController] notifyDataChange() diabledWindowDataList = []
+12-06 04:02:09.538 11883 17914 W wf      : [wf][13298925][tid_177](52)create preferences name:push_message
+12-06 04:02:09.538 11883 17914 I ga      : [ga][13298925][tid_177](72)[downloadAll] isDownloading:false
+12-06 04:02:09.538 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298925][tid_178](254)Bundle=Bundle[{triggerType=NET_CHANGE}] taskType=OperatingStartTask
+12-06 04:02:09.538 11883 17914 I PushProvider: [PushProvider][13298925][tid_177](175)getContentHandler pushContentType = window
+12-06 04:02:09.539 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298925][tid_178](258)getVlifeTask vlifeTask=n.gm@6e2c1dd
+12-06 04:02:09.539 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298926][tid_178](351)[VlifeTaskService]  TaskRunnable  running task : OperatingStartTask ,delay : 0, cycle : 0 
+12-06 04:02:09.539 11883 17914 W rx      : [rx][13298925][tid_177](85)db provider query:content://vlife/content
+12-06 04:02:09.539 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298926][tid_178](377)backstage task system start up timing task ,task type is :OperatingStartTask, awaking type :NET_CHANGE
+12-06 04:02:09.539 11883 17917 I gm      : [gm][13298926][tid_178](44)TimingNetworkServerTask running, triggerType : NET_CHANGE
+12-06 04:02:09.540 11883 17917 W wf      : [wf][13298926][tid_178](52)create preferences name:timing_network_preference
+12-06 04:02:09.540 11883 17917 I gm      : [gm][13298927][tid_178](47)first time ready
+12-06 04:02:09.540 11883 17914 I PushProvider: [PushProvider][13298927][tid_177](209)getPushController pushContentType = wallpaper_recommended
+12-06 04:02:09.540 11883 17914 D PushProvider: [PushProvider][13298927][tid_177](211)pushController:null
+12-06 04:02:09.541 11883 17914 I PushProvider: [PushProvider][13298927][tid_177](209)getPushController pushContentType = flash_content
+12-06 04:02:09.541 11883 17914 D PushProvider: [PushProvider][13298927][tid_177](211)pushController:null
+12-06 04:02:09.541 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298928][tid_177](379)[VlifeTaskService]  end  task : NetChangeReceiverTask
+12-06 04:02:09.541 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298928][tid_178](239)getVlifeTask vlifeTask=n.sj@38c1152
+12-06 04:02:09.541 11883 17914 D go      : [go][13298928][tid_177](48)TaskSignalQueue-remove n.gn@dcc8dd8
+12-06 04:02:09.541 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298928][tid_178](146)VlifeExecutorService executing n.sj@38c1152
+12-06 04:02:09.542 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298928][tid_178](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:09.542 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298929][tid_178](188)TaskServiceProvider task=sj,taskType=ua_time_send
+12-06 04:02:09.542 11883 17917 I vv      : [vv][13298929][tid_178](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.543 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298929][tid_178](156)shell product start vlife task
+12-06 04:02:09.543 11883 17917 W wf      : [wf][13298930][tid_178](52)create preferences name:userinfo
+12-06 04:02:09.544 11883 17917 I qw      : [qw][13298930][tid_178](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:09.544 11883 17917 D gp      : [gp][13298931][tid_178](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:09.544 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298931][tid_178](239)getVlifeTask vlifeTask=n.zc@7568c23
+12-06 04:02:09.545 11883 12098 I TaskServiceProvider: [TaskServiceProvider][13298931][tid_51](546)vlifeTaskOnStartCommand intent=#Intent;action=ua_time_send;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:09.545 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298931][tid_178](146)VlifeExecutorService executing n.zc@7568c23
+12-06 04:02:09.545 11883 12098 D TaskServiceProvider: [TaskServiceProvider][13298932][tid_51](558)pyramidney:null
+12-06 04:02:09.545 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298932][tid_178](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:09.545 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298932][tid_178](188)TaskServiceProvider task=zc,taskType=magazine_update
+12-06 04:02:09.545 11883 12098 D go      : [go][13298932][tid_51](33)TaskSignalQueue-add n.gn@49e8520
+12-06 04:02:09.546 11883 17917 I vv      : [vv][13298932][tid_178](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.546 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13298932][tid_177](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=ua_time_send
+12-06 04:02:09.546 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298932][tid_178](156)shell product start vlife task
+12-06 04:02:09.546 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13298933][tid_177](258)getVlifeTask vlifeTask=n.sj@ace9ed9
+12-06 04:02:09.546 11883 17917 W wf      : [wf][13298933][tid_178](52)create preferences name:userinfo
+12-06 04:02:09.546 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298933][tid_177](351)[VlifeTaskService]  TaskRunnable  running task : ua_time_send ,delay : 0, cycle : 21600000 
+12-06 04:02:09.546 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13298933][tid_177](377)backstage task system start up timing task ,task type is :ua_time_send, awaking type :NET_CHANGE
+12-06 04:02:09.546 11883 17914 W wf      : [wf][13298933][tid_177](52)create preferences name:timing_network_preference
+12-06 04:02:09.547 11883 17917 I qw      : [qw][13298933][tid_178](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:09.547 11883 17914 I jx      : [jx][13298933][tid_177](84)first time ready type:ua_time_send
+12-06 04:02:09.547 11883 17914 I jx      : [jx][13298934][tid_177](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-06 04:02:09.547 11883 12085 I TaskServiceProvider: [TaskServiceProvider][13298934][tid_45](546)vlifeTaskOnStartCommand intent=#Intent;action=magazine_update;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:09.547 11883 17914 W wf      : [wf][13298934][tid_177](52)create preferences name:timing_network_preference
+12-06 04:02:09.547 11883 12085 D TaskServiceProvider: [TaskServiceProvider][13298934][tid_45](558)pyramidney:null
+12-06 04:02:09.548 11883 12085 D go      : [go][13298934][tid_45](33)TaskSignalQueue-add n.gn@335f09e
+12-06 04:02:09.549 11883 17914 I qk      : [qk][13298935][tid_177](244)currentApn:MOBILE
+12-06 04:02:09.549 11883 17917 D gp      : [gp][13298935][tid_178](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:09.549 11883 17914 I qk      : [qk][13298935][tid_177](213)currentApn:MOBILE
+12-06 04:02:09.549 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298936][tid_178](239)getVlifeTask vlifeTask=n.sh@7b6d34c
+12-06 04:02:09.549 11883 17914 D jz      : [jz][13298936][tid_177](47)canConnectNetWork result == true
+12-06 04:02:09.549 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298936][tid_178](146)VlifeExecutorService executing n.sh@7b6d34c
+12-06 04:02:09.549 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298936][tid_178](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:09.550 11883 17914 I qk      : [qk][13298936][tid_177](244)currentApn:MOBILE
+12-06 04:02:09.550 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298936][tid_178](188)TaskServiceProvider task=sh,taskType=get_push_message
+12-06 04:02:09.550 11883 17914 I jx      : [jx][13298937][tid_177](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:09.550 11883 17917 I vv      : [vv][13298937][tid_178](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.550 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298937][tid_178](156)shell product start vlife task
+12-06 04:02:09.550 11883 17917 W wf      : [wf][13298937][tid_178](52)create preferences name:userinfo
+12-06 04:02:09.551 11883 17917 I qw      : [qw][13298938][tid_178](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:09.551 11883 17914 I pm      : [pm][13298938][tid_177](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:09.552 11883 17914 I jx      : [jx][13298938][tid_177](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:09.552 11883 12100 I TaskServiceProvider: [TaskServiceProvider][13298938][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=get_push_message;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:09.552 11883 17914 D jx      : [jx][13298938][tid_177](116)canRun task=ua_time_send, result=25423178, frequency=21600000
+12-06 04:02:09.552 11883 17914 D jx      : [jx][13298939][tid_177](89)Judgment result can run , task type is ua_time_send , triggerType is :NET_CHANGE
+12-06 04:02:09.552 11883 12100 D TaskServiceProvider: [TaskServiceProvider][13298939][tid_53](558)pyramidney:null
+12-06 04:02:09.552 11883 17914 I wf      : [wf][13298939][tid_177](129)preference name:timing_network_preference putLongAndCommit key:timer_last_time_ua_time_send,value:1512504129552
+12-06 04:02:09.552 11883 12100 D go      : [go][13298939][tid_53](33)TaskSignalQueue-add n.gn@6014f95
+12-06 04:02:09.553 11883 17917 D gp      : [gp][13298940][tid_178](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:09.553 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298940][tid_178](239)getVlifeTask vlifeTask=n.ajo@a8f5c9b
+12-06 04:02:09.553 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298940][tid_178](146)VlifeExecutorService executing n.ajo@a8f5c9b
+12-06 04:02:09.554 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298941][tid_178](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:09.556 11883 17918 D TaskServiceProvider: [TaskServiceProvider][13298942][tid_179](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=magazine_update
+12-06 04:02:09.557 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298941][tid_178](188)TaskServiceProvider task=ajo,taskType=plugin_update
+12-06 04:02:09.558 11883 17918 D TaskServiceProvider: [TaskServiceProvider][13298943][tid_179](258)getVlifeTask vlifeTask=n.zc@823d838
+12-06 04:02:09.558 11883 17918 I TaskServiceProvider: [TaskServiceProvider][13298945][tid_179](351)[VlifeTaskService]  TaskRunnable  running task : magazine_update ,delay : 0, cycle : 21600000 
+12-06 04:02:09.558 11883 17918 I TaskServiceProvider: [TaskServiceProvider][13298945][tid_179](377)backstage task system start up timing task ,task type is :magazine_update, awaking type :NET_CHANGE
+12-06 04:02:09.559 11883 17918 W wf      : [wf][13298945][tid_179](52)create preferences name:timing_network_preference
+12-06 04:02:09.559 11883 17918 I jx      : [jx][13298946][tid_179](84)first time ready type:magazine_update
+12-06 04:02:09.559 11883 17918 I jx      : [jx][13298946][tid_179](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-06 04:02:09.560 11883 17918 D zc      : [zc][13298946][tid_179](77)[magazine_down_content] [canRunnable]
+12-06 04:02:09.560 11883 17917 I vv      : [vv][13298947][tid_178](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.560 11883 17914 W wf      : [wf][13298947][tid_177](134)timing_network_preference putLong timer_last_time_ua_time_send
+12-06 04:02:09.560 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298947][tid_178](156)shell product start vlife task
+12-06 04:02:09.560 11883 17914 I sj      : [sj][13298947][tid_177](23)UaTimerSendTask running
+12-06 04:02:09.561 11883 17917 W wf      : [wf][13298947][tid_178](52)create preferences name:userinfo
+12-06 04:02:09.561 11883 17917 I qw      : [qw][13298948][tid_178](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:09.561 11883 17914 I qk      : [qk][13298948][tid_177](244)currentApn:MOBILE
+12-06 04:02:09.561 11883 17914 I sj      : [sj][13298948][tid_177](33)send important ua. under GPRS 
+12-06 04:02:09.562 11883 17917 D gp      : [gp][13298948][tid_178](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:09.562 11883 17917 W gm      : [gm][13298949][tid_178](58)taskType upload_user_setting is error
+12-06 04:02:09.562 11883 17914 D StatisticsProvider: [StatisticsProvider][13298949][tid_177](242)[statistics_test] 
+12-06 04:02:09.562 11883 17917 W gm      : [gm][13298949][tid_178](58)taskType download_file_delete is error
+12-06 04:02:09.562 11883 17914 W StatisticsProvider: [StatisticsProvider][13298949][tid_177](245)[statistics_test] find ua file:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:09.562 11883 17914 W StatisticsProvider: [StatisticsProvider][13298949][tid_177](252)[statistics_test] not temp file:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:09.562 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298949][tid_178](379)[VlifeTaskService]  end  task : OperatingStartTask
+12-06 04:02:09.563 11883 17914 W StatisticsProvider: [StatisticsProvider][13298949][tid_177](254)[statistics_test] not temp tmpFile:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.07057.tmp
+12-06 04:02:09.563 11883 17917 D go      : [go][13298949][tid_178](48)TaskSignalQueue-remove n.gn@2798e87
+12-06 04:02:09.563 11883 17914 W StatisticsProvider: [StatisticsProvider][13298950][tid_177](256)[statistics_test] not temp tmpFile:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.07057.tmp======================>rename
+12-06 04:02:09.563 11883 17918 W wf      : [wf][13298947][tid_179](52)create preferences name:timing_network_preference
+12-06 04:02:09.563 11883 17914 I StatisticsProvider: [StatisticsProvider][13298950][tid_177](172)[statistics_test] send ua file:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.07057.tmp
+12-06 04:02:09.564 11883 12098 I TaskServiceProvider: [TaskServiceProvider][13298950][tid_51](546)vlifeTaskOnStartCommand intent=#Intent;action=plugin_update;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:09.564 11883 12098 D TaskServiceProvider: [TaskServiceProvider][13298951][tid_51](558)pyramidney:null
+12-06 04:02:09.564 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13298943][tid_180](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=get_push_message
+12-06 04:02:09.564 11883 12098 D go      : [go][13298951][tid_51](33)TaskSignalQueue-add n.gn@6745011
+12-06 04:02:09.564 11883 17914 D StatisticsProvider: [StatisticsProvider][13298950][tid_177](222)[statistics_test] loadData filePath=/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.07057.tmp
+12-06 04:02:09.564 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13298951][tid_180](258)getVlifeTask vlifeTask=n.sh@e117576
+12-06 04:02:09.565 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13298951][tid_180](351)[VlifeTaskService]  TaskRunnable  running task : get_push_message ,delay : 0, cycle : 21600000 
+12-06 04:02:09.565 11883 17914 D pb      : [pb][13298952][tid_177](87)[readBytesFile][len=7057]
+12-06 04:02:09.565 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13298952][tid_180](377)backstage task system start up timing task ,task type is :get_push_message, awaking type :NET_CHANGE
+12-06 04:02:09.565 11883 17914 W pb      : [pb][13298952][tid_177](91)read file:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.07057.tmp length:7057
+12-06 04:02:09.565 11883 17919 W wf      : [wf][13298952][tid_180](52)create preferences name:timing_network_preference
+12-06 04:02:09.566 11883 17918 I qk      : [qk][13298951][tid_179](244)currentApn:MOBILE
+12-06 04:02:09.566 11883 17918 I qk      : [qk][13298953][tid_179](213)currentApn:MOBILE
+12-06 04:02:09.566 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298953][tid_178](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=plugin_update
+12-06 04:02:09.566 11883 17918 D jz      : [jz][13298953][tid_179](47)canConnectNetWork result == true
+12-06 04:02:09.566 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13298953][tid_178](258)getVlifeTask vlifeTask=n.ajo@e7d2777
+12-06 04:02:09.566 11883 17918 D zc      : [zc][13298953][tid_179](82)[magazine_down_content] [canRunnable] has net true
+12-06 04:02:09.567 11883 17919 I jx      : [jx][13298954][tid_180](84)first time ready type:get_push_message
+12-06 04:02:09.567 11883 17919 I jx      : [jx][13298954][tid_180](86)judge timing task whether or not can run,judge task type is :get_push_message
+12-06 04:02:09.567 11883 17919 W wf      : [wf][13298954][tid_180](52)create preferences name:timing_network_preference
+12-06 04:02:09.568 11883 17918 D jx      : [jx][13298953][tid_179](116)canRun task=magazine_update, result=25423172, frequency=21600000
+12-06 04:02:09.568 11883 17918 D jx      : [jx][13298955][tid_179](89)Judgment result can run , task type is magazine_update , triggerType is :NET_CHANGE
+12-06 04:02:09.569 11883 17918 I wf      : [wf][13298955][tid_179](129)preference name:timing_network_preference putLongAndCommit key:timer_last_time_magazine_update,value:1512504129568
+12-06 04:02:09.569 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298953][tid_178](351)[VlifeTaskService]  TaskRunnable  running task : plugin_update ,delay : 0, cycle : 21600000 
+12-06 04:02:09.569 11883 17919 I qk      : [qk][13298956][tid_180](244)currentApn:MOBILE
+12-06 04:02:09.569 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13298956][tid_178](377)backstage task system start up timing task ,task type is :plugin_update, awaking type :NET_CHANGE
+12-06 04:02:09.570 11883 17917 W wf      : [wf][13298956][tid_178](52)create preferences name:timing_network_preference
+12-06 04:02:09.570 11883 17919 I qk      : [qk][13298956][tid_180](213)currentApn:MOBILE
+12-06 04:02:09.570 11883 17917 I jx      : [jx][13298957][tid_178](84)first time ready type:plugin_update
+12-06 04:02:09.570 11883 17919 D jz      : [jz][13298957][tid_180](47)canConnectNetWork result == true
+12-06 04:02:09.570 11883 17917 I jx      : [jx][13298957][tid_178](86)judge timing task whether or not can run,judge task type is :plugin_update
+12-06 04:02:09.570 11883 17917 W wf      : [wf][13298957][tid_178](52)create preferences name:timing_network_preference
+12-06 04:02:09.571 11883 17919 I qk      : [qk][13298958][tid_180](244)currentApn:MOBILE
+12-06 04:02:09.571 11883 17919 I jx      : [jx][13298958][tid_180](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:09.572 11883 17917 I qk      : [qk][13298958][tid_178](244)currentApn:MOBILE
+12-06 04:02:09.572 11883 17914 I StatisticsProvider: [StatisticsProvider][13298953][tid_177](174)[statistics_test] [send_data_statistics_test] [original data:<userid>10493580917104</userid><unique>5d8c1058ba47b5967617c90a64a661d8</unique><ua_version>21</ua_version><time>1512478706509</time><channel>998</channel><soft_version>6.131</soft_version><micro_version>9</micro_version><system_version>7.0</system_version><platform>android</platform><imei>355455061338346</imei><plugin_version>140</plugin_version><device>shamu</device><model>AOSP on Shamu</model><pid>11883</pid><host>com.android.systemui</host><network_type>13</network_type><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.vlife.ipro.magazine</package><paper_id>465</paper_id><product>android-ipro-magazine</product><current_wallpaper_id>465</current_wallpaper_id><isWallPaperShowValid>false</isWallPaperShowValid><isLockSreenValid>false</isLockSreenValid><item ua_event="request_push" ua_time="1512478706495" ua_process="lockscreen" index="112" dev_version="6.131" ua_local_type="1" uid="10493580917104" /><item tag="ll" message="[ll][13018939][tid_139](172)getHttpResponse IOException error!" name="java.lang.RuntimeException" count="1" error="java.lang.RuntimeException	at n.kj.createHttpRoutePlanner(VLIFE-SOURCE:301)	at org.apache.http.impl.client.AbstractHttpClient.getRoutePlanner(AbstractHttpClient.java:374)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:549)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)	at n.kj.a(VLIFE-SOURCE:319)	at n.uz.a(VLIFE-SOURCE:33)	at n.uy.a(VLIFE-SOURCE:211)	at n.uy.a(VLIFE-SOURCE:189)	at n.uy.a(VLIFE-SOURCE:70)	at n.ll.a(VLIFE-SOURCE:169)	at n.ll.a(VLIFE-SOURCE:99)	at n.ll.a(VLIFE-SOURCE:69)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendCommonUa(VLIFE-SOURCE:184)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendUAData(VLIFE-SOURCE:132)	at n.sj.b(VLIFE-SOURCE:31)	at n.jx.a(VLIFE-SOURCE:91)	at n.gn.run(VLIFE-SOURCE:378)	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)	at java.lang.Thread.run(Thread.java:761)" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478706564" ua_process="lockscreen" index="113" /><item ua_event="mag_lock_unlock" ua_time="1512478708348" ua_process="lockscreen" index="114" /><item ua_action="flash_content" ua_event="request_result" ua_time="1512478712245" ua_process="lockscreen" index="115" /><item ua_action="switch_type" ua_event="request_result" ua_time="1512478712257" ua_process="lockscreen" index="116" /><item ua_action="switch_type" ua_event="request_list" ua_time="1512478712258" ua_process="lockscreen" index="117" /><item ua_action="upload_recent_apps" ua_event="request_result" ua_time="1512478712266" ua_process="lockscreen" index="118" /><item package_name="com.android.launcher3" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="119" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="120" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="121" /><item package_name="com.android.camera2" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="122" /><item ua_action="wallpaper_recommended" ua_event="request_result" ua_time="1512478712287" ua_process="lockscreen" index="123" /><item tag="gp" message="[gp][13024676][tid_141](140)vlifeTimer == null!" name="unknown" count="1" error="[gp][13024676][tid_141](140)vlifeTimer == null!" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478712293" ua_process="lockscreen" index="124" /><item tag="TaskServiceProvider" message="[TaskServiceProvider][13024707][tid_141](471)restart
+12-06 04:02:09.572 11883 17917 I qk      : [qk][13298958][tid_178](213)currentApn:MOBILE
+12-06 04:02:09.572 11883 17917 D jz      : [jz][13298959][tid_178](47)canConnectNetWork result == true
+12-06 04:02:09.573 11883 17914 W StatisticsProvider: [StatisticsProvider][13298959][tid_177](177)[statistics_test] [send_data_statistics_test] [contain] [original data:<userid>10493580917104</userid><unique>5d8c1058ba47b5967617c90a64a661d8</unique><ua_version>21</ua_version><time>1512478706509</time><channel>998</channel><soft_version>6.131</soft_version><micro_version>9</micro_version><system_version>7.0</system_version><platform>android</platform><imei>355455061338346</imei><plugin_version>140</plugin_version><device>shamu</device><model>AOSP on Shamu</model><pid>11883</pid><host>com.android.systemui</host><network_type>13</network_type><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.vlife.ipro.magazine</package><paper_id>465</paper_id><product>android-ipro-magazine</product><current_wallpaper_id>465</current_wallpaper_id><isWallPaperShowValid>false</isWallPaperShowValid><isLockSreenValid>false</isLockSreenValid><item ua_event="request_push" ua_time="1512478706495" ua_process="lockscreen" index="112" dev_version="6.131" ua_local_type="1" uid="10493580917104" /><item tag="ll" message="[ll][13018939][tid_139](172)getHttpResponse IOException error!" name="java.lang.RuntimeException" count="1" error="java.lang.RuntimeException	at n.kj.createHttpRoutePlanner(VLIFE-SOURCE:301)	at org.apache.http.impl.client.AbstractHttpClient.getRoutePlanner(AbstractHttpClient.java:374)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:549)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)	at n.kj.a(VLIFE-SOURCE:319)	at n.uz.a(VLIFE-SOURCE:33)	at n.uy.a(VLIFE-SOURCE:211)	at n.uy.a(VLIFE-SOURCE:189)	at n.uy.a(VLIFE-SOURCE:70)	at n.ll.a(VLIFE-SOURCE:169)	at n.ll.a(VLIFE-SOURCE:99)	at n.ll.a(VLIFE-SOURCE:69)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendCommonUa(VLIFE-SOURCE:184)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendUAData(VLIFE-SOURCE:132)	at n.sj.b(VLIFE-SOURCE:31)	at n.jx.a(VLIFE-SOURCE:91)	at n.gn.run(VLIFE-SOURCE:378)	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)	at java.lang.Thread.run(Thread.java:761)" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478706564" ua_process="lockscreen" index="113" /><item ua_event="mag_lock_unlock" ua_time="1512478708348" ua_process="lockscreen" index="114" /><item ua_action="flash_content" ua_event="request_result" ua_time="1512478712245" ua_process="lockscreen" index="115" /><item ua_action="switch_type" ua_event="request_result" ua_time="1512478712257" ua_process="lockscreen" index="116" /><item ua_action="switch_type" ua_event="request_list" ua_time="1512478712258" ua_process="lockscreen" index="117" /><item ua_action="upload_recent_apps" ua_event="request_result" ua_time="1512478712266" ua_process="lockscreen" index="118" /><item package_name="com.android.launcher3" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="119" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="120" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="121" /><item package_name="com.android.camera2" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="122" /><item ua_action="wallpaper_recommended" ua_event="request_result" ua_time="1512478712287" ua_process="lockscreen" index="123" /><item tag="gp" message="[gp][13024676][tid_141](140)vlifeTimer == null!" name="unknown" count="1" error="[gp][13024676][tid_141](140)vlifeTimer == null!" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478712293" ua_process="lockscreen" index="124" /><item tag="TaskServiceProvider" message="[TaskServiceProvider][13024707][tid_141](4
+12-06 04:02:09.573 11883 17917 I qk      : [qk][13298960][tid_178](244)currentApn:MOBILE
+12-06 04:02:09.573 11883 17917 I jx      : [jx][13298960][tid_178](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:09.573 11883 17914 I StatisticsProvider: [StatisticsProvider][13298960][tid_177](183)[statistics_test] [send_data_statistics_test] [final data:<userid>10493580917104</userid><unique>5d8c1058ba47b5967617c90a64a661d8</unique><ua_version>21</ua_version><time>1512478706509</time><channel>998</channel><soft_version>6.131</soft_version><micro_version>9</micro_version><system_version>7.0</system_version><platform>android</platform><imei>355455061338346</imei><plugin_version>140</plugin_version><device>shamu</device><model>AOSP on Shamu</model><pid>11883</pid><host>com.android.systemui</host><network_type>13</network_type><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.vlife.ipro.magazine</package><paper_id>465</paper_id><product>android-ipro-magazine</product><current_wallpaper_id>465</current_wallpaper_id><isWallPaperShowValid>false</isWallPaperShowValid><isLockSreenValid>false</isLockSreenValid><item ua_event="request_push" ua_time="1512478706495" ua_process="lockscreen" index="112" dev_version="6.131" ua_local_type="1" uid="10493580917104" /><item tag="ll" message="[ll][13018939][tid_139](172)getHttpResponse IOException error!" name="java.lang.RuntimeException" count="1" error="java.lang.RuntimeException	at n.kj.createHttpRoutePlanner(VLIFE-SOURCE:301)	at org.apache.http.impl.client.AbstractHttpClient.getRoutePlanner(AbstractHttpClient.java:374)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:549)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)	at n.kj.a(VLIFE-SOURCE:319)	at n.uz.a(VLIFE-SOURCE:33)	at n.uy.a(VLIFE-SOURCE:211)	at n.uy.a(VLIFE-SOURCE:189)	at n.uy.a(VLIFE-SOURCE:70)	at n.ll.a(VLIFE-SOURCE:169)	at n.ll.a(VLIFE-SOURCE:99)	at n.ll.a(VLIFE-SOURCE:69)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendCommonUa(VLIFE-SOURCE:184)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendUAData(VLIFE-SOURCE:132)	at n.sj.b(VLIFE-SOURCE:31)	at n.jx.a(VLIFE-SOURCE:91)	at n.gn.run(VLIFE-SOURCE:378)	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)	at java.lang.Thread.run(Thread.java:761)" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478706564" ua_process="lockscreen" index="113" /><item ua_event="mag_lock_unlock" ua_time="1512478708348" ua_process="lockscreen" index="114" /><item ua_action="flash_content" ua_event="request_result" ua_time="1512478712245" ua_process="lockscreen" index="115" /><item ua_action="switch_type" ua_event="request_result" ua_time="1512478712257" ua_process="lockscreen" index="116" /><item ua_action="switch_type" ua_event="request_list" ua_time="1512478712258" ua_process="lockscreen" index="117" /><item ua_action="upload_recent_apps" ua_event="request_result" ua_time="1512478712266" ua_process="lockscreen" index="118" /><item package_name="com.android.launcher3" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="119" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="120" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="121" /><item package_name="com.android.camera2" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="122" /><item ua_action="wallpaper_recommended" ua_event="request_result" ua_time="1512478712287" ua_process="lockscreen" index="123" /><item tag="gp" message="[gp][13024676][tid_141](140)vlifeTimer == null!" name="unknown" count="1" error="[gp][13024676][tid_141](140)vlifeTimer == null!" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478712293" ua_process="lockscreen" index="124" /><item tag="TaskServiceProvider" message="[TaskServiceProvider][13024707][tid_141](471)restartTim
+12-06 04:02:09.574 11883 17914 W wf      : [wf][13298960][tid_177](52)create preferences name:userinfo
+12-06 04:02:09.574 11883 17917 I pm      : [pm][13298961][tid_178](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:09.574 11883 17914 I wf      : [wf][13298961][tid_177](79)preference name:userinfo getString key:uid,value:10493580917104
+12-06 04:02:09.574 11883 17917 I jx      : [jx][13298961][tid_178](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:09.574 11883 17917 D jx      : [jx][13298961][tid_178](116)canRun task=plugin_update, result=25423171, frequency=21600000
+12-06 04:02:09.575 11883 17917 D jx      : [jx][13298961][tid_178](89)Judgment result can run , task type is plugin_update , triggerType is :NET_CHANGE
+12-06 04:02:09.575 11883 17917 I wf      : [wf][13298962][tid_178](129)preference name:timing_network_preference putLongAndCommit key:timer_last_time_plugin_update,value:1512504129575
+12-06 04:02:09.576 11883 17919 I pm      : [pm][13298963][tid_180](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:09.576 11883 17919 I jx      : [jx][13298963][tid_180](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:09.578 11883 17919 D jx      : [jx][13298963][tid_180](116)canRun task=get_push_message, result=25423175, frequency=21600000
+12-06 04:02:09.579 11883 17919 D jx      : [jx][13298965][tid_180](89)Judgment result can run , task type is get_push_message , triggerType is :NET_CHANGE
+12-06 04:02:09.579 11883 17914 I ll      : [ll][13298962][tid_177](64)send content :<iq to="interactive.handpet.com" id="0450b8ef6c3de13" type="set"><query xmlns="jabber:iq:interactive"><method name="upload:analysis"><userid>10493580917104</userid><unique>5d8c1058ba47b5967617c90a64a661d8</unique><ua_version>21</ua_version><time>1512478706509</time><channel>998</channel><soft_version>6.131</soft_version><micro_version>9</micro_version><system_version>7.0</system_version><platform>android</platform><imei>355455061338346</imei><plugin_version>140</plugin_version><device>shamu</device><model>AOSP on Shamu</model><pid>11883</pid><host>com.android.systemui</host><network_type>13</network_type><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.vlife.ipro.magazine</package><paper_id>465</paper_id><product>android-ipro-magazine</product><current_wallpaper_id>465</current_wallpaper_id><isWallPaperShowValid>false</isWallPaperShowValid><isLockSreenValid>false</isLockSreenValid><item ua_event="request_push" ua_time="1512478706495" ua_process="lockscreen" index="112" dev_version="6.131" ua_local_type="1" uid="10493580917104" /><item tag="ll" message="[ll][13018939][tid_139](172)getHttpResponse IOException error!" name="java.lang.RuntimeException" count="1" error="java.lang.RuntimeException	at n.kj.createHttpRoutePlanner(VLIFE-SOURCE:301)	at org.apache.http.impl.client.AbstractHttpClient.getRoutePlanner(AbstractHttpClient.java:374)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:549)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)	at n.kj.a(VLIFE-SOURCE:319)	at n.uz.a(VLIFE-SOURCE:33)	at n.uy.a(VLIFE-SOURCE:211)	at n.uy.a(VLIFE-SOURCE:189)	at n.uy.a(VLIFE-SOURCE:70)	at n.ll.a(VLIFE-SOURCE:169)	at n.ll.a(VLIFE-SOURCE:99)	at n.ll.a(VLIFE-SOURCE:69)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendCommonUa(VLIFE-SOURCE:184)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendUAData(VLIFE-SOURCE:132)	at n.sj.b(VLIFE-SOURCE:31)	at n.jx.a(VLIFE-SOURCE:91)	at n.gn.run(VLIFE-SOURCE:378)	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)	at java.lang.Thread.run(Thread.java:761)" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478706564" ua_process="lockscreen" index="113" /><item ua_event="mag_lock_unlock" ua_time="1512478708348" ua_process="lockscreen" index="114" /><item ua_action="flash_content" ua_event="request_result" ua_time="1512478712245" ua_process="lockscreen" index="115" /><item ua_action="switch_type" ua_event="request_result" ua_time="1512478712257" ua_process="lockscreen" index="116" /><item ua_action="switch_type" ua_event="request_list" ua_time="1512478712258" ua_process="lockscreen" index="117" /><item ua_action="upload_recent_apps" ua_event="request_result" ua_time="1512478712266" ua_process="lockscreen" index="118" /><item package_name="com.android.launcher3" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="119" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="120" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="121" /><item package_name="com.android.camera2" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="122" /><item ua_action="wallpaper_recommended" ua_event="request_result" ua_time="1512478712287" ua_process="lockscreen" index="123" /><item tag="gp" message="[gp][13024676][tid_141](140)vlifeTimer == null!" name="unknown" count="1" error="[gp][13024676][tid_141](140)vlifeTimer == null!" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478712293" ua_process="lockscreen" index="124" /><item tag="TaskServiceProvider" message=
+12-06 04:02:09.579 11883 17914 W wf      : [wf][13298966][tid_177](52)create preferences name:userinfo
+12-06 04:02:09.579 11883 17919 I wf      : [wf][13298966][tid_180](129)preference name:timing_network_preference putLongAndCommit key:timer_last_time_get_push_message,value:1512504129579
+12-06 04:02:09.580 11883 17914 I uh      : [uh][13298967][tid_177](61)get address type:stat
+12-06 04:02:09.581 11883 17914 I qk      : [qk][13298967][tid_177](244)currentApn:MOBILE
+12-06 04:02:09.581 11883 17914 I qk      : [qk][13298968][tid_177](213)currentApn:MOBILE
+12-06 04:02:09.581 11883 17914 I qw      : [qw][13298968][tid_177](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.uh
+12-06 04:02:09.582 11883 17914 I uh      : [uh][13298968][tid_177](86)getAddress(...) type:stat address:http://115.28.84.237/a/1/stat/
+12-06 04:02:09.582 11883 17914 W ll      : [ll][13298969][tid_177](68)check ok
+12-06 04:02:09.582 11883 12085 I uh      : [uh][13298969][tid_45](100)addressBean = n.vc@a5a3fe4
+12-06 04:02:09.583 11883 12085 I uh      : [uh][13298969][tid_45](117)refreshFront server = http://stage.3gmimo.com/front/address.api
+12-06 04:02:09.583 11883 17914 I ll      : [ll][13298969][tid_177](93)[statistics] request url :http://115.28.84.237/a/1/stat/?v=2&c=g&st=b29a13374853e6552135a6436e5ed0be&uid=10493580917104
+12-06 04:02:09.583 11883 12085 W wf      : [wf][13298970][tid_45](52)create preferences name:userinfo
+12-06 04:02:09.584 11883 17914 I ll      : [ll][13298970][tid_177](95)[statistics] request content :<iq to="interactive.handpet.com" id="0450b8ef6c3de13" type="set"><query xmlns="jabber:iq:interactive"><method name="upload:analysis"><userid>10493580917104</userid><unique>5d8c1058ba47b5967617c90a64a661d8</unique><ua_version>21</ua_version><time>1512478706509</time><channel>998</channel><soft_version>6.131</soft_version><micro_version>9</micro_version><system_version>7.0</system_version><platform>android</platform><imei>355455061338346</imei><plugin_version>140</plugin_version><device>shamu</device><model>AOSP on Shamu</model><pid>11883</pid><host>com.android.systemui</host><network_type>13</network_type><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.vlife.ipro.magazine</package><paper_id>465</paper_id><product>android-ipro-magazine</product><current_wallpaper_id>465</current_wallpaper_id><isWallPaperShowValid>false</isWallPaperShowValid><isLockSreenValid>false</isLockSreenValid><item ua_event="request_push" ua_time="1512478706495" ua_process="lockscreen" index="112" dev_version="6.131" ua_local_type="1" uid="10493580917104" /><item tag="ll" message="[ll][13018939][tid_139](172)getHttpResponse IOException error!" name="java.lang.RuntimeException" count="1" error="java.lang.RuntimeException	at n.kj.createHttpRoutePlanner(VLIFE-SOURCE:301)	at org.apache.http.impl.client.AbstractHttpClient.getRoutePlanner(AbstractHttpClient.java:374)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:549)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:492)	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:470)	at n.kj.a(VLIFE-SOURCE:319)	at n.uz.a(VLIFE-SOURCE:33)	at n.uy.a(VLIFE-SOURCE:211)	at n.uy.a(VLIFE-SOURCE:189)	at n.uy.a(VLIFE-SOURCE:70)	at n.ll.a(VLIFE-SOURCE:169)	at n.ll.a(VLIFE-SOURCE:99)	at n.ll.a(VLIFE-SOURCE:69)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendCommonUa(VLIFE-SOURCE:184)	at com.vlife.common.lib.data.stat.StatisticsProvider.sendUAData(VLIFE-SOURCE:132)	at n.sj.b(VLIFE-SOURCE:31)	at n.jx.a(VLIFE-SOURCE:91)	at n.gn.run(VLIFE-SOURCE:378)	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)	at java.lang.Thread.run(Thread.java:761)" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478706564" ua_process="lockscreen" index="113" /><item ua_event="mag_lock_unlock" ua_time="1512478708348" ua_process="lockscreen" index="114" /><item ua_action="flash_content" ua_event="request_result" ua_time="1512478712245" ua_process="lockscreen" index="115" /><item ua_action="switch_type" ua_event="request_result" ua_time="1512478712257" ua_process="lockscreen" index="116" /><item ua_action="switch_type" ua_event="request_list" ua_time="1512478712258" ua_process="lockscreen" index="117" /><item ua_action="upload_recent_apps" ua_event="request_result" ua_time="1512478712266" ua_process="lockscreen" index="118" /><item package_name="com.android.launcher3" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="119" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="120" /><item package_name="com.android.settings" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="121" /><item package_name="com.android.camera2" ua_event="recent_application" ua_time="1512478712268" ua_process="lockscreen" index="122" /><item ua_action="wallpaper_recommended" ua_event="request_result" ua_time="1512478712287" ua_process="lockscreen" index="123" /><item tag="gp" message="[gp][13024676][tid_141](140)vlifeTimer == null!" name="unknown" count="1" error="[gp][13024676][tid_141](140)vlifeTimer == null!" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512478712293" ua_process="lockscreen" index="124" /><item tag="TaskServicePr
+12-06 04:02:09.584 11883 12085 I wf      : [wf][13298970][tid_45](79)preference name:userinfo getString key:uid,value:10493580917104
+12-06 04:02:09.585 11883 12085 I vv      : [vv][13298971][tid_45](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.585 11883 12085 I AbstractApplicationStatus: [AbstractApplicationStatus][13298971][tid_45](399)packageName:com.vlife.ipro.magazine
+12-06 04:02:09.585 11883 17914 I uy      : [uy][13298972][tid_177](210)http post url:http://115.28.84.237/a/1/stat/?v=2&c=g&st=b29a13374853e6552135a6436e5ed0be&uid=10493580917104
+12-06 04:02:09.586 11883 17914 I vv      : [vv][13298973][tid_177](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.586 11883 17914 I ki      : [ki][13298973][tid_177](162)ShellProduct
+12-06 04:02:09.587 11883 17918 W wf      : [wf][13298974][tid_179](134)timing_network_preference putLong timer_last_time_magazine_update
+12-06 04:02:09.587 11883 17918 I vv      : [vv][13298974][tid_179](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.588 11883 17918 I vv      : [vv][13298974][tid_179](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.588 11883 17918 I ApplicationStatus: [ApplicationStatus][13298975][tid_179](362)isSameProcessType main_page lockscreen true
+12-06 04:02:09.588 11883 17918 I ApplicationStatus: [ApplicationStatus][13298975][tid_179](367)isSameProcessType main_page lockscreen false
+12-06 04:02:09.588 11883 17914 I pn      : [pn][13298974][tid_177](39)VlifePermissManager.check permission = android.permission.INTERNET, packageName = com.android.systemui, result = true
+12-06 04:02:09.604 11883 17918 D yo      : [yo][13298991][tid_179](552)[magazine_down_content] [lock] [isLockProcess:true]
+12-06 04:02:09.604 11883 12085 D qk      : [qk][13298991][tid_45](780)ThreadSafeClientConnManager init
+12-06 04:02:09.661 11883 17918 I fe      : [fe][13299047][tid_179](73)[VTDDataHelper] simpleData = n.bl@79b13ba
+12-06 04:02:09.661 11883 17918 D fe      : [fe][13299048][tid_179](61)data:file
+12-06 04:02:09.662 11883 17918 I fe      : [fe][13299048][tid_179](73)[VTDDataHelper] simpleData = n.e@8e6426b
+12-06 04:02:09.662 11883 17918 D yo      : [yo][13299049][tid_179](259)[magazine_down_content] [update] [autoUpdate] [send protocol] [subscribe size:12]
+12-06 04:02:09.662 11883 17918 D wf      : [wf][13299049][tid_179](54)create preferences name:magazine
+12-06 04:02:09.663 11883 17918 I wf      : [wf][13299049][tid_179](79)preference name:magazine getString key:data_server_time,value:1501220468213
+12-06 04:02:09.665 11883 17918 D yo      : [yo][13299050][tid_179](262)[magazine_down_content] [update] [autoUpdate] [send protocol] [old serverTime:1501220468213]
+12-06 04:02:09.667 11883 17918 D yo      : [yo][13299052][tid_179](297)[magazine_down_content] [update] [autoUpdate] [start send protocol]
+12-06 04:02:09.667 11883 17918 I ServerProvider: [ServerProvider][13299054][tid_179](123)toQuery n.lk@c0911c8
+12-06 04:02:09.668 11883 17918 W wf      : [wf][13299054][tid_179](52)create preferences name:userinfo
+12-06 04:02:09.669 11883 17918 D us      : [us][13299055][tid_179](241)getIProtocolHandler  SubDomain : magazine , Xmlns: jabber:iq:magazine, Method : simple:magazine:content:list:by:source ,isSimple : true ,handler :n.ul@bf7b261
+12-06 04:02:09.670 11883 17918 I us      : [us][13299056][tid_179](158)id:0450b8ef6c3de16
+12-06 04:02:09.670 11883 17918 I us      : [us][13299057][tid_179](160)[NewHttpService] blockSend id = 0450b8ef6c3de16,step1 = 0
+12-06 04:02:09.671 11883 17918 I us      : [us][13299057][tid_179](164)[NewHttpService] blockSend id = 0450b8ef6c3de16,step2 = 0
+12-06 04:02:09.671 11883 17918 I us      : [us][13299058][tid_179](139)this:n.us@2e8516d  sender:n.uq@d0811a2
+12-06 04:02:09.671 11883 17918 D ut      : [ut][13299058][tid_179](44)push a handler : ul
+12-06 04:02:09.672 11883 17918 I us      : [us][13299059][tid_179](166)[NewHttpService] blockSend id = 0450b8ef6c3de16,step3 = 2
+12-06 04:02:09.672 11883 17918 I us      : [us][13299059][tid_179](167)[NewHttpService] blockSend id = 0450b8ef6c3de16, timeout = 20000
+12-06 04:02:09.709 11883 17914 I ki      : [ki][13299095][tid_177](320)response = org.apache.http.message.BasicHttpResponse@8d6b186
+12-06 04:02:09.709 11883 17914 D ki      : [ki][13299096][tid_177](322)uri = http://115.28.84.237/a/1/stat/?v=2&c=g&st=b29a13374853e6552135a6436e5ed0be&uid=10493580917104
+12-06 04:02:09.709 11883 17914 D ki      : [ki][13299096][tid_177](325)header name = platform, value = android
+12-06 04:02:09.709 11883 17914 I ki      : [ki][13299096][tid_177](336)doGetStatusCode
+12-06 04:02:09.709 11883 17914 I ll      : [ll][13299096][tid_177](101)[statistics] response code:206
+12-06 04:02:09.710 11883 17914 I ki      : [ki][13299096][tid_177](352)doGetEntityByteArray
+12-06 04:02:09.710 11883 17914 I ll      : [ll][13299097][tid_177](108)[statistics] response content :<iq from="statistic.stage.vlife.com" id="0450b8ef6c3de13" type="result"><query xmlns="jabber:iq:statistic"><method name="upload:analysis"><enable>true</enable></method></query></iq>
+12-06 04:02:09.711 11883 17914 D ll      : [ll][13299098][tid_177](222)parse result is correct.(206)
+12-06 04:02:09.712 11883 17914 I StatisticsProvider: [StatisticsProvider][13299098][tid_177](186)[statistics_test] delete ua file:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.07057.tmp<==============
+12-06 04:02:09.712 11883 17914 I jx      : [jx][13299099][tid_177](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-06 04:02:09.712 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13299099][tid_177](379)[VlifeTaskService]  end  task : ua_time_send
+12-06 04:02:09.712 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13299099][tid_177](382)[VlifeTaskService]  this task is Cycle ,task : ua_time_send , time : 21600000 
+12-06 04:02:09.713 11883 17914 I vv      : [vv][13299099][tid_177](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.713 11883 17914 D gp      : [gp][13299100][tid_177](96)VlifeTaskService schedule task=ua_time_send, isCycleOrDelay=true,time=21600000,requestCode=193306362
+12-06 04:02:09.714 11883 17914 I gp      : [gp][13299100][tid_177](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:09.714 11883 17941 D gp      : [gp][13299101][tid_186](104)task run
+12-06 04:02:09.714 11883 17914 D go      : [go][13299101][tid_177](48)TaskSignalQueue-remove n.gn@49e8520
+12-06 04:02:09.714 11883 17941 W wf      : [wf][13299101][tid_186](52)create preferences name:timing_network_preference
+12-06 04:02:09.715 11883 17941 I jx      : [jx][13299101][tid_186](84)first time ready type:ua_time_send
+12-06 04:02:09.715 11883 17941 I jx      : [jx][13299101][tid_186](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-06 04:02:09.715 11883 17941 W wf      : [wf][13299102][tid_186](52)create preferences name:timing_network_preference
+12-06 04:02:09.716 11883 17941 I qk      : [qk][13299103][tid_186](244)currentApn:MOBILE
+12-06 04:02:09.716 11883 17941 I qk      : [qk][13299103][tid_186](213)currentApn:MOBILE
+12-06 04:02:09.716 11883 17941 D jz      : [jz][13299103][tid_186](47)canConnectNetWork result == true
+12-06 04:02:09.717 11883 17941 I qk      : [qk][13299103][tid_186](244)currentApn:MOBILE
+12-06 04:02:09.717 11883 17941 I jx      : [jx][13299104][tid_186](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:09.718 11883 17941 I pm      : [pm][13299104][tid_186](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:09.718 11883 17941 I jx      : [jx][13299104][tid_186](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:09.718 11883 17941 D jx      : [jx][13299105][tid_186](116)canRun task=ua_time_send, result=166, frequency=21600000
+12-06 04:02:09.718 11883 17941 D jx      : [jx][13299105][tid_186](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is ua_time_send
+12-06 04:02:09.718 11883 17941 W jx      : [jx][13299105][tid_186](93)task : ua_time_send can't run!
+12-06 04:02:09.718 11883 17941 I jx      : [jx][13299105][tid_186](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-06 04:02:09.723 11883 12342 I ki      : [ki][13299109][tid_101](320)response = org.apache.http.message.BasicHttpResponse@d818274
+12-06 04:02:09.723 11883 12342 D ki      : [ki][13299109][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b1f@a1.stage.vlife.com
+12-06 04:02:09.723 11883 12342 D ki      : [ki][13299110][tid_101](325)header name = platform, value = android
+12-06 04:02:09.723 11883 12342 D ki      : [ki][13299110][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.723 11883 12342 I ki      : [ki][13299110][tid_101](378)doGetAllHeaders
+12-06 04:02:09.723 11883 12342 I ki      : [ki][13299110][tid_101](336)doGetStatusCode
+12-06 04:02:09.723 11883 12342 I uo      : [uo][13299110][tid_101](137)response code:206
+12-06 04:02:09.724 11883 12342 I ki      : [ki][13299110][tid_101](352)doGetEntityByteArray
+12-06 04:02:09.724 11883 12342 I ui      : [ui][13299111][tid_101](47)inflate length:84
+12-06 04:02:09.724 11883 12342 I uo      : [uo][13299111][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" type="error" condition="session"/>
+12-06 04:02:09.725 11883 12342 I up      : [up][13299112][tid_101](58)http send type:RELOGIN
+12-06 04:02:09.725 11883 12342 I ut      : [ut][13299112][tid_101](59)pop signal enable:false
+12-06 04:02:09.725 11883 12342 D ut      : [ut][13299112][tid_101](44)push a handler : ul
+12-06 04:02:09.725 11883 12342 I up      : [up][13299112][tid_101](43)http send thread run
+12-06 04:02:09.726 11883 12342 W wf      : [wf][13299112][tid_101](52)create preferences name:userinfo
+12-06 04:02:09.726 11883 12342 I uh      : [uh][13299113][tid_101](61)get address type:server
+12-06 04:02:09.727 11883 12342 I qk      : [qk][13299114][tid_101](244)currentApn:MOBILE
+12-06 04:02:09.727 11883 12342 I qk      : [qk][13299114][tid_101](213)currentApn:MOBILE
+12-06 04:02:09.727 11883 12342 I uh      : [uh][13299114][tid_101](86)getAddress(...) type:server address:http://115.28.84.237/a/1/
+12-06 04:02:09.728 11883 12342 I ur      : [ur][13299114][tid_101](153)[front] current front URL is http://115.28.84.237/a/1/
+12-06 04:02:09.728 11883 12342 I uq      : [uq][13299115][tid_101](47)[stream]  stream packet URL : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b1f@a1.stage.vlife.com
+12-06 04:02:09.728 11883 12342 I uw      : [uw][13299115][tid_101](28)getRidAndIncrement :1
+12-06 04:02:09.728 11883 12342 I uo      : [uo][13299115][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b1f@a1.stage.vlife.com
+12-06 04:02:09.729 11883 12342 I uo      : [uo][13299116][tid_101](121)Request content : <body rid="1" count="1" wait="2" hold="1"  alive ="120"><stream:stream xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" version="1.0" /></body>
+12-06 04:02:09.729 11883 12342 D uo      : [uo][13299116][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.729 11883 12342 D uo      : [uo][13299116][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:09.729 11883 12342 I ki      : [ki][13299116][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@bdc6012
+12-06 04:02:09.772 11883 12342 I ki      : [ki][13299158][tid_101](320)response = org.apache.http.message.BasicHttpResponse@20693e3
+12-06 04:02:09.772 11883 12342 D ki      : [ki][13299158][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b1f@a1.stage.vlife.com
+12-06 04:02:09.772 11883 12342 D ki      : [ki][13299159][tid_101](325)header name = platform, value = android
+12-06 04:02:09.772 11883 12342 D ki      : [ki][13299159][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.772 11883 12342 I ki      : [ki][13299159][tid_101](378)doGetAllHeaders
+12-06 04:02:09.772 11883 12342 I ki      : [ki][13299159][tid_101](336)doGetStatusCode
+12-06 04:02:09.772 11883 12342 I uo      : [uo][13299159][tid_101](137)response code:206
+12-06 04:02:09.773 11883 12342 I ki      : [ki][13299159][tid_101](352)doGetEntityByteArray
+12-06 04:02:09.773 11883 12342 I ui      : [ui][13299160][tid_101](47)inflate length:971
+12-06 04:02:09.773 11883 12342 I uo      : [uo][13299160][tid_101](174)response CONTENT： <body count="1" sid="7f549c0310006b20@a1.stage.vlife.com" domain="a1.stage.vlife.com"><stream:stream xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" from="a1.stage.vlife.com" xml:lang="en" xml:encode="UTF-8" version="1.0" secure="false" requests="1" inactivity="120"><stream:features><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>digest-md5</mechanism><mechanism>plain</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method><method>plain</method><method>gzip</method></compression><auth xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"/><register xmlns="http://jabber.com/features/iq-query/jabber:iq:register"/><bind xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"/><session xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"/><protocol xmlns="http://jabber.org/protocol/disco#info"/><user xmlns="jabber:iq:user"/></stream:features></stream:stream></body>
+12-06 04:02:09.774 11883 12342 I uw      : [uw][13299161][tid_101](21)getRid :2
+12-06 04:02:09.775 11883 12342 I uo      : [uo][13299161][tid_101](212)use old Iparser current:body
+12-06 04:02:09.775 11883 12342 I ur      : [ur][13299162][tid_101](100)do steam successfully!
+12-06 04:02:09.776 11883 12342 D wf      : [wf][13299162][tid_101](54)create preferences name:unique_user
+12-06 04:02:09.776 11883 12342 I wf      : [wf][13299163][tid_101](79)preference name:unique_user getString key:unique,value:5d8c1058ba47b5967617c90a64a661d8
+12-06 04:02:09.777 11883 12342 D qk      : [qk][13299163][tid_101](409)[StatusUtil] refreshData context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c
+12-06 04:02:09.777 11883 12342 I vv      : [vv][13299164][tid_101](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.777 11883 12342 I AbstractApplicationStatus: [AbstractApplicationStatus][13299164][tid_101](399)packageName:com.vlife.ipro.magazine
+12-06 04:02:09.780 11883 12342 I AbstractApplicationStatus: [AbstractApplicationStatus][13299166][tid_101](399)packageName:com.vlife.ipro.magazine
+12-06 04:02:09.780 11883 17928 I mb      : [mb][13299167][tid_184](164)256 256 urlDecode 211
+12-06 04:02:09.780 11883 12342 D qk      : [qk][13299167][tid_101](409)[StatusUtil] refreshData context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c
+12-06 04:02:09.780 11883 17928 W pb      : [pb][13299167][tid_184](606)readBytesInputStream java.util.zip.GZIPInputStream@26e51e0
+12-06 04:02:09.780 11883 12342 D qk      : [qk][13299167][tid_101](409)[StatusUtil] refreshData context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c
+12-06 04:02:09.781 11883 17928 I mb      : [mb][13299167][tid_184](168)response:{"id":"7135175381474030137","time":1501220738796,"version":2,"data":{"result":"success","sessionid":"4844182916w10438970","check":"fCUAShrP1sp945oRETaGa78E0gr23yDM","expires":600000,"key":"wA730kiliwkM21Al","iv":"CJ16L96OmUGNulf4"}}
+12-06 04:02:09.781 11883 17928 I mb      : [mb][13299167][tid_184](169)important event not in main response:{"id":"7135175381474030137","time":1501220738796,"version":2,"data":{"result":"success","sessionid":"4844182916w10438970","check":"fCUAShrP1sp945oRETaGa78E0gr23yDM","expires":600000,"key":"wA730kiliwkM21Al","iv":"CJ16L96OmUGNulf4"}}
+12-06 04:02:09.781 11883 17928 D lx      : [lx][13299168][tid_184](81)client_time for server_time offset=-11283390788ms deviation=131ms
+12-06 04:02:09.781 11883 17928 I lx      : [lx][13299168][tid_184](84)responseDataJson:{"result":"success","sessionid":"4844182916w10438970","check":"fCUAShrP1sp945oRETaGa78E0gr23yDM","expires":600000,"key":"wA730kiliwkM21Al","iv":"CJ16L96OmUGNulf4"}
+12-06 04:02:09.782 11883 17928 D md      : [md][13299168][tid_184](41)data:{"result":"success","sessionid":"4844182916w10438970","check":"fCUAShrP1sp945oRETaGa78E0gr23yDM","expires":600000,"key":"wA730kiliwkM21Al","iv":"CJ16L96OmUGNulf4"}
+12-06 04:02:09.782 11883 17928 D md      : [md][13299169][tid_184](50)result:success,sessionid:4844182916w10438970,check:fCUAShrP1sp945oRETaGa78E0gr23yDM,expires:600000
+12-06 04:02:09.782 11883 17928 D md      : [md][13299169][tid_184](52)login success!!!
+12-06 04:02:09.784 11883 12342 I qk      : [qk][13299170][tid_101](311)[SystemPropertiesUtil] getBoolean(...) key = wlan0,result = {}
+12-06 04:02:09.784 11883 12342 I qk      : [qk][13299171][tid_101](280)getMacAddressInAndroidM ,wifi.interface value is :wlan0
+12-06 04:02:09.788 11883 12342 I qk      : [qk][13299174][tid_101](298)get mac address :E4:90:7E:05:F0:B9
+12-06 04:02:09.789 11883 12342 I ug      : [ug][13299175][tid_101](75)create segment class n.uj use time:12971us
+12-06 04:02:09.790 11883 12342 I uw      : [uw][13299176][tid_101](28)getRidAndIncrement :2
+12-06 04:02:09.790 11883 12342 I uo      : [uo][13299177][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:09.792 11883 12342 I uo      : [uo][13299178][tid_101](121)Request content : <body rid="2" count="1" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"><iq to="a1.stage.vlife.com" id="0450b8ef6c3de17" type="get"><query xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"><uid>10493580917104</uid><password>NRQ2CRFYUX</password><resource>android-2.1-pet</resource><unique>5d8c1058ba47b5967617c90a64a661d8</unique><platform version="7.0">android</platform><product soft="6.131" micro="9">android-ipro-magazine</product><plugin><item package="com.vlife.ipro.magazine" version="6139"/></plugin><plugin_version>140</plugin_version><promotion>998</promotion><imei>355455061338346</imei><android_id>85dedb2176c53154</android_id><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.vlife.ipro.magazine</package><host>com.android.systemui</host><paper_id>465</paper_id><elapsed_realtime>872137299</elapsed_realtime><apk_path>/system/priv-app/SystemUI/SystemUI.apk</apk_path><device>shamu</device><brand>Android</brand><board>shamu</board><display>aosp_shamu-eng 7.0 NBD90Z eng.tugang.20170117.112541 debug,test-keys</display><system_id>NBD90Z</system_id><incremental>eng.tugang.20170117.112541</incremental><manufacturer>motorola</manufacturer><model>AOSP on Shamu</model><release>7.0</release><system_product>aosp_shamu</system_product><sdk_int>24</sdk_int><user>tuganglei</user><finger_print>Android/aosp_shamu/shamu:7.0/NBD90Z/tugang01171125:eng/debug,test-keys</finger_print><manufacturer>motorola</manufacturer><tags>debug,test-keys</tags><type>eng</type><serial>ZX1G22TG4F</serial><mac>E4:90:7E:05:F0:B9</mac></query></iq></body>
+12-06 04:02:09.792 11883 12342 D uo      : [uo][13299179][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.792 11883 12342 D uo      : [uo][13299179][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:09.792 11883 12342 I ki      : [ki][13299179][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@92b4c99
+12-06 04:02:09.796 11883 17928 D mb      : [mb][13299182][tid_184](200)sessionId use yet!!!lastLoginTime:1512478708860,expires:600000,currentTime:1512504129635
+12-06 04:02:09.796 11883 17928 D mb      : [mb][13299183][tid_184](203)currentTime:1512504129635 authorization:baa732e07c1bdacbb757ccd512159653
+12-06 04:02:09.797 11883 17928 D mb      : [mb][13299184][tid_184](138)encode by aes
+12-06 04:02:09.828 11883 12085 I ki      : [ki][13299215][tid_45](320)response = org.apache.http.message.BasicHttpResponse@1c6b5e
+12-06 04:02:09.829 11883 12085 D ki      : [ki][13299215][tid_45](322)uri = http://stage.3gmimo.com/front/address.api?uid=10493580917104&imei=355455061338346&model=AOSP+on+Shamu&p=a&v=5&sv=6.131&az=android-ipro-magazine
+12-06 04:02:09.829 11883 12085 I ki      : [ki][13299216][tid_45](386)doGetFirstHeader
+12-06 04:02:09.829 11883 12085 I uh      : [uh][13299216][tid_45](128)refreshFront sign = qn2lTGWjOwN7efcexDuiWUjz7tVgz2295Ips2xYXpAXwSluZEiQxOs/tjXvwEYYBIArADY/GZ/+nFLOExjn39BpSByrbKk8lDoadRPbSi4Mlmrq8CW24+gyRp1xk1oodjWsVETSxqarrGi8Cku7VhEESri3dhfVbzttzPdingN4=
+12-06 04:02:09.829 11883 12085 I ki      : [ki][13299216][tid_45](336)doGetStatusCode
+12-06 04:02:09.829 11883 12085 D uy      : [uy][13299216][tid_45](234)response code:206
+12-06 04:02:09.829 11883 12085 I ki      : [ki][13299216][tid_45](365)doGetEntityString
+12-06 04:02:09.830 11883 12085 I vs      : [vs][13299217][tid_45](42)verify {"server":{"address":["http://115.28.84.237/a/1/"],"timeout":1800000},"download":{"address":["http://stage.3gmimo.com/handpet/"],"timeout":3600000},"stat":{"address":["http://115.28.84.237/a/1/stat/"],"timeout":3600000},"mall":{"address":["http://stage.drupal.3gmimo.com/task/login.html"],"timeout":3600000},"front":{"address":["http://stage.3gmimo.com/front/address.api"],"timeout":3600000},"stat_url":{"address":["http://stage.drupal.3gmimo.com/adstat/index/android"],"timeout":3600000},"sdk":{"address":["http://115.28.84.237/sdk/"],"timeout":240000},"operation":{"address":["http://stage.3gmimo.com/handpet/p/402/4176f5b89af012ebd5290b853fe5d115.db"],"timeout":600000},"gateway":{"address":["http://115.28.84.237/gateway/a/1/ve/"],"timeout":240000}} qn2lTGWjOwN7efcexDuiWUjz7tVgz2295Ips2xYXpAXwSluZEiQxOs/tjXvwEYYBIArADY/GZ/+nFLOExjn39BpSByrbKk8lDoadRPbSi4Mlmrq8CW24+gyRp1xk1oodjWsVETSxqarrGi8Cku7VhEESri3dhfVbzttzPdingN4= MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTALK7WxEK0q79k355T1WWyqPiIEMstWgDt9Z/zRXrjjTrbha4XePkjeG0ssn8sqpT9yIIHD3II/7LHki8uixgmWogWaAGUArtJ24ICllCUcIytEG5eWQ9SPK3NTgT8w1jOxmKTosWqrTPUA98fbz8o+mfnfjruHN80BxWSzCpBwIDAQAB
+12-06 04:02:09.831 11883 12085 I uh      : [uh][13299217][tid_45](161)address json:{"server":{"address":["http://115.28.84.237/a/1/"],"timeout":1800000},"download":{"address":["http://stage.3gmimo.com/handpet/"],"timeout":3600000},"stat":{"address":["http://115.28.84.237/a/1/stat/"],"timeout":3600000},"mall":{"address":["http://stage.drupal.3gmimo.com/task/login.html"],"timeout":3600000},"front":{"address":["http://stage.3gmimo.com/front/address.api"],"timeout":3600000},"stat_url":{"address":["http://stage.drupal.3gmimo.com/adstat/index/android"],"timeout":3600000},"sdk":{"address":["http://115.28.84.237/sdk/"],"timeout":240000},"operation":{"address":["http://stage.3gmimo.com/handpet/p/402/4176f5b89af012ebd5290b853fe5d115.db"],"timeout":600000},"gateway":{"address":["http://115.28.84.237/gateway/a/1/ve/"],"timeout":240000}}
+12-06 04:02:09.831 11883 12085 I uh      : [uh][13299218][tid_45](175)parser key = server,address = ["http:\/\/115.28.84.237\/a\/1\/"]
+12-06 04:02:09.832 11883 12085 I uh      : [uh][13299218][tid_45](175)parser key = download,address = ["http:\/\/stage.3gmimo.com\/handpet\/"]
+12-06 04:02:09.832 11883 12085 I uh      : [uh][13299218][tid_45](175)parser key = stat,address = ["http:\/\/115.28.84.237\/a\/1\/stat\/"]
+12-06 04:02:09.832 11883 12085 I uh      : [uh][13299219][tid_45](175)parser key = mall,address = ["http:\/\/stage.drupal.3gmimo.com\/task\/login.html"]
+12-06 04:02:09.832 11883 12085 I uh      : [uh][13299219][tid_45](175)parser key = front,address = ["http:\/\/stage.3gmimo.com\/front\/address.api"]
+12-06 04:02:09.832 11883 12085 I uh      : [uh][13299219][tid_45](175)parser key = stat_url,address = ["http:\/\/stage.drupal.3gmimo.com\/adstat\/index\/android"]
+12-06 04:02:09.833 11883 12085 I uh      : [uh][13299219][tid_45](175)parser key = sdk,address = ["http:\/\/115.28.84.237\/sdk\/"]
+12-06 04:02:09.833 11883 12085 I uh      : [uh][13299219][tid_45](175)parser key = operation,address = ["http:\/\/stage.3gmimo.com\/handpet\/p\/402\/4176f5b89af012ebd5290b853fe5d115.db"]
+12-06 04:02:09.833 11883 12085 I uh      : [uh][13299220][tid_45](175)parser key = gateway,address = ["http:\/\/115.28.84.237\/gateway\/a\/1\/ve\/"]
+12-06 04:02:09.841 11883 12342 I ki      : [ki][13299227][tid_101](320)response = org.apache.http.message.BasicHttpResponse@596ac0c
+12-06 04:02:09.841 11883 12342 D ki      : [ki][13299228][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:09.841 11883 12342 D ki      : [ki][13299228][tid_101](325)header name = platform, value = android
+12-06 04:02:09.841 11883 12342 D ki      : [ki][13299228][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.841 11883 12342 I ki      : [ki][13299228][tid_101](378)doGetAllHeaders
+12-06 04:02:09.841 11883 12342 I ki      : [ki][13299228][tid_101](336)doGetStatusCode
+12-06 04:02:09.842 11883 12342 I uo      : [uo][13299228][tid_101](137)response code:206
+12-06 04:02:09.842 11883 12342 I ki      : [ki][13299228][tid_101](352)doGetEntityByteArray
+12-06 04:02:09.842 11883 12342 I ui      : [ui][13299229][tid_101](47)inflate length:371
+12-06 04:02:09.842 11883 12342 I uo      : [uo][13299229][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="2" sid="7f549c0310006b20@a1.stage.vlife.com" ><iq from="a1.stage.vlife.com" id="0450b8ef6c3de17" type="result"><query xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"><jid>10493580917104@a1.stage.vlife.com/android-2.1-pet</jid><address>/202.99.101.36</address><time>1501220738867</time></query></iq></body>
+12-06 04:02:09.843 11883 12342 I uw      : [uw][13299230][tid_101](21)getRid :3
+12-06 04:02:09.843 11883 12342 I uo      : [uo][13299230][tid_101](212)use old Iparser current:iq
+12-06 04:02:09.843 11883 12342 I ur      : [ur][13299230][tid_101](293)resut type:OK
+12-06 04:02:09.844 11883 12342 I uj      : [uj][13299230][tid_101](82)parser auth hadler
+12-06 04:02:09.844 11883 12342 I uj      : [uj][13299231][tid_101](94)parser auth hadler jid:10493580917104@a1.stage.vlife.com/android-2.1-pet
+12-06 04:02:09.844 11883 12342 I ur      : [ur][13299231][tid_101](303)resut value:n.vd@6db1955
+12-06 04:02:09.846 11883 12342 I pm      : [pm][13299233][tid_101](222)[Utility] version is 5.0
+12-06 04:02:09.847 11883 12342 D pm      : [pm][13299234][tid_101](226)runningAppProcessInfoList:[android.app.ActivityManager$RunningAppProcessInfo@9bfdf6a, android.app.ActivityManager$RunningAppProcessInfo@2c09c5b, android.app.ActivityManager$RunningAppProcessInfo@5087cf8, android.app.ActivityManager$RunningAppProcessInfo@a80f5d1, android.app.ActivityManager$RunningAppProcessInfo@4748836, android.app.ActivityManager$RunningAppProcessInfo@6e2a337, android.app.ActivityManager$RunningAppProcessInfo@fc470a4, android.app.ActivityManager$RunningAppProcessInfo@3ce1e0d, android.app.ActivityManager$RunningAppProcessInfo@6f8f1c2, android.app.ActivityManager$RunningAppProcessInfo@fb43bd3, android.app.ActivityManager$RunningAppProcessInfo@229f310, android.app.ActivityManager$RunningAppProcessInfo@24b8e09, android.app.ActivityManager$RunningAppProcessInfo@368680e, android.app.ActivityManager$RunningAppProcessInfo@bfcc22f, android.app.ActivityManager$RunningAppProcessInfo@d23303c, android.app.ActivityManager$RunningAppProcessInfo@b1601c5, android.app.ActivityManager$RunningAppProcessInfo@46f71a, android.app.ActivityManager$RunningAppProcessInfo@59d524b]
+12-06 04:02:09.848 11883 12342 D pm      : [pm][13299234][tid_101](228)runningAppProcessInfoList.size():18
+12-06 04:02:09.848 11883 12342 D pm      : [pm][13299235][tid_101](230)info.pkgList[0]:com.android.launcher3,info.inportance:100
+12-06 04:02:09.848 11883 12342 D pm      : [pm][13299235][tid_101](232)getTopActivity_pkg=com.android.launcher3 IMPORTANCE_FOREGROUND
+12-06 04:02:09.848 11883 12342 I pm      : [pm][13299235][tid_101](222)[Utility] version is 5.0
+12-06 04:02:09.850 11883 12342 D pm      : [pm][13299236][tid_101](226)runningAppProcessInfoList:[android.app.ActivityManager$RunningAppProcessInfo@4111428, android.app.ActivityManager$RunningAppProcessInfo@e59f541, android.app.ActivityManager$RunningAppProcessInfo@64d6ae6, android.app.ActivityManager$RunningAppProcessInfo@96cc827, android.app.ActivityManager$RunningAppProcessInfo@d774ad4, android.app.ActivityManager$RunningAppProcessInfo@88fa47d, android.app.ActivityManager$RunningAppProcessInfo@ef54f72, android.app.ActivityManager$RunningAppProcessInfo@d3bfc3, android.app.ActivityManager$RunningAppProcessInfo@2684040, android.app.ActivityManager$RunningAppProcessInfo@b770b79, android.app.ActivityManager$RunningAppProcessInfo@fc4f0be, android.app.ActivityManager$RunningAppProcessInfo@928951f, android.app.ActivityManager$RunningAppProcessInfo@8b1206c, android.app.ActivityManager$RunningAppProcessInfo@ad3e635, android.app.ActivityManager$RunningAppProcessInfo@e5b5aca, android.app.ActivityManager$RunningAppProcessInfo@4cb643b, android.app.ActivityManager$RunningAppProcessInfo@3c5d758, android.app.ActivityManager$RunningAppProcessInfo@8e9b0b1]
+12-06 04:02:09.850 11883 12342 D pm      : [pm][13299237][tid_101](228)runningAppProcessInfoList.size():18
+12-06 04:02:09.850 11883 12342 D pm      : [pm][13299237][tid_101](230)info.pkgList[0]:com.android.launcher3,info.inportance:100
+12-06 04:02:09.851 11883 12342 D pm      : [pm][13299237][tid_101](232)getTopActivity_pkg=com.android.launcher3 IMPORTANCE_FOREGROUND
+12-06 04:02:09.851 11883 12342 I vv      : [vv][13299238][tid_101](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:09.851 11883 12342 I pm      : [pm][13299238][tid_101](796)[Utility] getCurrentLockScreenID() RunOnSystemProcess
+12-06 04:02:09.851 11883 12342 I pm      : [pm][13299238][tid_101](807)[Utility] getCurrentLockScreenID() lockscreenId = 0, lockEnable=false
+12-06 04:02:09.866 11883 12342 D pb      : [pb][13299252][tid_101](87)[readBytesFile][len=0]
+12-06 04:02:09.866 11883 12342 W pb      : [pb][13299253][tid_101](91)read file:/proc/version length:0
+12-06 04:02:09.866 11883 12342 D pb      : [pb][13299253][tid_101](87)[readBytesFile][len=0]
+12-06 04:02:09.867 11883 12342 W pb      : [pb][13299253][tid_101](91)read file:/proc/meminfo length:0
+12-06 04:02:09.867 11883 12342 D pb      : [pb][13299254][tid_101](87)[readBytesFile][len=0]
+12-06 04:02:09.867 11883 12342 W pb      : [pb][13299254][tid_101](91)read file:/proc/cpuinfo length:0
+12-06 04:02:09.868 11883 12342 D pb      : [pb][13299254][tid_101](87)[readBytesFile][len=0]
+12-06 04:02:09.868 11883 12342 W pb      : [pb][13299255][tid_101](91)read file:/proc/mounts length:0
+12-06 04:02:09.873 11883 12342 D pb      : [pb][13299260][tid_101](81)read file:/storage/emulated/0/.qm_guid is null
+12-06 04:02:09.873 11883 12342 I ug      : [ug][13299260][tid_101](75)create segment class n.un use time:28566us
+12-06 04:02:09.874 11883 12342 I uw      : [uw][13299260][tid_101](28)getRidAndIncrement :3
+12-06 04:02:09.874 11883 12342 I uo      : [uo][13299261][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:09.875 11883 12342 I uo      : [uo][13299261][tid_101](121)Request content : <body rid="3" count="1" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"><iq to="a1.stage.vlife.com" id="0450b8ef6c3de18" type="get"><query xmlns="http://jabber.com/features/iq-query/jabber:iq:userinfo"><mnc>01</mnc><mcc>460</mcc><lac>8454</lac><cellid>14051596</cellid><network_type>13</network_type><screen_width>1440</screen_width><screen_height>2392</screen_height><background>true</background><lockscreen_id>0</lockscreen_id><wallpaper_id>0</wallpaper_id><ssid>&lt;unknown ssid&gt;</ssid><imsi>460012462609609</imsi><ccid>89860116813009054840</ccid><network_operator_name>CHN-UNICOM</network_operator_name><sim_operator>46001</sim_operator><sim_state>5</sim_state><line_number>+8618622462891</line_number><device_software_version>14</device_software_version><proc_version></proc_version><proc_meminfo></proc_meminfo><proc_cpuinfo></proc_cpuinfo><proc_mounts></proc_mounts><ipv6_address>/oAAAAAAAAA05+f//uDfHw==</ipv6_address><ipv6_address>/oAAAAAAAABAJzsQLPaKtQ==</ipv6_address><display_metrics>DisplayMetrics{density=3.5, width=1440, height=2392, scaledDensity=3.5, xdpi=494.27, ydpi=492.606}</display_metrics></query></iq></body>
+12-06 04:02:09.875 11883 12342 D uo      : [uo][13299261][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.875 11883 12342 D uo      : [uo][13299262][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:09.875 11883 12342 I ki      : [ki][13299262][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@93c5996
+12-06 04:02:09.890 11883 17928 I mb      : [mb][13299276][tid_184](160)key:wA730kiliwkM21Al iv:CJ16L96OmUGNulf4
+12-06 04:02:09.891 11883 17928 I mb      : [mb][13299277][tid_184](164)112 112 urlDecode 99
+12-06 04:02:09.891 11883 17928 W pb      : [pb][13299278][tid_184](606)readBytesInputStream java.util.zip.GZIPInputStream@2020917
+12-06 04:02:09.892 11883 17928 I mb      : [mb][13299278][tid_184](168)response:{"id":"283261019812627866","time":1501220738918,"version":2,"data":{"result":"success"}}
+12-06 04:02:09.892 11883 17928 I mb      : [mb][13299278][tid_184](169)important event not in main response:{"id":"283261019812627866","time":1501220738918,"version":2,"data":{"result":"success"}}
+12-06 04:02:09.892 11883 17928 D lx      : [lx][13299279][tid_184](81)client_time for server_time offset=-11283390589ms deviation=257ms
+12-06 04:02:09.892 11883 17928 I lx      : [lx][13299279][tid_184](84)responseDataJson:{"result":"success"}
+12-06 04:02:09.950 11883 12342 I ki      : [ki][13299336][tid_101](320)response = org.apache.http.message.BasicHttpResponse@86d1104
+12-06 04:02:09.950 11883 12342 D ki      : [ki][13299336][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:09.950 11883 12342 D ki      : [ki][13299337][tid_101](325)header name = platform, value = android
+12-06 04:02:09.950 11883 12342 D ki      : [ki][13299337][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.950 11883 12342 I ki      : [ki][13299337][tid_101](378)doGetAllHeaders
+12-06 04:02:09.950 11883 12342 I ki      : [ki][13299337][tid_101](336)doGetStatusCode
+12-06 04:02:09.951 11883 12342 I uo      : [uo][13299337][tid_101](137)response code:206
+12-06 04:02:09.951 11883 12342 I ki      : [ki][13299337][tid_101](352)doGetEntityByteArray
+12-06 04:02:09.951 11883 12342 I ui      : [ui][13299338][tid_101](47)inflate length:337
+12-06 04:02:09.951 11883 12342 I uo      : [uo][13299338][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="3" sid="7f549c0310006b20@a1.stage.vlife.com" ><iq from="a1.stage.vlife.com" to="10493580917104@a1.stage.vlife.com/android-2.1-pet" id="0450b8ef6c3de18" type="result"><query xmlns="http://jabber.com/features/iq-query/jabber:iq:userinfo"><time>1501220738977</time></query></iq></body>
+12-06 04:02:09.953 11883 12342 I uw      : [uw][13299339][tid_101](21)getRid :4
+12-06 04:02:09.953 11883 12342 I uo      : [uo][13299340][tid_101](212)use old Iparser current:iq
+12-06 04:02:09.953 11883 12342 I ur      : [ur][13299340][tid_101](112)handpet login successfully!
+12-06 04:02:09.953 11883 12342 I ut      : [ut][13299340][tid_101](59)pop signal enable:true
+12-06 04:02:09.954 11883 12342 D ut      : [ut][13299340][tid_101](72)waiting list Condition signal heartIndex:0 waitTime:2
+12-06 04:02:09.954 11883 12342 I up      : [up][13299341][tid_101](46)http send list:[n.ul@1d6a0b2, n.ul@bf7b261, n.ul@b5b8e6f]
+12-06 04:02:09.957 11883 12342 I ug      : [ug][13299343][tid_101](75)create segment class n.ul use time:2390us
+12-06 04:02:09.958 11883 12342 I ug      : [ug][13299345][tid_101](75)create segment class n.ul use time:899us
+12-06 04:02:09.959 11883 12342 I ug      : [ug][13299346][tid_101](75)create segment class n.ul use time:322us
+12-06 04:02:09.959 11883 12342 I uw      : [uw][13299346][tid_101](28)getRidAndIncrement :4
+12-06 04:02:09.960 11883 12342 I uo      : [uo][13299347][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:09.961 11883 12342 I uo      : [uo][13299347][tid_101](121)Request content : <body rid="4" count="3" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"><iq to="push.stage.vlife.com" id="0450b8ef6c3de15" type="get"><query xmlns="jabber:iq:push"><method name="simple:push" version="1"><beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_push_message"><property name="isVlifeWallpaperShown" value="-1"/><property name="enabled" value="1"/><property name="frequency" value="0"/><property name="pushMessageDataList"><list><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="local_private_message"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="flash_content"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="panel"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="local_designer_works_type"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="advertise"/></bean><bean name="push_message_data"><property name="time" value="1500012956000"/><property name="type" value="ana_send"/></bean><bean name="push_message_data"><property name="time" value="1500539562000"/><property name="type" value="switch_type"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="normal_curl"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="magazine_content"/></bean><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="upload_location"/></bean><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="upload_recent_apps"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="wallpaper_recommended"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="curl_page"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="guide_push"/></bean><bean name="push_message_data"><property name="time" value="1500012956000"/><property name="type" value="ana_important"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="unknown"/></bean><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="upload_apps"/></bean><bean name="push_message_data"><property name="time" value="0"/><property name="type" value="local_comment"/></bean></list></property></bean></beans></method></query></iq><iq to="magazine.stage.vlife.com" id="0450b8ef6c3de16" type="get"><query xmlns="jabber:iq:magazine"><method name="simple:magazine:content:list:by:source"><beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_magazine_content_list_by_source_protocol"><property name="st" value="1501220468213"/><property name="mn" value="0"/><property name="sl"><list><value>5</value><value>1</value><value>2</value><value>10</value><value>29</value><value>28</value><value>8</value><value>30</value><value>31</value><value>36</value><value>3</value><value>4</value></list></property></bean></beans></method></query></iq><iq to="interactive.stage.vlife.com" id="0450b8ef6c3de14" type="get"><query xmlns="jabber:iq:interactive"><method name="simple:plugin:update"><beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_plugin_update_protocol"><property name="api_verison" value="140"/><property name="pluginMap"><map/></property></bean></beans></method></query></iq></body>
+12-06 04:02:09.961 11883 12342 D uo      : [uo][13299348][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:09.961 11883 12342 D uo      : [uo][13299348][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:09.961 11883 12342 I ki      : [ki][13299348][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@eb7a6ed
+12-06 04:02:10.087 11883 12342 I ki      : [ki][13299474][tid_101](320)response = org.apache.http.message.BasicHttpResponse@15c7922
+12-06 04:02:10.087 11883 12342 D ki      : [ki][13299474][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:10.087 11883 12342 D ki      : [ki][13299474][tid_101](325)header name = platform, value = android
+12-06 04:02:10.088 11883 12342 D ki      : [ki][13299474][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:10.088 11883 12342 I ki      : [ki][13299474][tid_101](378)doGetAllHeaders
+12-06 04:02:10.088 11883 12342 I ki      : [ki][13299475][tid_101](336)doGetStatusCode
+12-06 04:02:10.088 11883 12342 I uo      : [uo][13299475][tid_101](137)response code:206
+12-06 04:02:10.088 11883 12342 I ki      : [ki][13299475][tid_101](352)doGetEntityByteArray
+12-06 04:02:10.088 11883 12342 I ui      : [ui][13299475][tid_101](47)inflate length:583
+12-06 04:02:10.089 11883 12342 I uo      : [uo][13299476][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="4" sid="7f549c0310006b20@a1.stage.vlife.com" ><iq from="interactive.stage.vlife.com" to="10493580917104@a1.stage.vlife.com/android-2.1-pet" id="0450b8ef6c3de14" sid="7f549c0310006b20@a1.stage.vlife.com" type="result"><query xmlns="jabber:iq:interactive"><method name="simple:plugin:update"><beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_plugin_update_protocol"><property name="api_verison" value="140"/><property name="pluginMap"><map/></property></bean></beans></method></query></iq></body>
+12-06 04:02:10.090 11883 12342 I uw      : [uw][13299477][tid_101](21)getRid :5
+12-06 04:02:10.090 11883 12342 I uo      : [uo][13299477][tid_101](212)use old Iparser current:iq
+12-06 04:02:10.090 11883 12342 I up      : [up][13299477][tid_101](58)http send type:OK
+12-06 04:02:10.091 11883 12342 D us      : [us][13299477][tid_101](73)hanldeReceiving ! getCurrentTagName:iq
+12-06 04:02:10.091 11883 12342 I up      : [up][13299478][tid_101](43)http send thread run
+12-06 04:02:10.091 11883 12342 D ut      : [ut][13299478][tid_101](72)waiting list Condition signal heartIndex:0 waitTime:2
+12-06 04:02:10.093 11883 17962 D ul      : [ul][13299479][tid_187](86)from:interactive.stage.vlife.com type:result subDomain:interactive
+12-06 04:02:10.094 11883 17962 D ul      : [ul][13299480][tid_187](92)xmlns : jabber:iq:interactive method : simple:plugin:update
+12-06 04:02:10.096 11883 17962 I ul      : [ul][13299481][tid_187](94)n.ul start method type:result
+12-06 04:02:10.096 11883 17962 D ul      : [ul][13299483][tid_187](69)xml:<beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_plugin_update_protocol"><property name="api_verison" value="140"/><property name="pluginMap"><map/></property></bean></beans>
+12-06 04:02:10.097 11883 17962 D fe      : [fe][13299484][tid_187](61)data:simple_plugin_update_protocol
+12-06 04:02:10.097 11883 17962 I fe      : [fe][13299484][tid_187](73)[VTDDataHelper] simpleData = n.cp@f2c3970
+12-06 04:02:10.098 11883 17962 I ul      : [ul][13299484][tid_187](103)n.ul end cost time:3 result:n.cp@f2c3970
+12-06 04:02:10.099 11883 17962 D us      : [us][13299484][tid_187](95)handler:n.ul@b5b8e6f parser:n.gr@bf4c4e9 callback:n.ajo$2@6d056e left:19504
+12-06 04:02:10.101 11883 17917 I jx      : [jx][13299488][tid_178](95)TimingNetworkTimerServerTask end , task : plugin_update 
+12-06 04:02:10.101 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13299488][tid_178](379)[VlifeTaskService]  end  task : plugin_update
+12-06 04:02:10.101 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13299488][tid_178](382)[VlifeTaskService]  this task is Cycle ,task : plugin_update , time : 21600000 
+12-06 04:02:10.102 11883 17917 I vv      : [vv][13299488][tid_178](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:10.102 11883 17917 D gp      : [gp][13299489][tid_178](96)VlifeTaskService schedule task=plugin_update, isCycleOrDelay=true,time=21600000,requestCode=93687749
+12-06 04:02:10.103 11883 17917 I gp      : [gp][13299490][tid_178](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:10.103 11883 17917 D go      : [go][13299490][tid_178](48)TaskSignalQueue-remove n.gn@6745011
+12-06 04:02:10.104 11883 17965 D gp      : [gp][13299491][tid_188](104)task run
+12-06 04:02:10.104 11883 17965 W wf      : [wf][13299491][tid_188](52)create preferences name:timing_network_preference
+12-06 04:02:10.105 11883 17965 I jx      : [jx][13299491][tid_188](84)first time ready type:plugin_update
+12-06 04:02:10.105 11883 17965 I jx      : [jx][13299492][tid_188](86)judge timing task whether or not can run,judge task type is :plugin_update
+12-06 04:02:10.105 11883 17965 W wf      : [wf][13299492][tid_188](52)create preferences name:timing_network_preference
+12-06 04:02:10.106 11883 17965 I qk      : [qk][13299493][tid_188](244)currentApn:MOBILE
+12-06 04:02:10.107 11883 17965 I qk      : [qk][13299493][tid_188](213)currentApn:MOBILE
+12-06 04:02:10.107 11883 17965 D jz      : [jz][13299493][tid_188](47)canConnectNetWork result == true
+12-06 04:02:10.107 11883 17965 I qk      : [qk][13299494][tid_188](244)currentApn:MOBILE
+12-06 04:02:10.108 11883 17965 I jx      : [jx][13299494][tid_188](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:10.109 11883 17965 I pm      : [pm][13299495][tid_188](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:10.109 11883 17965 I jx      : [jx][13299496][tid_188](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:10.109 11883 17965 D jx      : [jx][13299496][tid_188](116)canRun task=plugin_update, result=534, frequency=21600000
+12-06 04:02:10.109 11883 17965 D jx      : [jx][13299496][tid_188](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is plugin_update
+12-06 04:02:10.109 11883 17965 W jx      : [jx][13299496][tid_188](93)task : plugin_update can't run!
+12-06 04:02:10.110 11883 17965 I jx      : [jx][13299496][tid_188](95)TimingNetworkTimerServerTask end , task : plugin_update 
+12-06 04:02:10.968 11883 11883 D NewDownloadProvider: [NewDownloadProvider][13300354][tid_1](408)[download_net_change] handleMessage
+12-06 04:02:10.968 11883 11883 D fk      : [fk][13300355][tid_1](49)[download_net_change] refreshNetworkType
+12-06 04:02:10.971 11883 11883 D fk      : [fk][13300357][tid_1](51)changeNetWork 16 -> 2, start
+12-06 04:02:10.972 11883 11883 D NewDownloadProvider: [NewDownloadProvider][13300358][tid_1](338)[new_download] [download_net_change] =======>start [oldType:16] [currentType:2]
+12-06 04:02:10.974 11883 11883 D fk      : [fk][13300360][tid_1](59)changeNetWork end
+12-06 04:02:12.093 11883 12342 I up      : [up][13301479][tid_101](46)http send list:[]
+12-06 04:02:12.094 11883 12342 I uw      : [uw][13301480][tid_101](28)getRidAndIncrement :5
+12-06 04:02:12.096 11883 12342 I uo      : [uo][13301482][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:12.100 11883 12342 I uo      : [uo][13301485][tid_101](121)Request content : <body rid="5" count="0" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"></body>
+12-06 04:02:12.101 11883 12342 D uo      : [uo][13301487][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:12.102 11883 12342 D uo      : [uo][13301488][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:12.103 11883 12342 I ki      : [ki][13301489][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@727040f
+12-06 04:02:12.219 11883 12342 I ki      : [ki][13301605][tid_101](320)response = org.apache.http.message.BasicHttpResponse@1737c9c
+12-06 04:02:12.220 11883 12342 D ki      : [ki][13301607][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:12.221 11883 12342 D ki      : [ki][13301608][tid_101](325)header name = platform, value = android
+12-06 04:02:12.222 11883 12342 D ki      : [ki][13301609][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:12.223 11883 12342 I ki      : [ki][13301610][tid_101](378)doGetAllHeaders
+12-06 04:02:12.224 11883 12342 I ki      : [ki][13301611][tid_101](336)doGetStatusCode
+12-06 04:02:12.225 11883 12342 I uo      : [uo][13301611][tid_101](137)response code:206
+12-06 04:02:12.226 11883 12342 I ki      : [ki][13301613][tid_101](352)doGetEntityByteArray
+12-06 04:02:12.228 11883 12342 I ui      : [ui][13301614][tid_101](47)inflate length:1745
+12-06 04:02:12.232 11883 12342 I uo      : [uo][13301618][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="5" sid="7f549c0310006b20@a1.stage.vlife.com" ><iq from="push.stage.vlife.com" to="10493580917104@a1.stage.vlife.com/android-2.1-pet" id="0450b8ef6c3de15" sid="7f549c0310006b20@a1.stage.vlife.com" type="result"><query xmlns="jabber:iq:push"><method name="simple:push"><beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_push_message"><property name="networkTimeAfterBoot" value="600000"/><property name="pushMessageDataList"><list><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="flash_content"/></bean><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="wallpaper_recommended"/></bean></list></property><property name="enabled" value="1"/><property name="isVlifeWallpaperShown" value="-1"/><property name="frequency" value="60000"/></bean></beans></method></query></iq><iq from="magazine.stage.vlife.com" to="10493580917104@a1.stage.vlife.com/android-2.1-pet" id="0450b8ef6c3de16" sid="7f549c0310006b20@a1.stage.vlife.com" type="result"><query xmlns="jabber:iq:magazine"><method name="simple:magazine:content:list:by:source"><beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_magazine_content_list_by_source_protocol"><property name="st" value="1501220739405"/><property name="mn" value="0"/><property name="cl"><list/></property><property name="sl"><list><value>5</value><value>1</value><value>2</value><value>10</value><value>29</value><value>28</value><value>8</value><value>30</value><value>31</value><value>36</value><value>3</value><value>4</value></list></property></bean></beans></method></query></iq></body>
+12-06 04:02:12.238 11883 12342 I uo      : [uo][13301624][tid_101](206)build new Iparser current:iq
+12-06 04:02:12.238 11883 12342 I uw      : [uw][13301625][tid_101](21)getRid :6
+12-06 04:02:12.238 11883 12342 I uo      : [uo][13301625][tid_101](212)use old Iparser current:iq
+12-06 04:02:12.239 11883 12342 I up      : [up][13301625][tid_101](58)http send type:OK
+12-06 04:02:12.239 11883 12342 D us      : [us][13301626][tid_101](69)id:0450b8ef6c3de16 countDownMap
+12-06 04:02:12.239 11883 12342 D us      : [us][13301626][tid_101](69)id:0450b8ef6c3de15 countDownMap
+12-06 04:02:12.240 11883 17919 I us      : [us][13301627][tid_180](169)[NewHttpService] blockSend id = 0450b8ef6c3de15,step4 = 2620
+12-06 04:02:12.240 11883 17918 I us      : [us][13301626][tid_179](169)[NewHttpService] blockSend id = 0450b8ef6c3de16,step4 = 2569
+12-06 04:02:12.241 11883 17919 I us      : [us][13301627][tid_180](171)[NewHttpService] blockSend id = 0450b8ef6c3de15,step5 = 2620
+12-06 04:02:12.241 11883 17919 D us      : [us][13301628][tid_180](172)callback : null
+12-06 04:02:12.241 11883 17919 D us      : [us][13301628][tid_180](174)parser:n.gr@acbc6a5
+12-06 04:02:12.241 11883 17918 I us      : [us][13301627][tid_179](171)[NewHttpService] blockSend id = 0450b8ef6c3de16,step5 = 2571
+12-06 04:02:12.242 11883 17919 D ul      : [ul][13301628][tid_180](86)from:push.stage.vlife.com type:result subDomain:push
+12-06 04:02:12.242 11883 17919 D ul      : [ul][13301629][tid_180](92)xmlns : jabber:iq:push method : simple:push
+12-06 04:02:12.242 11883 17919 I ul      : [ul][13301629][tid_180](94)n.ul start method type:result
+12-06 04:02:12.242 11883 17918 D us      : [us][13301628][tid_179](172)callback : n.yo$3@7e80a7a
+12-06 04:02:12.243 11883 17919 D ul      : [ul][13301630][tid_180](69)xml:<beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_push_message"><property name="networkTimeAfterBoot" value="600000"/><property name="pushMessageDataList"><list><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="flash_content"/></bean><bean name="push_message_data"><property name="time" value="1498743135000"/><property name="type" value="wallpaper_recommended"/></bean></list></property><property name="enabled" value="1"/><property name="isVlifeWallpaperShown" value="-1"/><property name="frequency" value="60000"/></bean></beans>
+12-06 04:02:12.243 11883 17918 D us      : [us][13301630][tid_179](174)parser:n.gr@559d22b
+12-06 04:02:12.244 11883 17919 D fe      : [fe][13301631][tid_180](61)data:simple_push_message
+12-06 04:02:12.244 11883 17919 I fe      : [fe][13301631][tid_180](73)[VTDDataHelper] simpleData = n.cr@d89c688
+12-06 04:02:12.245 11883 17918 D ul      : [ul][13301631][tid_179](86)from:magazine.stage.vlife.com type:result subDomain:magazine
+12-06 04:02:12.245 11883 17919 D fe      : [fe][13301632][tid_180](61)data:push_message_data
+12-06 04:02:12.245 11883 12342 I up      : [up][13301632][tid_101](43)http send thread run
+12-06 04:02:12.245 11883 17919 I fe      : [fe][13301632][tid_180](73)[VTDDataHelper] simpleData = n.ae@3572821
+12-06 04:02:12.246 11883 12342 D ut      : [ut][13301632][tid_101](72)waiting list Condition signal heartIndex:1 waitTime:4
+12-06 04:02:12.246 11883 17919 D fe      : [fe][13301632][tid_180](61)data:push_message_data
+12-06 04:02:12.246 11883 17918 D ul      : [ul][13301632][tid_179](92)xmlns : jabber:iq:magazine method : simple:magazine:content:list:by:source
+12-06 04:02:12.246 11883 17919 I fe      : [fe][13301633][tid_180](73)[VTDDataHelper] simpleData = n.ae@4dc5446
+12-06 04:02:12.247 11883 17919 I ul      : [ul][13301633][tid_180](103)n.ul end cost time:5 result:n.cr@d89c688
+12-06 04:02:12.247 11883 17918 I ul      : [ul][13301633][tid_179](94)n.ul start method type:result
+12-06 04:02:12.247 11883 17919 I us      : [us][13301634][tid_180](206)[NewHttpService] blockSend finally
+12-06 04:02:12.248 11883 17919 I sh      : [sh][13301634][tid_180](48)[PushProvider] pushMessageProtocol=true
+12-06 04:02:12.248 11883 17919 I sh      : [sh][13301634][tid_180](54)[PushProvider] size : 2
+12-06 04:02:12.248 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301635][tid_180](146)VlifeExecutorService executing n.si@7a16607
+12-06 04:02:12.249 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301635][tid_180](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:12.249 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301635][tid_180](188)TaskServiceProvider task=si,taskType=handle_push_message
+12-06 04:02:12.249 11883 17919 I vv      : [vv][13301636][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.250 11883 17918 D ul      : [ul][13301635][tid_179](69)xml:<beans xmlns="http://www.handpet.com/config/beans" version="1.0"><bean name="simple_magazine_content_list_by_source_protocol"><property name="st" value="1501220739405"/><property name="mn" value="0"/><property name="cl"><list/></property><property name="sl"><list><value>5</value><value>1</value><value>2</value><value>10</value><value>29</value><value>28</value><value>8</value><value>30</value><value>31</value><value>36</value><value>3</value><value>4</value></list></property></bean></beans>
+12-06 04:02:12.250 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301637][tid_180](156)shell product start vlife task
+12-06 04:02:12.250 11883 17919 W wf      : [wf][13301637][tid_180](52)create preferences name:userinfo
+12-06 04:02:12.252 11883 17919 I qw      : [qw][13301638][tid_180](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:12.252 11883 17919 D gp      : [gp][13301639][tid_180](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:12.253 11883 17919 I sh      : [sh][13301639][tid_180](59)[PushMessageListener] call type : flash_content ; time = 1498743135000
+12-06 04:02:12.253 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301640][tid_180](146)VlifeExecutorService executing n.si@d38c334
+12-06 04:02:12.253 11883 12100 I TaskServiceProvider: [TaskServiceProvider][13301639][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=handle_push_message;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:12.253 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301640][tid_180](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:12.254 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301640][tid_180](188)TaskServiceProvider task=si,taskType=handle_push_message
+12-06 04:02:12.254 11883 17919 I vv      : [vv][13301641][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.254 11883 12100 D TaskServiceProvider: [TaskServiceProvider][13301640][tid_53](558)pyramidney:null
+12-06 04:02:12.254 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301641][tid_180](156)shell product start vlife task
+12-06 04:02:12.255 11883 17919 W wf      : [wf][13301641][tid_180](52)create preferences name:userinfo
+12-06 04:02:12.255 11883 12100 D go      : [go][13301641][tid_53](33)TaskSignalQueue-add n.gn@add255d
+12-06 04:02:12.255 11883 17919 I ki      : [ki][13301642][tid_180](267)random and http error for test
+12-06 04:02:12.256 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301642][tid_180](162)shell product start vlife task
+12-06 04:02:12.256 11883 17919 I sh      : [sh][13301643][tid_180](59)[PushMessageListener] call type : wallpaper_recommended ; time = 1498743135000
+12-06 04:02:12.256 11883 17919 W wf      : [wf][13301643][tid_180](52)create preferences name:push_message
+12-06 04:02:12.257 11883 17919 I wf      : [wf][13301643][tid_180](84)preference name:push_message putStringAndCommit key:boot_limit_time,value:600000
+12-06 04:02:12.257 11883 17919 W wf      : [wf][13301644][tid_180](89)push_message putString boot_limit_time
+12-06 04:02:12.258 11883 17919 I sh      : [sh][13301644][tid_180](107)[PushProvider] newFrequency :60000, old=21600000, bootLimitTime=600000
+12-06 04:02:12.258 11883 17919 I wf      : [wf][13301644][tid_180](129)preference name:push_message putLongAndCommit key:get_push_frequency,value:21600000
+12-06 04:02:12.258 11883 17919 W wf      : [wf][13301645][tid_180](134)push_message putLong get_push_frequency
+12-06 04:02:12.259 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13301643][tid_178](254)Bundle=Bundle[{time=1498743135000, type=flash_content}] taskType=handle_push_message
+12-06 04:02:12.259 11883 17919 W wf      : [wf][13301645][tid_180](52)create preferences name:timing_network_preference
+12-06 04:02:12.259 11883 17918 D fe      : [fe][13301645][tid_179](61)data:simple_magazine_content_list_by_source_protocol
+12-06 04:02:12.259 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13301646][tid_178](258)getVlifeTask vlifeTask=n.si@4796ed2
+12-06 04:02:12.259 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301646][tid_178](351)[VlifeTaskService]  TaskRunnable  running task : handle_push_message ,delay : 0, cycle : 0 
+12-06 04:02:12.260 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301647][tid_180](466)Start AllTimerTask!
+12-06 04:02:12.260 11883 17918 I fe      : [fe][13301647][tid_179](73)[VTDDataHelper] simpleData = n.dw@fe45ba3
+12-06 04:02:12.260 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301647][tid_178](377)backstage task system start up timing task ,task type is :handle_push_message, awaking type :awake by system broadCastReceiver
+12-06 04:02:12.261 11883 17917 I si      : [si][13301647][tid_178](96)[PushMessageListener] running
+12-06 04:02:12.261 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301648][tid_180](239)getVlifeTask vlifeTask=n.sj@b38dea0
+12-06 04:02:12.261 11883 17917 I si      : [si][13301648][tid_178](102)push type flash_content
+12-06 04:02:12.261 11883 12101 D StatisticsProvider: [StatisticsProvider][13301648][tid_54](432)[statistics_test] =======>write map:n.ep@acbba59
+12-06 04:02:12.262 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301648][tid_180](195)cancelTimerTask context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,task:n.sj@b38dea0
+12-06 04:02:12.262 11883 17917 I PushProvider: [PushProvider][13301648][tid_178](175)getContentHandler pushContentType = flash_content
+12-06 04:02:12.262 11883 17919 I vv      : [vv][13301648][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.262 11883 12101 I StatisticsProvider: [StatisticsProvider][13301649][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.262 11883 17917 W PushProvider: [PushProvider][13301649][tid_178](180)contentHandler is null, take a attention if needed!
+12-06 04:02:12.262 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301649][tid_180](197)SystemProcess cancelTimerTask
+12-06 04:02:12.262 11883 12101 I StatisticsProvider: [StatisticsProvider][13301649][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.262 11883 17917 D si      : [si][13301649][tid_178](129)!!!!pushContentType:flash_content,contentHandler:n.sk@55ba61e
+12-06 04:02:12.263 11883 12101 D StatisticsProvider: [StatisticsProvider][13301649][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.263 11883 17917 I si      : [si][13301649][tid_178](70)[PushMessageListener] call type : flash_content ; result : false
+12-06 04:02:12.263 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301650][tid_178](379)[VlifeTaskService]  end  task : handle_push_message
+12-06 04:02:12.263 11883 17917 D go      : [go][13301650][tid_178](48)TaskSignalQueue-remove n.gn@add255d
+12-06 04:02:12.264 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301651][tid_180](146)VlifeExecutorService executing n.sj@b38dea0
+12-06 04:02:12.265 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301651][tid_180](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:12.265 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301652][tid_180](188)TaskServiceProvider task=sj,taskType=ua_time_send
+12-06 04:02:12.265 11883 17919 I vv      : [vv][13301652][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.266 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301652][tid_180](156)shell product start vlife task
+12-06 04:02:12.266 11883 17919 W wf      : [wf][13301653][tid_180](52)create preferences name:userinfo
+12-06 04:02:12.266 11883 17918 I ul      : [ul][13301653][tid_179](103)n.ul end cost time:20 result:n.dw@fe45ba3
+12-06 04:02:12.267 11883 17918 D yo      : [yo][13301653][tid_179](277)[magazine_down_content] [update] [autoUpdate] [success] [start]
+12-06 04:02:12.267 11883 17919 I qw      : [qw][13301654][tid_180](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:12.267 11883 17918 D yo      : [yo][13301654][tid_179](290)[magazine_down_content] [update] [autoUpdate] [success] [no data]
+12-06 04:02:12.267 11883 17919 D gp      : [gp][13301654][tid_180](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:12.268 11883 12098 I TaskServiceProvider: [TaskServiceProvider][13301654][tid_51](546)vlifeTaskOnStartCommand intent=#Intent;action=ua_time_send;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:12.268 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301655][tid_180](239)getVlifeTask vlifeTask=n.zc@dd70eff
+12-06 04:02:12.268 11883 12098 D TaskServiceProvider: [TaskServiceProvider][13301655][tid_51](558)pyramidney:null
+12-06 04:02:12.268 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301655][tid_180](195)cancelTimerTask context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,task:n.zc@dd70eff
+12-06 04:02:12.268 11883 12098 D go      : [go][13301655][tid_51](33)TaskSignalQueue-add n.gn@35d44cc
+12-06 04:02:12.269 11883 17919 I vv      : [vv][13301655][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.269 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301655][tid_180](197)SystemProcess cancelTimerTask
+12-06 04:02:12.269 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13301656][tid_178](254)Bundle=Bundle[{triggerType=TIMER, doTaskWithoutCondition=false}] taskType=ua_time_send
+12-06 04:02:12.269 11883 17917 D TaskServiceProvider: [TaskServiceProvider][13301656][tid_178](258)getVlifeTask vlifeTask=n.sj@b74a315
+12-06 04:02:12.270 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301656][tid_178](351)[VlifeTaskService]  TaskRunnable  running task : ua_time_send ,delay : 0, cycle : 21600000 
+12-06 04:02:12.270 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301657][tid_178](377)backstage task system start up timing task ,task type is :ua_time_send, awaking type :TIMER
+12-06 04:02:12.270 11883 17917 W wf      : [wf][13301657][tid_178](52)create preferences name:timing_network_preference
+12-06 04:02:12.271 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301657][tid_180](146)VlifeExecutorService executing n.zc@dd70eff
+12-06 04:02:12.271 11883 17917 I jx      : [jx][13301658][tid_178](84)first time ready type:ua_time_send
+12-06 04:02:12.271 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301658][tid_180](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:12.271 11883 17917 I jx      : [jx][13301658][tid_178](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-06 04:02:12.271 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301658][tid_180](188)TaskServiceProvider task=zc,taskType=magazine_update
+12-06 04:02:12.271 11883 17917 W wf      : [wf][13301658][tid_178](52)create preferences name:timing_network_preference
+12-06 04:02:12.272 11883 17919 I vv      : [vv][13301658][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.272 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301659][tid_180](156)shell product start vlife task
+12-06 04:02:12.273 11883 17919 W wf      : [wf][13301659][tid_180](52)create preferences name:userinfo
+12-06 04:02:12.273 11883 17917 I qk      : [qk][13301660][tid_178](244)currentApn:MOBILE
+12-06 04:02:12.273 11883 17919 I qw      : [qw][13301660][tid_180](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:12.273 11883 17917 I qk      : [qk][13301660][tid_178](213)currentApn:MOBILE
+12-06 04:02:12.274 11883 17917 D jz      : [jz][13301660][tid_178](47)canConnectNetWork result == true
+12-06 04:02:12.274 11883 17919 D gp      : [gp][13301660][tid_180](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:12.274 11883 12085 I TaskServiceProvider: [TaskServiceProvider][13301661][tid_45](546)vlifeTaskOnStartCommand intent=#Intent;action=magazine_update;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:12.274 11883 12085 D TaskServiceProvider: [TaskServiceProvider][13301661][tid_45](558)pyramidney:null
+12-06 04:02:12.275 11883 12085 D go      : [go][13301661][tid_45](33)TaskSignalQueue-add n.gn@198062a
+12-06 04:02:12.275 11883 17917 I qk      : [qk][13301661][tid_178](244)currentApn:MOBILE
+12-06 04:02:12.275 11883 17917 I jx      : [jx][13301662][tid_178](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:12.275 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13301662][tid_177](254)Bundle=Bundle[{triggerType=TIMER, doTaskWithoutCondition=false}] taskType=magazine_update
+12-06 04:02:12.276 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301662][tid_180](239)getVlifeTask vlifeTask=n.sh@e179c1b
+12-06 04:02:12.276 11883 17914 D TaskServiceProvider: [TaskServiceProvider][13301662][tid_177](258)getVlifeTask vlifeTask=n.zc@97fe1b8
+12-06 04:02:12.276 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301663][tid_180](195)cancelTimerTask context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,task:n.sh@e179c1b
+12-06 04:02:12.276 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13301663][tid_177](351)[VlifeTaskService]  TaskRunnable  running task : magazine_update ,delay : 0, cycle : 21600000 
+12-06 04:02:12.276 11883 17919 I vv      : [vv][13301663][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.276 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13301663][tid_177](377)backstage task system start up timing task ,task type is :magazine_update, awaking type :TIMER
+12-06 04:02:12.277 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301663][tid_180](197)SystemProcess cancelTimerTask
+12-06 04:02:12.277 11883 17914 W wf      : [wf][13301663][tid_177](52)create preferences name:timing_network_preference
+12-06 04:02:12.277 11883 17914 I jx      : [jx][13301664][tid_177](84)first time ready type:magazine_update
+12-06 04:02:12.278 11883 17918 I us      : [us][13301654][tid_179](206)[NewHttpService] blockSend finally
+12-06 04:02:12.278 11883 17917 I pm      : [pm][13301664][tid_178](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:12.278 11883 17914 I jx      : [jx][13301664][tid_177](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-06 04:02:12.278 11883 17917 I jx      : [jx][13301664][tid_178](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:12.278 11883 17914 D zc      : [zc][13301665][tid_177](77)[magazine_down_content] [canRunnable]
+12-06 04:02:12.278 11883 17917 D jx      : [jx][13301665][tid_178](116)canRun task=ua_time_send, result=2726, frequency=17280000
+12-06 04:02:12.278 11883 17914 W wf      : [wf][13301665][tid_177](52)create preferences name:timing_network_preference
+12-06 04:02:12.278 11883 17917 D jx      : [jx][13301665][tid_178](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is ua_time_send
+12-06 04:02:12.278 11883 17917 W jx      : [jx][13301665][tid_178](93)task : ua_time_send can't run!
+12-06 04:02:12.278 11883 17917 I jx      : [jx][13301665][tid_178](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-06 04:02:12.279 11883 17918 I yo      : [yo][13301665][tid_179](558)[magazine_down_content] [delete_over_due_task] start
+12-06 04:02:12.280 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301665][tid_178](379)[VlifeTaskService]  end  task : ua_time_send
+12-06 04:02:12.280 11883 17918 D MagazineDao: [MagazineDao][13301666][tid_179](307)[magazine_down_content] [delete_over_due_task] [deleteOverDueMagazines] start
+12-06 04:02:12.280 11883 17914 I qk      : [qk][13301666][tid_177](244)currentApn:MOBILE
+12-06 04:02:12.280 11883 17917 I TaskServiceProvider: [TaskServiceProvider][13301667][tid_178](382)[VlifeTaskService]  this task is Cycle ,task : ua_time_send , time : 21600000 
+12-06 04:02:12.280 11883 17918 W aah     : [aah][13301667][tid_179](85)db provider query:content://vlife/magazine_content
+12-06 04:02:12.281 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301666][tid_180](146)VlifeExecutorService executing n.sh@e179c1b
+12-06 04:02:12.281 11883 17914 I qk      : [qk][13301667][tid_177](213)currentApn:MOBILE
+12-06 04:02:12.281 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301667][tid_180](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:12.281 11883 17914 D jz      : [jz][13301667][tid_177](47)canConnectNetWork result == true
+12-06 04:02:12.281 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301668][tid_180](188)TaskServiceProvider task=sh,taskType=get_push_message
+12-06 04:02:12.281 11883 17914 D zc      : [zc][13301668][tid_177](82)[magazine_down_content] [canRunnable] has net true
+12-06 04:02:12.281 11883 17914 D jx      : [jx][13301668][tid_177](116)canRun task=magazine_update, result=2713, frequency=17280000
+12-06 04:02:12.281 11883 17919 I vv      : [vv][13301668][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.282 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301668][tid_180](156)shell product start vlife task
+12-06 04:02:12.282 11883 17914 D jx      : [jx][13301668][tid_177](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is magazine_update
+12-06 04:02:12.282 11883 17914 W jx      : [jx][13301668][tid_177](93)task : magazine_update can't run!
+12-06 04:02:12.282 11883 17919 W wf      : [wf][13301668][tid_180](52)create preferences name:userinfo
+12-06 04:02:12.282 11883 17914 I jx      : [jx][13301669][tid_177](95)TimingNetworkTimerServerTask end , task : magazine_update 
+12-06 04:02:12.282 11883 17919 I qw      : [qw][13301669][tid_180](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-06 04:02:12.283 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13301669][tid_177](379)[VlifeTaskService]  end  task : magazine_update
+12-06 04:02:12.283 11883 17919 D gp      : [gp][13301670][tid_180](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-06 04:02:12.283 11883 17914 I TaskServiceProvider: [TaskServiceProvider][13301670][tid_177](382)[VlifeTaskService]  this task is Cycle ,task : magazine_update , time : 21600000 
+12-06 04:02:12.283 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301670][tid_180](239)getVlifeTask vlifeTask=n.ajo@e895b91
+12-06 04:02:12.283 11883 17914 I vv      : [vv][13301670][tid_177](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.283 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301670][tid_180](195)cancelTimerTask context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,task:n.ajo@e895b91
+12-06 04:02:12.284 11883 17918 I aah     : [aah][13301670][tid_179](669)MagazineContentDatabase] queryAllDelete() return:size = 0 
+12-06 04:02:12.284 11883 17919 I vv      : [vv][13301670][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.284 11883 12101 I StatisticsProvider: [StatisticsProvider][13301667][tid_54](464)[statistics_test] create packet xml : <item ua_action="flash_content" ua_event="request_result" ua_time="1512504132261" ua_process="lockscreen" index="139" />
+12-06 04:02:12.284 11883 17917 I vv      : [vv][13301667][tid_178](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.284 11883 12100 I TaskServiceProvider: [TaskServiceProvider][13301671][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=get_push_message;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-06 04:02:12.284 11883 12100 D TaskServiceProvider: [TaskServiceProvider][13301671][tid_53](558)pyramidney:null
+12-06 04:02:12.284 11883 17917 D gp      : [gp][13301671][tid_178](96)VlifeTaskService schedule task=ua_time_send, isCycleOrDelay=true,time=21600000,requestCode=193306362
+12-06 04:02:12.285 11883 12100 D go      : [go][13301671][tid_53](33)TaskSignalQueue-add n.gn@d885af6
+12-06 04:02:12.285 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301671][tid_180](197)SystemProcess cancelTimerTask
+12-06 04:02:12.285 11883 17914 D gp      : [gp][13301670][tid_177](96)VlifeTaskService schedule task=magazine_update, isCycleOrDelay=true,time=21600000,requestCode=47408839
+12-06 04:02:12.285 11883 17918 D MagazineDao: [MagazineDao][13301671][tid_179](316)[magazine_down_content] [delete_over_due_task] [deleteOverDueMagazines] [delete_flag_size:0]
+12-06 04:02:12.285 11883 17918 D MagazineDao: [MagazineDao][13301672][tid_179](250)[magazine_down_content] [MagazineDao] [deleteMagazineContents] start
+12-06 04:02:12.286 11883 17918 D MagazineDao: [MagazineDao][13301672][tid_179](259)[magazine_down_content] [MagazineDao] [deleteMagazineContents] list size:0
+12-06 04:02:12.286 11883 17917 I gp      : [gp][13301673][tid_178](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:12.286 11883 17918 I aah     : [aah][13301673][tid_179](789)deleteList list = 0
+12-06 04:02:12.286 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301673][tid_180](146)VlifeExecutorService executing n.ajo@e895b91
+12-06 04:02:12.286 11883 17917 D go      : [go][13301673][tid_178](48)TaskSignalQueue-remove n.gn@35d44cc
+12-06 04:02:12.286 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301673][tid_180](186)PackageName is com.vlife.ipro.magazine
+12-06 04:02:12.287 11883 17919 D TaskServiceProvider: [TaskServiceProvider][13301673][tid_180](188)TaskServiceProvider task=ajo,taskType=plugin_update
+12-06 04:02:12.287 11883 17919 I vv      : [vv][13301674][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.287 11883 17914 I gp      : [gp][13301674][tid_177](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:12.287 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301674][tid_180](156)shell product start vlife task
+12-06 04:02:12.287 11883 17918 D MagazineDao: [MagazineDao][13301674][tid_179](331)[magazine_down_content] [delete_over_due_task] [deleteOverDueMagazines] [delete_flag_size:0] [result:true]
+12-06 04:02:12.287 11883 17919 W wf      : [wf][13301674][tid_180](52)create preferences name:userinfo
+12-06 04:02:12.288 11883 17914 D go      : [go][13301674][tid_177](48)TaskSignalQueue-remove n.gn@198062a
+12-06 04:02:12.288 11883 17918 I yo      : [yo][13301674][tid_179](567)[magazine_down_content] [mark_over_due_task] start
+12-06 04:02:12.288 11883 17918 I MagazineDao: [MagazineDao][13301675][tid_179](336)[magazine_down_content] [delete_old] =======>start
+12-06 04:02:12.288 11883 17919 I ki      : [ki][13301675][tid_180](267)random and http error for test
+12-06 04:02:12.288 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301675][tid_180](162)shell product start vlife task
+12-06 04:02:12.288 11883 17918 W aah     : [aah][13301675][tid_179](85)db provider query:content://vlife/magazine_content
+12-06 04:02:12.288 11883 17981 D gp      : [gp][13301675][tid_191](104)task run
+12-06 04:02:12.289 11883 17919 E TaskServiceProvider: [TaskServiceProvider][13301675][tid_180](471)restartTimerTask allTastMap is error, taskName=upload_user_setting
+12-06 04:02:12.289 11883 17981 W wf      : [wf][13301675][tid_191](52)create preferences name:timing_network_preference
+12-06 04:02:12.289 11883 17981 I jx      : [jx][13301676][tid_191](84)first time ready type:magazine_update
+12-06 04:02:12.289 11883 17919 I jx      : [jx][13301676][tid_180](95)TimingNetworkTimerServerTask end , task : get_push_message 
+12-06 04:02:12.289 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301676][tid_180](379)[VlifeTaskService]  end  task : get_push_message
+12-06 04:02:12.289 11883 17981 I jx      : [jx][13301676][tid_191](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-06 04:02:12.290 11883 17981 D zc      : [zc][13301676][tid_191](77)[magazine_down_content] [canRunnable]
+12-06 04:02:12.290 11883 17919 I TaskServiceProvider: [TaskServiceProvider][13301676][tid_180](382)[VlifeTaskService]  this task is Cycle ,task : get_push_message , time : 21600000 
+12-06 04:02:12.290 11883 17919 I vv      : [vv][13301677][tid_180](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.290 11883 17981 W wf      : [wf][13301677][tid_191](52)create preferences name:timing_network_preference
+12-06 04:02:12.290 11883 17918 I aah     : [aah][13301677][tid_179](704)[magazine_down_content] [delete_old] [databases] [can_show] [size:0]
+12-06 04:02:12.290 11883 17919 D gp      : [gp][13301677][tid_180](96)VlifeTaskService schedule task=get_push_message, isCycleOrDelay=true,time=21600000,requestCode=196365627
+12-06 04:02:12.290 11883 17918 D MagazineDao: [MagazineDao][13301677][tid_179](398)[magazine_down_content] [delete_old] [can show size:0] [keep size:12]
+12-06 04:02:12.291 11883 17918 D MagazineDao: [MagazineDao][13301677][tid_179](400)[magazine_down_content] [delete_old] [can show size < 12]
+12-06 04:02:12.291 11883 17919 I gp      : [gp][13301678][tid_180](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:12.291 11883 17918 D MagazineDao: [MagazineDao][13301677][tid_179](402)[magazine_down_content] [delete_old] [can show size < 12] [surplusSize:12]
+12-06 04:02:12.291 11883 17918 W aah     : [aah][13301678][tid_179](85)db provider query:content://vlife/magazine_content
+12-06 04:02:12.291 11883 17981 I qk      : [qk][13301678][tid_191](244)currentApn:MOBILE
+12-06 04:02:12.292 11883 12101 D StatisticsProvider: [StatisticsProvider][13301678][tid_54](432)[statistics_test] =======>write map:n.ep@32d6164
+12-06 04:02:12.292 11883 12101 I StatisticsProvider: [StatisticsProvider][13301679][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.292 11883 12101 I StatisticsProvider: [StatisticsProvider][13301679][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.293 11883 17981 I qk      : [qk][13301678][tid_191](213)currentApn:MOBILE
+12-06 04:02:12.293 11883 17919 D go      : [go][13301680][tid_180](48)TaskSignalQueue-remove n.gn@6014f95
+12-06 04:02:12.293 11883 12101 D StatisticsProvider: [StatisticsProvider][13301679][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.293 11883 17981 D jz      : [jz][13301680][tid_191](47)canConnectNetWork result == true
+12-06 04:02:12.293 11883 17981 D zc      : [zc][13301680][tid_191](82)[magazine_down_content] [canRunnable] has net true
+12-06 04:02:12.294 11883 17981 D jx      : [jx][13301680][tid_191](116)canRun task=magazine_update, result=2725, frequency=17280000
+12-06 04:02:12.294 11883 17981 D jx      : [jx][13301681][tid_191](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is magazine_update
+12-06 04:02:12.294 11883 17981 W jx      : [jx][13301681][tid_191](93)task : magazine_update can't run!
+12-06 04:02:12.295 11883 17981 I jx      : [jx][13301681][tid_191](95)TimingNetworkTimerServerTask end , task : magazine_update 
+12-06 04:02:12.295 11883 17982 D gp      : [gp][13301682][tid_192](104)task run
+12-06 04:02:12.296 11883 17982 W wf      : [wf][13301682][tid_192](52)create preferences name:timing_network_preference
+12-06 04:02:12.296 11883 17982 I jx      : [jx][13301683][tid_192](84)first time ready type:get_push_message
+12-06 04:02:12.296 11883 17982 I jx      : [jx][13301683][tid_192](86)judge timing task whether or not can run,judge task type is :get_push_message
+12-06 04:02:12.297 11883 17982 W wf      : [wf][13301683][tid_192](52)create preferences name:timing_network_preference
+12-06 04:02:12.299 11883 17918 I aah     : [aah][13301685][tid_179](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@5571fcd
+12-06 04:02:12.299 11883 17982 I qk      : [qk][13301686][tid_192](244)currentApn:MOBILE
+12-06 04:02:12.299 11883 17982 I qk      : [qk][13301686][tid_192](213)currentApn:MOBILE
+12-06 04:02:12.300 11883 17982 D jz      : [jz][13301686][tid_192](47)canConnectNetWork result == true
+12-06 04:02:12.300 11883 17982 I qk      : [qk][13301687][tid_192](244)currentApn:MOBILE
+12-06 04:02:12.301 11883 17982 I jx      : [jx][13301687][tid_192](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:12.301 11883 17979 D TaskServiceProvider: [TaskServiceProvider][13301688][tid_190](254)Bundle=Bundle[{triggerType=TIMER, doTaskWithoutCondition=false}] taskType=get_push_message
+12-06 04:02:12.302 11883 17979 D TaskServiceProvider: [TaskServiceProvider][13301688][tid_190](258)getVlifeTask vlifeTask=n.sh@7573082
+12-06 04:02:12.302 11883 17980 D gp      : [gp][13301688][tid_189](104)task run
+12-06 04:02:12.302 11883 17979 I TaskServiceProvider: [TaskServiceProvider][13301689][tid_190](351)[VlifeTaskService]  TaskRunnable  running task : get_push_message ,delay : 0, cycle : 21600000 
+12-06 04:02:12.302 11883 17979 I TaskServiceProvider: [TaskServiceProvider][13301689][tid_190](377)backstage task system start up timing task ,task type is :get_push_message, awaking type :TIMER
+12-06 04:02:12.302 11883 17918 D fe      : [fe][13301688][tid_179](61)data:magazine_source_data
+12-06 04:02:12.304 11883 17980 W wf      : [wf][13301691][tid_189](52)create preferences name:timing_network_preference
+12-06 04:02:12.304 11883 17980 I jx      : [jx][13301691][tid_189](84)first time ready type:ua_time_send
+12-06 04:02:12.305 11883 17918 I fe      : [fe][13301691][tid_179](73)[VTDDataHelper] simpleData = n.bk@7737393
+12-06 04:02:12.306 11883 17982 I pm      : [pm][13301692][tid_192](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:12.306 11883 17982 I jx      : [jx][13301692][tid_192](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:12.306 11883 17980 I jx      : [jx][13301693][tid_189](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-06 04:02:12.306 11883 17982 D jx      : [jx][13301693][tid_192](116)canRun task=get_push_message, result=2727, frequency=21600000
+12-06 04:02:12.306 11883 17982 D jx      : [jx][13301693][tid_192](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is get_push_message
+12-06 04:02:12.306 11883 17982 W jx      : [jx][13301693][tid_192](93)task : get_push_message can't run!
+12-06 04:02:12.307 11883 17982 I jx      : [jx][13301693][tid_192](95)TimingNetworkTimerServerTask end , task : get_push_message 
+12-06 04:02:12.307 11883 17918 D fe      : [fe][13301692][tid_179](61)data:file
+12-06 04:02:12.303 11883 17979 W wf      : [wf][13301689][tid_190](52)create preferences name:timing_network_preference
+12-06 04:02:12.307 11883 17980 W wf      : [wf][13301693][tid_189](52)create preferences name:timing_network_preference
+12-06 04:02:12.307 11883 17979 I jx      : [jx][13301694][tid_190](84)first time ready type:get_push_message
+12-06 04:02:12.308 11883 17918 I fe      : [fe][13301694][tid_179](73)[VTDDataHelper] simpleData = n.e@112fd0
+12-06 04:02:12.309 11883 17918 E fe      : [niyongliang][fe][13301695][tid_179](54)xml:
+12-06 04:02:12.309 11883 17918 I aar     : [aar][13301696][tid_179](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:12.310 11883 17918 D fe      : [fe][13301697][tid_179](61)data:file
+12-06 04:02:12.310 11883 17918 I fe      : [fe][13301697][tid_179](73)[VTDDataHelper] simpleData = n.e@ec2ebc9
+12-06 04:02:12.311 11883 17918 D fe      : [fe][13301697][tid_179](61)data:file
+12-06 04:02:12.311 11883 17918 I fe      : [fe][13301698][tid_179](73)[VTDDataHelper] simpleData = n.e@34bd2ce
+12-06 04:02:12.312 11883 17918 D fe      : [fe][13301698][tid_179](61)data:plugin
+12-06 04:02:12.312 11883 17918 I fe      : [fe][13301699][tid_179](73)[VTDDataHelper] simpleData = n.ad@ad7b5ef
+12-06 04:02:12.312 11883 17918 D fe      : [fe][13301699][tid_179](61)data:file
+12-06 04:02:12.313 11883 17918 I fe      : [fe][13301699][tid_179](73)[VTDDataHelper] simpleData = n.e@d2178fc
+12-06 04:02:12.313 11883 17918 I aah     : [aah][13301700][tid_179](734)[magazine_down_content] [delete_old] [databases] [overdue] [id:648]
+12-06 04:02:12.313 11883 17918 I aah     : [aah][13301700][tid_179](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@5571fcd
+12-06 04:02:12.313 11883 17980 I qk      : [qk][13301700][tid_189](244)currentApn:MOBILE
+12-06 04:02:12.314 11883 17980 I qk      : [qk][13301700][tid_189](213)currentApn:MOBILE
+12-06 04:02:12.314 11883 17980 D jz      : [jz][13301700][tid_189](47)canConnectNetWork result == true
+12-06 04:02:12.314 11883 17918 D fe      : [fe][13301701][tid_179](61)data:magazine_source_data
+12-06 04:02:12.314 11883 17918 I fe      : [fe][13301701][tid_179](73)[VTDDataHelper] simpleData = n.bk@9057b85
+12-06 04:02:12.314 11883 17980 I qk      : [qk][13301701][tid_189](244)currentApn:MOBILE
+12-06 04:02:12.314 11883 17980 I jx      : [jx][13301701][tid_189](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:12.314 11883 17918 D fe      : [fe][13301701][tid_179](61)data:file
+12-06 04:02:12.315 11883 17918 I fe      : [fe][13301701][tid_179](73)[VTDDataHelper] simpleData = n.e@d64dda
+12-06 04:02:12.315 11883 17980 I pm      : [pm][13301702][tid_189](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:12.315 11883 17980 I jx      : [jx][13301702][tid_189](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:12.315 11883 17918 E fe      : [niyongliang][fe][13301702][tid_179](54)xml:
+12-06 04:02:12.315 11883 17980 D jx      : [jx][13301702][tid_189](116)canRun task=ua_time_send, result=2763, frequency=17280000
+12-06 04:02:12.316 11883 17979 I jx      : [jx][13301702][tid_190](86)judge timing task whether or not can run,judge task type is :get_push_message
+12-06 04:02:12.316 11883 17980 D jx      : [jx][13301702][tid_189](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is ua_time_send
+12-06 04:02:12.316 11883 17980 W jx      : [jx][13301703][tid_189](93)task : ua_time_send can't run!
+12-06 04:02:12.316 11883 17918 I aar     : [aar][13301703][tid_179](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:12.316 11883 17979 W wf      : [wf][13301703][tid_190](52)create preferences name:timing_network_preference
+12-06 04:02:12.316 11883 17980 I jx      : [jx][13301703][tid_189](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-06 04:02:12.317 11883 17918 D fe      : [fe][13301703][tid_179](61)data:file
+12-06 04:02:12.317 11883 17979 I qk      : [qk][13301704][tid_190](244)currentApn:MOBILE
+12-06 04:02:12.317 11883 17918 I fe      : [fe][13301704][tid_179](73)[VTDDataHelper] simpleData = n.e@793c20b
+12-06 04:02:12.317 11883 17979 I qk      : [qk][13301704][tid_190](213)currentApn:MOBILE
+12-06 04:02:12.317 11883 17979 D jz      : [jz][13301704][tid_190](47)canConnectNetWork result == true
+12-06 04:02:12.318 11883 17979 I qk      : [qk][13301705][tid_190](244)currentApn:MOBILE
+12-06 04:02:12.318 11883 17918 D fe      : [fe][13301705][tid_179](61)data:file
+12-06 04:02:12.318 11883 17979 I jx      : [jx][13301705][tid_190](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:12.318 11883 17918 I fe      : [fe][13301705][tid_179](73)[VTDDataHelper] simpleData = n.e@e8b28e8
+12-06 04:02:12.319 11883 17979 I pm      : [pm][13301706][tid_190](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:12.319 11883 17918 D fe      : [fe][13301706][tid_179](61)data:plugin
+12-06 04:02:12.319 11883 17979 I jx      : [jx][13301706][tid_190](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:12.319 11883 17918 I fe      : [fe][13301706][tid_179](73)[VTDDataHelper] simpleData = n.ad@3274b01
+12-06 04:02:12.319 11883 17979 D jx      : [jx][13301706][tid_190](116)canRun task=get_push_message, result=2740, frequency=17280000
+12-06 04:02:12.319 11883 17979 D jx      : [jx][13301706][tid_190](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is get_push_message
+12-06 04:02:12.320 11883 17918 D fe      : [fe][13301706][tid_179](61)data:file
+12-06 04:02:12.320 11883 17979 W jx      : [jx][13301706][tid_190](93)task : get_push_message can't run!
+12-06 04:02:12.320 11883 17979 I jx      : [jx][13301706][tid_190](95)TimingNetworkTimerServerTask end , task : get_push_message 
+12-06 04:02:12.320 11883 17918 I fe      : [fe][13301706][tid_179](73)[VTDDataHelper] simpleData = n.e@45b6da6
+12-06 04:02:12.320 11883 17979 I TaskServiceProvider: [TaskServiceProvider][13301707][tid_190](379)[VlifeTaskService]  end  task : get_push_message
+12-06 04:02:12.320 11883 17979 I TaskServiceProvider: [TaskServiceProvider][13301707][tid_190](382)[VlifeTaskService]  this task is Cycle ,task : get_push_message , time : 21600000 
+12-06 04:02:12.320 11883 17918 I aah     : [aah][13301707][tid_179](734)[magazine_down_content] [delete_old] [databases] [overdue] [id:990]
+12-06 04:02:12.320 11883 17979 I vv      : [vv][13301707][tid_190](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.320 11883 17918 I aah     : [aah][13301707][tid_179](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@5571fcd
+12-06 04:02:12.321 11883 17979 D gp      : [gp][13301707][tid_190](96)VlifeTaskService schedule task=get_push_message, isCycleOrDelay=true,time=21600000,requestCode=196365627
+12-06 04:02:12.321 11883 17918 D fe      : [fe][13301708][tid_179](61)data:magazine_source_data
+12-06 04:02:12.321 11883 17979 I gp      : [gp][13301708][tid_190](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:12.321 11883 17918 I fe      : [fe][13301708][tid_179](73)[VTDDataHelper] simpleData = n.bk@aba73e7
+12-06 04:02:12.321 11883 17979 D go      : [go][13301708][tid_190](48)TaskSignalQueue-remove n.gn@d885af6
+12-06 04:02:12.322 11883 17918 D fe      : [fe][13301708][tid_179](61)data:file
+12-06 04:02:12.322 11883 17918 I fe      : [fe][13301708][tid_179](73)[VTDDataHelper] simpleData = n.e@c5deb94
+12-06 04:02:12.322 11883 12101 I StatisticsProvider: [StatisticsProvider][13301709][tid_54](464)[statistics_test] create packet xml : <item tag="TaskServiceProvider" message="[TaskServiceProvider][13301675][tid_180](471)restartTimerTask allTastMap is error, taskName=upload_user_setting" name="unknown" count="3" error="[TaskServiceProvider][13301675][tid_180](471)restartTimerTask allTastMap is error, taskName=upload_user_setting" author="songwenjun" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504132289" ua_process="lockscreen" index="140" />
+12-06 04:02:12.323 11883 12101 D StatisticsProvider: [StatisticsProvider][13301709][tid_54](432)[statistics_test] =======>write map:n.ep@a3c963d
+12-06 04:02:12.323 11883 17983 D gp      : [gp][13301709][tid_193](104)task run
+12-06 04:02:12.323 11883 12101 I StatisticsProvider: [StatisticsProvider][13301710][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.323 11883 17983 W wf      : [wf][13301710][tid_193](52)create preferences name:timing_network_preference
+12-06 04:02:12.323 11883 17918 E fe      : [niyongliang][fe][13301710][tid_179](54)xml:
+12-06 04:02:12.323 11883 12101 I StatisticsProvider: [StatisticsProvider][13301710][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.323 11883 17983 I jx      : [jx][13301710][tid_193](84)first time ready type:get_push_message
+12-06 04:02:12.324 11883 12101 D StatisticsProvider: [StatisticsProvider][13301710][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.324 11883 17983 I jx      : [jx][13301710][tid_193](86)judge timing task whether or not can run,judge task type is :get_push_message
+12-06 04:02:12.324 11883 17983 W wf      : [wf][13301711][tid_193](52)create preferences name:timing_network_preference
+12-06 04:02:12.324 11883 17918 I aar     : [aar][13301711][tid_179](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:12.325 11883 17918 D fe      : [fe][13301711][tid_179](61)data:file
+12-06 04:02:12.325 11883 17983 I qk      : [qk][13301712][tid_193](244)currentApn:MOBILE
+12-06 04:02:12.325 11883 17983 I qk      : [qk][13301712][tid_193](213)currentApn:MOBILE
+12-06 04:02:12.325 11883 17983 D jz      : [jz][13301712][tid_193](47)canConnectNetWork result == true
+12-06 04:02:12.325 11883 17918 I fe      : [fe][13301712][tid_179](73)[VTDDataHelper] simpleData = n.e@1c0be32
+12-06 04:02:12.326 11883 17983 I qk      : [qk][13301713][tid_193](244)currentApn:MOBILE
+12-06 04:02:12.326 11883 17983 I jx      : [jx][13301713][tid_193](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-06 04:02:12.327 11883 17918 D fe      : [fe][13301713][tid_179](61)data:file
+12-06 04:02:12.327 11883 17983 I pm      : [pm][13301714][tid_193](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-06 04:02:12.327 11883 17983 I jx      : [jx][13301714][tid_193](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-06 04:02:12.327 11883 17983 D jx      : [jx][13301714][tid_193](116)canRun task=get_push_message, result=2748, frequency=17280000
+12-06 04:02:12.327 11883 17918 I fe      : [fe][13301714][tid_179](73)[VTDDataHelper] simpleData = n.e@5b06783
+12-06 04:02:12.327 11883 17983 D jx      : [jx][13301714][tid_193](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is get_push_message
+12-06 04:02:12.328 11883 17983 W jx      : [jx][13301714][tid_193](93)task : get_push_message can't run!
+12-06 04:02:12.328 11883 17983 I jx      : [jx][13301714][tid_193](95)TimingNetworkTimerServerTask end , task : get_push_message 
+12-06 04:02:12.328 11883 17918 D fe      : [fe][13301715][tid_179](61)data:plugin
+12-06 04:02:12.328 11883 17918 I fe      : [fe][13301715][tid_179](73)[VTDDataHelper] simpleData = n.ad@df82d00
+12-06 04:02:12.331 11883 17918 D fe      : [fe][13301718][tid_179](61)data:file
+12-06 04:02:12.334 11883 17918 I fe      : [fe][13301719][tid_179](73)[VTDDataHelper] simpleData = n.e@e615939
+12-06 04:02:12.335 11883 17918 I aah     : [aah][13301721][tid_179](734)[magazine_down_content] [delete_old] [databases] [overdue] [id:4944]
+12-06 04:02:12.335 11883 17918 I aah     : [aah][13301722][tid_179](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@5571fcd
+12-06 04:02:12.336 11883 17918 D fe      : [fe][13301723][tid_179](61)data:magazine_source_data
+12-06 04:02:12.337 11883 17918 I fe      : [fe][13301724][tid_179](73)[VTDDataHelper] simpleData = n.bk@3b88b7e
+12-06 04:02:12.338 11883 17918 D fe      : [fe][13301724][tid_179](61)data:file
+12-06 04:02:12.339 11883 17918 I fe      : [fe][13301725][tid_179](73)[VTDDataHelper] simpleData = n.e@187f8df
+12-06 04:02:12.341 11883 17918 E fe      : [niyongliang][fe][13301726][tid_179](54)xml:
+12-06 04:02:12.342 11883 12101 I StatisticsProvider: [StatisticsProvider][13301729][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13301695][tid_179](54)xml:" name="unknown" count="19" error="[niyongliang][fe][13301695][tid_179](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504132309" ua_process="lockscreen" index="141" />
+12-06 04:02:12.343 11883 12101 D StatisticsProvider: [StatisticsProvider][13301729][tid_54](432)[statistics_test] =======>write map:n.ep@33192c
+12-06 04:02:12.343 11883 17918 I aar     : [aar][13301729][tid_179](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:12.343 11883 12101 I StatisticsProvider: [StatisticsProvider][13301730][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.343 11883 12101 I StatisticsProvider: [StatisticsProvider][13301730][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.343 11883 12101 D StatisticsProvider: [StatisticsProvider][13301730][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.344 11883 17918 D fe      : [fe][13301731][tid_179](61)data:file
+12-06 04:02:12.345 11883 17918 I fe      : [fe][13301731][tid_179](73)[VTDDataHelper] simpleData = n.e@b754ff5
+12-06 04:02:12.347 11883 17918 D fe      : [fe][13301733][tid_179](61)data:file
+12-06 04:02:12.348 11883 17918 I fe      : [fe][13301734][tid_179](73)[VTDDataHelper] simpleData = n.e@bcde18a
+12-06 04:02:12.348 11883 17918 D fe      : [fe][13301735][tid_179](61)data:plugin
+12-06 04:02:12.349 11883 17918 I fe      : [fe][13301735][tid_179](73)[VTDDataHelper] simpleData = n.ad@c1d43fb
+12-06 04:02:12.350 11883 17918 D fe      : [fe][13301736][tid_179](61)data:file
+12-06 04:02:12.350 11883 17918 I fe      : [fe][13301736][tid_179](73)[VTDDataHelper] simpleData = n.e@24e9c18
+12-06 04:02:12.350 11883 17918 I aah     : [aah][13301737][tid_179](734)[magazine_down_content] [delete_old] [databases] [overdue] [id:4945]
+12-06 04:02:12.350 11883 17918 I aah     : [aah][13301737][tid_179](738)magazine_down_content] [delete_old] [databases] [overdue] [size:4]
+12-06 04:02:12.351 11883 17918 D MagazineDao: [MagazineDao][13301737][tid_179](409)[magazine_down_content] [delete_old] [can show size < 12] [over due but not delete size:4]
+12-06 04:02:12.351 11883 17918 D MagazineDao: [MagazineDao][13301738][tid_179](412)[magazine_down_content] [delete_old] [can show size < 12] [size is too little] return
+12-06 04:02:12.352 11883 17918 D AbstractApplicationStatus: [AbstractApplicationStatus][13301738][tid_179](66)[NetUtil] getNetworkType
+12-06 04:02:12.353 11883 17918 D AbstractApplicationStatus: [AbstractApplicationStatus][13301739][tid_179](71)[NetUtil] info:[type: MOBILE[LTE], state: CONNECTED/CONNECTED, reason: connected, extra: 3gnet, failover: false, available: true, roaming: false, metered: true]
+12-06 04:02:12.354 11883 17918 D AbstractApplicationStatus: [AbstractApplicationStatus][13301740][tid_179](79)[NetUtil] type:0
+12-06 04:02:12.356 11883 17918 D AbstractApplicationStatus: [AbstractApplicationStatus][13301742][tid_179](86)[NetUtil] subtype:13
+12-06 04:02:12.356 11883 17918 I jx      : [jx][13301743][tid_179](95)TimingNetworkTimerServerTask end , task : magazine_update 
+12-06 04:02:12.356 11883 17918 I TaskServiceProvider: [TaskServiceProvider][13301743][tid_179](379)[VlifeTaskService]  end  task : magazine_update
+12-06 04:02:12.357 11883 17918 I TaskServiceProvider: [TaskServiceProvider][13301743][tid_179](382)[VlifeTaskService]  this task is Cycle ,task : magazine_update , time : 21600000 
+12-06 04:02:12.357 11883 17918 I vv      : [vv][13301743][tid_179](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:12.357 11883 17918 D gp      : [gp][13301744][tid_179](96)VlifeTaskService schedule task=magazine_update, isCycleOrDelay=true,time=21600000,requestCode=47408839
+12-06 04:02:12.358 11883 17918 I gp      : [gp][13301744][tid_179](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-06 04:02:12.358 11883 17918 D go      : [go][13301745][tid_179](48)TaskSignalQueue-remove n.gn@335f09e
+12-06 04:02:12.358 11883 17918 D go      : [go][13301745][tid_179](53)TaskSignalQueue- call empty
+12-06 04:02:12.359 11883 17984 D gp      : [gp][13301746][tid_194](104)task run
+12-06 04:02:12.359 11883 12101 I StatisticsProvider: [StatisticsProvider][13301746][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13301702][tid_179](54)xml:" name="unknown" count="20" error="[niyongliang][fe][13301702][tid_179](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504132316" ua_process="lockscreen" index="142" />
+12-06 04:02:12.359 11883 17984 W wf      : [wf][13301746][tid_194](52)create preferences name:timing_network_preference
+12-06 04:02:12.360 11883 17984 I jx      : [jx][13301746][tid_194](84)first time ready type:magazine_update
+12-06 04:02:12.360 11883 12101 D StatisticsProvider: [StatisticsProvider][13301746][tid_54](432)[statistics_test] =======>write map:n.ep@197f671
+12-06 04:02:12.360 11883 17984 I jx      : [jx][13301746][tid_194](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-06 04:02:12.360 11883 12101 I StatisticsProvider: [StatisticsProvider][13301747][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.360 11883 17984 D zc      : [zc][13301747][tid_194](77)[magazine_down_content] [canRunnable]
+12-06 04:02:12.360 11883 12101 I StatisticsProvider: [StatisticsProvider][13301747][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.360 11883 17984 W wf      : [wf][13301747][tid_194](52)create preferences name:timing_network_preference
+12-06 04:02:12.360 11883 12101 D StatisticsProvider: [StatisticsProvider][13301747][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.361 11883 17984 I qk      : [qk][13301748][tid_194](244)currentApn:MOBILE
+12-06 04:02:12.361 11883 17984 I qk      : [qk][13301748][tid_194](213)currentApn:MOBILE
+12-06 04:02:12.361 11883 17984 D jz      : [jz][13301748][tid_194](47)canConnectNetWork result == true
+12-06 04:02:12.361 11883 17984 D zc      : [zc][13301748][tid_194](82)[magazine_down_content] [canRunnable] has net true
+12-06 04:02:12.362 11883 17984 D jx      : [jx][13301748][tid_194](116)canRun task=magazine_update, result=2794, frequency=21600000
+12-06 04:02:12.362 11883 17984 D jx      : [jx][13301749][tid_194](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is magazine_update
+12-06 04:02:12.362 11883 17984 W jx      : [jx][13301749][tid_194](93)task : magazine_update can't run!
+12-06 04:02:12.362 11883 17984 I jx      : [jx][13301749][tid_194](95)TimingNetworkTimerServerTask end , task : magazine_update 
+12-06 04:02:12.374 11883 12101 I StatisticsProvider: [StatisticsProvider][13301761][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13301710][tid_179](54)xml:" name="unknown" count="21" error="[niyongliang][fe][13301710][tid_179](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504132324" ua_process="lockscreen" index="143" />
+12-06 04:02:12.375 11883 12101 D StatisticsProvider: [StatisticsProvider][13301761][tid_54](432)[statistics_test] =======>write map:n.ep@7308c56
+12-06 04:02:12.375 11883 12101 I StatisticsProvider: [StatisticsProvider][13301762][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.375 11883 12101 I StatisticsProvider: [StatisticsProvider][13301762][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.375 11883 12101 D StatisticsProvider: [StatisticsProvider][13301762][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.389 11883 12101 I StatisticsProvider: [StatisticsProvider][13301776][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13301726][tid_179](54)xml:" name="unknown" count="22" error="[niyongliang][fe][13301726][tid_179](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504132342" ua_process="lockscreen" index="144" />
+12-06 04:02:12.390 11883 12101 D StatisticsProvider: [StatisticsProvider][13301777][tid_54](432)[statistics_test] =======>write map:n.ep@af224d7
+12-06 04:02:12.390 11883 12101 I StatisticsProvider: [StatisticsProvider][13301777][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:12.391 11883 12101 I StatisticsProvider: [StatisticsProvider][13301777][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:12.391 11883 12101 D StatisticsProvider: [StatisticsProvider][13301777][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:12.397 11883 12101 I StatisticsProvider: [StatisticsProvider][13301784][tid_54](464)[statistics_test] create packet xml : <item ua_action="network_4g" ua_event="mag_task_network_state" ua_time="1512504132356" ua_process="lockscreen" index="145" />
+12-06 04:02:16.247 11883 12342 I up      : [up][13305633][tid_101](46)http send list:[]
+12-06 04:02:16.248 11883 12342 I uw      : [uw][13305635][tid_101](28)getRidAndIncrement :6
+12-06 04:02:16.250 11883 12342 I uo      : [uo][13305636][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:16.257 11883 12342 I uo      : [uo][13305644][tid_101](121)Request content : <body rid="6" count="0" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"></body>
+12-06 04:02:16.259 11883 12342 D uo      : [uo][13305645][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:16.261 11883 12342 D uo      : [uo][13305646][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:16.262 11883 12342 I ki      : [ki][13305648][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@fee02a9
+12-06 04:02:16.283 11883 12114 I yo      : [yo][13305670][tid_64](304)[magazine_down_content] [download] [autoUpdate] [start]
+12-06 04:02:16.284 11883 12114 I vv      : [vv][13305670][tid_64](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:16.284 11883 12114 I ApplicationStatus: [ApplicationStatus][13305670][tid_64](362)isSameProcessType lockscreen lockscreen true
+12-06 04:02:16.284 11883 12114 I ApplicationStatus: [ApplicationStatus][13305671][tid_64](367)isSameProcessType lockscreen lockscreen true
+12-06 04:02:16.284 11883 12114 D yo      : [yo][13305671][tid_64](552)[magazine_down_content] [lock] [isLockProcess:true]
+12-06 04:02:16.285 11883 12114 I MagazineDao: [MagazineDao][13305672][tid_64](1151)[magazine_down_content] [prepare download] [start======>]
+12-06 04:02:16.285 11883 12114 W aah     : [aah][13305672][tid_64](85)db provider query:content://vlife/magazine_content
+12-06 04:02:16.289 11883 12114 I aah     : [aah][13305675][tid_64](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@4dcd02e
+12-06 04:02:16.292 11883 12114 D fe      : [fe][13305678][tid_64](61)data:magazine_source_data
+12-06 04:02:16.293 11883 12114 I fe      : [fe][13305679][tid_64](73)[VTDDataHelper] simpleData = n.bk@b06d7cf
+12-06 04:02:16.294 11883 12114 D fe      : [fe][13305681][tid_64](61)data:file
+12-06 04:02:16.295 11883 12114 I fe      : [fe][13305681][tid_64](73)[VTDDataHelper] simpleData = n.e@c5255c
+12-06 04:02:16.297 11883 12114 E fe      : [niyongliang][fe][13305683][tid_64](54)xml:
+12-06 04:02:16.298 11883 12114 I aar     : [aar][13305684][tid_64](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:16.298 11883 12101 D StatisticsProvider: [StatisticsProvider][13305684][tid_54](432)[statistics_test] =======>write map:n.ep@67b2065
+12-06 04:02:16.299 11883 12114 D fe      : [fe][13305686][tid_64](61)data:file
+12-06 04:02:16.299 11883 12114 I fe      : [fe][13305686][tid_64](73)[VTDDataHelper] simpleData = n.e@969c13a
+12-06 04:02:16.300 11883 12101 I StatisticsProvider: [StatisticsProvider][13305686][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:16.301 11883 12114 D fe      : [fe][13305687][tid_64](61)data:file
+12-06 04:02:16.301 11883 12101 I StatisticsProvider: [StatisticsProvider][13305687][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:16.301 11883 12114 I fe      : [fe][13305688][tid_64](73)[VTDDataHelper] simpleData = n.e@7c321eb
+12-06 04:02:16.302 11883 12101 D StatisticsProvider: [StatisticsProvider][13305688][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:16.302 11883 12114 D fe      : [fe][13305689][tid_64](61)data:plugin
+12-06 04:02:16.303 11883 12114 I fe      : [fe][13305689][tid_64](73)[VTDDataHelper] simpleData = n.ad@92d3b48
+12-06 04:02:16.303 11883 12114 D fe      : [fe][13305690][tid_64](61)data:file
+12-06 04:02:16.304 11883 12114 I fe      : [fe][13305690][tid_64](73)[VTDDataHelper] simpleData = n.e@2025de1
+12-06 04:02:16.304 11883 12114 D aah     : [aah][13305691][tid_64](920)[magazine_down_content] [query_all_default] [id:990]
+12-06 04:02:16.305 11883 12114 I aah     : [aah][13305691][tid_64](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@4dcd02e
+12-06 04:02:16.306 11883 12114 D fe      : [fe][13305693][tid_64](61)data:magazine_source_data
+12-06 04:02:16.306 11883 12114 I fe      : [fe][13305693][tid_64](73)[VTDDataHelper] simpleData = n.bk@a2b706
+12-06 04:02:16.307 11883 12114 D fe      : [fe][13305693][tid_64](61)data:file
+12-06 04:02:16.307 11883 12114 I fe      : [fe][13305694][tid_64](73)[VTDDataHelper] simpleData = n.e@daff1c7
+12-06 04:02:16.308 11883 12114 E fe      : [niyongliang][fe][13305695][tid_64](54)xml:
+12-06 04:02:16.309 11883 12114 I aar     : [aar][13305696][tid_64](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:16.311 11883 12114 D fe      : [fe][13305697][tid_64](61)data:file
+12-06 04:02:16.311 11883 12114 I fe      : [fe][13305698][tid_64](73)[VTDDataHelper] simpleData = n.e@67ec3f4
+12-06 04:02:16.312 11883 12114 D fe      : [fe][13305699][tid_64](61)data:file
+12-06 04:02:16.313 11883 12114 I fe      : [fe][13305699][tid_64](73)[VTDDataHelper] simpleData = n.e@665f71d
+12-06 04:02:16.323 11883 12114 D fe      : [fe][13305709][tid_64](61)data:plugin
+12-06 04:02:16.323 11883 12114 I fe      : [fe][13305710][tid_64](73)[VTDDataHelper] simpleData = n.ad@8233d92
+12-06 04:02:16.324 11883 12114 D fe      : [fe][13305711][tid_64](61)data:file
+12-06 04:02:16.325 11883 12114 I fe      : [fe][13305711][tid_64](73)[VTDDataHelper] simpleData = n.e@4afe363
+12-06 04:02:16.327 11883 12114 D aah     : [aah][13305713][tid_64](920)[magazine_down_content] [query_all_default] [id:4944]
+12-06 04:02:16.327 11883 12114 I aah     : [aah][13305714][tid_64](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@4dcd02e
+12-06 04:02:16.328 11883 12114 D fe      : [fe][13305715][tid_64](61)data:magazine_source_data
+12-06 04:02:16.329 11883 12114 I fe      : [fe][13305715][tid_64](73)[VTDDataHelper] simpleData = n.bk@7be2b60
+12-06 04:02:16.329 11883 12114 D fe      : [fe][13305716][tid_64](61)data:file
+12-06 04:02:16.329 11883 12101 I StatisticsProvider: [StatisticsProvider][13305716][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13305683][tid_64](54)xml:" name="unknown" count="23" error="[niyongliang][fe][13305683][tid_64](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504136297" ua_process="lockscreen" index="146" />
+12-06 04:02:16.329 11883 12114 I fe      : [fe][13305716][tid_64](73)[VTDDataHelper] simpleData = n.e@96fe819
+12-06 04:02:16.330 11883 12101 D StatisticsProvider: [StatisticsProvider][13305717][tid_54](432)[statistics_test] =======>write map:n.ep@9b3a0de
+12-06 04:02:16.331 11883 12101 I StatisticsProvider: [StatisticsProvider][13305717][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:16.331 11883 12101 I StatisticsProvider: [StatisticsProvider][13305718][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:16.331 11883 12114 E fe      : [niyongliang][fe][13305718][tid_64](54)xml:
+12-06 04:02:16.331 11883 12101 D StatisticsProvider: [StatisticsProvider][13305718][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:16.332 11883 12114 I aar     : [aar][13305718][tid_64](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:16.333 11883 12114 D fe      : [fe][13305719][tid_64](61)data:file
+12-06 04:02:16.333 11883 12114 I fe      : [fe][13305720][tid_64](73)[VTDDataHelper] simpleData = n.e@63352bf
+12-06 04:02:16.334 11883 12114 D fe      : [fe][13305720][tid_64](61)data:file
+12-06 04:02:16.334 11883 12114 I fe      : [fe][13305721][tid_64](73)[VTDDataHelper] simpleData = n.e@5ca9d8c
+12-06 04:02:16.335 11883 12114 D fe      : [fe][13305722][tid_64](61)data:plugin
+12-06 04:02:16.335 11883 12114 I fe      : [fe][13305722][tid_64](73)[VTDDataHelper] simpleData = n.ad@98decd5
+12-06 04:02:16.336 11883 12114 D fe      : [fe][13305722][tid_64](61)data:file
+12-06 04:02:16.336 11883 12114 I fe      : [fe][13305723][tid_64](73)[VTDDataHelper] simpleData = n.e@154ecea
+12-06 04:02:16.337 11883 12114 D aah     : [aah][13305723][tid_64](920)[magazine_down_content] [query_all_default] [id:4945]
+12-06 04:02:16.337 11883 12114 I aah     : [aah][13305724][tid_64](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@4dcd02e
+12-06 04:02:16.338 11883 12114 D fe      : [fe][13305725][tid_64](61)data:magazine_source_data
+12-06 04:02:16.338 11883 12114 I fe      : [fe][13305725][tid_64](73)[VTDDataHelper] simpleData = n.bk@8545bdb
+12-06 04:02:16.339 11883 12114 D fe      : [fe][13305725][tid_64](61)data:file
+12-06 04:02:16.339 11883 12114 I fe      : [fe][13305726][tid_64](73)[VTDDataHelper] simpleData = n.e@64a0678
+12-06 04:02:16.340 11883 12114 E fe      : [niyongliang][fe][13305726][tid_64](54)xml:
+12-06 04:02:16.341 11883 12114 I aar     : [aar][13305727][tid_64](98)[JsonUtil] toMap(String) json ={}, return = {}
+12-06 04:02:16.341 11883 12114 D fe      : [fe][13305728][tid_64](61)data:file
+12-06 04:02:16.342 11883 12114 I fe      : [fe][13305728][tid_64](73)[VTDDataHelper] simpleData = n.e@44d8151
+12-06 04:02:16.342 11883 12114 D fe      : [fe][13305729][tid_64](61)data:file
+12-06 04:02:16.343 11883 12114 I fe      : [fe][13305729][tid_64](73)[VTDDataHelper] simpleData = n.e@80cedb6
+12-06 04:02:16.344 11883 12114 D fe      : [fe][13305730][tid_64](61)data:plugin
+12-06 04:02:16.344 11883 12114 I fe      : [fe][13305730][tid_64](73)[VTDDataHelper] simpleData = n.ad@eb2dab7
+12-06 04:02:16.344 11883 12114 D fe      : [fe][13305731][tid_64](61)data:file
+12-06 04:02:16.344 11883 12114 I fe      : [fe][13305731][tid_64](73)[VTDDataHelper] simpleData = n.e@1551224
+12-06 04:02:16.345 11883 12114 D aah     : [aah][13305731][tid_64](920)[magazine_down_content] [query_all_default] [id:648]
+12-06 04:02:16.345 11883 12114 D MagazineDao: [MagazineDao][13305732][tid_64](586)[magazine_down_content] [getAllMagazineContents] [size:4]
+12-06 04:02:16.345 11883 12114 D MagazineDao: [MagazineDao][13305732][tid_64](1158)[magazine_down_content] [prepare download] [start] [size:4]
+12-06 04:02:16.346 11883 12114 D MagazineDao: [MagazineDao][13305733][tid_64](1177)[magazine_down_content] [prepare download] [id:990] [currentTime:1512504136345] [endTime:1484236800000], [type:dynamic]
+12-06 04:02:16.346 11883 12114 W MagazineDao: [MagazineDao][13305733][tid_64](1180)[magazine_down_content] [prepare download] [id:990] [overdue]
+12-06 04:02:16.346 11883 12114 D MagazineDao: [MagazineDao][13305733][tid_64](1177)[magazine_down_content] [prepare download] [id:4944] [currentTime:1512504136346] [endTime:1484236800000], [type:static]
+12-06 04:02:16.347 11883 12114 W MagazineDao: [MagazineDao][13305733][tid_64](1180)[magazine_down_content] [prepare download] [id:4944] [overdue]
+12-06 04:02:16.347 11883 12114 D MagazineDao: [MagazineDao][13305733][tid_64](1177)[magazine_down_content] [prepare download] [id:4945] [currentTime:1512504136347] [endTime:1484236800000], [type:static]
+12-06 04:02:16.347 11883 12114 W MagazineDao: [MagazineDao][13305734][tid_64](1180)[magazine_down_content] [prepare download] [id:4945] [overdue]
+12-06 04:02:16.347 11883 12114 D MagazineDao: [MagazineDao][13305734][tid_64](1177)[magazine_down_content] [prepare download] [id:648] [currentTime:1512504136347] [endTime:1484236800000], [type:dynamic]
+12-06 04:02:16.347 11883 12114 W MagazineDao: [MagazineDao][13305734][tid_64](1180)[magazine_down_content] [prepare download] [id:648] [overdue]
+12-06 04:02:16.347 11883 12114 I MagazineDao: [MagazineDao][13305734][tid_64](1247)[magazine_down_content] [prepare download] [end<==========download size:0] 
+12-06 04:02:16.348 11883 12114 W yo      : [yo][13305734][tid_64](345)[magazine_down_content] [download] [autoUpdate] [end========>downloadSize:0 or list is null]
+12-06 04:02:16.350 11883 12101 I StatisticsProvider: [StatisticsProvider][13305737][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13305695][tid_64](54)xml:" name="unknown" count="24" error="[niyongliang][fe][13305695][tid_64](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504136309" ua_process="lockscreen" index="147" />
+12-06 04:02:16.351 11883 12101 D StatisticsProvider: [StatisticsProvider][13305738][tid_54](432)[statistics_test] =======>write map:n.ep@897e18d
+12-06 04:02:16.351 11883 12101 I StatisticsProvider: [StatisticsProvider][13305738][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:16.352 11883 12101 I StatisticsProvider: [StatisticsProvider][13305738][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:16.352 11883 12101 D StatisticsProvider: [StatisticsProvider][13305739][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:16.368 11883 12101 I StatisticsProvider: [StatisticsProvider][13305754][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13305718][tid_64](54)xml:" name="unknown" count="25" error="[niyongliang][fe][13305718][tid_64](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504136331" ua_process="lockscreen" index="148" />
+12-06 04:02:16.369 11883 12101 D StatisticsProvider: [StatisticsProvider][13305755][tid_54](432)[statistics_test] =======>write map:n.ep@f722f42
+12-06 04:02:16.369 11883 12101 I StatisticsProvider: [StatisticsProvider][13305756][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-06 04:02:16.369 11883 12101 I StatisticsProvider: [StatisticsProvider][13305756][tid_54](518)[statistics_test] ====canWrite====
+12-06 04:02:16.369 11883 12101 D StatisticsProvider: [StatisticsProvider][13305756][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-06 04:02:16.384 11883 12101 I StatisticsProvider: [StatisticsProvider][13305770][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][13305726][tid_64](54)xml:" name="unknown" count="26" error="[niyongliang][fe][13305726][tid_64](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1512504136340" ua_process="lockscreen" index="149" />
+12-06 04:02:18.451 11883 12342 I ki      : [ki][13307836][tid_101](320)response = org.apache.http.message.BasicHttpResponse@7ac69af
+12-06 04:02:18.453 11883 12342 D ki      : [ki][13307839][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:18.454 11883 12342 D ki      : [ki][13307840][tid_101](325)header name = platform, value = android
+12-06 04:02:18.456 11883 12342 D ki      : [ki][13307842][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:18.460 11883 12342 I ki      : [ki][13307846][tid_101](378)doGetAllHeaders
+12-06 04:02:18.461 11883 12342 I ki      : [ki][13307847][tid_101](336)doGetStatusCode
+12-06 04:02:18.462 11883 12342 I uo      : [uo][13307848][tid_101](137)response code:206
+12-06 04:02:18.463 11883 12342 I ki      : [ki][13307849][tid_101](352)doGetEntityByteArray
+12-06 04:02:18.465 11883 12342 I ui      : [ui][13307851][tid_101](47)inflate length:65
+12-06 04:02:18.467 11883 12342 I uo      : [uo][13307853][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="6"></body>
+12-06 04:02:18.470 11883 12342 I up      : [up][13307856][tid_101](58)http send type:OK
+12-06 04:02:18.470 11883 12342 I up      : [up][13307857][tid_101](43)http send thread run
+12-06 04:02:18.471 11883 12342 D ut      : [ut][13307858][tid_101](72)waiting list Condition signal heartIndex:2 waitTime:10
+12-06 04:02:28.473 11883 12342 I up      : [up][13317859][tid_101](46)http send list:[]
+12-06 04:02:28.475 11883 12342 I uw      : [uw][13317861][tid_101](28)getRidAndIncrement :7
+12-06 04:02:28.476 11883 12342 I uo      : [uo][13317863][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:28.480 11883 12342 I uo      : [uo][13317866][tid_101](121)Request content : <body rid="7" count="0" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"></body>
+12-06 04:02:28.481 11883 12342 D uo      : [uo][13317867][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:28.482 11883 12342 D uo      : [uo][13317868][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:02:28.483 11883 12342 I ki      : [ki][13317869][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@b87fda8
+12-06 04:02:30.671 11883 12342 I ki      : [ki][13320057][tid_101](320)response = org.apache.http.message.BasicHttpResponse@2060c1
+12-06 04:02:30.673 11883 12342 D ki      : [ki][13320059][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:02:30.674 11883 12342 D ki      : [ki][13320060][tid_101](325)header name = platform, value = android
+12-06 04:02:30.675 11883 12342 D ki      : [ki][13320061][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:02:30.676 11883 12342 I ki      : [ki][13320062][tid_101](378)doGetAllHeaders
+12-06 04:02:30.677 11883 12342 I ki      : [ki][13320063][tid_101](336)doGetStatusCode
+12-06 04:02:30.678 11883 12342 I uo      : [uo][13320064][tid_101](137)response code:206
+12-06 04:02:30.679 11883 12342 I ki      : [ki][13320065][tid_101](352)doGetEntityByteArray
+12-06 04:02:30.681 11883 12342 I ui      : [ui][13320067][tid_101](47)inflate length:65
+12-06 04:02:30.683 11883 12342 I uo      : [uo][13320069][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="7"></body>
+12-06 04:02:30.686 11883 12342 I up      : [up][13320072][tid_101](58)http send type:OK
+12-06 04:02:30.687 11883 12342 I up      : [up][13320073][tid_101](43)http send thread run
+12-06 04:02:30.688 11883 12342 D ut      : [ut][13320074][tid_101](72)waiting list Condition signal heartIndex:3 waitTime:30
+12-06 04:02:52.395 11883 12114 D go      : [go][13341781][tid_64](67)size
+12-06 04:02:52.397 11883 12114 I TaskServiceProvider: [TaskServiceProvider][13341783][tid_64](85)kill self service, size=0
+12-06 04:02:52.398 11883 12114 I TaskServiceProvider: [TaskServiceProvider][13341784][tid_64](87)kill self service success
+12-06 04:02:52.399 11883 12114 I vv      : [vv][13341785][tid_64](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-06 04:02:52.401 11883 12114 D TaskServiceProvider: [TaskServiceProvider][13341787][tid_64](89)vlife_task_service_for_3part
+12-06 04:03:00.690 11883 12342 I up      : [up][13350076][tid_101](46)http send list:[]
+12-06 04:03:00.691 11883 12342 I uw      : [uw][13350077][tid_101](28)getRidAndIncrement :8
+12-06 04:03:00.693 11883 12342 I uo      : [uo][13350079][tid_101](112)Request url : http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:03:00.696 11883 12342 I uo      : [uo][13350082][tid_101](121)Request content : <body rid="8" count="0" wait="2" sid="7f549c0310006b20@a1.stage.vlife.com"></body>
+12-06 04:03:00.697 11883 12342 D uo      : [uo][13350084][tid_101](127)[HttpCoreOperatorS] userAgent:Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:03:00.698 11883 12342 D uo      : [uo][13350084][tid_101](131)httpPost. httpClient = n.kj@6b62cd9
+12-06 04:03:00.699 11883 12342 I ki      : [ki][13350085][tid_101](318)doExecute request=org.apache.http.client.methods.HttpPost@224e63e
+12-06 04:03:02.821 11883 12342 I ki      : [ki][13352207][tid_101](320)response = org.apache.http.message.BasicHttpResponse@834e3bb
+12-06 04:03:02.823 11883 12342 D ki      : [ki][13352209][tid_101](322)uri = http://115.28.84.237/a/1/?p=a&v=5&c=g&st=b29a13374853e6552135a6436e5ed0be&sv=6.131&az=android-ipro-magazine&id=10493580917104&sid=7f549c0310006b20@a1.stage.vlife.com
+12-06 04:03:02.823 11883 12342 D ki      : [ki][13352210][tid_101](325)header name = platform, value = android
+12-06 04:03:02.825 11883 12342 D ki      : [ki][13352211][tid_101](325)header name = User-Agent, value = Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; AOSP on Shamu Build/NBD90Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+12-06 04:03:02.826 11883 12342 I ki      : [ki][13352212][tid_101](378)doGetAllHeaders
+12-06 04:03:02.827 11883 12342 I ki      : [ki][13352213][tid_101](336)doGetStatusCode
+12-06 04:03:02.828 11883 12342 I uo      : [uo][13352214][tid_101](137)response code:206
+12-06 04:03:02.830 11883 12342 I ki      : [ki][13352216][tid_101](352)doGetEntityByteArray
+12-06 04:03:02.833 11883 12342 I ui      : [ui][13352219][tid_101](47)inflate length:65
+12-06 04:03:02.836 11883 12342 I uo      : [uo][13352221][tid_101](174)response CONTENT： <body xmlns="http://jabber.org/protocol/httpbind" rid="8"></body>
+12-06 04:03:02.838 11883 12342 I up      : [up][13352224][tid_101](58)http send type:OK
+12-06 04:03:02.839 11883 12342 I up      : [up][13352225][tid_101](43)http send thread run
+12-06 04:03:02.839 11883 12342 D ut      : [ut][13352226][tid_101](72)waiting list Condition signal heartIndex:4 waitTime:60

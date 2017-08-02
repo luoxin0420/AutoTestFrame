@@ -1,0 +1,9 @@
+08-02 14:48:39.240  1160  1160 D NetChangeReceiverHandler: [NetChangeReceiverHandler][896222][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@3f9e368,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+08-02 14:48:39.240  1160  1160 D NewDownloadProvider: [NewDownloadProvider][896222][tid_1](377)[new_download] [download_net_change] networkChange
+08-02 14:48:39.241  1160  1160 I qk      : [qk][896223][tid_1](228)currentApn: info is null
+08-02 14:48:39.241  1160  1160 I qk      : [qk][896223][tid_1](213)currentApn:DISCONNECT
+08-02 14:48:40.742  1160  1160 D NewDownloadProvider: [NewDownloadProvider][897723][tid_1](408)[download_net_change] handleMessage
+08-02 14:48:40.744  1160  1160 D fk      : [fk][897725][tid_1](49)[download_net_change] refreshNetworkType
+08-02 14:48:40.747  1160  1160 D fk      : [fk][897729][tid_1](51)changeNetWork 1 -> 16, start
+08-02 14:48:40.749  1160  1160 D NewDownloadProvider: [NewDownloadProvider][897730][tid_1](338)[new_download] [download_net_change] =======>start [oldType:1] [currentType:16]
+08-02 14:48:40.751  1160  1160 D fk      : [fk][897732][tid_1](59)changeNetWork end

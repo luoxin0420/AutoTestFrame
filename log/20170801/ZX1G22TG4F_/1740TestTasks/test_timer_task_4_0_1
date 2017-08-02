@@ -1,0 +1,5 @@
+08-02 00:42:35.488  1160  1522 D go      : [go][442248][tid_59](67)size
+08-02 00:42:35.491  1160  1522 I TaskServiceProvider: [TaskServiceProvider][442250][tid_59](85)kill self service, size=0
+08-02 00:42:35.491  1160  1522 I TaskServiceProvider: [TaskServiceProvider][442252][tid_59](87)kill self service success
+08-02 00:42:35.492  1160  1522 I vv      : [vv][442252][tid_59](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-02 00:42:35.492  1160  1522 D TaskServiceProvider: [TaskServiceProvider][442253][tid_59](89)vlife_task_service_for_3part

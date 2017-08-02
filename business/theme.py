@@ -20,7 +20,7 @@ def set_device_theme(dname, theme_type):
     # log in theme app like i theme
     activity_name = theme_config.getValue(dname,'set_theme_pkg')
     DEVICE = device.Device(dname)
-    DEVICE.app_operation(action='LAUNCH',service=activity_name)
+    DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
     sleep(2)
     if theme_type.upper() == 'VLIFE':
         vlife_theme_path = theme_config.getValue(dname,'vlife_theme_path').split(',')

@@ -15,14 +15,15 @@ from library import logcat as dumplog
 from library import device
 from library import desktop
 from library import HTMLTestRunner
-from library.myglobal import device_config,POSITIVE_VP_TYPE,logger
+from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,DEVICE_ACTION
 from business import action,vp
 from business import querydb as tc
 
 
 def get_test_data():
 
-    return tc.filter_cases(1)
+    print len(tc.filter_cases(6))
+    return tc.filter_cases(6)
 
 @ddt.ddt
 class TestTimerTask(unittest.TestCase):
@@ -86,7 +87,12 @@ class TestTimerTask(unittest.TestCase):
         if exc_list and exc_list[-1][0] is self:
             return exc_list[-1][1]
 
-    def execute_action(self,aname,value,data):
+    def execute_action(self, aname, value, data):
+
+        # act_name = aname.lower()
+        #
+        # if act_name in DEVICE_ACTION:
+        #     action.execute_device_action(self.device_action,aname, value)
 
         if aname.startswith('network'):
 
@@ -110,8 +116,25 @@ class TestTimerTask(unittest.TestCase):
             logger.debug('Step: wait time: ' + str(value))
             sleep(value)
 
+        elif aname.startswith('reboot'):
+            self.device_action.reboot_device()
+
+        elif aname.startswith('unlock_screen'):
+            self.device_action.unlock_screen()
+
+        elif aname.startswith('update_para'):
+            self.device_action.update_para(value)
+
+        elif aname.startswith('install_app'):
+            self.device_action.install_app(value)
+
+        elif aname.startswith('screen_on'):
+            logger.debug('Step: Screen on operation')
+            DEVICE.screen_on_off(value)
+            sleep(2)
+
         elif aname.startswith('task_init_source'):
-            self.device_action.task_init_resource(data['teca_prod_id'],value)
+            self.device_action.task_init_resource(value)
         else:
             self.result = False
             print 'Unknown action name:' + aname
@@ -174,11 +197,17 @@ class TestTimerTask(unittest.TestCase):
 
         vpname = tc.get_vp_name(data['teca_vp_id'])
         self.pid = self.get_pid(vpname)
+        #print self.pid
 
         temp = {}
         business_order = tc.get_action_list(data['teca_comp_id'])
+        prev_act = ''
+        vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
         try:
             for act in business_order:
+                # pid is changed after reboot device and unlock_screen
+                if prev_act.startswith('unlock_screen'):
+                    self.pid = self.get_pid(vpname)
                 if act not in temp.keys():
                     temp[act] = 0
                 # maybe same action is executed multiple times
@@ -187,10 +216,10 @@ class TestTimerTask(unittest.TestCase):
                     act = '-'.join([act,str(temp[act])])
                 act = act.encode('gbk')
                 self.execute_action(act,dict_data[act], new_data)
+                prev_act = act
 
                 if not self.result:
                     break
-            vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
             if self.result:
                 self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, new_data['teca_expe_result'])
 
@@ -202,10 +231,10 @@ class TestTimerTask(unittest.TestCase):
         else:
             self.assertEqual(self.result, False)
 
-    def test_demo(self):
-
-        print 'this is only test demo'
-        self.assertEqual(1, 2)
+    # def test_demo(self):
+    #
+    #     print 'this is only test demo'
+    #     self.assertEqual(1, 2)
 
 
 def run(dname, loop, rtype):
@@ -239,7 +268,7 @@ def run(dname, loop, rtype):
                 FAIL_CASE = []
 
             if suite.countTestCases() > 0:
-                runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, title='Task Testing Report', description='Test Result',)
+                runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, loop=LOOP_NUM, title='Task Testing Report', description='Test Result',)
                 runner.run(suite)
             fileobj.close()
             sleep(5)

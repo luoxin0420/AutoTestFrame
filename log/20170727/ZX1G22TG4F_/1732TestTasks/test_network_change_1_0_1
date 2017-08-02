@@ -1,0 +1,25 @@
+12-02 03:51:41.142  3730 26233 D gn      : [gn][525792661][tid_1033](104)task run
+12-02 03:51:41.143  3730 26233 W wd      : [wd][525792662][tid_1033](52)create preferences name:timing_network_preference
+12-02 03:51:41.144  3730 26234 D gn      : [gn][525792663][tid_1034](104)task run
+12-02 03:51:41.145  3730 26233 I jv      : [jv][525792664][tid_1033](84)first time ready type:magazine_update
+12-02 03:51:41.145  3730 26234 W wd      : [wd][525792665][tid_1034](52)create preferences name:timing_network_preference
+12-02 03:51:41.146  3730 26233 I jv      : [jv][525792666][tid_1033](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-02 03:51:41.147  3730 26234 I jv      : [jv][525792666][tid_1034](84)first time ready type:ua_time_send
+12-02 03:51:41.147  3730 26233 D yy      : [yy][525792667][tid_1033](73)[magazine_down_content] [canRunnable]
+12-02 03:51:41.148  3730 26234 I jv      : [jv][525792667][tid_1034](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-02 03:51:41.148  3730 26233 W wd      : [wd][525792668][tid_1033](52)create preferences name:timing_network_preference
+12-02 03:51:41.149  3730 26234 W wd      : [wd][525792669][tid_1034](52)create preferences name:timing_network_preference
+12-02 03:51:41.152  3730 26233 I qi      : [qi][525792671][tid_1033](228)currentApn: info is null
+12-02 03:51:41.153  3730 26234 I qi      : [qi][525792672][tid_1034](228)currentApn: info is null
+12-02 03:51:41.153  3730 26233 I qi      : [qi][525792673][tid_1033](213)currentApn:DISCONNECT
+12-02 03:51:41.154  3730 26234 I qi      : [qi][525792673][tid_1034](213)currentApn:DISCONNECT
+12-02 03:51:41.154  3730 26233 W jx      : [jx][525792674][tid_1033](44)canConnectNetWork net is unenble result == false
+12-02 03:51:41.155  3730 26234 W jx      : [jx][525792674][tid_1034](44)canConnectNetWork net is unenble result == false
+12-02 03:51:41.155  3730 26233 W yy      : [yy][525792675][tid_1033](75)[magazine_down_content] [canRunnable] false
+12-02 03:51:41.156  3730 26234 W jv      : [jv][525792675][tid_1034](50)[TimingNetworkTask] [NetWorkController] ,return false
+12-02 03:51:41.156  3730 26233 D jv      : [jv][525792676][tid_1033](123)Judgment result can not run , reason :network is not allowed , task type is magazine_update
+12-02 03:51:41.157  3730 26234 D jv      : [jv][525792676][tid_1034](123)Judgment result can not run , reason :network is not allowed , task type is ua_time_send
+12-02 03:51:41.157  3730 26233 W jv      : [jv][525792677][tid_1033](93)task : magazine_update can't run!
+12-02 03:51:41.158  3730 26234 W jv      : [jv][525792677][tid_1034](93)task : ua_time_send can't run!
+12-02 03:51:41.159  3730 26234 I jv      : [jv][525792678][tid_1034](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-02 03:51:41.159  3730 26233 I jv      : [jv][525792678][tid_1033](95)TimingNetworkTimerServerTask end , task : magazine_update 

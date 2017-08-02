@@ -57,10 +57,13 @@ def filter_log_result(logname, pid_list, match_type, findstr=''):
                 continue
 
     # summary result
-    res = True
-    for key, value in result_dict.items():
-        logger.debug('PID:' + str(key) + ':Found all log:' + str(value))
-        res = res and value
+    if len(result_dict) > 0:
+        res = True
+        for key, value in result_dict.items():
+            logger.debug('PID:' + str(key) + ':Found all log:' + str(value))
+            res = res and value
+    else:
+        res = False
     return res
 
 if __name__ == '__main__':

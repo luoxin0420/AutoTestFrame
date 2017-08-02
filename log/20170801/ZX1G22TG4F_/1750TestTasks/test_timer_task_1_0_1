@@ -1,0 +1,469 @@
+08-03 04:48:03.019  1160  1160 D ImageWallpaper: onVisibilityChanged: mVisible, visible=true, false
+08-03 04:48:03.020  1160  1160 D ImageWallpaper: Visibility changed to visible=false
+08-03 04:48:05.325  1160  1160 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+08-03 04:48:05.844  1160  1160 D PhoneStatusBar/VlifeMagazineView: com.android.systemui.statusbar.phone.VlifeMagazineView$2@208c286.onScreenTurnedOff ()
+08-03 04:48:05.844  1160  1160 D PhoneStatusBar: disable: < expand icons alerts system_info back home recent clock search quick_settings >
+08-03 04:48:05.845  1160  1160 I VlifeMagazineLockForVendor: [VlifeMagazineLockForVendor][923951][tid_1](105)[com.vlife.magazine.vendor.VlifeMagazineLockForVendor@d44d01b][com.vlife.magazine.vendor.VlifeMagazineLockForVendor.onScreenTurnOff(105)][in]
+08-03 04:48:05.845  1160  1160 I xf      : [xf][923952][tid_1](208)[n.xf@2c7e681][n.xf.b(208)][in]
+08-03 04:48:05.846  1160  1160 I xf      : [xf][923953][tid_1](210)[n.xf@2c7e681][n.xf.b(210)][out]
+08-03 04:48:05.869  1160  1160 D [LOGFILTER] xc: doPause
+08-03 04:48:05.869  1160  1160 D EngineView: [EngineView][923976][tid_1](223)[EngineView] [pause()]
+08-03 04:48:05.875  1160  1160 I VlifeMagazineLockForVendor: [VlifeMagazineLockForVendor][923982][tid_1](112)[com.vlife.magazine.vendor.VlifeMagazineLockForVendor$2@49e8112][com.vlife.magazine.vendor.VlifeMagazineLockForVendor$2.run(112)][out]
+08-03 04:48:05.880  1160  1160 I xf      : [xf][923986][tid_1](139)[n.xf@2c7e681][n.xf.h(139)][in]
+08-03 04:48:05.880  1160  1160 D MagazineContentView: [MagazineContentView][923987][tid_1](130)[AbstractVlifeMagazineMockViewD] onScreenTurnedOff
+08-03 04:48:05.880  1160  1160 D abd     : [abd][923987][tid_1](387)[test_notice] setAlpha 1f
+08-03 04:48:05.881  1160  1160 I MagazineContentView: [MagazineContentView][923987][tid_1](972)notify systemui show notification =  com.android.systemui.statusbar.phone.VlifeMagazineView{8bca0e3 V.E...... ........ 0,0-1440,84 #7f120251 app:id/magazine_holder}
+08-03 04:48:05.881  1160  1160 I MagazineContentView: [MagazineContentView][923988][tid_1](974)notify systemui show notification
+08-03 04:48:05.882  1160  1160 D MagazineContentView: [MagazineContentView][923989][tid_1](136)onScreenTurnedOff
+08-03 04:48:05.883  1160  1160 D NotificationView: [NotificationView][923989][tid_1](156)[notice_view] [onScreenTurnedOff]
+08-03 04:48:05.884  1160  1160 D aat     : [aat][923991][tid_1](29)[notice_view] [NotificationUtils] [isCanShowNotifications] notificationFlag:1
+08-03 04:48:05.884  1160  1160 D NotificationView: [NotificationView][923991][tid_1](247)[notice_view] [checkNotificationShowFlag] visible
+08-03 04:48:05.884  1160  1160 D NotificationView: [NotificationView][923991][tid_1](600)[notice_view] clear_icon size:0
+08-03 04:48:05.885  1160  1160 D NotificationView: [NotificationView][923992][tid_1](160)[notice_view] [onScreenTurnedOff] secure isSecure:false, isSecureKeyguard:false
+08-03 04:48:05.885  1160  1160 D [LOGFILTER] aaw: onScreenTurnedOff
+08-03 04:48:05.886  1160  1160 D [LOGFILTER] PageDotsView: showDots
+08-03 04:48:05.886  1160  1160 D LockDotView: [LockDotView][923993][tid_1](39)[camera_scroll] 0.35
+08-03 04:48:05.886  1160  1160 D abd     : [abd][923993][tid_1](387)[test_notice] setAlpha 1f
+08-03 04:48:05.886  1160  1160 I MagazineContentView: [MagazineContentView][923993][tid_1](972)notify systemui show notification =  com.android.systemui.statusbar.phone.VlifeMagazineView{8bca0e3 V.E...... ........ 0,0-1440,84 #7f120251 app:id/magazine_holder}
+08-03 04:48:05.887  1160  1160 I MagazineContentView: [MagazineContentView][923994][tid_1](974)notify systemui show notification
+08-03 04:48:05.888  1160  1160 D aaw     : [aaw][923995][tid_1](1003)[loadNextRes] [forceLoad:false]
+08-03 04:48:05.888  1160  1160 D wf      : [wf][923995][tid_1](54)create preferences name:magazineSetting
+08-03 04:48:05.889  1160  1160 I vv      : [vv][923995][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:05.889  1160  1160 I ApplicationStatus: [ApplicationStatus][923996][tid_1](362)isSameProcessType lockscreen lockscreen true
+08-03 04:48:05.889  1160  1160 I ApplicationStatus: [ApplicationStatus][923996][tid_1](367)isSameProcessType lockscreen lockscreen true
+08-03 04:48:05.889  1160  1160 D aap     : [aap][923996][tid_1](75)[permission] isLock:true
+08-03 04:48:05.890  1160  1160 D aap     : [aap][923997][tid_1](70)[isAutoPlay] isLock:true
+08-03 04:48:05.890  1160  1160 I vv      : [vv][923997][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:05.890  1160  1160 I ApplicationStatus: [ApplicationStatus][923997][tid_1](362)isSameProcessType lockscreen lockscreen true
+08-03 04:48:05.891  1160  1160 I ApplicationStatus: [ApplicationStatus][923997][tid_1](367)isSameProcessType lockscreen lockscreen true
+08-03 04:48:05.891  1160  1160 D aap     : [aap][923998][tid_1](75)[permission] isLock:true
+08-03 04:48:05.891  1160  1160 D aap     : [aap][923998][tid_1](82)[isAutoPlay] isLock:true isAutoPlay:true
+08-03 04:48:05.891  1160  1160 D aaw     : [aaw][923998][tid_1](1007)[loadNextRes] [autoPlay is true] [current is null:false]
+08-03 04:48:05.891  1160  1160 I pb      : [pb][923998][tid_1](337)[isFileExist] path = wallpaperzf/29/3082/293082.zip.pet
+08-03 04:48:05.895  1160  1160 I pb      : [pb][924002][tid_1](364)[isFileExist] filePath = /storage/emulated/0/vlife_magazine_stage/wallpaperzf/29/3082/293082.vlp
+08-03 04:48:05.897  1160  1160 W pb      : [pb][924004][tid_1](376)[isFileExist] [result:true]
+08-03 04:48:05.897  1160  1160 D pb      : [pb][924004][tid_1](343)setImagePre exist:true
+08-03 04:48:05.900  1160  1160 D EngineView: [EngineView][924007][tid_1](105)[EngineView] [load start] isForce:false
+08-03 04:48:05.901  1160  1515 D StatisticsProvider: [StatisticsProvider][924008][tid_54](432)[statistics_test] =======>write map:n.ep@858be55
+08-03 04:48:05.901  1160  1160 I xf      : [xf][924008][tid_1](144)[n.xf@2c7e681][n.xf.h(144)][out]
+08-03 04:48:05.902  1160  1515 I StatisticsProvider: [StatisticsProvider][924008][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+08-03 04:48:05.902  1160  1515 I StatisticsProvider: [StatisticsProvider][924009][tid_54](518)[statistics_test] ====canWrite====
+08-03 04:48:05.902  1160  1515 D StatisticsProvider: [StatisticsProvider][924009][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+08-03 04:48:05.910  1160  1515 I StatisticsProvider: [StatisticsProvider][924017][tid_54](464)[statistics_test] create packet xml : <item ua_action="autoplay" id="648" ua_event="mag_lock_show" ua_time="1501706885901" ua_process="lockscreen" index="3" />
+08-03 04:48:06.032  1160  1160 I MagazineContentView: [MagazineContentView][924139][tid_1](986)notify systemui show notification
+08-03 04:48:06.052  1160  1160 I MagazineContentView: [MagazineContentView][924159][tid_1](986)notify systemui show notification
+08-03 04:48:06.129  1160  1160 D PhoneStatusBar/VlifeMagazineView: mMagazineView onShowKeyguard()
+08-03 04:48:06.130  1160  1160 D EngineView: [EngineView][924237][tid_1](69)[EngineView] [onAttachedToWindow]
+08-03 04:48:06.135  1160  1160 D EngineView: [EngineView][924242][tid_1](74)[EngineView] [onAttachedToWindow] [resume()]
+08-03 04:48:06.137  1160  1160 I xf      : [xf][924244][tid_1](180)[n.xf@2c7e681][n.xf.a(180)][in] params:com.vlife.magazine.common.view.ClockView$1@accd936|
+08-03 04:48:06.138  1160  1160 I xf      : [xf][924244][tid_1](190)[n.xf@2c7e681][n.xf.a(190)][out]
+08-03 04:48:06.178  1160  1160 D PhoneStatusBar: disable: < expand ICONS* alerts SYSTEM_INFO* back home recent clock search quick_settings >
+08-03 04:48:06.188  1160  1160 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+08-03 04:48:06.194  1160  1160 D PhoneStatusBar/VlifeMagazineView: com.android.systemui.statusbar.phone.VlifeMagazineView$2@208c286.onKeyguardVisibilityChanged() true
+08-03 04:48:06.195  1160  1160 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+08-03 04:48:06.198  1160  1160 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+08-03 04:48:06.199  1160  1160 D MagazineContentView: [MagazineContentView][924305][tid_1](312)[onMeasure()] [width:1440] [height:84]
+08-03 04:48:06.200  1160  1160 D MagazineContentView: [MagazineContentView][924307][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:06.203  1160  1160 D MagazineContentView: [MagazineContentView][924310][tid_1](312)[onMeasure()] [width:1440] [height:84]
+08-03 04:48:06.204  1160  1160 D MagazineContentView: [MagazineContentView][924311][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:06.229  1160  1160 D MagazineContentView: [MagazineContentView][924336][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:06.230  1160  1160 D MagazineContentView: [MagazineContentView][924336][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:06.231  1160  1160 D MagazineContentView: [MagazineContentView][924337][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:06.231  1160  1160 D MagazineContentView: [MagazineContentView][924338][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:06.244  1160  1160 D MagazineContentView: [MagazineContentView][924351][tid_1](376)[onLayout()] [width:1440] [height:2560]
+08-03 04:48:06.245  1160  1160 D MagazineContentView: [MagazineContentView][924352][tid_1](379)[onLayout()] [measuredClockHeight:568] [measuredClockWidth:1440]
+08-03 04:48:06.246  1160  1160 D MagazineContentView: [MagazineContentView][924352][tid_1](386)[onLayout()] [measuredPanelHeight:1622] [measuredPanelWidth:1440]
+08-03 04:48:06.246  1160  1160 D MagazineContentView: [MagazineContentView][924353][tid_1](393)[onLayout()] [measuredNotificationHeight:889] [measuredNotificationWidth:1440]
+08-03 04:48:06.247  1160  1160 D MagazineContentView: [MagazineContentView][924353][tid_1](400)[onLayout()] [measuredIndicationHeight:49] [measuredIndicationWidth:1440]
+08-03 04:48:06.261  1160  1160 W View    : requestLayout() improperly called by com.android.systemui.statusbar.NotificationOverflowIconsView{e1b2401 V.E...... ......ID 210,35-1386,119 #7f120240 app:id/overflow_icons_view} during layout: running second layout pass
+08-03 04:48:06.262  1160  1160 W View    : requestLayout() improperly called by com.android.systemui.statusbar.ExpandableNotificationRow{ce2f5d5 VFE...C.. ......ID 0,0-1440,253} during layout: running second layout pass
+08-03 04:48:06.262  1160  1160 W View    : requestLayout() improperly called by StatusBarIconView(slot= icon=StatusBarIcon(icon=Icon(typ=RESOURCE pkg=com.baidu.browser.apps id=0x7f0200f9) visible user=0 ) notification=Notification(pri=2 contentView=com.baidu.browser.apps/0x7f03002a vibrate=null sound=null defaults=0x0 flags=0x22 color=0x00000000 vis=PRIVATE)) during layout: running second layout pass
+08-03 04:48:06.262  1160  1160 W View    : requestLayout() improperly called by StatusBarIconView(slot= icon=StatusBarIcon(icon=Icon(typ=RESOURCE pkg=com.baidu.appsearch id=0x7f020497) level=1 visible user=0 ) notification=Notification(pri=1 contentView=com.baidu.appsearch/0x7f0302f5 vibrate=null sound=null defaults=0x0 flags=0x10 color=0x00000000 vis=PRIVATE)) during layout: running second layout pass
+08-03 04:48:06.263  1160  1160 W View    : requestLayout() improperly called by StatusBarIconView(slot= icon=StatusBarIcon(icon=Icon(typ=RESOURCE pkg=android id=0x010806be) visible user=-1 ) notification=Notification(pri=0 contentView=null vibrate=null sound=null tick defaults=0x0 flags=0x2 color=0xff607d8b vis=PUBLIC)) during layout: running second layout pass
+08-03 04:48:06.263  1160  1160 W View    : requestLayout() improperly called by StatusBarIconView(slot= icon=StatusBarIcon(icon=Icon(typ=RESOURCE pkg=android id=0x010806be) visible user=-1 ) notification=Notification(pri=-2 contentView=null vibrate=null sound=null tick defaults=0x0 flags=0x2 color=0xff607d8b vis=PUBLIC)) during layout: running second layout pass
+08-03 04:48:06.276  1160  1160 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+08-03 04:48:06.279  1160  1160 D PhoneStatusBar: disable: < expand ICONS alerts SYSTEM_INFO back HOME* RECENT* clock SEARCH* quick_settings >
+08-03 04:48:06.281  1160  1160 D MagazineRenderView: [MagazineRenderView][924387][tid_1](42)[onWindowFocusChanged()] [true] [current:n.bi@12a64bf] [isFirst:true]
+08-03 04:48:06.281  1160  1160 D EngineView: [EngineView][924388][tid_1](105)[EngineView] [load start] isForce:true
+08-03 04:48:06.282  1160  1160 D EngineView: [EngineView][924388][tid_1](142)[EngineView] [load] [id:648], [filePath:wallpaperzf/29/3082/293082.zip.pet] [resType:res_bundle] [type:dynamic]
+08-03 04:48:06.282  1160  1160 D EngineView: [EngineView][924389][tid_1](200)[EngineView] [load] [handleProtectImage] isForce:true
+08-03 04:48:06.286  1160  1160 D EngineView: [EngineView][924393][tid_1](145)[EngineView] [load] [setResourcePath:/storage/emulated/0/vlife_magazine_stage/wallpaperzf/29/3082/293082.vlp]
+08-03 04:48:06.286  1160  1160 D aaw     : [aaw][924393][tid_1](742)[EngineView] [load] onChangeStarted
+08-03 04:48:06.287  1160  1160 D aaw     : [aaw][924393][tid_1](761)[ljy_dev][detailTitle] detailTitle:null
+08-03 04:48:06.288  1160  1160 D aaw     : [aaw][924394][tid_1](952)[check_more] not_jump
+08-03 04:48:06.288  1160  1160 D aaw     : [aaw][924395][tid_1](861)[ljy_dev] [linkImg] [changeContentView] twoLines:2880
+08-03 04:48:06.291  1160  1160 D aaw     : [aaw][924398][tid_1](864)[ljy_dev] [linkImg] [changeContentView] textWidth:1862
+08-03 04:48:06.291  1160  1160 D aaw     : [aaw][924398][tid_1](886)[ljy_dev] [linkImg] [changeContentView] no CheckMore no dos changeContentView content:新疆的雪山有着大地的本色，炙热而清凉。清风徐来，万木飒爽云天浩渺静谧而深沉。
+08-03 04:48:06.292  1160  1160 D aah     : [aah][924399][tid_1](458)[get_favorite_status] [id:648] [start]
+08-03 04:48:06.292  1160  1160 W aah     : [aah][924399][tid_1](85)db provider query:content://vlife/magazine_content
+08-03 04:48:06.299  1160  1160 D aah     : [aah][924406][tid_1](467)[get_favorite_status] [id:648] [favorite:0]
+08-03 04:48:06.323  1160  1160 D EngineView: [EngineView][924430][tid_1](185)[EngineView] [load] showId:648
+08-03 04:48:06.336  1160  1160 D MagazineContentView: [MagazineContentView][924442][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:06.336  1160  1160 D MagazineContentView: [MagazineContentView][924443][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:06.339  1160  1160 D MagazineContentView: [MagazineContentView][924445][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:06.339  1160  1160 D MagazineContentView: [MagazineContentView][924446][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:06.342  1160  1160 D MagazineContentView: [MagazineContentView][924448][tid_1](376)[onLayout()] [width:1440] [height:2560]
+08-03 04:48:06.342  1160  1160 D MagazineContentView: [MagazineContentView][924449][tid_1](379)[onLayout()] [measuredClockHeight:568] [measuredClockWidth:1440]
+08-03 04:48:06.342  1160  1160 D MagazineContentView: [MagazineContentView][924449][tid_1](386)[onLayout()] [measuredPanelHeight:1622] [measuredPanelWidth:1440]
+08-03 04:48:06.343  1160  1160 D MagazineContentView: [MagazineContentView][924450][tid_1](393)[onLayout()] [measuredNotificationHeight:889] [measuredNotificationWidth:1440]
+08-03 04:48:06.343  1160  1160 D MagazineContentView: [MagazineContentView][924450][tid_1](400)[onLayout()] [measuredIndicationHeight:49] [measuredIndicationWidth:1440]
+08-03 04:48:06.702  1160  1472 W art     : Attempt to remove non-JNI local reference, dumping thread
+08-03 04:48:06.703  1160  1472 W art     : Attempt to remove non-JNI local reference, dumping thread
+08-03 04:48:06.704  1160  1472 W art     : Attempt to remove non-JNI local reference, dumping thread
+08-03 04:48:06.892  1160  1472 D EngineView: [EngineView][924999][tid_45](153)[EngineView] [load] [engine success]
+08-03 04:48:06.892  1160  1472 D EngineView: [EngineView][924999][tid_45](156)[EngineView] [load] [engine real success]
+08-03 04:48:06.893  1160  1472 D aaw     : [aaw][925000][tid_45](892)[EngineView] [load] onChangeFinished
+08-03 04:48:06.893  1160  1472 I yq      : [yq][925000][tid_45](42)[n.yq@3ec5fe1][n.yq.a(42)][in]
+08-03 04:48:06.893  1160  1472 D yq      : [yq][925000][tid_45](43)[notifyShown] start
+08-03 04:48:06.893  1160  1472 D yq      : [yq][925000][tid_45](45)[notifyShown] [(contentDatabase == null):false]
+08-03 04:48:06.894  1160  1472 I aah     : [aah][925000][tid_45](427)[MagazineContentDatabase] [notifyShown] updateShow(.) id = 648
+08-03 04:48:06.894  1160  1472 W aah     : [aah][925001][tid_45](109)db provider update:content://vlife/magazine_content
+08-03 04:48:06.908  1160  1472 D yq      : [yq][925015][tid_45](52)[notifyShown] [magazineContentData != null] [prevId:648] [cost-time updateShown:14ms]
+08-03 04:48:06.908  1160  1472 D yq      : [yq][925015][tid_45](57)[notifyShown] [prevId:648]
+08-03 04:48:06.908  1160  1472 D yq      : [yq][925015][tid_45](63)[notifyShown] [prevId:648] queryOneExist(.)
+08-03 04:48:06.909  1160  1472 D aah     : [aah][925015][tid_45](1082)[MagazineContentDatabase] [notifyShown] [queryOneExist(.)] strCrrTime:1501706886908
+08-03 04:48:06.909  1160  1472 W aah     : [aah][925016][tid_45](85)db provider query:content://vlife/magazine_content
+08-03 04:48:06.910  1160  1472 I aah     : [aah][925017][tid_45](1084)[MagazineContentDatabase] [notifyShown] [queryOneExist(.)] cursor:android.database.sqlite.SQLiteCursor@b7974cf, cursor.getCount():4
+08-03 04:48:06.911  1160  1472 I aah     : [aah][925017][tid_45](1092)[MagazineContentDatabase] [notifyShown] [queryOneExist(.)] [showNum>0]
+08-03 04:48:06.911  1160  1472 I aah     : [aah][925018][tid_45](1095)[MagazineContentDatabase] [notifyShown] [queryOneExist(.)] [showNum>0] id:648
+08-03 04:48:06.911  1160  1472 I aah     : [aah][925018][tid_45](1097)[MagazineContentDatabase] [notifyShown] [queryOneExist(.)] [showNum>0] [id == prevId] break
+08-03 04:48:06.911  1160  1472 I aah     : [aah][925018][tid_45](829)[MagazineContentDatabase] cursor:android.database.sqlite.SQLiteCursor@b7974cf
+08-03 04:48:06.919  1160  1472 D fe      : [fe][925026][tid_45](61)data:magazine_source_data
+08-03 04:48:06.919  1160  1472 I fe      : [fe][925026][tid_45](73)[VTDDataHelper] simpleData = n.bk@b67fe5c
+08-03 04:48:06.920  1160  1472 D fe      : [fe][925027][tid_45](61)data:file
+08-03 04:48:06.921  1160  1472 I fe      : [fe][925028][tid_45](73)[VTDDataHelper] simpleData = n.e@1ef8565
+08-03 04:48:06.923  1160  1472 E fe      : [niyongliang][fe][925030][tid_45](54)xml:
+08-03 04:48:06.924  1160  1515 D StatisticsProvider: [StatisticsProvider][925031][tid_54](432)[statistics_test] =======>write map:n.ep@ebec23a
+08-03 04:48:06.924  1160  1472 I aar     : [aar][925031][tid_45](98)[JsonUtil] toMap(String) json ={}, return = {}
+08-03 04:48:06.924  1160  1515 I StatisticsProvider: [StatisticsProvider][925031][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+08-03 04:48:06.925  1160  1515 I StatisticsProvider: [StatisticsProvider][925032][tid_54](518)[statistics_test] ====canWrite====
+08-03 04:48:06.925  1160  1515 D StatisticsProvider: [StatisticsProvider][925032][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+08-03 04:48:06.926  1160  1472 D fe      : [fe][925033][tid_45](61)data:file
+08-03 04:48:06.926  1160  1472 I fe      : [fe][925033][tid_45](73)[VTDDataHelper] simpleData = n.e@9428eeb
+08-03 04:48:06.929  1160  1472 D fe      : [fe][925035][tid_45](61)data:file
+08-03 04:48:06.929  1160  1472 I fe      : [fe][925036][tid_45](73)[VTDDataHelper] simpleData = n.e@da4a448
+08-03 04:48:06.931  1160  1472 D fe      : [fe][925038][tid_45](61)data:plugin
+08-03 04:48:06.931  1160  1472 I fe      : [fe][925038][tid_45](73)[VTDDataHelper] simpleData = n.ad@d812e1
+08-03 04:48:06.933  1160  1472 D fe      : [fe][925040][tid_45](61)data:file
+08-03 04:48:06.933  1160  1472 I fe      : [fe][925040][tid_45](73)[VTDDataHelper] simpleData = n.e@cc6c806
+08-03 04:48:06.934  1160  1472 I aah     : [aah][925041][tid_45](1104)[MagazineContentDatabase] [notifyShown] [queryOneExist(.)] [showNum>0] moveToNext id:990
+08-03 04:48:06.934  1160  1472 I aah     : [aah][925041][tid_45](1124)MagazineContentDatabase] queryOneExist() return:data = n.bi@c392ec7 
+08-03 04:48:06.935  1160  1472 D yq      : [yq][925041][tid_45](66)[notifyShown] [cost-time query:26ms] [prevId:648] [preparedOne:n.bi@c392ec7]
+08-03 04:48:06.935  1160  1472 I pb      : [pb][925042][tid_45](337)[isFileExist] path = wallpaper/magazine/20160408/1460108994_QJRxmD.jpg.pet
+08-03 04:48:06.938  1160  1472 I pb      : [pb][925045][tid_45](364)[isFileExist] filePath = /storage/emulated/0/vlife_magazine_stage/wallpaper/magazine/20160408/1460108994_QJRxmD.vld
+08-03 04:48:06.938  1160  1472 W pb      : [pb][925045][tid_45](376)[isFileExist] [result:false]
+08-03 04:48:06.939  1160  1472 D pb      : [pb][925046][tid_45](343)setImagePre exist:false
+08-03 04:48:06.939  1160  1472 I pb      : [pb][925046][tid_45](337)[isFileExist] path = wallpaperzf/29/3107/293107.zip.pet
+08-03 04:48:06.941  1160  1472 I pb      : [pb][925048][tid_45](364)[isFileExist] filePath = /storage/emulated/0/vlife_magazine_stage/wallpaperzf/29/3107/293107.vlp
+08-03 04:48:06.942  1160  1472 W pb      : [pb][925049][tid_45](376)[isFileExist] [result:true]
+08-03 04:48:06.942  1160  1472 D pb      : [pb][925049][tid_45](343)setImagePre exist:true
+08-03 04:48:06.946  1160  1515 I StatisticsProvider: [StatisticsProvider][925053][tid_54](464)[statistics_test] create packet xml : <item tag="fe" message="[niyongliang][fe][925030][tid_45](54)xml:" name="unknown" count="1" error="[niyongliang][fe][925030][tid_45](54)xml:" author="niyongliang" ua_event="dev_thread_throwable" dev_version="6.131.9" ua_time="1501706886924" ua_process="lockscreen" index="4" />
+08-03 04:48:06.962  1160  1472 I yq      : [yq][925068][tid_45](96)[notifyShown] [protect] [preparedOne.getId:990]
+08-03 04:48:06.962  1160  1472 D xk      : [xk][925069][tid_45](174)[EngineView] [cache_test] ==================================>put start
+08-03 04:48:06.962  1160  1472 D xk      : [xk][925069][tid_45](177)[EngineView] [cache_test] [putMagazineBitmapCache] [magazineId:990] [magazineType:dynamic]
+08-03 04:48:06.962  1160  1472 D xk      : [xk][925069][tid_45](229)[EngineView] [cache_test] [getDynamicBitmap] relativePath:wallpaperzf/29/3107/293107.zip.pet
+08-03 04:48:06.965  1160  1472 D xk      : [xk][925072][tid_45](234)[EngineView] [cache_test] [getDynamicBitmap] fullPath:/storage/emulated/0/vlife_magazine_stage/wallpaperzf/29/3107/293107.vlp
+08-03 04:48:07.194  1160  1472 D xk      : [xk][925301][tid_45](248)[EngineView] [cache_test] [getDynamicBitmap]  bitmap:android.graphics.Bitmap@f75e92
+08-03 04:48:07.209  1160  1472 D xk      : [xk][925316][tid_45](195)[EngineView] [cache_test] [putMagazineBitmapCache] [magazineId:990] [put key:wallpaperzf/29/3107/293107.zip.pet bitmap:android.graphics.Bitmap@f0ff063]
+08-03 04:48:07.209  1160  1472 D xk      : [xk][925316][tid_45](198)[EngineView] [cache_test] [putMagazineBitmapCache] [magazineId:990] [final put]
+08-03 04:48:07.209  1160  1472 D xj      : [xj][925316][tid_45](52)[cache_test] [lru] ===============>put
+08-03 04:48:07.210  1160  1472 D xj      : [xj][925317][tid_45](31)[cache_test] [lru] ===============>[bitmapSize:4300 cacheSize:32768]
+08-03 04:48:07.210  1160  1472 D xk      : [xk][925317][tid_45](201)[EngineView] [cache_test] [putMagazineBitmapCache] [magazineId:990] [path:wallpaperzf/29/3107/293107.zip.pet]======================>put finish
+08-03 04:48:07.210  1160  1472 I yq      : [yq][925317][tid_45](77)[n.yq@3ec5fe1][n.yq.a(77)][out]
+08-03 04:48:07.211  1160  1472 I qw      : [qw][925318][tid_45](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.aaw$7
+08-03 04:48:07.214  1160  1160 D MagazineContentView: [MagazineContentView][925321][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:07.218  1160  1160 D MagazineContentView: [MagazineContentView][925325][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:07.255  1160  1160 I Choreographer: Skipped 54 frames!  The application may be doing too much work on its main thread.
+08-03 04:48:07.257  1160  1160 D MagazineContentView: [MagazineContentView][925363][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:07.257  1160  1160 D MagazineContentView: [MagazineContentView][925364][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:07.258  1160  1160 D MagazineContentView: [MagazineContentView][925364][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:07.259  1160  1160 D MagazineContentView: [MagazineContentView][925365][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:07.259  1160  1160 D MagazineContentView: [MagazineContentView][925366][tid_1](376)[onLayout()] [width:1440] [height:2560]
+08-03 04:48:07.260  1160  1160 D MagazineContentView: [MagazineContentView][925367][tid_1](379)[onLayout()] [measuredClockHeight:568] [measuredClockWidth:1440]
+08-03 04:48:07.260  1160  1160 D MagazineContentView: [MagazineContentView][925367][tid_1](386)[onLayout()] [measuredPanelHeight:1622] [measuredPanelWidth:1440]
+08-03 04:48:07.261  1160  1160 D MagazineContentView: [MagazineContentView][925367][tid_1](393)[onLayout()] [measuredNotificationHeight:889] [measuredNotificationWidth:1440]
+08-03 04:48:07.261  1160  1160 D MagazineContentView: [MagazineContentView][925368][tid_1](400)[onLayout()] [measuredIndicationHeight:49] [measuredIndicationWidth:1440]
+08-03 04:48:07.264  1160  1160 D EngineView: [EngineView][925370][tid_1](160)[EngineView] [load] [engine real success image gone]
+08-03 04:48:07.265  1160  1160 D EngineView: [EngineView][925372][tid_1](162)[EngineView] [load] [cache_test] ==================================>finish load cache
+08-03 04:48:07.303  1160  1472 D EngineView: [EngineView][925410][tid_45](153)[EngineView] [load] [engine success]
+08-03 04:48:07.303  1160  1472 D EngineView: [EngineView][925410][tid_45](167)[EngineView] [load] [engine success second]
+08-03 04:48:11.089  1160  1522 D go      : [go][929195][tid_59](67)size
+08-03 04:48:11.090  1160  1522 I TaskServiceProvider: [TaskServiceProvider][929197][tid_59](85)kill self service, size=0
+08-03 04:48:11.092  1160  1522 I TaskServiceProvider: [TaskServiceProvider][929198][tid_59](87)kill self service success
+08-03 04:48:11.093  1160  1522 I vv      : [vv][929199][tid_59](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:11.094  1160  1522 D TaskServiceProvider: [TaskServiceProvider][929200][tid_59](89)vlife_task_service_for_3part
+08-03 04:48:15.881  1160  1176 I art     : Do partial code cache collection, code=27KB, data=31KB
+08-03 04:48:15.882  1160  1176 I art     : After code cache collection, code=26KB, data=30KB
+08-03 04:48:15.882  1160  1176 I art     : Increasing code cache capacity to 128KB
+08-03 04:48:20.148  1160  1160 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+08-03 04:48:20.259  1160  1160 D ImageWallpaper: onVisibilityChanged: mVisible, visible=false, true
+08-03 04:48:20.259  1160  1160 D ImageWallpaper: Visibility changed to visible=true
+08-03 04:48:20.259  1160  1160 D ImageWallpaper: DENGHUI 
+08-03 04:48:20.261  1160  1160 D ImageWallpaper: Suppressed drawFrame since redraw is not needed and offsets have not changed.
+08-03 04:48:20.419  1160  1160 D PhoneStatusBar/VlifeMagazineView: com.android.systemui.statusbar.phone.VlifeMagazineView$2@208c286.onScreenTurnedOn ()
+08-03 04:48:20.419  1160  1160 D PhoneStatusBar: disable: < expand ICONS alerts SYSTEM_INFO back HOME RECENT clock SEARCH quick_settings >
+08-03 04:48:20.420  1160  1160 I VlifeMagazineLockForVendor: [VlifeMagazineLockForVendor][938527][tid_1](89)[com.vlife.magazine.vendor.VlifeMagazineLockForVendor@d44d01b][com.vlife.magazine.vendor.VlifeMagazineLockForVendor.onScreenTurnedOn(89)][in]
+08-03 04:48:20.421  1160  1160 I xf      : [xf][938528][tid_1](214)[n.xf@2c7e681][n.xf.c(214)][in]
+08-03 04:48:20.422  1160  1160 I xf      : [xf][938529][tid_1](216)[n.xf@2c7e681][n.xf.c(216)][out]
+08-03 04:48:20.423  1160  1160 I TaskServiceProvider: [TaskServiceProvider][938529][tid_1](511)try awaking backstage task system,awaking type is :JAR_LOCK_SHOW, awaking time is :1501706900422
+08-03 04:48:20.423  1160  1160 I TaskServiceProvider: [TaskServiceProvider][938530][tid_1](513)awake backstage task system success, awaking time :1501706900422
+08-03 04:48:20.424  1160  1515 D StatisticsProvider: [StatisticsProvider][938531][tid_54](432)[statistics_test] =======>write map:n.ep@c410bb
+08-03 04:48:20.424  1160  1160 I TaskServiceProvider: [TaskServiceProvider][938531][tid_1](146)VlifeExecutorService executing n.gm@c3649d8
+08-03 04:48:20.425  1160  1515 I StatisticsProvider: [StatisticsProvider][938532][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+08-03 04:48:20.425  1160  1160 I TaskServiceProvider: [TaskServiceProvider][938532][tid_1](186)PackageName is com.vlife.ipro.magazine
+08-03 04:48:20.425  1160  1515 I StatisticsProvider: [StatisticsProvider][938532][tid_54](518)[statistics_test] ====canWrite====
+08-03 04:48:20.425  1160  1160 D TaskServiceProvider: [TaskServiceProvider][938532][tid_1](188)TaskServiceProvider task=gm,taskType=OperatingStartTask
+08-03 04:48:20.425  1160  1515 D StatisticsProvider: [StatisticsProvider][938532][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+08-03 04:48:20.426  1160  1160 I vv      : [vv][938532][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:20.426  1160  1160 I TaskServiceProvider: [TaskServiceProvider][938533][tid_1](156)shell product start vlife task
+08-03 04:48:20.427  1160  1160 W wf      : [wf][938533][tid_1](52)create preferences name:userinfo
+08-03 04:48:20.435  1160  1160 I qw      : [qw][938542][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+08-03 04:48:20.437  1160  1508 I TaskServiceProvider: [TaskServiceProvider][938543][tid_50](546)vlifeTaskOnStartCommand intent=#Intent;action=OperatingStartTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+08-03 04:48:20.437  1160  1508 D TaskServiceProvider: [TaskServiceProvider][938544][tid_50](558)pyramidney:null
+08-03 04:48:20.438  1160  1508 D go      : [go][938544][tid_50](33)TaskSignalQueue-add n.gn@618fd97
+08-03 04:48:20.439  1160  4267 D TaskServiceProvider: [TaskServiceProvider][938545][tid_80](254)Bundle=Bundle[{triggerType=JAR_LOCK_SHOW}] taskType=OperatingStartTask
+08-03 04:48:20.439  1160  4267 D TaskServiceProvider: [TaskServiceProvider][938546][tid_80](258)getVlifeTask vlifeTask=n.gm@436ef6d
+08-03 04:48:20.440  1160  4267 I TaskServiceProvider: [TaskServiceProvider][938547][tid_80](351)[VlifeTaskService]  TaskRunnable  running task : OperatingStartTask ,delay : 0, cycle : 0 
+08-03 04:48:20.440  1160  4267 I TaskServiceProvider: [TaskServiceProvider][938547][tid_80](377)backstage task system start up timing task ,task type is :OperatingStartTask, awaking type :JAR_LOCK_SHOW
+08-03 04:48:20.441  1160  4267 I gm      : [gm][938548][tid_80](44)TimingNetworkServerTask running, triggerType : JAR_LOCK_SHOW
+08-03 04:48:20.441  1160  4267 W wf      : [wf][938548][tid_80](52)create preferences name:timing_network_preference
+08-03 04:48:20.442  1160  4267 W gm      : [gm][938548][tid_80](66)first time not  ready,
+08-03 04:48:20.442  1160  4267 I TaskServiceProvider: [TaskServiceProvider][938549][tid_80](379)[VlifeTaskService]  end  task : OperatingStartTask
+08-03 04:48:20.442  1160  4267 D go      : [go][938549][tid_80](48)TaskSignalQueue-remove n.gn@618fd97
+08-03 04:48:20.443  1160  4267 D go      : [go][938550][tid_80](53)TaskSignalQueue- call empty
+08-03 04:48:20.444  1160  1515 I StatisticsProvider: [StatisticsProvider][938550][tid_54](464)[statistics_test] create packet xml : <item ua_action="jar_lock_show" ua_time="1501706900424" ua_event="awaken_timing_task" ua_process="lockscreen" index="5" />
+08-03 04:48:20.444  1160  1160 D gp      : [gp][938551][tid_1](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+08-03 04:48:20.444  1160  1160 I vv      : [vv][938551][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:20.445  1160  1160 I TaskServiceProvider: [TaskServiceProvider][938552][tid_1](186)PackageName is com.vlife.ipro.magazine
+08-03 04:48:20.445  1160  1160 D TaskServiceProvider: [TaskServiceProvider][938552][tid_1](188)TaskServiceProvider task=gm,taskType=OperatingStartTask
+08-03 04:48:20.460  1160  1160 D [LOGFILTER] xc: doResume
+08-03 04:48:20.460  1160  1160 D [LOGFILTER] xc: Try to connect to shell.
+08-03 04:48:20.485  1160  1160 D EngineView: [EngineView][938591][tid_1](217)[EngineView] [resume()]
+08-03 04:48:20.486  1160  1160 I vv      : [vv][938592][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:20.486  1160  1160 I ApplicationStatus: [ApplicationStatus][938593][tid_1](362)isSameProcessType lockscreen lockscreen true
+08-03 04:48:20.486  1160  1160 I ApplicationStatus: [ApplicationStatus][938593][tid_1](367)isSameProcessType lockscreen lockscreen true
+08-03 04:48:20.488  1160  1160 D wf      : [wf][938595][tid_1](54)create preferences name:magazineSetting
+08-03 04:48:20.488  1160  1160 I vv      : [vv][938595][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+08-03 04:48:20.489  1160  1160 I ApplicationStatus: [ApplicationStatus][938596][tid_1](362)isSameProcessType lockscreen lockscreen true
+08-03 04:48:20.489  1160  1160 I ApplicationStatus: [ApplicationStatus][938596][tid_1](367)isSameProcessType lockscreen lockscreen true
+08-03 04:48:20.489  1160  1160 D aap     : [aap][938596][tid_1](75)[permission] isLock:true
+08-03 04:48:20.490  1160  1160 D aap     : [aap][938597][tid_1](70)[isAutoPlay] isLock:true
+08-03 04:48:20.490  1160  1472 D EngineView: [EngineView][938597][tid_45](153)[EngineView] [load] [engine success]
+08-03 04:48:20.491  1160  1160 I qk      : [qk][938597][tid_1](228)currentApn: info is null
+08-03 04:48:20.491  1160  1472 D EngineView: [EngineView][938597][tid_45](167)[EngineView] [load] [engine success second]
+08-03 04:48:20.491  1160  1160 I qk      : [qk][938598][tid_1](213)currentApn:DISCONNECT
+08-03 04:48:20.491  1160  1160 D zb      : [zb][938598][tid_1](179)[magazine_down_content] [updateMagazineLockContent] [isShouldShowRedPoint] [red] startShowTime:0, isShowRedPoint:false, currentTime:1501706900490,isNetwork:false
+08-03 04:48:20.492  1160  1160 D zb      : [zb][938599][tid_1](181)[magazine_down_content] [updateMagazineLockContent] [isShouldShowRedPoint] [red] isShouldShowRedPoint:false
+08-03 04:48:20.492  1160  1160 D aaw     : [aaw][938599][tid_1](705)[magazine_down_content] [red] isShouldRed:false
+08-03 04:48:20.493  1160  1160 I VlifeMagazineLockForVendor: [VlifeMagazineLockForVendor][938600][tid_1](97)[com.vlife.magazine.vendor.VlifeMagazineLockForVendor$1@765dc33][com.vlife.magazine.vendor.VlifeMagazineLockForVendor$1.run(97)][out]
+08-03 04:48:20.500  1160  1160 I VlifeMagazineLockForVendor: [VlifeMagazineLockForVendor][938606][tid_1](65)[com.vlife.magazine.vendor.VlifeMagazineLockForVendor@d44d01b][com.vlife.magazine.vendor.VlifeMagazineLockForVendor.setUserMessage(65)][in] params:null|
+08-03 04:48:20.501  1160  1160 I xf      : [xf][938608][tid_1](245)[n.xf@2c7e681][n.xf.b(245)][in] params:null|
+08-03 04:48:20.503  1160  1160 I xf      : [xf][938609][tid_1](249)[n.xf@2c7e681][n.xf.b(249)][out]
+08-03 04:48:20.515  1160  1160 I xf      : [xf][938621][tid_1](166)[n.xf@2c7e681][n.xf.i(166)][in]
+08-03 04:48:20.515  1160  1160 I IndicationView: [IndicationView][938622][tid_1](121)IndicationView refresh bouncerShowing :false
+08-03 04:48:20.515  1160  1160 I IndicationView: [IndicationView][938622][tid_1](127)IndicationView refresh panelShowing :false
+08-03 04:48:20.516  1160  1160 I IndicationView: [IndicationView][938622][tid_1](134)[com.vlife.magazine.common.view.IndicationView{3248a9d V.E...... ........ 0,1457-1440,1506 #7f0d0107 app:id/magazine_indication_view_id}][com.vlife.magazine.common.view.IndicationView.d(134)][in]
+08-03 04:48:20.526  1160  1160 D NotificationView: [NotificationView][938628][tid_1](150)[notice_view] [onScreenTurnedOn]
+08-03 04:48:20.526  1160  1160 D aat     : [aat][938633][tid_1](29)[notice_view] [NotificationUtils] [isCanShowNotifications] notificationFlag:1
+08-03 04:48:20.527  1160  1160 D NotificationView: [NotificationView][938634][tid_1](251)[notice_view] [checkNotificationShowFlag] already visible
+08-03 04:48:20.527  1160  1160 V ClockView: [ClockView][938634][tid_1](87)refresh begin
+08-03 04:48:20.541  1160  1160 D ClockView: [ClockView][938647][tid_1](128)nextAlarmClock = null
+08-03 04:48:20.541  1160  1160 V ClockView: [ClockView][938648][tid_1](91)refresh end
+08-03 04:48:20.541  1160  1160 I xf      : [xf][938648][tid_1](171)[n.xf@2c7e681][n.xf.i(171)][out]
+08-03 04:48:20.542  1160  1160 I xf      : [xf][938649][tid_1](121)[n.xf@2c7e681][n.xf.c(121)][in]
+08-03 04:48:20.543  1160  1160 I ClockView: [ClockView][938650][tid_1](110)[com.vlife.magazine.common.view.ClockView{1e87bf0 V.E...... ......ID 0,0-1440,568 #7f0d0106 app:id/magazine_clock_view_id}][com.vlife.magazine.common.view.ClockView.a(110)][in] params:null|
+08-03 04:48:20.544  1160  1160 I ClockView: [ClockView][938651][tid_1](121)[com.vlife.magazine.common.view.ClockView{1e87bf0 V.E...... ......ID 0,0-1440,568 #7f0d0106 app:id/magazine_clock_view_id}][com.vlife.magazine.common.view.ClockView.a(121)][out]
+08-03 04:48:20.545  1160  1160 I xf      : [xf][938652][tid_1](126)[n.xf@2c7e681][n.xf.c(126)][out]
+08-03 04:48:20.548  1160  1160 D MagazineContentView: [MagazineContentView][938655][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:20.549  1160  1160 D MagazineContentView: [MagazineContentView][938656][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:20.551  1160  1160 D MagazineContentView: [MagazineContentView][938657][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:20.551  1160  1160 D MagazineContentView: [MagazineContentView][938658][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:20.552  1160  1160 D MagazineContentView: [MagazineContentView][938658][tid_1](376)[onLayout()] [width:1440] [height:2560]
+08-03 04:48:20.552  1160  1160 D MagazineContentView: [MagazineContentView][938659][tid_1](379)[onLayout()] [measuredClockHeight:568] [measuredClockWidth:1440]
+08-03 04:48:20.552  1160  1160 D MagazineContentView: [MagazineContentView][938659][tid_1](386)[onLayout()] [measuredPanelHeight:1622] [measuredPanelWidth:1440]
+08-03 04:48:20.553  1160  1160 D MagazineContentView: [MagazineContentView][938659][tid_1](393)[onLayout()] [measuredNotificationHeight:889] [measuredNotificationWidth:1440]
+08-03 04:48:20.553  1160  1160 D MagazineContentView: [MagazineContentView][938660][tid_1](400)[onLayout()] [measuredIndicationHeight:49] [measuredIndicationWidth:1440]
+08-03 04:48:20.555  1160  1160 D MagazineContentView: [MagazineContentView][938661][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:20.823  1160  1160 D [LOGFILTER] xc: onServiceConnected
+08-03 04:48:21.301  1160  4944 D [LOGFILTER] xc: publicSourceDir: /data/user/0/com.vlife.ipro.magazine/files/info/SHELL/apk/base-1.apk, odexPath: /data/user_de/0/com.android.systemui/files/info
+08-03 04:48:21.518  1160  1160 I IndicationView: [IndicationView][939625][tid_1](121)IndicationView refresh bouncerShowing :false
+08-03 04:48:21.519  1160  1160 I IndicationView: [IndicationView][939626][tid_1](127)IndicationView refresh panelShowing :false
+08-03 04:48:21.519  1160  1160 I IndicationView: [IndicationView][939626][tid_1](134)[com.vlife.magazine.common.view.IndicationView{3248a9d V.E...... ........ 0,1457-1440,1506 #7f0d0107 app:id/magazine_indication_view_id}][com.vlife.magazine.common.view.IndicationView.d(134)][in]
+08-03 04:48:21.525  1160  1160 D MagazineContentView: [MagazineContentView][939631][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:21.525  1160  1160 D MagazineContentView: [MagazineContentView][939632][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:21.526  1160  1160 D MagazineContentView: [MagazineContentView][939632][tid_1](312)[onMeasure()] [width:1440] [height:2560]
+08-03 04:48:21.526  1160  1160 D MagazineContentView: [MagazineContentView][939633][tid_1](324)notificationView.layoutParams.height:889
+08-03 04:48:21.527  1160  1160 D MagazineContentView: [MagazineContentView][939634][tid_1](376)[onLayout()] [width:1440] [height:2560]
+08-03 04:48:21.527  1160  1160 D MagazineContentView: [MagazineContentView][939634][tid_1](379)[onLayout()] [measuredClockHeight:568] [measuredClockWidth:1440]
+08-03 04:48:21.528  1160  1160 D MagazineContentView: [MagazineContentView][939635][tid_1](386)[onLayout()] [measuredPanelHeight:1622] [measuredPanelWidth:1440]
+08-03 04:48:21.530  1160  1160 D MagazineContentView: [MagazineContentView][939635][tid_1](393)[onLayout()] [measuredNotificationHeight:889] [measuredNotificationWidth:1440]
+08-03 04:48:21.531  1160  1160 D MagazineContentView: [MagazineContentView][939638][tid_1](400)[onLayout()] [measuredIndicationHeight:49] [measuredIndicationWidth:1440]
+08-03 04:48:21.533  1160  1160 D MagazineContentView: [MagazineContentView][939640][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:21.904  1160  1160 D MagazineContentView: [MagazineContentView][940011][tid_1](431)event tracking =true
+08-03 04:48:21.905  1160  1160 D MagazineContentView: [MagazineContentView][940011][tid_1](449)event true
+08-03 04:48:21.905  1160  1160 D MagazineContentView: [MagazineContentView][940012][tid_1](455)event except 2 Action=0 ,index=0,id=0
+08-03 04:48:21.906  1160  1160 D MagazineContentView: [MagazineContentView][940012][tid_1](457)event Action=0 ,index=0,id=0
+08-03 04:48:21.906  1160  1160 D MagazineContentView: [MagazineContentView][940013][tid_1](464)ACTION_DOWN Action=0 ,index=0,id=0
+08-03 04:48:21.907  1160  1160 D MagazineContentView: [MagazineContentView][940014][tid_1](466)[camera_scroll] startTime:1501706901907
+08-03 04:48:21.908  1160  1160 D MagazineContentView: [MagazineContentView][940015][tid_1](473)[hitRect:Rect(0, 938 - 1440, 2560)] [476.0,2249.0]
+08-03 04:48:21.911  1160  1160 D NotificationView: [NotificationView][940016][tid_1](370)[notificationTouch] notificationView getHitRect
+08-03 04:48:21.911  1160  1160 D NotificationView: [NotificationView][940018][tid_1](373)[notificationTouch] notificationView getHitRect childCount:0
+08-03 04:48:21.912  1160  1160 D NotificationView: [NotificationView][940019][tid_1](387)[notificationTouch] notificationView getHitRect childCount > 3 outRect:Rect(0, 568 - 1440, 1457)
+08-03 04:48:21.912  1160  1160 D MagazineContentView: [MagazineContentView][940019][tid_1](502)[ljy_dev] [clickClockEvent] mag_lock_weather:false
+08-03 04:48:21.925  1160  1160 D MagazineContentView: [MagazineContentView][940020][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=true
+08-03 04:48:21.928  1160  1160 D abd     : [abd][940033][tid_1](298)[onTouchEvent] [action:ACTION_DOWN] [476.0,2249.0]
+08-03 04:48:21.928  1160  1160 D abd     : [abd][940035][tid_1](300)return  onTouchEvent
+08-03 04:48:21.930  1160  1160 D MagazineContentView: [MagazineContentView][940037][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:21.995  1160  1160 D MagazineContentView: [MagazineContentView][940102][tid_1](449)event true
+08-03 04:48:21.996  1160  1160 D MagazineContentView: [MagazineContentView][940103][tid_1](457)event Action=2 ,index=0,id=0
+08-03 04:48:21.997  1160  1160 D MagazineContentView: [MagazineContentView][940103][tid_1](527)ACTION_MOVE Action=2 ,index=0,id=0
+08-03 04:48:21.998  1160  1160 D MagazineContentView: [MagazineContentView][940104][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=true
+08-03 04:48:21.999  1160  1160 D abd     : [abd][940105][tid_1](298)[onTouchEvent] [action:ACTION_MOVE] [490.559,2217.0872]
+08-03 04:48:21.999  1160  1160 D abd     : [abd][940106][tid_1](300)return  onTouchEvent
+08-03 04:48:22.000  1160  1160 D abd     : [abd][940107][tid_1](315)return  onTouchEvent distance=32
+08-03 04:48:22.012  1160  1160 D MagazineContentView: [MagazineContentView][940118][tid_1](449)event true
+08-03 04:48:22.012  1160  1160 D MagazineContentView: [MagazineContentView][940119][tid_1](457)event Action=2 ,index=0,id=0
+08-03 04:48:22.013  1160  1160 D MagazineContentView: [MagazineContentView][940119][tid_1](527)ACTION_MOVE Action=2 ,index=0,id=0
+08-03 04:48:22.014  1160  1160 D MagazineContentView: [MagazineContentView][940120][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=true
+08-03 04:48:22.021  1160  1160 D abd     : [abd][940127][tid_1](298)[onTouchEvent] [action:ACTION_MOVE] [492.74915,2199.2578]
+08-03 04:48:22.022  1160  1160 D abd     : [abd][940128][tid_1](300)return  onTouchEvent
+08-03 04:48:22.029  1160  1160 D abd     : [abd][940129][tid_1](315)return  onTouchEvent distance=50
+08-03 04:48:22.049  1160  1160 D MagazineContentView: [MagazineContentView][940156][tid_1](449)event true
+08-03 04:48:22.050  1160  1160 D MagazineContentView: [MagazineContentView][940156][tid_1](457)event Action=2 ,index=0,id=0
+08-03 04:48:22.050  1160  1160 D MagazineContentView: [MagazineContentView][940157][tid_1](527)ACTION_MOVE Action=2 ,index=0,id=0
+08-03 04:48:22.071  1160  1160 D MagazineContentView: [MagazineContentView][940167][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=true
+08-03 04:48:22.079  1160  1160 D abd     : [abd][940178][tid_1](298)[onTouchEvent] [action:ACTION_MOVE] [507.03787,2106.0322]
+08-03 04:48:22.079  1160  1160 D abd     : [abd][940186][tid_1](300)return  onTouchEvent
+08-03 04:48:22.080  1160  1160 D [LOGFILTER] PageDotsView: hideDots
+08-03 04:48:22.087  1160  1160 I abd     : [abd][940194][tid_1](229)onKeyguardModelChanged top:200 scale:0.96648437
+08-03 04:48:22.088  1160  1160 D abd     : [abd][940195][tid_1](315)return  onTouchEvent distance=143
+08-03 04:48:22.114  1160  1160 D MagazineContentView: [MagazineContentView][940220][tid_1](449)event true
+08-03 04:48:22.115  1160  1160 D MagazineContentView: [MagazineContentView][940222][tid_1](457)event Action=2 ,index=0,id=0
+08-03 04:48:22.120  1160  1160 D MagazineContentView: [MagazineContentView][940222][tid_1](527)ACTION_MOVE Action=2 ,index=0,id=0
+08-03 04:48:22.122  1160  1160 D MagazineContentView: [MagazineContentView][940228][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=true
+08-03 04:48:22.122  1160  1160 D abd     : [abd][940229][tid_1](298)[onTouchEvent] [action:ACTION_MOVE] [578.55835,1518.8875]
+08-03 04:48:22.123  1160  1160 D abd     : [abd][940230][tid_1](300)return  onTouchEvent
+08-03 04:48:22.124  1160  1160 I abd     : [abd][940231][tid_1](229)onKeyguardModelChanged top:1023 scale:0.8286719
+08-03 04:48:22.125  1160  1160 D abd     : [abd][940231][tid_1](315)return  onTouchEvent distance=731
+08-03 04:48:22.130  1160  1160 D MagazineContentView: [MagazineContentView][940236][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:22.149  1160  1160 D MagazineContentView: [MagazineContentView][940255][tid_1](449)event true
+08-03 04:48:22.150  1160  1160 D MagazineContentView: [MagazineContentView][940256][tid_1](457)event Action=2 ,index=0,id=0
+08-03 04:48:22.151  1160  1160 D MagazineContentView: [MagazineContentView][940257][tid_1](527)ACTION_MOVE Action=2 ,index=0,id=0
+08-03 04:48:22.170  1160  1160 D MagazineContentView: [MagazineContentView][940274][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=true
+08-03 04:48:22.171  1160  1160 D abd     : [abd][940278][tid_1](298)[onTouchEvent] [action:ACTION_MOVE] [562.0,1237.0]
+08-03 04:48:22.172  1160  1160 D abd     : [abd][940278][tid_1](300)return  onTouchEvent
+08-03 04:48:22.172  1160  1160 I abd     : [abd][940279][tid_1](229)onKeyguardModelChanged top:1416 scale:0.7628125
+08-03 04:48:22.173  1160  1160 D abd     : [abd][940279][tid_1](315)return  onTouchEvent distance=1012
+08-03 04:48:22.202  1160  1160 D MagazineContentView: [MagazineContentView][940309][tid_1](449)event true
+08-03 04:48:22.202  1160  1160 D MagazineContentView: [MagazineContentView][940309][tid_1](455)event except 2 Action=1 ,index=0,id=0
+08-03 04:48:22.203  1160  1160 D MagazineContentView: [MagazineContentView][940310][tid_1](457)event Action=1 ,index=0,id=0
+08-03 04:48:22.203  1160  1160 D MagazineContentView: [MagazineContentView][940310][tid_1](578)ACTION_UP Action=1 ,index=0,id=0
+08-03 04:48:22.204  1160  1160 D MagazineContentView: [MagazineContentView][940311][tid_1](655)[camera_scroll] [sliderControl] middleTime:296 getScrollX:0 getScrollDistance:86
+08-03 04:48:22.205  1160  1160 D MagazineContentView: [MagazineContentView][940312][tid_1](643)return  couldNotUnlock=false ,inforViewHandleEvent=false,isScrollingLeft=false,isScrollingRight=false,this.tracking=false
+08-03 04:48:22.206  1160  1160 D abd     : [abd][940312][tid_1](298)[onTouchEvent] [action:ACTION_UP] [562.0,1237.0]
+08-03 04:48:22.206  1160  1160 D abd     : [abd][940313][tid_1](300)return  onTouchEvent
+08-03 04:48:22.207  1160  1160 D abd     : [abd][940313][tid_1](326)return  onTouchEvent percentY=0.3953125
+08-03 04:48:22.209  1160  1160 D MagazineContentView: [MagazineContentView][940316][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:22.235  1160  1160 D MagazineContentView: [MagazineContentView][940342][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:22.288  1160  1160 I abd     : [abd][940395][tid_1](264)percentY:0.3953125
+08-03 04:48:22.289  1160  1160 I abd     : [abd][940395][tid_1](229)onKeyguardModelChanged top:1626 scale:0.72765625
+08-03 04:48:22.319  1160  1160 D PhoneStatusBar: disable: < expand ICONS alerts SYSTEM_INFO back HOME RECENT clock SEARCH quick_settings >
+08-03 04:48:22.321  1160  1160 D MagazineContentView: [MagazineContentView][940428][tid_1](423)unlockDetector.dispatchDraw
+08-03 04:48:22.329  1160  1160 I abd     : [abd][940435][tid_1](264)percentY:0.3953125
+08-03 04:48:22.329  1160  1160 I abd     : [abd][940436][tid_1](229)onKeyguardModelChanged top:1836 scale:0.6925
+08-03 04:48:22.335  1160  1160 D PhoneStatusBar/VlifeMagazineView: mMagazineView onHideKeyguard()
+08-03 04:48:22.350  1160  1160 D EngineView: [EngineView][940457][tid_1](84)[EngineView] [onDetachedFromWindow]
+08-03 04:48:22.351  1160  1160 D xk      : [xk][940458][tid_1](147)[EngineView] [cache_test] [clearMagazineBitmapCache]
+08-03 04:48:22.352  1160  1160 D xj      : [xj][940458][tid_1](60)[cache_test] [lru] ===============>clear
+08-03 04:48:22.352  1160  1160 D xj      : [xj][940459][tid_1](31)[cache_test] [lru] ===============>[bitmapSize:4300 cacheSize:32768]
+08-03 04:48:22.352  1160  1160 D EngineView: [EngineView][940459][tid_1](98)[EngineView] [onDetachedFromWindow] [pause()]
+08-03 04:48:22.356  1160  1160 I xf      : [xf][940463][tid_1](199)[n.xf@2c7e681][n.xf.b(199)][in] params:com.vlife.magazine.common.view.ClockView$1@accd936|
+08-03 04:48:22.360  1160  1160 D PhoneStatusBar: disable: < expand icons* alerts system_info* back HOME RECENT clock SEARCH quick_settings >
+08-03 04:48:22.389  1160  1160 D PhoneStatusBar/VlifeMagazineView: com.android.systemui.statusbar.phone.VlifeMagazineView$2@208c286.onKeyguardVisibilityChanged() false
+08-03 04:48:22.528  1160  1160 I abd     : [abd][940634][tid_1](264)percentY:0.3953125
+08-03 04:48:22.528  1160  1160 I abd     : [abd][940635][tid_1](229)onKeyguardModelChanged top:2046 scale:0.65734375
+08-03 04:48:22.528  1160  1160 D PhoneStatusBar: disable: < expand icons alerts system_info back home* recent* clock search* quick_settings >
+08-03 04:48:22.536  1160  1160 D ImageWallpaper: onVisibilityChanged: mVisible, visible=true, false
+08-03 04:48:22.536  1160  1160 D ImageWallpaper: Visibility changed to visible=false
+08-03 04:48:22.549  1160  1160 I abd     : [abd][940655][tid_1](264)percentY:0.3953125
+08-03 04:48:22.549  1160  1160 I abd     : [abd][940656][tid_1](229)onKeyguardModelChanged top:2256 scale:0.6221875
+08-03 04:48:22.570  1160  1160 I abd     : [abd][940676][tid_1](264)percentY:0.3953125
+08-03 04:48:22.570  1160  1160 I abd     : [abd][940677][tid_1](229)onKeyguardModelChanged top:2466 scale:0.58703125
+08-03 04:48:22.590  1160  1160 I abd     : [abd][940697][tid_1](264)percentY:0.3953125
+08-03 04:48:22.591  1160  1160 I abd     : [abd][940698][tid_1](229)onKeyguardModelChanged top:2676 scale:0.551875
+08-03 04:48:22.611  1160  1160 I abd     : [abd][940718][tid_1](264)percentY:0.3953125
+08-03 04:48:22.611  1160  1160 I abd     : [abd][940718][tid_1](229)onKeyguardModelChanged top:2886 scale:0.51671875
+08-03 04:48:22.633  1160  1160 I abd     : [abd][940739][tid_1](264)percentY:0.3953125
+08-03 04:48:22.633  1160  1160 I abd     : [abd][940740][tid_1](229)onKeyguardModelChanged top:3096 scale:0.4815625
+08-03 04:48:22.654  1160  1160 I abd     : [abd][940760][tid_1](264)percentY:0.3953125
+08-03 04:48:22.654  1160  1160 I abd     : [abd][940761][tid_1](229)onKeyguardModelChanged top:3306 scale:0.44640625
+08-03 04:48:22.655  1160  1160 D abd     : [abd][940762][tid_1](354)unlockRunnable doUnlock
+08-03 04:48:22.655  1160  1160 D PhoneStatusBar/VlifeMagazineView: doUnlock() com.android.systemui.keyguard.KeyguardViewMediator@61dc85b
+08-03 04:48:22.656  1160  1515 D StatisticsProvider: [StatisticsProvider][940762][tid_54](432)[statistics_test] =======>write map:n.ep@f1c38f8
+08-03 04:48:22.656  1160  1515 I StatisticsProvider: [StatisticsProvider][940763][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+08-03 04:48:22.657  1160  1515 I StatisticsProvider: [StatisticsProvider][940764][tid_54](518)[statistics_test] ====canWrite====
+08-03 04:48:22.657  1160  1515 D StatisticsProvider: [StatisticsProvider][940764][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+08-03 04:48:22.663  1160  1515 I StatisticsProvider: [StatisticsProvider][940770][tid_54](464)[statistics_test] create packet xml : <item ua_event="mag_lock_unlock" ua_time="1501706902655" ua_process="lockscreen" index="6" />
+08-03 04:48:22.862  1160  1160 D abd     : [abd][940968][tid_1](387)[test_notice] setAlpha 1f
+08-03 04:48:23.205  1160  2512 D [LOGFILTER] xc: onCallback, message.what = 2013
+08-03 04:48:23.207  1160  1160 D [LOGFILTER] xc: decorHandler handle msg.what = 2013
+08-03 04:48:25.290  1160  1160 D ImageWallpaper: onVisibilityChanged: mVisible, visible=false, true
+08-03 04:48:25.291  1160  1160 D ImageWallpaper: Visibility changed to visible=true
+08-03 04:48:25.291  1160  1160 D ImageWallpaper: DENGHUI 
+08-03 04:48:25.291  1160  1160 D ImageWallpaper: Suppressed drawFrame since redraw is not needed and offsets have not changed.
+08-03 04:48:25.306  1160  4944 D LOGFILTER [Decor]: [tid_82] injectContext
+08-03 04:48:25.312  1160  4944 I LOGFILTER [m]: [tid_82] value is 2 :
+08-03 04:48:25.313  1160  4944 I LOGFILTER [Decor]: [tid_82] assetManager is android.content.res.AssetManager@d57eca4:
+08-03 09:48:00.022  1160  4944 W art     : Failed execv(/system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=arm --instruction-set-features=smp,div,atomic_ldrd_strd --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=krait --instruction-set-features=default --dex-file=/data/user/0/com.vlife.ipro.magazine/files/info/SHELL/apk/base-1.apk --oat-fd=117 --oat-location=/data/user_de/0/com.android.systemui/files/base-1.dex --compiler-filter=speed) because non-0 exit status
+08-03 09:48:00.134  1160  1160 D LOGFILTER [AbsShell]: [tid_1] onCreate
+08-03 09:48:00.157  1160  4944 D [LOGFILTER] xc: Succeed to getDecor
+08-03 09:48:00.158  1160  4944 D LOGFILTER [AbsShell]: [tid_82] setCommandHandler
+08-03 09:48:00.307  1160  1160 D LOGFILTER [a]: [tid_1] vlifeclassloader dalvik.system.PathClassLoader[DexPathList[[zip file "/system/priv-app/998_top-vlife-ipro-magazine-stage_minify-unsigned-6.131.9-6139-20170728-095954.apk"],nativeLibraryDirectories=[/system/lib/998_top-vlife-ipro-magazine-stage_minify-unsigned-6.131.9-6139-20170728-095954, /system/lib, /vendor/lib, /system/lib, /vendor/lib]]]
+08-03 09:48:00.307  1160  1160 D LOGFILTER [AbsShell]: [tid_1] onStart
+08-03 09:48:00.308  1160  1160 D LOGFILTER [AbsShell]: [tid_1] onResume
+08-03 09:48:00.348  1160  1193 D [LOGFILTER] xc: onCallback, message.what = 2014
+08-03 09:48:00.358  1160  1160 D LOGFILTER [o]: [tid_1] inflateCards......
+08-03 09:48:00.420  1160  1160 V LOGFILTER [e]: [tid_1] getCount 0
+08-03 09:48:00.421  1160  1160 V LOGFILTER [e]: [tid_1] getCount 0
+08-03 09:48:00.421  1160  1160 V LOGFILTER [e]: [tid_1] getCount 0
+08-03 09:48:00.422  1160  1160 V LOGFILTER [e]: [tid_1] getCount 0
+08-03 09:48:00.582  1160  1160 D LOGFILTER [b]: [tid_1] ===Data descriptor is===
+08-03 09:48:00.582  1160  1160 D LOGFILTER [b]: [tid_1] java.lang.String
+08-03 09:48:00.582  1160  1160 D LOGFILTER [b]: [tid_1] com.vlife.magazine.shell.decor.InfoData$CardInfo
+08-03 09:48:00.582  1160  1160 D LOGFILTER [b]: [tid_1] 2
+08-03 09:48:00.582  1160  1160 D LOGFILTER [b]: [tid_1] {"com.vlife.recentapp":{"mIsVisible":true,"mPackageName":"com.vlife.recentapp","mPosition":2},"top.coolook":{"mIsVisible":false,"mPackageName":"top.coolook","mPosition":3},"com.vlife.news":{"mIsVisible":true,"mPackageName":"com.vlife.news","mPosition":3},"mobi.infolife.weather":{"mIsVisible":true,"mPackageName":"mobi.infolife.weather","mPosition":1}}
+08-03 09:48:00.583  1160  1160 D LOGFILTER [b]: [tid_1] ========================
+08-03 09:48:00.583  1160  1160 D LOGFILTER [a]: [tid_1] NOT fix cards : com.vlife.magazine.shell.decor.InfoData$CardInfo
+08-03 09:48:00.585  1160  1160 D LOGFILTER [a]: [tid_1] NOT fix cards : {"com.vlife.recentapp":{"mIsVisible":true,"mPackageName":"com.vlife.recentapp","mPosition":2},"top.coolook":{"mIsVisible":false,"mPackageName":"top.coolook","mPosition":3},"com.vlife.news":{"mIsVisible":true,"mPackageName":"com.vlife.news","mPosition":3},"mobi.infolife.weather":{"mIsVisible":true,"mPackageName":"mobi.infolife.weather","mPosition":1}}
+08-03 09:48:00.633  1160  1160 D LOGFILTER [o]: [tid_1] Restore cards from db.
+08-03 09:48:00.639  1160  1160 D LOGFILTER [b]: [tid_1] ===Data descriptor is===
+08-03 09:48:00.639  1160  1160 D LOGFILTER [b]: [tid_1] java.lang.String
+08-03 09:48:00.639  1160  1160 D LOGFILTER [b]: [tid_1] com.vlife.magazine.shell.decor.InfoData$CardInfo
+08-03 09:48:00.639  1160  1160 D LOGFILTER [b]: [tid_1] 2
+08-03 09:48:00.639  1160  1160 D LOGFILTER [b]: [tid_1] {"com.vlife.recentapp":{"mIsVisible":true,"mPackageName":"com.vlife.recentapp","mPosition":2},"top.coolook":{"mIsVisible":false,"mPackageName":"top.coolook","mPosition":3},"com.vlife.news":{"mIsVisible":true,"mPackageName":"com.vlife.news","mPosition":3},"mobi.infolife.weather":{"mIsVisible":true,"mPackageName":"mobi.infolife.weather","mPosition":1}}
+08-03 09:48:00.639  1160  1160 D LOGFILTER [b]: [tid_1] ========================
+08-03 09:48:00.640  1160  1160 D LOGFILTER [a]: [tid_1] NOT fix cards : com.vlife.magazine.shell.decor.InfoData$CardInfo
+08-03 09:48:00.640  1160  1160 D LOGFILTER [a]: [tid_1] NOT fix cards : {"com.vlife.recentapp":{"mIsVisible":true,"mPackageName":"com.vlife.recentapp","mPosition":2},"top.coolook":{"mIsVisible":false,"mPackageName":"top.coolook","mPosition":3},"com.vlife.news":{"mIsVisible":true,"mPackageName":"com.vlife.news","mPosition":3},"mobi.infolife.weather":{"mIsVisible":true,"mPackageName":"mobi.infolife.weather","mPosition":1}}
+08-03 09:48:00.673  1160  1160 D [LOGFILTER] xc: decorHandler handle msg.what = 2014
+08-03 09:48:00.674  1160  1160 D LOGFILTER [AbsShell]: [tid_1] resolveCommand: { when=-16m3s769ms what=2014 target=n.xc$1 }
+08-03 09:48:00.674  1160  5033 D LOGFILTER [c]: [tid_83] mCommandHandler msg.what: 2014
+08-03 09:48:00.675  1160  5033 D LOGFILTER [c]: [tid_83] receive pkg: com.vlife.recentapp
+08-03 09:48:00.678  1160  5065 D LOGFILTER [c]: [tid_85] receiveData {"result":200,"list":[{"pkgName":"com.baidu.browser.apps","appLabel":"百度浏览器","className":"com.baidu.browser.framework.BdBrowserActivity","isAd":false},{"pkgName":"com.android.quicksearchbox","appLabel":"Search","className":"com.android.quicksearchbox.SearchActivity","isAd":false},{"pkgName":"com.android.gallery3d","appLabel":"图库","className":"com.android.gallery3d.app.GalleryActivity","isAd":false},{"pkgName":"com.android.contacts","appLabel":"通讯录","className":"com.android.contacts.activities.PeopleActivity","isAd":false},{"pkgName":"com.android.calendar","appLabel":"日历","className":"com.android.calendar.AllInOneActivity","isAd":false}]}
+08-03 09:48:00.761  1160  5065 D LOGFILTER [o]: [tid_85] updateData
+08-03 09:48:00.764  1160  1160 D LOGFILTER [e]: [tid_1] updateData [packageName: com.baidu.browser.apps; label: 百度浏览器, packageName: com.android.quicksearchbox; label: Search, packageName: com.android.gallery3d; label: 图库, packageName: com.android.contacts; label: 通讯录]
+08-03 09:48:00.764  1160  1160 V LOGFILTER [e]: [tid_1] getCount 4
+08-03 09:48:00.764  1160  1160 V LOGFILTER [e]: [tid_1] getCount 4
+08-03 09:48:00.765  1160  1160 D LOGFILTER [e]: [tid_1] updateData [packageName: com.android.calendar; label: 日历]
+08-03 09:48:00.765  1160  1160 V LOGFILTER [e]: [tid_1] getCount 1
+08-03 09:48:00.765  1160  1160 V LOGFILTER [e]: [tid_1] getCount 1
+08-03 09:48:00.766  1160  5065 D LOGFILTER [b]: [tid_85] sendStatistics card_request_success
+08-03 09:48:00.766  1160  5065 D LOGFILTER [e]: [tid_85] input: com.vlife.recentapp, output: 1622695318
+08-03 09:48:00.767  1160  5033 D LOGFILTER [c]: [tid_83] mWorkerHandler msg.what: 3005
+08-03 09:48:00.767  1160  1160 D [LOGFILTER] xc: decorHandler handle msg.what = 3005
+08-03 09:48:00.768  1160  1160 W [LOGFILTER] xd: logStatistics: card_request_success; map: {id=1622695318}
+08-03 09:48:00.768  1160  1160 D [LOGFILTER] xd: logParams: {id=1622695318}
+08-03 09:48:00.769  1160  1515 D StatisticsProvider: [StatisticsProvider][946496][tid_54](432)[statistics_test] =======>write map:n.ep@a5d5fe7
+08-03 09:48:00.770  1160  1515 I StatisticsProvider: [StatisticsProvider][946497][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+08-03 09:48:00.771  1160  1515 I StatisticsProvider: [StatisticsProvider][946497][tid_54](518)[statistics_test] ====canWrite====
+08-03 09:48:00.771  1160  1515 D StatisticsProvider: [StatisticsProvider][946498][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+08-03 09:48:00.784  1160  1515 I StatisticsProvider: [StatisticsProvider][946511][tid_54](464)[statistics_test] create packet xml : <item id="1622695318" ua_event="card_request_success" ua_time="1501724880768" ua_process="lockscreen" index="7" />

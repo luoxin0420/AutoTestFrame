@@ -1,0 +1,277 @@
+12-07 05:09:32.100 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][28268715][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+12-07 05:09:32.101 11883 11883 D NewDownloadProvider: [NewDownloadProvider][28268716][tid_1](377)[new_download] [download_net_change] networkChange
+12-07 05:09:32.123 11883 11883 I qk      : [qk][28268738][tid_1](244)currentApn:MOBILE
+12-07 05:09:32.124 11883 11883 I qk      : [qk][28268739][tid_1](213)currentApn:MOBILE
+12-07 05:09:32.124 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][28268740][tid_1](31)[download_net_change] the network has connected
+12-07 05:09:32.124 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][28268740][tid_1](33)[download_net_change] time:887106872,runTime:886967882
+12-07 05:09:32.125 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][28268740][tid_1](35)Product.lenovo:false
+12-07 05:09:32.125 11883 11883 I TaskServiceProvider: [TaskServiceProvider][28268741][tid_1](146)VlifeExecutorService executing n.kt@ec69ff3
+12-07 05:09:32.126 11883 11883 I TaskServiceProvider: [TaskServiceProvider][28268741][tid_1](186)PackageName is com.vlife.ipro.magazine
+12-07 05:09:32.126 11883 11883 D TaskServiceProvider: [TaskServiceProvider][28268741][tid_1](188)TaskServiceProvider task=kt,taskType=NetChangeReceiverTask
+12-07 05:09:32.126 11883 11883 I vv      : [vv][28268742][tid_1](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.127 11883 11883 I TaskServiceProvider: [TaskServiceProvider][28268742][tid_1](156)shell product start vlife task
+12-07 05:09:32.127 11883 11883 W wf      : [wf][28268743][tid_1](52)create preferences name:userinfo
+12-07 05:09:32.136 11883 11883 I qw      : [qw][28268751][tid_1](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-07 05:09:32.137 11883 11883 D gp      : [gp][28268752][tid_1](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-07 05:09:32.137 11883 12098 I TaskServiceProvider: [TaskServiceProvider][28268752][tid_51](546)vlifeTaskOnStartCommand intent=#Intent;action=NetChangeReceiverTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-07 05:09:32.137 11883 12098 D TaskServiceProvider: [TaskServiceProvider][28268753][tid_51](558)pyramidney:null
+12-07 05:09:32.137 11883 12098 D go      : [go][28268753][tid_51](33)TaskSignalQueue-add n.gn@90b2ae
+12-07 05:09:32.140 11883 30219 D TaskServiceProvider: [TaskServiceProvider][28268755][tid_380](254)Bundle=Bundle[{}] taskType=NetChangeReceiverTask
+12-07 05:09:32.141 11883 30219 D TaskServiceProvider: [TaskServiceProvider][28268756][tid_380](258)getVlifeTask vlifeTask=n.kt@f8044e5
+12-07 05:09:32.141 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268756][tid_380](351)[VlifeTaskService]  TaskRunnable  running task : NetChangeReceiverTask ,delay : 0, cycle : 0 
+12-07 05:09:32.145 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268757][tid_380](377)backstage task system start up timing task ,task type is :NetChangeReceiverTask, awaking type :awake by system broadCastReceiver
+12-07 05:09:32.146 11883 30219 D kt      : [kt][28268761][tid_380](45)[download_net_change] NetChangeReceiverTask run
+12-07 05:09:32.146 11883 30219 W wf      : [wf][28268761][tid_380](52)create preferences name:userinfo
+12-07 05:09:32.147 11883 30219 I wf      : [wf][28268762][tid_380](79)preference name:userinfo getString key:last_day,value:20171207
+12-07 05:09:32.148 11883 30219 W wf      : [wf][28268764][tid_380](52)create preferences name:timing_network_preference
+12-07 05:09:32.150 11883 30219 I qk      : [qk][28268765][tid_380](244)currentApn:MOBILE
+12-07 05:09:32.150 11883 30219 I qk      : [qk][28268766][tid_380](213)currentApn:MOBILE
+12-07 05:09:32.150 11883 30219 D jz      : [jz][28268766][tid_380](47)canConnectNetWork result == true
+12-07 05:09:32.151 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268766][tid_380](511)try awaking backstage task system,awaking type is :NET_CHANGE, awaking time is :1512594572151
+12-07 05:09:32.151 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268767][tid_380](513)awake backstage task system success, awaking time :1512594572151
+12-07 05:09:32.152 11883 12101 D StatisticsProvider: [StatisticsProvider][28268768][tid_54](432)[statistics_test] =======>write map:n.ep@d5b2b9d
+12-07 05:09:32.153 11883 12101 I StatisticsProvider: [StatisticsProvider][28268768][tid_54](516)[statistics_test] filePath /data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0 
+12-07 05:09:32.155 11883 12101 I StatisticsProvider: [StatisticsProvider][28268770][tid_54](518)[statistics_test] ====canWrite====
+12-07 05:09:32.155 11883 12101 D StatisticsProvider: [StatisticsProvider][28268771][tid_54](439)[statistics_test] =======>write path:/data/user_de/0/com.android.systemui/files/ua/no_ua_6.131.9.mui.dat.0
+12-07 05:09:32.159 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268774][tid_380](146)VlifeExecutorService executing n.gm@b1c4036
+12-07 05:09:32.159 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268775][tid_380](186)PackageName is com.vlife.ipro.magazine
+12-07 05:09:32.159 11883 30219 D TaskServiceProvider: [TaskServiceProvider][28268775][tid_380](188)TaskServiceProvider task=gm,taskType=OperatingStartTask
+12-07 05:09:32.160 11883 30219 I vv      : [vv][28268775][tid_380](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.160 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268775][tid_380](156)shell product start vlife task
+12-07 05:09:32.163 11883 30219 W wf      : [wf][28268776][tid_380](52)create preferences name:userinfo
+12-07 05:09:32.163 11883 30219 I qw      : [qw][28268779][tid_380](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-07 05:09:32.164 11883 30219 D gp      : [gp][28268779][tid_380](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-07 05:09:32.164 11883 12085 I TaskServiceProvider: [TaskServiceProvider][28268779][tid_45](546)vlifeTaskOnStartCommand intent=#Intent;action=OperatingStartTask;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-07 05:09:32.164 11883 30219 I vv      : [vv][28268780][tid_380](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.164 11883 30219 I kt      : [kt][28268780][tid_380](51)[PushTimerReceiver]  PushTimerReceiver running
+12-07 05:09:32.164 11883 12085 D TaskServiceProvider: [TaskServiceProvider][28268780][tid_45](558)pyramidney:null
+12-07 05:09:32.164 11883 30219 D PushProvider: [PushProvider][28268780][tid_380](275)notifyShowPush
+12-07 05:09:32.164 11883 12085 D go      : [go][28268780][tid_45](33)TaskSignalQueue-add n.gn@65bfb37
+12-07 05:09:32.165 11883 30219 I PushProvider: [PushProvider][28268780][tid_380](209)getPushController pushContentType = window
+12-07 05:09:32.165 11883 30219 D PushProvider: [PushProvider][28268780][tid_380](211)pushController:n.rf@c8fb3f1
+12-07 05:09:32.165 11883 30219 I rf      : [rf][28268781][tid_380](85)[notifyDataChange]
+12-07 05:09:32.165 11883 30219 I PushProvider: [PushProvider][28268781][tid_380](175)getContentHandler pushContentType = window
+12-07 05:09:32.165 11883 30219 W rx      : [rx][28268781][tid_380](85)db provider query:content://vlife/content
+12-07 05:09:32.167 11883 12101 I StatisticsProvider: [StatisticsProvider][28268782][tid_54](464)[statistics_test] create packet xml : <item ua_action="net_change" ua_time="1512594572151" ua_event="awaken_timing_task" ua_process="lockscreen" index="215" />
+12-07 05:09:32.167 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268782][tid_381](254)Bundle=Bundle[{triggerType=NET_CHANGE}] taskType=OperatingStartTask
+12-07 05:09:32.167 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268783][tid_381](258)getVlifeTask vlifeTask=n.gm@b83360d
+12-07 05:09:32.167 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268783][tid_381](351)[VlifeTaskService]  TaskRunnable  running task : OperatingStartTask ,delay : 0, cycle : 0 
+12-07 05:09:32.168 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268783][tid_381](377)backstage task system start up timing task ,task type is :OperatingStartTask, awaking type :NET_CHANGE
+12-07 05:09:32.168 11883 30220 I gm      : [gm][28268783][tid_381](44)TimingNetworkServerTask running, triggerType : NET_CHANGE
+12-07 05:09:32.168 11883 30220 W wf      : [wf][28268784][tid_381](52)create preferences name:timing_network_preference
+12-07 05:09:32.169 11883 30220 I gm      : [gm][28268784][tid_381](47)first time ready
+12-07 05:09:32.169 11883 30219 I fz      : [fz][28268784][tid_380](86)getAllDisabled window 0
+12-07 05:09:32.169 11883 30219 I rf      : [rf][28268785][tid_380](98)[WindowController] notifyDataChange() diabledWindowDataList = []
+12-07 05:09:32.169 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268785][tid_381](239)getVlifeTask vlifeTask=n.sj@c6429c2
+12-07 05:09:32.169 11883 30219 W wf      : [wf][28268785][tid_380](52)create preferences name:push_message
+12-07 05:09:32.169 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268785][tid_381](146)VlifeExecutorService executing n.sj@c6429c2
+12-07 05:09:32.170 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268785][tid_381](186)PackageName is com.vlife.ipro.magazine
+12-07 05:09:32.170 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268786][tid_381](188)TaskServiceProvider task=sj,taskType=ua_time_send
+12-07 05:09:32.170 11883 30220 I vv      : [vv][28268786][tid_381](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.171 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268786][tid_381](156)shell product start vlife task
+12-07 05:09:32.171 11883 30220 W wf      : [wf][28268786][tid_381](52)create preferences name:userinfo
+12-07 05:09:32.171 11883 30219 I ga      : [ga][28268787][tid_380](72)[downloadAll] isDownloading:false
+12-07 05:09:32.171 11883 30220 I qw      : [qw][28268787][tid_381](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-07 05:09:32.171 11883 30219 I PushProvider: [PushProvider][28268787][tid_380](175)getContentHandler pushContentType = window
+12-07 05:09:32.172 11883 30219 W rx      : [rx][28268787][tid_380](85)db provider query:content://vlife/content
+12-07 05:09:32.172 11883 12100 I TaskServiceProvider: [TaskServiceProvider][28268787][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=ua_time_send;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-07 05:09:32.172 11883 30220 D gp      : [gp][28268787][tid_381](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-07 05:09:32.172 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268788][tid_381](239)getVlifeTask vlifeTask=n.zc@96b13d3
+12-07 05:09:32.172 11883 12100 D TaskServiceProvider: [TaskServiceProvider][28268788][tid_53](558)pyramidney:null
+12-07 05:09:32.172 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268788][tid_381](146)VlifeExecutorService executing n.zc@96b13d3
+12-07 05:09:32.172 11883 12100 D go      : [go][28268788][tid_53](33)TaskSignalQueue-add n.gn@ad3eb10
+12-07 05:09:32.172 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268788][tid_381](186)PackageName is com.vlife.ipro.magazine
+12-07 05:09:32.173 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268788][tid_381](188)TaskServiceProvider task=zc,taskType=magazine_update
+12-07 05:09:32.173 11883 30220 I vv      : [vv][28268789][tid_381](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.173 11883 30219 I PushProvider: [PushProvider][28268789][tid_380](209)getPushController pushContentType = wallpaper_recommended
+12-07 05:09:32.173 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268789][tid_381](156)shell product start vlife task
+12-07 05:09:32.173 11883 30219 D PushProvider: [PushProvider][28268789][tid_380](211)pushController:null
+12-07 05:09:32.173 11883 30220 W wf      : [wf][28268789][tid_381](52)create preferences name:userinfo
+12-07 05:09:32.173 11883 30219 I PushProvider: [PushProvider][28268789][tid_380](209)getPushController pushContentType = flash_content
+12-07 05:09:32.173 11883 30219 D PushProvider: [PushProvider][28268789][tid_380](211)pushController:null
+12-07 05:09:32.174 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268789][tid_380](379)[VlifeTaskService]  end  task : NetChangeReceiverTask
+12-07 05:09:32.174 11883 30220 I qw      : [qw][28268789][tid_381](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-07 05:09:32.174 11883 30219 D go      : [go][28268789][tid_380](48)TaskSignalQueue-remove n.gn@90b2ae
+12-07 05:09:32.174 11883 30220 D gp      : [gp][28268790][tid_381](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-07 05:09:32.174 11883 12098 I TaskServiceProvider: [TaskServiceProvider][28268790][tid_51](546)vlifeTaskOnStartCommand intent=#Intent;action=magazine_update;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-07 05:09:32.174 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268790][tid_381](239)getVlifeTask vlifeTask=n.sh@4f200e
+12-07 05:09:32.174 11883 12098 D TaskServiceProvider: [TaskServiceProvider][28268790][tid_51](558)pyramidney:null
+12-07 05:09:32.174 11883 12098 D go      : [go][28268790][tid_51](33)TaskSignalQueue-add n.gn@6491a2f
+12-07 05:09:32.174 11883 30222 D TaskServiceProvider: [TaskServiceProvider][28268790][tid_382](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=ua_time_send
+12-07 05:09:32.175 11883 30219 D TaskServiceProvider: [TaskServiceProvider][28268790][tid_380](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=magazine_update
+12-07 05:09:32.175 11883 30219 D TaskServiceProvider: [TaskServiceProvider][28268791][tid_380](258)getVlifeTask vlifeTask=n.zc@274a83c
+12-07 05:09:32.175 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268791][tid_380](351)[VlifeTaskService]  TaskRunnable  running task : magazine_update ,delay : 0, cycle : 21600000 
+12-07 05:09:32.175 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268791][tid_381](146)VlifeExecutorService executing n.sh@4f200e
+12-07 05:09:32.175 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268791][tid_381](186)PackageName is com.vlife.ipro.magazine
+12-07 05:09:32.175 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268791][tid_380](377)backstage task system start up timing task ,task type is :magazine_update, awaking type :NET_CHANGE
+12-07 05:09:32.176 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268791][tid_381](188)TaskServiceProvider task=sh,taskType=get_push_message
+12-07 05:09:32.176 11883 30219 W wf      : [wf][28268791][tid_380](52)create preferences name:timing_network_preference
+12-07 05:09:32.176 11883 30220 I vv      : [vv][28268792][tid_381](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.176 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268792][tid_381](156)shell product start vlife task
+12-07 05:09:32.176 11883 30219 I jx      : [jx][28268792][tid_380](84)first time ready type:magazine_update
+12-07 05:09:32.176 11883 30220 W wf      : [wf][28268792][tid_381](52)create preferences name:userinfo
+12-07 05:09:32.176 11883 30219 I jx      : [jx][28268792][tid_380](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-07 05:09:32.176 11883 30219 D zc      : [zc][28268792][tid_380](77)[magazine_down_content] [canRunnable]
+12-07 05:09:32.177 11883 30219 W wf      : [wf][28268792][tid_380](52)create preferences name:timing_network_preference
+12-07 05:09:32.177 11883 30220 I qw      : [qw][28268792][tid_381](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-07 05:09:32.177 11883 30220 D gp      : [gp][28268793][tid_381](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-07 05:09:32.177 11883 12085 I TaskServiceProvider: [TaskServiceProvider][28268793][tid_45](546)vlifeTaskOnStartCommand intent=#Intent;action=get_push_message;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-07 05:09:32.177 11883 30222 D TaskServiceProvider: [TaskServiceProvider][28268793][tid_382](258)getVlifeTask vlifeTask=n.sj@15619c5
+12-07 05:09:32.177 11883 12085 D TaskServiceProvider: [TaskServiceProvider][28268793][tid_45](558)pyramidney:null
+12-07 05:09:32.177 11883 30222 I TaskServiceProvider: [TaskServiceProvider][28268793][tid_382](351)[VlifeTaskService]  TaskRunnable  running task : ua_time_send ,delay : 0, cycle : 21600000 
+12-07 05:09:32.177 11883 12085 D go      : [go][28268793][tid_45](33)TaskSignalQueue-add n.gn@e12f1a
+12-07 05:09:32.178 11883 30222 I TaskServiceProvider: [TaskServiceProvider][28268793][tid_382](377)backstage task system start up timing task ,task type is :ua_time_send, awaking type :NET_CHANGE
+12-07 05:09:32.178 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268794][tid_381](239)getVlifeTask vlifeTask=n.ajo@9020c28
+12-07 05:09:32.178 11883 30219 I qk      : [qk][28268794][tid_380](244)currentApn:MOBILE
+12-07 05:09:32.178 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268794][tid_381](146)VlifeExecutorService executing n.ajo@9020c28
+12-07 05:09:32.179 11883 30222 W wf      : [wf][28268794][tid_382](52)create preferences name:timing_network_preference
+12-07 05:09:32.179 11883 30222 I jx      : [jx][28268795][tid_382](84)first time ready type:ua_time_send
+12-07 05:09:32.179 11883 30222 I jx      : [jx][28268795][tid_382](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-07 05:09:32.179 11883 30222 W wf      : [wf][28268795][tid_382](52)create preferences name:timing_network_preference
+12-07 05:09:32.179 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268794][tid_381](186)PackageName is com.vlife.ipro.magazine
+12-07 05:09:32.180 11883 30219 I qk      : [qk][28268794][tid_380](213)currentApn:MOBILE
+12-07 05:09:32.180 11883 30219 D jz      : [jz][28268796][tid_380](47)canConnectNetWork result == true
+12-07 05:09:32.180 11883 30219 D zc      : [zc][28268796][tid_380](82)[magazine_down_content] [canRunnable] has net true
+12-07 05:09:32.180 11883 30219 D jx      : [jx][28268796][tid_380](116)canRun task=magazine_update, result=10397962, frequency=21600000
+12-07 05:09:32.180 11883 30220 D TaskServiceProvider: [TaskServiceProvider][28268795][tid_381](188)TaskServiceProvider task=ajo,taskType=plugin_update
+12-07 05:09:32.181 11883 30219 D jx      : [jx][28268796][tid_380](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is magazine_update
+12-07 05:09:32.181 11883 30220 I vv      : [vv][28268796][tid_381](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.181 11883 30219 W jx      : [jx][28268796][tid_380](93)task : magazine_update can't run!
+12-07 05:09:32.181 11883 30219 I jx      : [jx][28268797][tid_380](95)TimingNetworkTimerServerTask end , task : magazine_update 
+12-07 05:09:32.181 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268796][tid_381](156)shell product start vlife task
+12-07 05:09:32.181 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268797][tid_380](379)[VlifeTaskService]  end  task : magazine_update
+12-07 05:09:32.181 11883 30220 W wf      : [wf][28268797][tid_381](52)create preferences name:userinfo
+12-07 05:09:32.181 11883 30219 I TaskServiceProvider: [TaskServiceProvider][28268797][tid_380](382)[VlifeTaskService]  this task is Cycle ,task : magazine_update , time : 21600000 
+12-07 05:09:32.181 11883 30219 I vv      : [vv][28268797][tid_380](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.182 11883 30220 I qw      : [qw][28268797][tid_381](70)executor c:class java.util.concurrent.ThreadPoolExecutor task c:class n.gp$1
+12-07 05:09:32.182 11883 30219 D gp      : [gp][28268797][tid_380](96)VlifeTaskService schedule task=magazine_update, isCycleOrDelay=true,time=21600000,requestCode=47408839
+12-07 05:09:32.182 11883 30222 I qk      : [qk][28268798][tid_382](244)currentApn:MOBILE
+12-07 05:09:32.183 11883 30222 I qk      : [qk][28268798][tid_382](213)currentApn:MOBILE
+12-07 05:09:32.183 11883 30222 D jz      : [jz][28268798][tid_382](47)canConnectNetWork result == true
+12-07 05:09:32.183 11883 30220 D gp      : [gp][28268799][tid_381](64)packageName = com.vlife.ipro.magazine, className = com.vlife.TService
+12-07 05:09:32.183 11883 30220 W gm      : [gm][28268799][tid_381](58)taskType upload_user_setting is error
+12-07 05:09:32.184 11883 12100 I TaskServiceProvider: [TaskServiceProvider][28268799][tid_53](546)vlifeTaskOnStartCommand intent=#Intent;action=plugin_update;package=com.vlife.ipro.magazine;component=com.vlife.ipro.magazine/com.vlife.TService;end
+12-07 05:09:32.184 11883 30220 W gm      : [gm][28268799][tid_381](58)taskType download_file_delete is error
+12-07 05:09:32.184 11883 12100 D TaskServiceProvider: [TaskServiceProvider][28268799][tid_53](558)pyramidney:null
+12-07 05:09:32.184 11883 30220 I TaskServiceProvider: [TaskServiceProvider][28268799][tid_381](379)[VlifeTaskService]  end  task : OperatingStartTask
+12-07 05:09:32.184 11883 12100 D go      : [go][28268800][tid_53](33)TaskSignalQueue-add n.gn@4838d41
+12-07 05:09:32.185 11883 30220 D go      : [go][28268800][tid_381](48)TaskSignalQueue-remove n.gn@65bfb37
+12-07 05:09:32.185 11883 30222 I qk      : [qk][28268800][tid_382](244)currentApn:MOBILE
+12-07 05:09:32.185 11883 30219 I gp      : [gp][28268801][tid_380](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-07 05:09:32.185 11883 30222 I jx      : [jx][28268801][tid_382](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-07 05:09:32.186 11883 30219 D go      : [go][28268801][tid_380](48)TaskSignalQueue-remove n.gn@6491a2f
+12-07 05:09:32.186 11883 30224 D gp      : [gp][28268802][tid_384](104)task run
+12-07 05:09:32.186 11883 30224 W wf      : [wf][28268802][tid_384](52)create preferences name:timing_network_preference
+12-07 05:09:32.187 11883 30222 I pm      : [pm][28268802][tid_382](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-07 05:09:32.187 11883 30222 I jx      : [jx][28268802][tid_382](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-07 05:09:32.187 11883 30224 I jx      : [jx][28268803][tid_384](84)first time ready type:magazine_update
+12-07 05:09:32.187 11883 30224 I jx      : [jx][28268803][tid_384](86)judge timing task whether or not can run,judge task type is :magazine_update
+12-07 05:09:32.187 11883 30222 D jx      : [jx][28268803][tid_382](116)canRun task=ua_time_send, result=10397976, frequency=21600000
+12-07 05:09:32.187 11883 30224 D zc      : [zc][28268803][tid_384](77)[magazine_down_content] [canRunnable]
+12-07 05:09:32.187 11883 30222 D jx      : [jx][28268803][tid_382](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is ua_time_send
+12-07 05:09:32.187 11883 30222 W jx      : [jx][28268803][tid_382](93)task : ua_time_send can't run!
+12-07 05:09:32.187 11883 30224 W wf      : [wf][28268803][tid_384](52)create preferences name:timing_network_preference
+12-07 05:09:32.187 11883 30222 I jx      : [jx][28268803][tid_382](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-07 05:09:32.188 11883 30222 I TaskServiceProvider: [TaskServiceProvider][28268803][tid_382](379)[VlifeTaskService]  end  task : ua_time_send
+12-07 05:09:32.188 11883 30222 I TaskServiceProvider: [TaskServiceProvider][28268804][tid_382](382)[VlifeTaskService]  this task is Cycle ,task : ua_time_send , time : 21600000 
+12-07 05:09:32.188 11883 30222 I vv      : [vv][28268804][tid_382](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.189 11883 30222 D gp      : [gp][28268804][tid_382](96)VlifeTaskService schedule task=ua_time_send, isCycleOrDelay=true,time=21600000,requestCode=193306362
+12-07 05:09:32.189 11883 30222 I gp      : [gp][28268805][tid_382](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-07 05:09:32.189 11883 30224 I qk      : [qk][28268805][tid_384](244)currentApn:MOBILE
+12-07 05:09:32.189 11883 30224 I qk      : [qk][28268805][tid_384](213)currentApn:MOBILE
+12-07 05:09:32.189 11883 30227 D gp      : [gp][28268805][tid_386](104)task run
+12-07 05:09:32.190 11883 30222 D go      : [go][28268805][tid_382](48)TaskSignalQueue-remove n.gn@ad3eb10
+12-07 05:09:32.190 11883 30224 D jz      : [jz][28268805][tid_384](47)canConnectNetWork result == true
+12-07 05:09:32.190 11883 30227 W wf      : [wf][28268805][tid_386](52)create preferences name:timing_network_preference
+12-07 05:09:32.190 11883 30224 D zc      : [zc][28268805][tid_384](82)[magazine_down_content] [canRunnable] has net true
+12-07 05:09:32.190 11883 30224 D jx      : [jx][28268806][tid_384](116)canRun task=magazine_update, result=10397972, frequency=21600000
+12-07 05:09:32.190 11883 30227 I jx      : [jx][28268806][tid_386](84)first time ready type:ua_time_send
+12-07 05:09:32.190 11883 30224 D jx      : [jx][28268806][tid_384](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is magazine_update
+12-07 05:09:32.190 11883 30223 D TaskServiceProvider: [TaskServiceProvider][28268802][tid_383](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=get_push_message
+12-07 05:09:32.190 11883 30224 W jx      : [jx][28268806][tid_384](93)task : magazine_update can't run!
+12-07 05:09:32.190 11883 30227 I jx      : [jx][28268806][tid_386](86)judge timing task whether or not can run,judge task type is :ua_time_send
+12-07 05:09:32.190 11883 30223 D TaskServiceProvider: [TaskServiceProvider][28268806][tid_383](258)getVlifeTask vlifeTask=n.sh@5ec2027
+12-07 05:09:32.190 11883 30224 I jx      : [jx][28268806][tid_384](95)TimingNetworkTimerServerTask end , task : magazine_update 
+12-07 05:09:32.190 11883 30227 W wf      : [wf][28268806][tid_386](52)create preferences name:timing_network_preference
+12-07 05:09:32.191 11883 30223 I TaskServiceProvider: [TaskServiceProvider][28268806][tid_383](351)[VlifeTaskService]  TaskRunnable  running task : get_push_message ,delay : 0, cycle : 21600000 
+12-07 05:09:32.191 11883 30223 I TaskServiceProvider: [TaskServiceProvider][28268806][tid_383](377)backstage task system start up timing task ,task type is :get_push_message, awaking type :NET_CHANGE
+12-07 05:09:32.191 11883 30223 W wf      : [wf][28268807][tid_383](52)create preferences name:timing_network_preference
+12-07 05:09:32.191 11883 30223 I jx      : [jx][28268807][tid_383](84)first time ready type:get_push_message
+12-07 05:09:32.192 11883 30223 I jx      : [jx][28268807][tid_383](86)judge timing task whether or not can run,judge task type is :get_push_message
+12-07 05:09:32.192 11883 30227 I qk      : [qk][28268807][tid_386](244)currentApn:MOBILE
+12-07 05:09:32.192 11883 30223 W wf      : [wf][28268808][tid_383](52)create preferences name:timing_network_preference
+12-07 05:09:32.192 11883 30227 I qk      : [qk][28268808][tid_386](213)currentApn:MOBILE
+12-07 05:09:32.192 11883 30227 D jz      : [jz][28268808][tid_386](47)canConnectNetWork result == true
+12-07 05:09:32.192 11883 30225 D TaskServiceProvider: [TaskServiceProvider][28268808][tid_385](254)Bundle=Bundle[{triggerType=NET_CHANGE, doTaskWithoutCondition=false}] taskType=plugin_update
+12-07 05:09:32.193 11883 30225 D TaskServiceProvider: [TaskServiceProvider][28268808][tid_385](258)getVlifeTask vlifeTask=n.ajo@c7fc2d4
+12-07 05:09:32.193 11883 30227 I qk      : [qk][28268808][tid_386](244)currentApn:MOBILE
+12-07 05:09:32.193 11883 30225 I TaskServiceProvider: [TaskServiceProvider][28268809][tid_385](351)[VlifeTaskService]  TaskRunnable  running task : plugin_update ,delay : 0, cycle : 21600000 
+12-07 05:09:32.193 11883 30227 I jx      : [jx][28268809][tid_386](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-07 05:09:32.194 11883 30227 I pm      : [pm][28268809][tid_386](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-07 05:09:32.194 11883 30225 I TaskServiceProvider: [TaskServiceProvider][28268809][tid_385](377)backstage task system start up timing task ,task type is :plugin_update, awaking type :NET_CHANGE
+12-07 05:09:32.194 11883 30227 I jx      : [jx][28268810][tid_386](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-07 05:09:32.194 11883 30227 D jx      : [jx][28268810][tid_386](116)canRun task=ua_time_send, result=10397983, frequency=21600000
+12-07 05:09:32.194 11883 30225 W wf      : [wf][28268810][tid_385](52)create preferences name:timing_network_preference
+12-07 05:09:32.194 11883 30227 D jx      : [jx][28268810][tid_386](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is ua_time_send
+12-07 05:09:32.194 11883 30227 W jx      : [jx][28268810][tid_386](93)task : ua_time_send can't run!
+12-07 05:09:32.194 11883 30227 I jx      : [jx][28268810][tid_386](95)TimingNetworkTimerServerTask end , task : ua_time_send 
+12-07 05:09:32.194 11883 30225 I jx      : [jx][28268810][tid_385](84)first time ready type:plugin_update
+12-07 05:09:32.195 11883 30225 I jx      : [jx][28268810][tid_385](86)judge timing task whether or not can run,judge task type is :plugin_update
+12-07 05:09:32.195 11883 30225 W wf      : [wf][28268811][tid_385](52)create preferences name:timing_network_preference
+12-07 05:09:32.196 11883 30223 I qk      : [qk][28268811][tid_383](244)currentApn:MOBILE
+12-07 05:09:32.196 11883 30223 I qk      : [qk][28268811][tid_383](213)currentApn:MOBILE
+12-07 05:09:32.196 11883 30223 D jz      : [jz][28268812][tid_383](47)canConnectNetWork result == true
+12-07 05:09:32.197 11883 30223 I qk      : [qk][28268812][tid_383](244)currentApn:MOBILE
+12-07 05:09:32.197 11883 30225 I qk      : [qk][28268812][tid_385](244)currentApn:MOBILE
+12-07 05:09:32.197 11883 30223 I jx      : [jx][28268812][tid_383](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-07 05:09:32.197 11883 30225 I qk      : [qk][28268812][tid_385](213)currentApn:MOBILE
+12-07 05:09:32.197 11883 30225 D jz      : [jz][28268813][tid_385](47)canConnectNetWork result == true
+12-07 05:09:32.198 11883 30223 I pm      : [pm][28268813][tid_383](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-07 05:09:32.198 11883 30223 I jx      : [jx][28268813][tid_383](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-07 05:09:32.198 11883 30225 I qk      : [qk][28268814][tid_385](244)currentApn:MOBILE
+12-07 05:09:32.198 11883 30225 I jx      : [jx][28268814][tid_385](58)[TimingNetworkTask] NetStatus. 2G,return true 
+12-07 05:09:32.198 11883 30223 D jx      : [jx][28268814][tid_383](116)canRun task=get_push_message, result=10397983, frequency=21600000
+12-07 05:09:32.198 11883 30223 D jx      : [jx][28268814][tid_383](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is get_push_message
+12-07 05:09:32.198 11883 30223 W jx      : [jx][28268814][tid_383](93)task : get_push_message can't run!
+12-07 05:09:32.199 11883 30223 I jx      : [jx][28268814][tid_383](95)TimingNetworkTimerServerTask end , task : get_push_message 
+12-07 05:09:32.199 11883 30225 I pm      : [pm][28268814][tid_385](600)isScreenLocked  isScreenOn:true inKeyguardRestrictedInputMode:false
+12-07 05:09:32.199 11883 30223 I TaskServiceProvider: [TaskServiceProvider][28268814][tid_383](379)[VlifeTaskService]  end  task : get_push_message
+12-07 05:09:32.199 11883 30225 I jx      : [jx][28268815][tid_385](60)[TimingNetworkTask] is not ScreenLocked,return true 
+12-07 05:09:32.199 11883 30223 I TaskServiceProvider: [TaskServiceProvider][28268815][tid_383](382)[VlifeTaskService]  this task is Cycle ,task : get_push_message , time : 21600000 
+12-07 05:09:32.200 11883 30223 I vv      : [vv][28268815][tid_383](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.200 11883 30225 D jx      : [jx][28268815][tid_385](116)canRun task=plugin_update, result=10397972, frequency=21600000
+12-07 05:09:32.200 11883 30225 D jx      : [jx][28268815][tid_385](120)Judgment result can not run , reason :Minimum time interval is not satisfied, task type is plugin_update
+12-07 05:09:32.200 11883 30225 W jx      : [jx][28268816][tid_385](93)task : plugin_update can't run!
+12-07 05:09:32.200 11883 30223 D gp      : [gp][28268816][tid_383](96)VlifeTaskService schedule task=get_push_message, isCycleOrDelay=true,time=21600000,requestCode=196365627
+12-07 05:09:32.200 11883 30225 I jx      : [jx][28268816][tid_385](95)TimingNetworkTimerServerTask end , task : plugin_update 
+12-07 05:09:32.200 11883 30225 I TaskServiceProvider: [TaskServiceProvider][28268816][tid_385](379)[VlifeTaskService]  end  task : plugin_update
+12-07 05:09:32.201 11883 30225 I TaskServiceProvider: [TaskServiceProvider][28268816][tid_385](382)[VlifeTaskService]  this task is Cycle ,task : plugin_update , time : 21600000 
+12-07 05:09:32.201 11883 30223 I gp      : [gp][28268816][tid_383](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-07 05:09:32.201 11883 30225 I vv      : [vv][28268816][tid_385](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:09:32.201 11883 30228 D gp      : [gp][28268816][tid_387](104)task run
+12-07 05:09:32.201 11883 30223 D go      : [go][28268817][tid_383](48)TaskSignalQueue-remove n.gn@e12f1a
+12-07 05:09:32.201 11883 30225 D gp      : [gp][28268817][tid_385](96)VlifeTaskService schedule task=plugin_update, isCycleOrDelay=true,time=21600000,requestCode=93687749
+12-07 05:09:32.201 11883 30228 W wf      : [wf][28268817][tid_387](52)create preferences name:timing_network_preference
+12-07 05:09:32.202 11883 30228 I jx      : [jx][28268817][tid_387](84)first time ready type:get_push_message
+12-07 05:09:32.202 11883 30228 I jx      : [jx][28268818][tid_387](86)judge timing task whether or not can run,judge task type is :get_push_message
+12-07 05:09:32.202 11883 30225 I gp      : [gp][28268818][tid_385](100)[VlifeTaskService] [next awake intervalMillis] [21600000]
+12-07 05:09:32.202 11883 30228 W wf      : [wf][28268818][tid_387](52)create preferences name:timing_network_preference
+12-07 05:09:32.202 11883 30225 D go      : [go][28268818][tid_385](48)TaskSignalQueue-remove n.gn@4838d41
+12-07 05:09:32.202 11883 30229 D gp      : [gp][28268818][tid_388](104)task run
+12-07 05:09:32.203 11883 30225 D go      : [go][28268818][tid_385](53)TaskSignalQueue- call empty
+12-07 05:09:32.203 11883 30229 W wf      : [wf][28268818][tid_388](52)create preferences name:timing_network_preference
+12-07 05:09:32.203 11883 30229 I jx      : [jx][28268819][tid_388](84)first time ready type:plugin_update
+12-07 05:09:32.203 11883 30228 I qk      : [qk][28268819][tid_387](244)currentApn:MOBILE
+12-07 05:09:32.203 11883 30229 I jx      : [jx][28268819][tid_388](86)judge timing task whether or not can run,judge task type is :plugin_update
+12-07 05:09:32.203 11883 30228 I qk      : [qk][28268819][tid_387](213)currentApn:MOBILE
+12-07 05:09:32.207 11883 30229 I jx      : [jx][28268823][tid_388](95)TimingNetworkTimerServerTask end , task : plugin_update 
+12-07 05:09:33.604 11883 11883 D NewDownloadProvider: [NewDownloadProvider][28270219][tid_1](408)[download_net_change] handleMessage
+12-07 05:09:33.605 11883 11883 D fk      : [fk][28270220][tid_1](49)[download_net_change] refreshNetworkType
+12-07 05:09:33.611 11883 11883 D fk      : [fk][28270226][tid_1](51)changeNetWork 16 -> 2, start
+12-07 05:09:33.613 11883 11883 D NewDownloadProvider: [NewDownloadProvider][28270228][tid_1](338)[new_download] [download_net_change] =======>start [oldType:16] [currentType:2]
+12-07 05:09:33.615 11883 11883 D fk      : [fk][28270229][tid_1](59)changeNetWork end
+12-07 05:10:12.245 11883 12114 D go      : [go][28308860][tid_64](67)size
+12-07 05:10:12.246 11883 12114 I TaskServiceProvider: [TaskServiceProvider][28308861][tid_64](85)kill self service, size=0
+12-07 05:10:12.247 11883 12114 I TaskServiceProvider: [TaskServiceProvider][28308862][tid_64](87)kill self service success
+12-07 05:10:12.248 11883 12114 I vv      : [vv][28308863][tid_64](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 05:10:12.249 11883 12114 D TaskServiceProvider: [TaskServiceProvider][28308864][tid_64](89)vlife_task_service_for_3part

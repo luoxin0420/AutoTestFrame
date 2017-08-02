@@ -31,3 +31,12 @@ device_config.fileConfig(fname)
 
 
 POSITIVE_VP_TYPE = ['CONTAIN', 'EQUAL', 'MATCH']
+DEVICE_ACTION = [
+            'network',
+            'update_date',
+            'reboot',
+            'unlock_screen',
+            'update_para',
+            'install_app',
+            'screen_on',
+            'task_init_source']

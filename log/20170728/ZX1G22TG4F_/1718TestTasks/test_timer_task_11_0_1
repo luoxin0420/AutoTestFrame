@@ -1,0 +1,22 @@
+12-07 04:37:29.379 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26345994][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+12-07 04:37:29.379 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26345995][tid_1](377)[new_download] [download_net_change] networkChange
+12-07 04:37:29.387 11883 11883 I qk      : [qk][26346003][tid_1](244)currentApn:MOBILE
+12-07 04:37:29.389 11883 11883 I qk      : [qk][26346003][tid_1](213)currentApn:MOBILE
+12-07 04:37:29.390 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26346005][tid_1](31)[download_net_change] the network has connected
+12-07 04:37:29.392 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26346006][tid_1](33)[download_net_change] time:885184138,runTime:885170659
+12-07 04:37:29.419 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26346035][tid_1](25)doReceive context:com.vlife.plugin.module.tools.ModuleContextUtil$1@d40778c,intent:Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+12-07 04:37:29.419 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26346035][tid_1](377)[new_download] [download_net_change] networkChange
+12-07 04:37:29.420 11883 11883 I qk      : [qk][26346036][tid_1](244)currentApn:MOBILE
+12-07 04:37:29.420 11883 11883 I qk      : [qk][26346036][tid_1](213)currentApn:MOBILE
+12-07 04:37:29.421 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26346036][tid_1](31)[download_net_change] the network has connected
+12-07 04:37:29.421 11883 11883 D NetChangeReceiverHandler: [NetChangeReceiverHandler][26346036][tid_1](33)[download_net_change] time:885184169,runTime:885170659
+12-07 04:37:30.922 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26347537][tid_1](408)[download_net_change] handleMessage
+12-07 04:37:30.923 11883 11883 D fk      : [fk][26347538][tid_1](49)[download_net_change] refreshNetworkType
+12-07 04:37:30.927 11883 11883 D fk      : [fk][26347542][tid_1](51)changeNetWork 1 -> 4, start
+12-07 04:37:30.929 11883 11883 D NewDownloadProvider: [NewDownloadProvider][26347543][tid_1](338)[new_download] [download_net_change] =======>start [oldType:1] [currentType:4]
+12-07 04:37:30.930 11883 11883 D fk      : [fk][26347545][tid_1](59)changeNetWork end
+12-07 04:37:56.046 11883 12114 D go      : [go][26372661][tid_64](67)size
+12-07 04:37:56.048 11883 12114 I TaskServiceProvider: [TaskServiceProvider][26372663][tid_64](85)kill self service, size=0
+12-07 04:37:56.049 11883 12114 I TaskServiceProvider: [TaskServiceProvider][26372664][tid_64](87)kill self service success
+12-07 04:37:56.050 11883 12114 I vv      : [vv][26372665][tid_64](22)realPackageName:com.android.systemui vlifePackageName:com.vlife.ipro.magazine
+12-07 04:37:56.051 11883 12114 D TaskServiceProvider: [TaskServiceProvider][26372666][tid_64](89)vlife_task_service_for_3part
