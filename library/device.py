@@ -12,7 +12,7 @@ import os
 from os import path
 
 import uiautomator
-from library.myglobal import device_config
+from library.myglobal import device_config,logger
 
 
 class Device(object):
@@ -346,22 +346,22 @@ class Device(object):
         self.emulate_swipe_action()
         sleep(1)
 
+    def read_file_from_device(self,fname):
 
-def get_userid_from_file(devicename):
+        logger.debug('Step:read parameter file' + fname)
+        cmd = "".join(["adb -s ", self.uid, " shell cat ", fname])
+        out = self.shellPIPE(cmd)
+        return out
 
-    cmd = "".join(["adb -s ", devicename, " shell cat /data/data/com.vlife/shared_prefs/userinfo.xml"])
-    out = Device.shellPIPE(cmd)
-    keyword = r'.* <string name="uid">(.*)</string>.*'
-    content = re.compile(keyword)
-    for char in ['\r','\n']:
-        out = out.replace(char,'')
-    m = content.match(out)
-    if m:
-        userid = m.group(1)
-    else:
-        userid = ''
+    def update_file_from_device(self,reg_str,fname):
 
-    return userid
+        logger.debug('Step:update parameter file' + fname)
+        cmd = "".join(["adb -s ", self.uid, " shell sed -i ", reg_str, " ", fname])
+        print cmd
+        self.shellPIPE(cmd)
+
+
+
 
 
 

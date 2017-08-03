@@ -22,8 +22,8 @@ from business import querydb as tc
 
 def get_test_data():
 
-    print len(tc.filter_cases(6))
-    return tc.filter_cases(6)
+    print len(tc.filter_cases(1))
+    return tc.filter_cases(1)
 
 @ddt.ddt
 class TestTimerTask(unittest.TestCase):
@@ -50,31 +50,32 @@ class TestTimerTask(unittest.TestCase):
     def tearDown(self):
 
         try:
-                if hasattr(self, '_outcome'):  # Python 3.4+
-                    result = self.defaultTestResult()  # these 2 methods have no side effects
-                    self._feedErrorsToResult(result, self._outcome.errors)
-                else:  # Python 3.2 - 3.3 or 2.7
-                    result = getattr(self, '_outcomeForDoCleanups', self._resultForDoCleanups)
-                error = self.list2reason(result.errors)
-                failure = self.list2reason(result.failures)
-                ok = not error and not failure
+            if hasattr(self, '_outcome'):  # Python 3.4+
+                result = self.defaultTestResult()  # these 2 methods have no side effects
+                self._feedErrorsToResult(result, self._outcome.errors)
+            else:  # Python 3.2 - 3.3 or 2.7
+                result = getattr(self, '_outcomeForDoCleanups', self._resultForDoCleanups)
+            error = self.list2reason(result.errors)
+            failure = self.list2reason(result.failures)
+            ok = not error and not failure
 
-                #Save all test result
-                #init result dict at the first time
-                if LOOP_NUM == 0:
-                    RESULT_DICT.setdefault(self._testMethodName, {})['Result'] = []
-                    RESULT_DICT.setdefault(self._testMethodName, {})['Log'] = []
+            #Save all test result
+            #init result dict at the first time
+            if LOOP_NUM == 0:
+                RESULT_DICT.setdefault(self._testMethodName, {})['Result'] = []
+                RESULT_DICT.setdefault(self._testMethodName, {})['Log'] = []
 
-                if ok:
-                    RESULT_DICT[self._testMethodName]['Result'].append('PASS')
-                    RESULT_DICT[self._testMethodName]['Log'].append('')
-                else:
-                    RESULT_DICT[self._testMethodName]['Result'].append('FAILED')
-                    RESULT_DICT[self._testMethodName]['Log'].append(os.path.basename(self.log_name))
-                    # insert into fail case list
-                    FAIL_CASE.append(self._testMethodName)
+            if ok:
+                RESULT_DICT[self._testMethodName]['Result'].append('PASS')
+                RESULT_DICT[self._testMethodName]['Log'].append('')
+            else:
+                RESULT_DICT[self._testMethodName]['Result'].append('FAILED')
+                RESULT_DICT[self._testMethodName]['Log'].append(os.path.basename(self.log_name))
+                # insert into fail case list
+                FAIL_CASE.append(self._testMethodName)
 
         except Exception,ex:
+
                 print ex
 
         desktop.close_all_program('adb')
@@ -95,46 +96,37 @@ class TestTimerTask(unittest.TestCase):
         #     action.execute_device_action(self.device_action,aname, value)
 
         if aname.startswith('network'):
-
             self.device_action.network_change(value)
-
         elif aname.startswith('update_date'):
-
             sleep(3)
             self.device_action.update_time(value)
-
+        elif aname.startswith('clear_app'):
+            self.device_action.clear_app()
+        elif aname.startswith('install_app'):
+            self.device_action.install_app(value)
+        elif aname.startswith('access_other_app'):
+            self.device_action.access_other_app(value)
+        elif aname.startswith('reboot'):
+            self.device_action.reboot_device()
+        elif aname.startswith('unlock_screen'):
+            self.device_action.unlock_screen(value)
+        elif aname.startswith('update_para'):
+            self.device_action.update_para(value)
+        elif aname.startswith('task_init_source'):
+            self.device_action.task_init_resource(value)
         elif aname.startswith('log_start'):
-
             logger.debug('Step: start to collect log')
             self.dump_log_start(self.pid)
-
         elif aname.startswith('log_stop'):
             logger.debug('Step: stop collecting log')
             self.dump_log_stop()
-
         elif aname.startswith('wait_time'):
             logger.debug('Step: wait time: ' + str(value))
             sleep(value)
-
-        elif aname.startswith('reboot'):
-            self.device_action.reboot_device()
-
-        elif aname.startswith('unlock_screen'):
-            self.device_action.unlock_screen()
-
-        elif aname.startswith('update_para'):
-            self.device_action.update_para(value)
-
-        elif aname.startswith('install_app'):
-            self.device_action.install_app(value)
-
         elif aname.startswith('screen_on'):
             logger.debug('Step: Screen on operation')
             DEVICE.screen_on_off(value)
             sleep(2)
-
-        elif aname.startswith('task_init_source'):
-            self.device_action.task_init_resource(value)
         else:
             self.result = False
             print 'Unknown action name:' + aname

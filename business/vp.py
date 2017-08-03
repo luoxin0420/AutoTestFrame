@@ -68,7 +68,8 @@ def filter_log_result(logname, pid_list, match_type, findstr=''):
 
 if __name__ == '__main__':
 
-    logname = r'E:\AutoTestFrame\log\20170727\ZX1G22TG4F_\1736TestTasks\test_network_change_1_0_1'
-    fstr = '(.*awake backstage task system success.*)||(.*Judgment result can run , task type is (get_push_message|magazine_update|ua_time_send|plugin_update) , triggerType is :NET_CHANGE.*)'
-
-    result = filter_log_result(logname,[3730],'Match',fstr)
+    logname = r'E:\AutoTestFrame\log\20170802\ZX1G22TG4F_\1526TestTasks\test_timer_task_1_0_1'
+    fstr = '.*Judgment result can not run , reason :network is not allowed , task type is (get_push_message|magazine_update|ua_time_send|plugin_update).*'
+    #fstr = '.*Judgment result can not run , reason :network is not allowed , task type is (aa|ua_time_send)'
+    result = filter_log_result(logname,[1813],'Match',fstr)
+    print result
