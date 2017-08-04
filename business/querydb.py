@@ -14,7 +14,7 @@ def filter_cases(suite_id):
     :param suite_id:
     :return: result list
     """
-    query = 'select * from TestCase where teca_enable=1 and teca_id in (select tsca_teca_id from TestSuiteCase ' \
+    query = 'select * from TestCaseManage_testcase where teca_enable=1 and teca_id in (select tsca_teca_id from TestCaseManage_testsuitecase ' \
             'where tsca_tesu_id = {0} )'.format(suite_id)
     cases = autodb.select_many_record(query)
     return cases
@@ -34,13 +34,13 @@ def get_action_list(comp_id):
     # result = autodb.select_one_record(query)
     # comp_id = result[0]['comp_id']
 
-    query = 'select * from ActionGroup where acgr_comp_id={0} order by acgr_index'.format(comp_id)
+    query = 'select * from TestCaseManage_actiongroup where acgr_comp_id={0} order by acgr_index'.format(comp_id)
     result = autodb.select_many_record(query)
 
     for re in result:
 
         actid = re['acgr_acti_id']
-        query = 'select * from Action where acti_id={0}'.format(actid)
+        query = 'select * from TestCaseManage_action where acti_id={0}'.format(actid)
         result = autodb.select_one_record(query)
         action_list.append(result[0]['acti_name'])
 
@@ -55,7 +55,7 @@ def get_vp_name(vp_id):
     :return:
     """
 
-    query = 'select * from VPName where vp_id={0} '.format(vp_id)
+    query = 'select * from TestCaseManage_vpname where vp_id={0} '.format(vp_id)
     result = autodb.select_one_record(query)
     vp_name = result[0]['vp_name']
     return vp_name
@@ -69,7 +69,7 @@ def get_vp_type(vpt_id):
     :return:
     """
 
-    query = 'select * from VPType where vpt_id={0} '.format(vpt_id)
+    query = 'select * from TestCaseManage_vptype where vpt_id={0} '.format(vpt_id)
     result = autodb.select_one_record(query)
     vpt_name = result[0]['vpt_name']
     return vpt_name
@@ -83,7 +83,7 @@ def get_prodcut_name_byID(pid):
     :return:
     """
 
-    query = 'select prod_name from Product where prod_id={0}'.format(pid)
+    query = 'select TestCaseManage_product from Product where prod_id={0}'.format(pid)
     result = autodb.select_one_record(query)
     pname = result[0]['prod_name']
     return pname
