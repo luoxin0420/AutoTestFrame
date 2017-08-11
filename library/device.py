@@ -360,12 +360,26 @@ class Device(object):
         print cmd
         self.shellPIPE(cmd)
 
+    def click_screen_by_coordinate(self, x, y):
 
+        logger.debug('Step:click scrren by coordinate x, y:' + str(x) + "," + str(y))
+        cmd = "".join(["adb -s ", self.uid, " shell input tap ", str(x), " ", str(y)])
+        self.shellPIPE(cmd)
 
+    def bluetooth_operation(self,action):
 
+        # adb shell service call bluetooth_manager 6
+        # adb shell am start -a android.bluetooth.adapter.action.REQUEST_ENABLE
+        # adb shell am start -a android.bluetooth.adapter.action.REQUEST_DISCOVERABLE
+        # adb shell service call bluetooth_manager 8
 
+        if action.upper() == 'ON':
+            cmd = "".join(["adb -s ", self.uid, " service call bluetooth_manager ", str(8)])
 
+        if action.upper() == 'OFF':
+            cmd = "".join(["adb -s ", self.uid, " service call bluetooth_manager ", str(6)])
 
+        self.shellPIPE(cmd)
 
 
 

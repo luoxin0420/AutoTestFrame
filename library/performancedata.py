@@ -1,6 +1,10 @@
 __author__ = 'Xuxh'
 
 import subprocess
+import threading
+from time import sleep
+import ctypes
+import inspect
 
 class ADBShell(object):
 
@@ -151,8 +155,69 @@ class TrafficInfo(object):
             except:
                 return 0.0
 
+
+class MonitorSpecialData(threading.Thread):
+
+    def __init__(self, log_name, uid, pkg, dtype):
+
+        self._stopevent = threading.Event()
+        self._sleepperiod = 1.0
+        threading.Thread.__init__(self)
+        self._uid = uid
+        self._pkg = pkg
+        self._process = None
+        self._log = log_name
+        self._type = dtype
+        self.outfile = None
+
+    def run(self):
+
+        cmd = ''
+        if self._type.upper() == 'MEMORY':
+            cmd = "adb -s {0} shell top -n 1| grep {1}".format(self._uid, self._pkg)
+        elif self._type.upper() == 'CPU':
+            cmd = "adb -s {0} shell top -n 1 | grep {1}".format(self._uid, self._pkg)
+        with open(self._log, 'w') as self.outfile:
+            while not self._stopevent.isSet():
+                self._process = subprocess.Popen(cmd, shell=True, stdout=self.outfile)
+                self._stopevent.wait(self._sleepperiod)
+
+    def join(self, timeout=None):
+        """ Stop the thread and wait for it to end. """
+        self._stopevent.set()
+        threading.Thread.join(self, timeout)
+
+    def stop(self):
+        try:
+            print 'wait for top command stopped...'
+            self._process.kill()
+            self.outfile.close()
+        except Exception, ex:
+            print ex
+
+
+def _async_raise(tid, exctype):
+
+    """raises the exception, performs cleanup if needed"""
+    tid = ctypes.c_long(tid)
+    if not inspect.isclass(exctype):
+        #exctype = type(exctype)
+        raise TypeError("Only types can be raised (not instances)")
+    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exctype))
+    if res == 0:
+        raise ValueError("invalid thread id")
+    elif res != 1:
+        # """if it returns a number greater than one, you're in trouble,
+        # and you should call it again with exc=NULL to revert the effect"""
+        ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
+        raise SystemError("PyThreadState_SetAsyncExc failed")
+
+
+def stop_thread(thread):
+    _async_raise(thread.ident, TypeError)
+
 if __name__ == '__main__':
 
-    myapp = MemoryInfo('NX511J','com.yulore.framework')
+    myapp = MemoryInfo('NX511J','com.android.systemui')
     appid = myapp.get_memoryInfo()
     print appid

@@ -111,10 +111,11 @@ class DeviceAction(object):
         :param value:
         :return:
         """
-        logger.debug('Step:unlock screen')
-        # sometimes device start up is very slowly, so will try multiple times
-        if value.upper() != 'NONE':
-            names = []
+        if value.upper() == 'NONE':
+            print 'do nothing'
+        elif value.upper() == 'DEFAULT':
+            logger.debug('Step:unlock screen')
+            # sometimes device start up is very slowly, so will try multiple times
             for i in range(5):
                 names = self.device.get_connected_devices()
                 if self.dname in names:
@@ -126,6 +127,16 @@ class DeviceAction(object):
                     break
                 else:
                     sleep(5)
+        else:
+            # redo unlock action multiple times
+            logger.debug('Step:unlock screen')
+            for i in range(int(value)):
+                self.device.screen_on_off("OFF")
+                sleep(2)
+                self.device.screen_on_off("ON")
+                sleep(2)
+                self.device.emulate_swipe_action()
+                sleep(5)
 
     def screen_on(self, value):
 
@@ -133,19 +144,58 @@ class DeviceAction(object):
         make screen lighten or off
         :return:
         """
-        logger.debug('Step:screen ' + value)
-        self.device.screen_on_off(value)
-        sleep(3)
+        value = value.encode('gbk')
+        if value.upper != 'NONE':
+            logger.debug('Step:screen ' + value)
+            temp = value.split(':')
+            if len(temp) > 1:
+                loop = int(temp[1])
+            else:
+                loop = 1
+            for i in range(loop):
+                for vl in temp[0].split('-'):
+                    self.device.screen_on_off(vl)
+                    sleep(3)
 
-    def reboot_device(self):
+    def reboot_device(self, value):
 
         """
 
         :return:
         """
-        logger.debug('Step:reboot device')
-        self.device.device_reboot()
-        sleep(25)
+        if value.upper() != 'NONE':
+            logger.debug('Step:reboot device')
+            self.device.device_reboot()
+            sleep(25)
+
+    def click_screen(self, value):
+
+        """
+
+        :param value:
+        :return:
+        """
+
+        if self.pname == 'magazine' and value.upper() != 'NONE':
+
+            ts,location = value.split('-')
+            loc_list = location.split(',')
+
+            for i in range(int(ts)/len(loc_list)):
+
+                for lc in loc_list:
+                    x, y = lc.split(':')
+                    self.device.click_screen_by_coordinate(x,y)
+                    sleep(0.5)
+
+    def close_backend_tasks(self,value):
+
+        """
+
+        :param value:
+        :return:
+        """
+        self.network_change('CLOSE_ALL')
 
     def update_para(self, value):
 

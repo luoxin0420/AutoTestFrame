@@ -5,38 +5,36 @@ __author__ = 'Xuxh'
 import os
 import ddt
 import json
+import datetime
 try:
     import unittest2 as unittest
 except(ImportError):
     import unittest
 
 from time import sleep
-from library import logcat as dumplog
+from library import performancedata as dumpdata
 from library import device
 from library import desktop
 from library import HTMLTestRunner
-from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,DEVICE_ACTION
+from library.myglobal import device_config,POSITIVE_VP_TYPE,logger
 from business import action,vp
 from business import querydb as tc
 
 
 def get_test_data():
 
-    print len(tc.filter_cases(2))
-    return tc.filter_cases(2)
+    return tc.filter_cases(8)
 
 @ddt.ddt
-class TestTimerTask(unittest.TestCase):
+class TestMemoryCPU(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
 
         self.master_service = device_config.getValue(DEVICENAME,'master_service')
-        self.slave_service = device_config.getValue(DEVICENAME,'slave_service')
-        self.slave_main_process = self.slave_service + ':main'
-        self.set_env_flag = False
-        # get network business order
+        self.version = device_config.getValue(DEVICENAME, 'version')
         self.device_action = action.DeviceAction(DEVICENAME)
+        self.action_loop = int(device_config.getValue(DEVICENAME, 'performance_monitor_loop'))
 
     def setUp(self):
 
@@ -46,6 +44,8 @@ class TestTimerTask(unittest.TestCase):
         self.result = True
         self.log_count = 1
         self.pid = []
+        self.ts = None
+        self.monitor_type = None
 
     def tearDown(self):
 
@@ -90,90 +90,53 @@ class TestTimerTask(unittest.TestCase):
 
     def execute_action(self, aname, value, data):
 
-        # act_name = aname.lower()
-        #
-        # if act_name in DEVICE_ACTION:
-        #     action.execute_device_action(self.device_action,aname, value)
-
-        if aname.startswith('network'):
-            self.device_action.network_change(value)
-        elif aname.startswith('update_date'):
-            sleep(3)
-            self.device_action.update_time(value)
-        elif aname.startswith('clear_app'):
-            self.device_action.clear_app()
-        elif aname.startswith('install_app'):
-            self.device_action.install_app(value)
-        elif aname.startswith('access_other_app'):
-            self.device_action.access_other_app(value)
-        elif aname.startswith('reboot'):
+        if aname.startswith('reboot'):
             self.device_action.reboot_device(value)
         elif aname.startswith('unlock_screen'):
             self.device_action.unlock_screen(value)
-        elif aname.startswith('update_para'):
-            self.device_action.update_para(value)
         elif aname.startswith('task_init_source'):
             self.device_action.task_init_resource(value)
-        elif aname.startswith('log_start'):
-            logger.debug('Step: start to collect log')
-            self.dump_log_start(self.pid)
-        elif aname.startswith('log_stop'):
-            logger.debug('Step: stop collecting log')
+        elif aname.startswith('click_screen'):
+            self.device_action.click_screen(value)
+        elif aname.startswith('close_backend_tasks'):
+            self.device_action.close_backend_tasks(value)
+        elif aname.startswith('screen_on'):
+            logger.debug('Step: Screen on operation')
+            self.device_action.screen_on(value)
+            sleep(2)
+        elif aname.startswith('monitor_memory_start') or aname.startswith('monitor_cpu_start'):
+            logger.debug('Step: start to collect performance information')
+            self.dump_log_start()
+        elif aname.startswith('monitor_memory_stop') or aname.startswith('monitor_cpu_stop'):
+            logger.debug('Step: stop collecting performance information')
             self.dump_log_stop()
         elif aname.startswith('wait_time'):
             logger.debug('Step: wait time: ' + str(value))
             sleep(value)
-        elif aname.startswith('screen_on'):
-            logger.debug('Step: Screen on operation')
-            DEVICE.screen_on_off(value)
-            sleep(2)
         else:
             self.result = False
             print 'Unknown action name:' + aname
 
-    def dump_log_start(self, pid):
+    def dump_log_start(self):
 
         name = ''.join([self._testMethodName,'_',str(LOOP_NUM),'_',str(self.log_count)])
         self.log_name = os.path.join(LogPath,name)
         self.log_count += 1
-        self.log_reader = dumplog.DumpLogcatFileReader(self.log_name,DEVICENAME,pid)
-        self.log_reader.clear_logcat()
+        self.log_reader = dumpdata.MonitorSpecialData(self.log_name, DEVICENAME, self.master_service, self.monitor_type)
         self.log_reader.start()
 
     def dump_log_stop(self):
 
-        self.log_reader.stop()
-
-    def get_pid(self,value):
-
-        pid_list = []
-
-        try:
-            if value.upper() == 'DOUBLE_LOG':
-                plist = [self.slave_main_process, self.master_service]
-            elif value.upper() == 'SYSTEM_LOG':
-                plist = [self.master_service]
-            else:
-                plist = [self.slave_main_process]
-
-            for name in plist:
-                pid = dumplog.DumpLogcatFileReader.get_PID(DEVICENAME,name)
-                if str(pid) > 0:
-                    pid[0] = pid[0].strip()
-                    pid_list.append(pid[0])
-        except Exception,ex:
-            print 'canot get correlative PID'
-            return []
-
-        return pid_list
+        self.log_reader.join()
+        sleep(5)
 
 
     @ddt.data(*get_test_data())
-    def test_timer_task(self,data):
+    def test_memory_cpu(self,data):
 
-        print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
-        logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
-        # unicode to str
+        print('CaseName:' + data['teca_mname'])
+        logger.debug('CaseName:' + data['teca_mname'])
+        # handle with database data, unicode to str
         new_data = {}
         for key, value in data.items():
 
@@ -182,49 +145,53 @@ class TestTimerTask(unittest.TestCase):
             else:
                 new_data[key.encode('gbk')] = value
 
-        values = new_data['teca_action_detail']
-        dict_data = json.loads(values)
+        action_values = new_data['teca_action_detail']
+        dict_data = json.loads(action_values)
 
-        vpname = tc.get_vp_name(data['teca_vp_id'])
-        self.pid = self.get_pid(vpname)
-        temp = {}
+        # get necessary parameters by corresponding value of database
         business_order = tc.get_action_list(data['teca_comp_id'])
-        prev_act = ''
+        comp_name = tc.get_comp_name(data['teca_comp_id'])
+        if comp_name.upper().find('MEMORY') != -1:
+            self.monitor_type = 'MEMORY'
+        elif comp_name.upper().find('CPU') != -1:
+            self.monitor_type = 'CPU'
+        vpname = tc.get_vp_name(data['teca_vp_id'])
         vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
-        try:
-            for act in business_order:
-                # pid is changed after reboot device and unlock_screen
-                if prev_act.startswith('unlock_screen'):
-                    self.pid = self.get_pid(vpname)
-                if act not in temp.keys():
-                    temp[act] = 0
-                # maybe same action is executed multiple times
-                else:
-                    temp[act] += 1
-                    act = '-'.join([act,str(temp[act])])
-                act = act.encode('gbk')
-                self.execute_action(act,dict_data[act], new_data)
-                prev_act = act
+        value_list = []
 
-                if not self.result:
-                    break
-            if self.result:
-                sleep(5)
+        # start to execute action ( usually, performance testing run multiple times, here add self.action_loop parameters
+        for i in range(self.action_loop):
+            temp = {}
+            self.ts = datetime.datetime.now().strftime("%Y%m%d%H%M")
+            try:
+                for act in business_order:
+                    if act not in temp.keys():
+                        temp[act] = 0
+                    # maybe same action is executed multiple times
+                    else:
+                        temp[act] += 1
+                        act = '-'.join([act,str(temp[act])])
+                    act = act.encode('gbk')
+                    self.execute_action(act,dict_data[act], new_data)
+                    if not self.result:
+                        break
+                if self.result:
+                    logger.debug('Step: Insert performance data into DB')
+                    success = tc.insert_info_to_db(self.log_name, self.ts, DEVICENAME, self.version, self.monitor_type)
+                    if success:
+                        if self.monitor_type == 'MEMORY':
+                            val = vp.get_current_memory_info(self.ts, DEVICENAME, vpname, self.version)
+                        if self.monitor_type == 'CPU':
+                            val = vp.get_current_cpu_info(self.ts, DEVICENAME, self.version)
+                        value_list.append(val)
+            except Exception, ex:
+                logger.error(ex)
 
-                self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, new_data['teca_expe_result'])
-
-        except Exception, ex:
-            logger.error(ex)
-
+        self.result = vp.verify_excepted_number(value_list, vp_type_name, new_data['teca_expe_result'], self.monitor_type)
         if vp_type_name in POSITIVE_VP_TYPE:
             self.assertEqual(self.result, True)
         else:
             self.assertEqual(self.result, False)
-
-    # def test_demo(self):
-    #
-    #     print 'this is only test demo'
-    #     self.assertEqual(1, 2)
 
 
 def run(dname, loop, rtype):
@@ -237,7 +204,7 @@ def run(dname, loop, rtype):
     DEVICE = device.Device(DEVICENAME)
 
     # run test case
-    logname = desktop.get_log_name(dname,'TestTasks')
+    logname = desktop.get_log_name(dname,'TestMemory')
     LogPath = os.path.dirname(os.path.abspath(logname))
     utest_log = os.path.join(LogPath,'unittest.html')
 
@@ -250,15 +217,15 @@ def run(dname, loop, rtype):
 
             fileobj = file(utest_log,'a+')
             if LOOP_NUM == 0 or rtype.upper() == 'ALL':
-                suite = unittest.TestLoader().loadTestsFromTestCase(TestTimerTask)
+                suite = unittest.TestLoader().loadTestsFromTestCase(TestMemoryCPU)
             else:
                 suite = unittest.TestSuite()
                 for name in FAIL_CASE:
-                    suite.addTest(TestTimerTask(name))
+                    suite.addTest(TestMemoryCPU(name))
                 FAIL_CASE = []
 
             if suite.countTestCases() > 0:
-                runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, loop=LOOP_NUM, title='Task Testing Report', description='Test Result',)
+                runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, loop=LOOP_NUM, title='Test Memory&CPU Report', description='Test Result',)
                 runner.run(suite)
             fileobj.close()
             sleep(5)
@@ -272,8 +239,7 @@ def run(dname, loop, rtype):
         print ex
 
 if __name__ == '__main__':
-    run("ZX1G22TG4F",1,'all')
-
+    run("ZX1G22TG4F", 1, 'all')
 
 
 

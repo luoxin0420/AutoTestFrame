@@ -36,8 +36,10 @@ if __name__ == '__main__':
     try:
         # automation test database
         device_config.setValue(uid,'suite_info',1)
-        from testcases import test_tasks_new
-        test_tasks_new.run(uid, loop_number, loop_type)
+        # from testcases import test_tasks_new
+        # test_tasks_new.run(uid, loop_number, loop_type)
+        from testcases import monitor_memory
+        monitor_memory.run(uid, loop_number, loop_type)
 
     except Exception, ex:
         print ex

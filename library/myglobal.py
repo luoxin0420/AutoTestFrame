@@ -30,7 +30,7 @@ device_config.fileConfig(fname)
 
 
 
-POSITIVE_VP_TYPE = ['CONTAIN', 'EQUAL', 'MATCH']
+POSITIVE_VP_TYPE = ['CONTAIN', 'EQUAL', 'MATCH', 'LESSTHAN', 'GREATERTHAN']
 DEVICE_ACTION = [
             'network',
             'update_date',

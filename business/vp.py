@@ -3,6 +3,7 @@
 
 import re
 from library.myglobal import logger
+from business import querydb as tc
 
 
 def filter_log_result(logname, pid_list, match_type, findstr=''):
@@ -14,7 +15,6 @@ def filter_log_result(logname, pid_list, match_type, findstr=''):
     result_dict = {}
     qindex = 0
     expe_list = findstr.split("||")
-
 
     if match_type.upper() in ['MATCH']:
         regular_flag = True
@@ -65,6 +65,78 @@ def filter_log_result(logname, pid_list, match_type, findstr=''):
     else:
         res = False
     return res
+
+
+def get_current_memory_info(ts, DEVICENAME, vpname, version):
+
+    value = 0
+    try:
+
+        if vpname.upper() == 'MEMORY_PEAK':
+            value = tc.get_memory_info(DEVICENAME, ts, version, 'max')
+        if vpname.upper() == 'MEMORY_AVG':
+            value = tc.get_memory_info(DEVICENAME, ts, version, 'avg')
+    except Exception,ex:
+        logger.error(ex)
+
+    return value
+
+
+def get_current_cpu_info(ts, DEVICENAME, version):
+
+
+    value = tc.get_cpu_info(DEVICENAME, ts, version)
+
+    return value
+
+
+def verify_excepted_number(value_list, vp_type_name,expected, dtype):
+
+    result = True
+
+    # verify memory
+    if dtype.upper()== 'MEMORY':
+        # get average value and compare result
+        avg_value = int(sum(value_list)/len(value_list))
+        logger.debug('Expected Memory Value:' + str(expected))
+        print 'Excepted Memory Value:' + str(expected)
+        logger.debug('Actual Memory Value:' + str(avg_value))
+        print 'Actual Memory Value:' + str(avg_value)
+
+        if vp_type_name.upper() == 'LESSTHAN':
+            if avg_value > int(expected):
+                result = False
+        elif vp_type_name.upper() == 'GREATERTHAN':
+            if avg_value < int(expected):
+                result = False
+        else:
+            result = False
+
+    # verify cpu
+    # There is five group data,,[[avg,max,last],[avg1,max1,last1]......]
+    if dtype.upper() == 'CPU':
+        val2 = []
+        last_value = 0
+        for val in value_list:
+            temp = val[0]
+            # avg value change range 5%
+            if abs(val[0]-temp) > 0.05:
+                result = False
+            val2.append(val[1])
+            last_value = last_value + val[2]
+        if result:
+            max_value = max(val2)
+            if last_value != 0 or max_value > float(expected):
+                result = False
+
+        logger.debug('Expected CPU Value:' + str(expected))
+        print 'Excepted CPU Value:' + str(expected)
+        logger.debug('Actual Max CPU Value:' + str(max_value))
+        print 'Actual Max CPU Value:' + str(max_value)
+        logger.debug('Actual last CPU Value:' + str(last_value))
+        print 'Actual last CPU Value:' + str(last_value)
+
+    return result
 
 if __name__ == '__main__':
 
