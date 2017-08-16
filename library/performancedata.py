@@ -82,6 +82,7 @@ class MemoryInfo(object):
         except KeyboardInterrupt:
             return res
 
+
 class CPUInfo(object):
 
     def __init__(self, sn, packagename):
@@ -103,7 +104,6 @@ class CPUInfo(object):
 
         except KeyboardInterrupt:
             return res
-
 
 
 class TrafficInfo(object):

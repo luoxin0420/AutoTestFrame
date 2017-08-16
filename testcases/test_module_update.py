@@ -16,19 +16,19 @@ from library import logcat as dumplog
 from library import device
 from library import desktop
 from library import HTMLTestRunner
-from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,DEVICE_ACTION,TASK_COMPONENT
+from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,MODULE_COMPONENT
 from business import action,vp
 from business import querydb as tc
-
+from business import testdata as td
 
 def get_test_data():
 
     suite_list = sys.argv[2]
-    return tc.filter_cases(suite_list, TASK_COMPONENT)
+    return tc.filter_cases(suite_list, MODULE_COMPONENT)
 
 
 @ddt.ddt
-class TestTimerTask(unittest.TestCase):
+class TestModuleUpdate(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -92,11 +92,6 @@ class TestTimerTask(unittest.TestCase):
 
     def execute_action(self, aname, value, data):
 
-        # act_name = aname.lower()
-        #
-        # if act_name in DEVICE_ACTION:
-        #     action.execute_device_action(self.device_action,aname, value)
-
         if aname.startswith('network'):
             self.device_action.network_change(value)
         elif aname.startswith('update_date'):
@@ -104,41 +99,37 @@ class TestTimerTask(unittest.TestCase):
             self.device_action.update_time(value)
         elif aname.startswith('clear_app'):
             self.device_action.clear_app()
-        elif aname.startswith('install_app'):
-            self.device_action.install_app(value)
-        elif aname.startswith('access_other_app'):
-            self.device_action.access_other_app(value)
-        elif aname.startswith('reboot'):
-            self.device_action.reboot_device(value)
+        elif aname.startswith('kill_process'):
+            self.device_action.kill_process(self.pid, value)
+        elif aname.startswith('connect_network_trigger'):
+            self.device_action.connect_network_trigger(value)
         elif aname.startswith('unlock_screen'):
+            logger.debug('Step: Screen on operation')
             self.device_action.unlock_screen(value)
-        elif aname.startswith('update_para'):
-            self.device_action.update_para(value)
-        elif aname.startswith('task_init_source'):
-            self.device_action.task_init_resource(value)
+            sleep(2)
+        elif aname.startswith('module_effective'):
+            self.device_action.module_effective(value)
         elif aname.startswith('log_start'):
             logger.debug('Step: start to collect log')
-            self.dump_log_start(self.pid)
+            self.dump_log_start()
         elif aname.startswith('log_stop'):
             logger.debug('Step: stop collecting log')
             self.dump_log_stop()
         elif aname.startswith('wait_time'):
             logger.debug('Step: wait time: ' + str(value))
             sleep(value)
-        elif aname.startswith('screen_on'):
-            logger.debug('Step: Screen on operation')
-            DEVICE.screen_on_off(value)
-            sleep(2)
         else:
             self.result = False
             print 'Unknown action name:' + aname
 
-    def dump_log_start(self, pid):
+    def dump_log_start(self):
+
 
         name = ''.join([self._testMethodName,'_',str(LOOP_NUM),'_',str(self.log_count)])
         self.log_name = os.path.join(LogPath,name)
         self.log_count += 1
-        self.log_reader = dumplog.DumpLogcatFileReader(self.log_name,DEVICENAME,pid)
+        # module update contains kill process, this will cause pid change, so remove pid filter conditions,set to []
+        self.log_reader = dumplog.DumpLogcatFileReader(self.log_name,DEVICENAME, [])
         self.log_reader.clear_logcat()
         self.log_reader.start()
 
@@ -146,57 +137,19 @@ class TestTimerTask(unittest.TestCase):
 
         self.log_reader.stop()
 
-    def get_pid(self,value):
-
-        pid_list = []
-
-        try:
-            if value.upper() == 'DOUBLE_LOG':
-                plist = [self.slave_main_process, self.master_service]
-            elif value.upper() == 'SYSTEM_LOG':
-                plist = [self.master_service]
-            else:
-                plist = [self.slave_main_process]
-
-            for name in plist:
-                pid = dumplog.DumpLogcatFileReader.get_PID(DEVICENAME,name)
-                if str(pid) > 0:
-                    pid[0] = pid[0].strip()
-                    pid_list.append(pid[0])
-        except Exception,ex:
-            print 'canot get correlative PID'
-            return []
-
-        return pid_list
 
     @ddt.data(*get_test_data())
-    def test_timer_task(self,data):
+    def test_module_update(self,data):
 
         print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
-        # unicode to str
-        new_data = {}
-        for key, value in data.items():
 
-            if isinstance(value,unicode):
-                new_data[key.encode('gbk')] = value.encode('gbk')
-            else:
-                new_data[key.encode('gbk')] = value
-
-        values = new_data['teca_action_detail']
-        dict_data = json.loads(values)
-
+        new_data, dict_data, business_order, vp_type_name = td.handle_db_data(data)
         vpname = tc.get_vp_name(data['teca_vp_id'])
-        self.pid = self.get_pid(vpname)
+
         temp = {}
-        business_order = tc.get_action_list(data['teca_comp_id'])
-        prev_act = ''
-        vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
         try:
             for act in business_order:
-                # pid is changed after reboot device and unlock_screen
-                if prev_act.startswith('reboot'):
-                    self.pid = self.get_pid(vpname)
                 if act not in temp.keys():
                     temp[act] = 0
                 # maybe same action is executed multiple times
@@ -204,16 +157,16 @@ class TestTimerTask(unittest.TestCase):
                     temp[act] += 1
                     act = '-'.join([act,str(temp[act])])
                 act = act.encode('gbk')
+                if act.startswith('kill_process'):
+                    self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
                 self.execute_action(act,dict_data[act], new_data)
-                prev_act = act
-
+                # if execute action is failed , then exit
                 if not self.result:
                     break
+
+            # start to verify result
             if self.result:
-                sleep(5)
-
-                self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, new_data['teca_expe_result'])
-
+                self.result = vp.verify_moduleupdate_log(self.log_name, vp_type_name, new_data['teca_expe_result'])
         except Exception, ex:
             logger.error(ex)
 
@@ -221,6 +174,7 @@ class TestTimerTask(unittest.TestCase):
             self.assertEqual(self.result, True)
         else:
             self.assertEqual(self.result, False)
+
 
 def run(dname, loop, rtype):
 
@@ -232,7 +186,7 @@ def run(dname, loop, rtype):
     DEVICE = device.Device(DEVICENAME)
 
     # run test case
-    logname = desktop.get_log_name(dname,'TestTasks')
+    logname = desktop.get_log_name(dname,'TestModuleUpdate')
     LogPath = os.path.dirname(os.path.abspath(logname))
     utest_log = os.path.join(LogPath,'unittest.html')
 
@@ -245,31 +199,30 @@ def run(dname, loop, rtype):
 
             fileobj = file(utest_log,'a+')
             if LOOP_NUM == 0 or rtype.upper() == 'ALL':
-                suite = unittest.TestLoader().loadTestsFromTestCase(TestTimerTask)
+                suite = unittest.TestLoader().loadTestsFromTestCase(TestModuleUpdate)
             else:
                 suite = unittest.TestSuite()
                 for name in FAIL_CASE:
-                    suite.addTest(TestTimerTask(name))
+                    suite.addTest(TestModuleUpdate(name))
                 FAIL_CASE = []
 
             if suite.countTestCases() > 0:
-
-                runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, loop=LOOP_NUM, title='Task Testing Report', description='Test Result',)
+                runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, loop=LOOP_NUM, title='Module Update Testing Report', description='Test Result',)
                 runner.run(suite)
-                fileobj.close()
-                sleep(5)
+            fileobj.close()
+            sleep(5)
             # write log to summary report
             if LOOP_NUM == loop - 1:
                 desktop.summary_result(utest_log, True, RESULT_DICT)
             else:
                 desktop.summary_result(utest_log, False, RESULT_DICT)
 
-
     except Exception, ex:
         print ex
 
 if __name__ == '__main__':
     run("ZX1G22TG4F",1,'all')
+
 
 
 

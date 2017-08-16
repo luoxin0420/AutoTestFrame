@@ -13,10 +13,8 @@ class MyHttp:
 
     """config server ip, port, headers """
 
-    def __init__(self, config_file,server_name):
+    def __init__(self, config, server_name):
 
-        config = configuration.configuration()
-        config.fileConfig(config_file)
         self.protocol = config.getValue(server_name, 'protocol')
         self.host = config.getValue(server_name, 'host')
         self.port = config.getValue(server_name, 'port')

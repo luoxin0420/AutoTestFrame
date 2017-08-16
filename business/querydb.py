@@ -1,21 +1,30 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-from library.myglobal import PATH
+from library.myglobal import PATH,device_config
 from library.db import dbmysql
 
 autodb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'AUTOTEST')
+stagedb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'STAGE')
 
 
-def filter_cases(suite_id):
+def filter_cases(suite_id, comp_list):
 
     """
     filter test cases according to test suite ID
     :param suite_id:
     :return: result list
     """
-    query = 'select * from TestCaseManage_testcase where teca_enable=1 and teca_id in (select tsca_teca_id from TestCaseManage_testsuitecase ' \
-            'where tsca_tesu_id = {0} )'.format(suite_id)
+    comp = []
+    for cn in comp_list:
+        query = 'select * from TestCaseManage_component where comp_name="{0}" '.format(cn)
+        result = autodb.select_one_record(query)
+        temp = result[0]['comp_id']
+        comp.append(str(temp))
+    compstr = ','.join(comp)
+
+    query = 'select * from TestCaseManage_testcase where teca_enable=1 and teca_comp_id in ({0}) and teca_id in (select tsca_teca_id from TestCaseManage_testsuitecase ' \
+            'where tsca_tesu_id in ({1}))'.format(compstr, suite_id)
     cases = autodb.select_many_record(query)
     return cases
 
@@ -59,6 +68,7 @@ def get_comp_name(comp_id):
     result = autodb.select_one_record(query)
     comp_name = result[0]['comp_name']
     return comp_name
+
 
 def get_vp_name(vp_id):
 
@@ -147,7 +157,7 @@ def get_cpu_info(uid,ts,version):
     return [avg_val, max_val, last_val]
 
 
-# just for memory and cpu
+# just for memory and cpu information
 def insert_info_to_db(filename,ts,uid,version,dtype):
 
     """
@@ -186,8 +196,30 @@ def insert_info_to_db(filename,ts,uid,version,dtype):
     return True
 
 
+# update stage db for module update
+def update_stage_module_network(dname, wififlag):
+
+    updateFlag = False
+    mid = device_config.getValue(dname,'background_module_id1')
+    query = 'select network from fun_plugin_file where id = {0}'.format(mid)
+    result = stagedb.select_one_record(query)
+    value = result[0]['network']
+
+    query1 = ''
+    if wififlag.upper() == 'TRUE' and int(value) != 1:
+        query1 = 'update fun_plugin_file set network = 1 where id = {0}'.format(mid)
+    if wififlag.upper() == 'FALSE' and int(value) != 5:
+        query1 = 'update fun_plugin_file set network = 5 where id = {0}'.format(mid)
+
+    if query1 != '':
+        stagedb.execute_update(query1)
+        updateFlag = True
+
+    return updateFlag
+
+
 if __name__ == '__main__':
 
     #insert_meminfo_to_db(r'E:\AutoTestFrame\log\20170808\ZX1G22TG4F_\1545TestMemory\test_memory_1_0_1','201708081629','ZX1G22TG4F','1.01')
-    value = get_memory_info('ZX1G22TG4F','201708081629','1.01','avg')
+    value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
     print value

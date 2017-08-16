@@ -256,6 +256,11 @@ class Device(object):
         cmd = ''.join(["adb -s ",self.uid," reboot"])
         self.shellPIPE(cmd)
 
+    def device_kill_pid(self, pid):
+
+        cmd = ''.join(["adb -s ",self.uid," kill -9 ", str(pid)])
+        self.shellPIPE(cmd)
+
     def install_app_from_desktop(self,action,path=''):
 
         if path != '' and os.path.isfile(path):

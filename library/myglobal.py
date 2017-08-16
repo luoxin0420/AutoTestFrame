@@ -28,6 +28,10 @@ device_config = configuration.configuration()
 fname = PATH('../config/device.ini')
 device_config.fileConfig(fname)
 
+html_config = configuration.configuration()
+fname = PATH('../config/htmlconfig.ini')
+html_config.fileConfig(fname)
+
 
 
 POSITIVE_VP_TYPE = ['CONTAIN', 'EQUAL', 'MATCH', 'LESSTHAN', 'GREATERTHAN']
@@ -40,3 +44,7 @@ DEVICE_ACTION = [
             'install_app',
             'screen_on',
             'task_init_source']
+
+TASK_COMPONENT = ['Task_NetChange', 'Task_NetChange_With_Reboot', 'Task_Timer', 'Task_Wallpaper_Visible', 'Task_Screen_On', 'Task_Timer_Alarm']
+PERFORMANCE_COMPONENT = ['Magazine_Monitor_Memory', 'Magazine_Monitor_CPU']
+MODULE_COMPONENT = ['ModuleUpdate']

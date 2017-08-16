@@ -7,14 +7,12 @@ import time
 
 from library import html
 from library import stropt
-from library.myglobal import logger
+from library.myglobal import logger,html_config
 
 
-def enableModule(config_file, sname):
+def enableModule(sname):
 
-    config_file = r'E:\AutoTestDemo\config\htmlconfig.ini'
-    sname = 'STAGECONFIG'
-    htmlObj = html.MyHttp(config_file, sname)
+    htmlObj = html.MyHttp(html_config, sname)
 
     url = '/clearapi.do?'
 

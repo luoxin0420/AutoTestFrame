@@ -6,10 +6,10 @@ import os
 import re
 
 from library import device
-from library.myglobal import logger,device_config
-from business import magazine,theme
+from library.myglobal import logger,  device_config, html_config
+from business import magazine, theme, config_srv
 from NeoPySwitch import PySwitch,SwitchCase
-
+from business import querydb as tc
 
 class DeviceAction(object):
 
@@ -35,19 +35,20 @@ class DeviceAction(object):
 
         logger.debug('Step: network change:' + operation)
 
-        switcher = {
-            'OPEN_ALL': 'ON:ON',
-            'ONLY_WIFI': 'ON:OFF',
-            'ONLY_GPRS': 'OFF:ON',
-            'CLOSE_ALL': 'OFF:OFF'
-        }
+        if operation.upper() != 'NONE':
+            switcher = {
+                'OPEN_ALL': 'ON:ON',
+                'ONLY_WIFI': 'ON:OFF',
+                'ONLY_GPRS': 'OFF:ON',
+                'CLOSE_ALL': 'OFF:OFF'
+            }
 
-        value = operation.upper()
-        action = switcher.get(value,'ON:ON').split(':')
-        self.device.wifi_operation(action[0])
-        sleep(5)
-        self.device.gprs_operation(action[1])
-        sleep(5)
+            value = operation.upper()
+            action = switcher.get(value,'ON:ON').split(':')
+            self.device.wifi_operation(action[0])
+            sleep(5)
+            self.device.gprs_operation(action[1])
+            sleep(5)
 
     def update_time(self, value):
 
@@ -100,7 +101,7 @@ class DeviceAction(object):
         :return:
         """
         logger.debug('Step: clear app')
-        if type == 'magazine':
+        if self.pname == 'magazine':
             self.device.app_operation('CLEAR', pkg=self.pkg)
             self.device.app_operation('CLEAR', pkg='com.android.systemui')
             sleep(5)
@@ -197,6 +198,25 @@ class DeviceAction(object):
         """
         self.network_change('CLOSE_ALL')
 
+    def connect_network_trigger(self, value):
+
+        logger.debug('Step: connect network by change of network status ' + value)
+
+        if value.upper() != 'NONE':
+
+            actions = value.split(':')
+
+            self.network_change(actions[0])
+            self.update_time('hour-24')
+            sleep(15)
+            self.network_change(actions[1])
+
+    def kill_process(self, pid, value):
+
+        logger.debug('Step: kill pid ' + str(pid) + ':' + value)
+        if value.upper() == 'TRUE':
+            self.device.device_kill_pid(pid)
+
     def update_para(self, value):
 
         """
@@ -281,6 +301,15 @@ class DeviceAction(object):
         else:
             logger.error('Unknown product type')
         sleep(2)
+
+    def module_effective(self,wififlag):
+
+        logger.debug('Step: update database and make module effective')
+        flag = tc.update_stage_module_network(self.dname, wififlag)
+        if flag:
+            config_srv.enableModule('STAGECONFIG')
+        else:
+            logger.debug('Data of DB is fit for test requirement')
 
 
 def execute_device_action(da, act_name,value):

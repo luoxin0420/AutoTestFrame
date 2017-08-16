@@ -6,6 +6,7 @@ import os
 import ddt
 import json
 import datetime
+import sys
 try:
     import unittest2 as unittest
 except(ImportError):
@@ -16,14 +17,15 @@ from library import performancedata as dumpdata
 from library import device
 from library import desktop
 from library import HTMLTestRunner
-from library.myglobal import device_config,POSITIVE_VP_TYPE,logger
-from business import action,vp
+from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,PERFORMANCE_COMPONENT
+from business import action, vp
 from business import querydb as tc
 
 
 def get_test_data():
 
-    return tc.filter_cases(8)
+    suite_list = sys.argv[2]
+    return tc.filter_cases(suite_list, PERFORMANCE_COMPONENT)
 
 @ddt.ddt
 class TestMemoryCPU(unittest.TestCase):
@@ -130,7 +132,6 @@ class TestMemoryCPU(unittest.TestCase):
         self.log_reader.join()
         sleep(5)
 
-
     @ddt.data(*get_test_data())
     def test_memory_cpu(self,data):
 
@@ -214,7 +215,6 @@ def run(dname, loop, rtype):
 
     try:
         for LOOP_NUM in range(loop):
-
             fileobj = file(utest_log,'a+')
             if LOOP_NUM == 0 or rtype.upper() == 'ALL':
                 suite = unittest.TestLoader().loadTestsFromTestCase(TestMemoryCPU)
@@ -225,10 +225,12 @@ def run(dname, loop, rtype):
                 FAIL_CASE = []
 
             if suite.countTestCases() > 0:
+
                 runner = HTMLTestRunner.HTMLTestRunner(stream=fileobj, verbosity=2, loop=LOOP_NUM, title='Test Memory&CPU Report', description='Test Result',)
                 runner.run(suite)
-            fileobj.close()
-            sleep(5)
+                fileobj.close()
+                sleep(5)
+
             # write log to summary report
             if LOOP_NUM == loop - 1:
                 desktop.summary_result(utest_log, True, RESULT_DICT)

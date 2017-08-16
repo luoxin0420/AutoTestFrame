@@ -6,52 +6,155 @@ from library.myglobal import logger
 from business import querydb as tc
 
 
-def filter_log_result(logname, pid_list, match_type, findstr=''):
+def verify_moduleupdate_log(logname, match_type, findstr=''):
 
     logger.debug('Step: Start to filter test log')
 
     regular_flag = False
-    match_list = []
+    qindex = 0
+    expe_list = []
+
+    # get optional verification point list, save index value
+    index = 0
+    options = []
+    elist = findstr.split("||")
+    for el in elist:
+        if el.endswith(':opt'):
+            temp = el.split(':opt')[0]
+            expe_list.append(temp)
+
+            options.append(index)
+        else:
+            expe_list.append(el)
+        index += 1
+
+    if match_type.upper() in ['MATCH']:
+        regular_flag = True
+
+    # according to pid to query log file, so will query same file multiple times
+    logger.debug('Filter log starting')
+    re_flag = False
+    find_result = {}
+    for i in range(len(expe_list)):
+        find_result[i] = False
+    loop = 0
+
+    find_row_num = 0
+    try:
+        while loop < len(expe_list):
+            with open(logname) as reader:
+                current_line = 0
+                for line in reader:
+                    if current_line <= find_row_num + 1:
+                        current_line += 1
+                        continue
+                    # remove redundance space
+                    line = ' '.join(filter(lambda x: x, line.split(' ')))
+                    values = line.split(' ')
+                    # values[6:] is text column
+                    text = ' '.join(values[6:])
+                    if not regular_flag:
+                        if text.find(expe_list[qindex]) != -1:
+                            print 'Find log:' + line
+                            logger.debug('Find log:' + line)
+                            find_result[qindex] = True
+                            qindex += 1
+                            find_row_num = current_line
+                    else:
+                        if not re_flag:
+                            content = re.compile(expe_list[qindex])
+                            re_flag = True
+
+                        match = content.match(text)
+                        if match:
+                            value = match.group(1)
+                            print 'Find log:' + value
+                            logger.debug('Find log:' + line)
+                            find_result[qindex] = True
+                            find_row_num = current_line
+                            # exit loop when find all matched logs
+                            if qindex == len(expe_list) - 1:
+                                break
+                            else:
+                                qindex += 1
+                                re_flag = False
+                    current_line += 1
+
+                if not find_result[qindex]:
+                    print 'log not found:' + expe_list[qindex]
+                    logger.error('log not found:' + expe_list[qindex])
+
+                # if filter all conditions, then exit
+                if qindex == len(expe_list) - 1:
+                    break
+                else:
+                    # Don't found corresponding log, find new log from the first line
+                    qindex += 1
+                    re_flag = False
+                    loop = qindex
+
+    except Exception, ex:
+        logger.error(ex)
+
+    # summary result, find_result{0:True,1:True}, vp index is key value
+    res = True
+    for k, v in find_result.items():
+        # if vp is optional, set value to True whether or not actual result
+        if k in options:
+            res = res and True
+        else:
+            res = res and v
+
+    logger.debug('Found all log:' + str(res))
+
+    return res
+
+
+def filter_log_result(logname, pid_list, match_type, findstr=''):
+
+    logger.debug('Step: Start to filter test log')
+
     result_dict = {}
     qindex = 0
     expe_list = findstr.split("||")
 
     if match_type.upper() in ['MATCH']:
         regular_flag = True
-
-    with open(logname) as reader:
         # according to pid to query log file, so will query same file multiple times
         for pi in pid_list:
             logger.debug('Filter log according to PID:' + str(pi))
             result_dict[pi] = False
             re_flag = False
             try:
-                for line in reader:
-                    # remove redundance space
-                    line = ' '.join(filter(lambda x: x, line.split(' ')))
-                    values = line.split(' ')
-                    # values[6:] is text column
-                    text = ' '.join(values[6:])
-                    if values[2] == str(pi):
-                        if not regular_flag:
-                            if text.find(expe_list[qindex]) != -1:
-                                print 'Find log:' + line
-                                qindex += 1
-                        else:
-                            if not re_flag:
-                                content = re.compile(expe_list[qindex])
-                                re_flag = True
+                with open(logname) as reader:
+                    for line in reader:
+                        # remove redundance space
+                        line = ' '.join(filter(lambda x: x, line.split(' ')))
+                        values = line.split(' ')
+                        # values[6:] is text column
+                        text = ' '.join(values[6:])
+                        if values[2] == str(pi):
+                            if not regular_flag:
+                                if text.find(expe_list[qindex]) != -1:
+                                    print 'Find log:' + line
+                                    logger.debug('Find log:' + line)
+                                    qindex += 1
+                            else:
+                                if not re_flag:
+                                    content = re.compile(expe_list[qindex])
+                                    re_flag = True
 
-                            match = content.match(text)
-                            if match:
-                                value = match.group(1)
-                                print 'Find log:' + value
-                                qindex += 1
-                                re_flag = False
-                    # exit loop when find all matched logs
-                    if qindex == len(expe_list):
-                        result_dict[pi] = True
-                        break
+                                match = content.match(text)
+                                if match:
+                                    value = match.group(1)
+                                    print 'Find log:' + line
+                                    logger.debug('Find log:' + line)
+                                    qindex += 1
+                                    re_flag = False
+                        # exit loop when find all matched logs
+                        if qindex == len(expe_list):
+                            result_dict[pi] = True
+                            break
             except Exception, ex:
                 logger.error(ex)
                 continue
@@ -90,7 +193,7 @@ def get_current_cpu_info(ts, DEVICENAME, version):
     return value
 
 
-def verify_excepted_number(value_list, vp_type_name,expected, dtype):
+def verify_excepted_number(value_list, vp_type_name, expected, dtype):
 
     result = True
 
@@ -140,8 +243,7 @@ def verify_excepted_number(value_list, vp_type_name,expected, dtype):
 
 if __name__ == '__main__':
 
-    logname = r'E:\AutoTestFrame\log\20170802\ZX1G22TG4F_\1526TestTasks\test_timer_task_1_0_1'
-    fstr = '.*Judgment result can not run , reason :network is not allowed , task type is (get_push_message|magazine_update|ua_time_send|plugin_update).*'
-    #fstr = '.*Judgment result can not run , reason :network is not allowed , task type is (aa|ua_time_send)'
-    result = filter_log_result(logname,[1813],'Match',fstr)
+    logname = r'E:\AutoTestFrame\log\20170816\ZX1G22TG4F_\1540TestModuleUpdate\test_module_update_8_0_1'
+    fstr = '(.*new_download_task onStart logcat taskType plugin_update.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onStart logcat taskType plugin_update.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onFinish logcat taskType plugin_update.*)'
+    result = verify_moduleupdate_log(logname,'Match',fstr)
     print result
