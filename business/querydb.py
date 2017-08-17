@@ -218,6 +218,18 @@ def update_stage_module_network(dname, wififlag):
     return updateFlag
 
 
+def get_module_info(id):
+
+    query = 'select encryption_client_path, encryption_length, encryption_path, encryption_hash from fun_plugin_file where id = {0}'.format(id)
+    result = stagedb.select_one_record(query)
+    res = {}
+    res['path'] = result[0]['encryption_client_path'].encode('utf8')
+    res['length'] = result[0]['encryption_length']
+    res['url'] = result[0]['encryption_path'].encode('utf8')
+    res['hash'] = result[0]['encryption_hash'].encode('utf8')
+
+    return res
+
 if __name__ == '__main__':
 
     #insert_meminfo_to_db(r'E:\AutoTestFrame\log\20170808\ZX1G22TG4F_\1545TestMemory\test_memory_1_0_1','201708081629','ZX1G22TG4F','1.01')

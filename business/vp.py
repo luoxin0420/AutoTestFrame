@@ -2,11 +2,45 @@
 # -*- coding: utf-8 -*-
 
 import re
-from library.myglobal import logger
+from library.myglobal import logger, device_config
 from business import querydb as tc
+from library import pXml
 
 
-def verify_moduleupdate_log(logname, match_type, findstr=''):
+def verify_module_data_pkg(uid,text):
+
+    logger.debug("Step: start to compare content of data pkg")
+    mid = device_config.getValue(uid, 'background_module_id1')
+    exp_value = tc.get_module_info(mid)
+    content = re.compile(r'.*<property name="file">(.*)</property><property name="u".*')
+    match = content.match(text)
+    act_value = {}
+    if match:
+        match_value = match.group(1)
+        xmlobject = pXml.parseXml(match_value)
+        names = xmlobject.get_elements_attribute_value('property', 'name')
+        values = xmlobject.get_elements_attribute_value('property', 'value')
+        act_value = dict(zip(names,values))
+
+    logger.debug("Expected values as follow")
+    for key, value in exp_value.items():
+        print(key + ':' + str(value))
+        logger.debug(key + ':' + str(value))
+
+    logger.debug("Actual values as follow")
+    for key, value in act_value.items():
+        print(key + ':' + str(value))
+        logger.debug(key + ':' + str(value))
+
+    # sysmmetric difference 对等差分
+    diff = set(act_value.items()) ^ set(exp_value.items())
+    if len(diff) == 0:
+        return True
+    else:
+        return False
+
+
+def verify_moduleupdate_log(uid, logname, match_type, findstr=''):
 
     logger.debug('Step: Start to filter test log')
 
@@ -70,7 +104,10 @@ def verify_moduleupdate_log(logname, match_type, findstr=''):
                             value = match.group(1)
                             print 'Find log:' + value
                             logger.debug('Find log:' + line)
-                            find_result[qindex] = True
+                            if expe_list[qindex] == '(.*modulePluginData.*)':
+                                find_result[qindex] = verify_module_data_pkg(uid, line)
+                            else:
+                                find_result[qindex] = True
                             find_row_num = current_line
                             # exit loop when find all matched logs
                             if qindex == len(expe_list) - 1:
@@ -243,7 +280,7 @@ def verify_excepted_number(value_list, vp_type_name, expected, dtype):
 
 if __name__ == '__main__':
 
-    logname = r'E:\AutoTestFrame\log\20170816\ZX1G22TG4F_\1540TestModuleUpdate\test_module_update_8_0_1'
-    fstr = '(.*new_download_task onStart logcat taskType plugin_update.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onStart logcat taskType plugin_update.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onFinish logcat taskType plugin_update.*)'
-    result = verify_moduleupdate_log(logname,'Match',fstr)
+    logname = r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1521TestModuleUpdate\test_module_update_3_0_1'
+    fstr = '(.*new_download_task currentNetworkType & getFlag\(\) == 0 pause.*)||(.*new_download_task current net is wifi re_start.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onFinish logcat taskType plugin_update.*)'
+    result = verify_moduleupdate_log('ZX1G22TG4F',logname, 'Match', fstr)
     print result

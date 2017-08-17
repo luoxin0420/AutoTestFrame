@@ -166,7 +166,7 @@ class TestModuleUpdate(unittest.TestCase):
 
             # start to verify result
             if self.result:
-                self.result = vp.verify_moduleupdate_log(self.log_name, vp_type_name, new_data['teca_expe_result'])
+                self.result = vp.verify_moduleupdate_log(DEVICENAME, self.log_name, vp_type_name, new_data['teca_expe_result'])
         except Exception, ex:
             logger.error(ex)
 
@@ -186,7 +186,7 @@ def run(dname, loop, rtype):
     DEVICE = device.Device(DEVICENAME)
 
     # run test case
-    logname = desktop.get_log_name(dname,'TestModuleUpdate')
+    logname = desktop.get_log_name(dname, 'TestModuleUpdate')
     LogPath = os.path.dirname(os.path.abspath(logname))
     utest_log = os.path.join(LogPath,'unittest.html')
 
