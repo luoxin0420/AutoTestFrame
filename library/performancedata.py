@@ -161,7 +161,7 @@ class MonitorSpecialData(threading.Thread):
     def __init__(self, log_name, uid, pkg, dtype):
 
         self._stopevent = threading.Event()
-        self._sleepperiod = 1.0
+        self._sleepperiod = 2.0
         threading.Thread.__init__(self)
         self._uid = uid
         self._pkg = pkg
@@ -174,7 +174,7 @@ class MonitorSpecialData(threading.Thread):
 
         cmd = ''
         if self._type.upper() == 'MEMORY':
-            cmd = "adb -s {0} shell top -n 1| grep {1}".format(self._uid, self._pkg)
+            cmd = "adb -s {0} shell dumpsys meminfo | grep {1}".format(self._uid, self._pkg)
         elif self._type.upper() == 'CPU':
             cmd = "adb -s {0} shell top -n 1 | grep {1}".format(self._uid, self._pkg)
         with open(self._log, 'w') as self.outfile:

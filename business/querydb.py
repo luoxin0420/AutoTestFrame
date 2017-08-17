@@ -169,17 +169,22 @@ def insert_info_to_db(filename,ts,uid,version,dtype):
     """
     with open(filename) as rfile:
         if dtype.upper() == 'MEMORY':
+            row = 0
             for ln in rfile:
-                ln = ' '.join(filter(lambda x: x, ln.split(' ')))
-                value = ln.split(' ')
-                if len(value) > 8:
-                    vss = value[7].replace('K','')
-                    rss = value[8].replace('K','')
+                if row % 2 == 1:
+                    row +=1
+                    continue
+                #ln = ' '.join(filter(lambda x: x, ln.split(' ')))
+                value = ln.split(':')
+                if len(value) > 0:
+                    temp = value[0].replace('K','')
+                    pss = temp.replace(',','').strip()
                     query = "insert into TestCaseManage_meminfo(mi_uid,mi_ts,mi_ver,mi_vss,mi_rss) values('{0}','{1}','{2}',{3},{4})".\
-                        format(uid, ts, version, int(vss), int(rss))
+                        format(uid, ts, version, int(0), int(pss))
                     result = autodb.execute_insert(query)
                     if not result:
                         return False
+                row +=1
         elif dtype.upper() == 'CPU':
             for ln in rfile:
                 ln = ' '.join(filter(lambda x: x, ln.split(' ')))
@@ -232,6 +237,5 @@ def get_module_info(id):
 
 if __name__ == '__main__':
 
-    #insert_meminfo_to_db(r'E:\AutoTestFrame\log\20170808\ZX1G22TG4F_\1545TestMemory\test_memory_1_0_1','201708081629','ZX1G22TG4F','1.01')
-    value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
-    print value
+    insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')
+    #value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
