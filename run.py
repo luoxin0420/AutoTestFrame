@@ -38,12 +38,12 @@ if __name__ == '__main__':
 
     try:
         # automation test database
-        # from testcases import test_tasks_new
-        # test_tasks_new.run(uid, loop_number, loop_type)
+        from testcases import test_tasks_new
+        test_tasks_new.run(uid, loop_number, loop_type)
         from testcases import monitor_memory_cpu
         monitor_memory_cpu.run(uid, loop_number, loop_type)
-        # from testcases import test_module_update
-        # test_module_update.run(uid, loop_number, loop_type)
+        from testcases import test_module_update
+        test_module_update.run(uid, loop_number, loop_type)
 
     except Exception, ex:
         print ex

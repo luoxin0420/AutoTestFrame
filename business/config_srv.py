@@ -34,9 +34,11 @@ def enableModule(sname):
         res = htmlObj.get(url,paras)
         if json.loads(res[0]).get('result', '') == 'success':
             logger.info('Enable module is passed for ' + comp)
+
         else:
             logger.error('Enable module is not failed ' + comp)
-
+    # need wait for 5 minutes and enable validate on side
+    time.sleep(300)
 if __name__ == '__main__':
 
     enableModule('test','test')

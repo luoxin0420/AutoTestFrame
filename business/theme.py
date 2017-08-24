@@ -47,7 +47,7 @@ def set_device_theme(dname, theme_type):
     DEVICE.send_keyevent(3)
 
 
-def theme_task_init_resource(dname,parameter):
+def theme_task_init_resource(dname, parameter):
 
     if parameter.upper() == 'SYSTEM':
         set_device_theme(dname,'SYSTEM')

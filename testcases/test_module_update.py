@@ -90,37 +90,27 @@ class TestModuleUpdate(unittest.TestCase):
         if exc_list and exc_list[-1][0] is self:
             return exc_list[-1][1]
 
-    def execute_action(self, aname, value, data):
+    def execute_action(self, aname, value):
+        try:
 
-        if aname.startswith('network'):
-            self.device_action.network_change(value)
-        elif aname.startswith('update_date'):
-            sleep(3)
-            self.device_action.update_time(value)
-        elif aname.startswith('clear_app'):
-            self.device_action.clear_app()
-        elif aname.startswith('kill_process'):
-            self.device_action.kill_process(self.pid, value)
-        elif aname.startswith('connect_network_trigger'):
-            self.device_action.connect_network_trigger(value)
-        elif aname.startswith('unlock_screen'):
-            logger.debug('Step: Screen on operation')
-            self.device_action.unlock_screen(value)
-            sleep(2)
-        elif aname.startswith('module_effective'):
-            self.device_action.module_effective(value)
-        elif aname.startswith('log_start'):
-            logger.debug('Step: start to collect log')
-            self.dump_log_start()
-        elif aname.startswith('log_stop'):
-            logger.debug('Step: stop collecting log')
-            self.dump_log_stop()
-        elif aname.startswith('wait_time'):
-            logger.debug('Step: wait time: ' + str(value))
-            sleep(value)
-        else:
+            if aname.startswith('kill_process'):
+                self.device_action.kill_process(self.pid, value)
+            elif aname.startswith('log_start'):
+                logger.debug('Step: start to collect log')
+                self.dump_log_start()
+            elif aname.startswith('log_stop'):
+                logger.debug('Step: stop collecting log')
+                self.dump_log_stop()
+            elif aname.startswith('wait_time'):
+                logger.debug('Step: wait time: ' + str(value))
+                sleep(value)
+            else:
+                aname = aname.split('-')[0]
+                self.device_action.choose(aname, value)
+        except Exception, ex:
             self.result = False
-            print 'Unknown action name:' + aname
+            print ex
+            logger.error('Unknown action name:' + aname)
 
     def dump_log_start(self):
 
@@ -159,7 +149,7 @@ class TestModuleUpdate(unittest.TestCase):
                 act = act.encode('gbk')
                 if act.startswith('kill_process'):
                     self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
-                self.execute_action(act,dict_data[act], new_data)
+                self.execute_action(act, dict_data[act])
                 # if execute action is failed , then exit
                 if not self.result:
                     break

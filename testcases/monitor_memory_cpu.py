@@ -90,34 +90,25 @@ class TestMemoryCPU(unittest.TestCase):
         if exc_list and exc_list[-1][0] is self:
             return exc_list[-1][1]
 
-    def execute_action(self, aname, value, data):
+    def execute_action(self, aname, value):
 
-        if aname.startswith('reboot'):
-            self.device_action.reboot_device(value)
-        elif aname.startswith('unlock_screen'):
-            self.device_action.unlock_screen(value)
-        elif aname.startswith('task_init_source'):
-            self.device_action.task_init_resource(value)
-        elif aname.startswith('click_screen'):
-            self.device_action.click_screen(value)
-        elif aname.startswith('close_backend_tasks'):
-            self.device_action.close_backend_tasks(value)
-        elif aname.startswith('screen_on'):
-            logger.debug('Step: Screen on operation')
-            self.device_action.screen_on(value)
-            sleep(2)
-        elif aname.startswith('monitor_memory_start') or aname.startswith('monitor_cpu_start'):
-            logger.debug('Step: start to collect performance information')
-            self.dump_log_start()
-        elif aname.startswith('monitor_memory_stop') or aname.startswith('monitor_cpu_stop'):
-            logger.debug('Step: stop collecting performance information')
-            self.dump_log_stop()
-        elif aname.startswith('wait_time'):
-            logger.debug('Step: wait time: ' + str(value))
-            sleep(value)
-        else:
+        try:
+            if aname.startswith('monitor_memory_start') or aname.startswith('monitor_cpu_start'):
+                logger.debug('Step: start to collect performance information')
+                self.dump_log_start()
+            elif aname.startswith('monitor_memory_stop') or aname.startswith('monitor_cpu_stop'):
+                logger.debug('Step: stop collecting performance information')
+                self.dump_log_stop()
+            elif aname.startswith('wait_time'):
+                logger.debug('Step: wait time: ' + str(value))
+                sleep(value)
+            else:
+                aname = aname.split('-')[0]
+                self.device_action.choose(aname, value)
+        except Exception, ex:
             self.result = False
-            print 'Unknown action name:' + aname
+            print ex
+            logger.error('Unknown action name:' + aname)
 
     def dump_log_start(self):
 
@@ -171,9 +162,9 @@ class TestMemoryCPU(unittest.TestCase):
                     # maybe same action is executed multiple times
                     else:
                         temp[act] += 1
-                        act = '-'.join([act,str(temp[act])])
+                        act = '-'.join([act, str(temp[act])])
                     act = act.encode('gbk')
-                    self.execute_action(act,dict_data[act], new_data)
+                    self.execute_action(act, dict_data[act])
                     if not self.result:
                         break
                 if self.result:

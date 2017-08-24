@@ -8,8 +8,9 @@ import re
 from library import device
 from library.myglobal import logger,  device_config, html_config
 from business import magazine, theme, config_srv
-from NeoPySwitch import PySwitch,SwitchCase
+# from NeoPySwitch import PySwitch,SwitchCase
 from business import querydb as tc
+
 
 class DeviceAction(object):
 
@@ -24,8 +25,27 @@ class DeviceAction(object):
         self.pname = device_config.getValue(dname, 'product_type')
         self.pkg = device_config.getValue(dname, 'slave_service')
         self.ptype = device_config.getValue(dname, 'product_type')
+        self.func_dict = {'network': self.network_change,
+                          'clear_app': self.clear_app,
+                          'access_other_app': self.access_other_app,
+                          'click_screen': self.click_screen,
+                          'close_app': self.close_app,
+                          'close_backend_tasks': self.close_backend_tasks,
+                          'connect_network_trigger': self.connect_network_trigger,
+                          'install_app': self.install_app,
+                          'module_effective': self.module_effective,
+                          'reboot': self.reboot_device,
+                          'screen_on': self.screen_on,
+                          'start_app': self.start_app,
+                          'task_init_source': self.task_init_resource,
+                          'unlock_screen': self.unlock_screen,
+                          'update_para': self.update_para,
+                          'update_date': self.update_time}
 
-    def network_change(self,operation):
+    def choose(self, act, value):
+        return self.func_dict[act](value)
+
+    def network_change(self, operation):
 
         """
 
@@ -44,7 +64,7 @@ class DeviceAction(object):
             }
 
             value = operation.upper()
-            action = switcher.get(value,'ON:ON').split(':')
+            action = switcher.get(value,  'ON:ON').split(':')
             self.device.wifi_operation(action[0])
             sleep(5)
             self.device.gprs_operation(action[1])
@@ -57,54 +77,56 @@ class DeviceAction(object):
         :param value:
         :return:
         """
-        # make sure previous action is completed, maybe date update is failed (block), so add extra time to wait
-        sleep(3)
-        logger.debug('Step:update time:' + value)
-        unit,num = value.split('-')
-        if int(num) != 0:
-            self.device.update_android_time(num,interval_unit=unit)
+        if value.upper() != 'NONE':
+            # make sure previous action is completed, maybe date update is failed (block), so add extra time to wait
             sleep(3)
-            logger.debug('Step:update time is success')
-        else:
-            logger.debug('Step:skip update time')
+            logger.debug('Step:update time:' + value)
+            unit,num = value.split('-')
+            if int(num) != 0:
+                self.device.update_android_time(num,interval_unit=unit)
+                sleep(3)
+                logger.debug('Step:update time is success')
+            else:
+                logger.debug('Step:skip update time')
 
-    def start_app(self):
-
-        """
-        :return:
-        """
-
-        logger.debug('Step:start_app')
-        if self.ptype == 'magazine':
-            self.device.app_operation('START', pkg=self.pkg)
-            sleep(5)
-        elif self.ptype == 'theme':
-            theme.set_device_theme(self.dname, 'vlife')
-        elif self.ptype == 'wallpaper':
-            pass
-        else:
-            pass
-
-    def close_app(self):
+    def start_app(self, value):
 
         """
         :return:
         """
-    
-        if type == 'magazine':
-            self.device.app_operation('CLOSE', pkg=self.pkg)
-            sleep(5)
+        if value.upper() != 'NONE':
+            logger.debug('Step:start_app')
+            if self.ptype.upper() == 'MAGAZINE':
+                self.device.app_operation('START', pkg=self.pkg)
+                sleep(5)
+            elif self.ptype.upper() == 'THEME':
+                theme.set_device_theme(self.dname, 'vlife')
+            elif self.ptype.upper() == 'WALLPAPER':
+                pass
+            else:
+                pass
 
-    def clear_app(self):
+    def close_app(self, value):
 
         """
         :return:
         """
-        logger.debug('Step: clear app')
-        if self.pname == 'magazine':
-            self.device.app_operation('CLEAR', pkg=self.pkg)
-            self.device.app_operation('CLEAR', pkg='com.android.systemui')
-            sleep(5)
+        if value.upper() != 'NONE':
+            if self.ptype.upper() == 'MAGAZINE':
+                self.device.app_operation('CLOSE', pkg=self.pkg)
+                sleep(5)
+
+    def clear_app(self, value):
+
+        """
+        :return:
+        """
+        if value.upper() != 'NONE':
+            logger.debug('Step: clear app')
+            if self.pname == 'MAGAZINE' or self.pname.upper() == 'THEME':
+                self.device.app_operation('CLEAR', pkg=self.pkg)
+                self.device.app_operation('CLEAR', pkg='com.android.systemui')
+                sleep(5)
 
     def unlock_screen(self, value):
 
@@ -244,13 +266,14 @@ class DeviceAction(object):
                 reg_str = ''.join(["'",'s/','"',actu_freq,'"/','"',expe_freq,'"/g ',"'"])
                 self.device.update_file_from_device(reg_str,full_name)
 
-    def install_app(self):
+    def install_app(self, value):
 
         """
         :return:
         """
-        logger.debug('Step:install new app ' + self.pkg)
-        pass
+        if value.upper() != 'NONE':
+            logger.debug('Step:install new app ' + self.pkg)
+            pass
 
     def access_other_app(self, value):
 
@@ -259,23 +282,24 @@ class DeviceAction(object):
         :param value:
         :return:
         """
-        logger.debug('Step:open other app')
-        # open app, then return back home screen
-        if value.lower() == 'android_system_app':
-            pkg_name = device_config.getValue(self.dname, 'android_system_app')
-            self.device.app_operation('LAUNCH', pkg=pkg_name)
-            logger.debug('Step: launch app ' + pkg_name)
-        elif value.lower() == 'custom_third_app':
-            pkg_name = device_config.getValue(self.dname, 'custom_third_app')
-            self.device.app_operation('LAUNCH', pkg=pkg_name)
-            logger.debug('Step: launch app ' + pkg_name)
-        else:
-            logger.debug('Step: skip accessing the third app')
+        if value.upper() != 'NONE':
+            logger.debug('Step:open other app')
+            # open app, then return back home screen
+            if value.lower() == 'android_system_app':
+                pkg_name = device_config.getValue(self.dname, 'android_system_app')
+                self.device.app_operation('LAUNCH', pkg=pkg_name)
+                logger.debug('Step: launch app ' + pkg_name)
+            elif value.lower() == 'custom_third_app':
+                pkg_name = device_config.getValue(self.dname, 'custom_third_app')
+                self.device.app_operation('LAUNCH', pkg=pkg_name)
+                logger.debug('Step: launch app ' + pkg_name)
+            else:
+                logger.debug('Step: skip accessing the third app')
 
-        sleep(3)
-        # return back home
-        self.device.send_keyevent(3)
-        sleep(1)
+            sleep(3)
+            # return back home
+            self.device.send_keyevent(3)
+            sleep(1)
 
     def task_init_resource(self,value):
 
@@ -285,56 +309,60 @@ class DeviceAction(object):
         :param value:
         :return:
         """
+        if value.upper() != 'NONE':
+            if self.pname == 'magazine':
+                logger.debug('Step: set resource for magazine')
+                magazine.magazine_task_init_resource(self.dname,value)
+            elif self.pname == 'theme':
+                logger.debug('Step: set resource for theme')
+                theme.theme_task_init_resource(self.dname,value)
+            elif self.pname == 'wallpaper':
+                logger.debug('Step: set resource for wallpaper')
+                pass
+            elif self.pname == 'theme_wallpaper':
+                logger.debug('Step: set resource for theme_wallpaper')
+                pass
+            else:
+                logger.error('Unknown product type')
+            sleep(2)
 
-        if self.pname == 'magazine':
-            logger.debug('Step: set resource for magazine')
-            magazine.magazine_task_init_resource(self.dname,value)
-        elif self.pname == 'theme':
-            logger.debug('Step: set resource for theme')
-            theme.theme_task_init_resource(self.dname,value)
-        elif self.pname == 'wallpaper':
-            logger.debug('Step: set resource for wallpaper')
-            pass
-        elif self.pname == 'theme_wallpaper':
-            logger.debug('Step: set resource for theme_wallpaper')
-            pass
-        else:
-            logger.error('Unknown product type')
-        sleep(2)
+    def module_effective(self, value):
 
-    def module_effective(self,wififlag):
-
-        logger.debug('Step: update database and make module effective')
-        flag = tc.update_stage_module_network(self.dname, wififlag)
-        if flag:
-            config_srv.enableModule('STAGECONFIG')
-        else:
-            logger.debug('Data of DB is fit for test requirement')
+        if value.upper() != 'NONE':
+            logger.debug('Step: update database and make module effective')
+            flag = tc.update_stage_module_network(self.dname, value)
+            if flag:
+                config_srv.enableModule('STAGECONFIG')
+            else:
+                logger.debug('Data of DB is fit for test requirement')
 
 
-def execute_device_action(da, act_name,value):
 
-    """
-    execute different device actions according to action name
-    :param act_name:
-    :param value:
-    :return:
-    """
 
-    ret = PySwitch(act_name, {
-        'network': da.network_change(value),
-        'update_date': da.update_time(value),
-        'reboot': da.reboot_device(),
-        'unlock_screen': da.unlock_screen(),
-        'update_para': da.unlock_screen(),
-        'install_app': da.install_app(value),
-        'task_init_source': da.task_init_resource(value),
-        'screen_on': da.screen_on(value)
-        }, da.do_nothing())
 
-    print ret
+# def execute_device_action(da, act_name,value):
+#
+#     """
+#     execute different device actions according to action name
+#     :param act_name:
+#     :param value:
+#     :return:
+#     """
+#
+#     ret = PySwitch(act_name, {
+#         'network': da.network_change(value),
+#         'update_date': da.update_time(value),
+#         'reboot': da.reboot_device(),
+#         'unlock_screen': da.unlock_screen(),
+#         'update_para': da.unlock_screen(),
+#         'install_app': da.install_app(value),
+#         'task_init_source': da.task_init_resource(value),
+#         'screen_on': da.screen_on(value)
+#         }, da.do_nothing())
+#
+#     print ret
 
 if __name__ == '__main__':
 
     mydevice = DeviceAction('ZX1G22TG4F')
-    mydevice.update_para('PUSH_MESS_FREQ')
+    mydevice.choose('network','ONLYWIFI')

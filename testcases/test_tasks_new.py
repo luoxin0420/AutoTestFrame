@@ -90,48 +90,25 @@ class TestTimerTask(unittest.TestCase):
         if exc_list and exc_list[-1][0] is self:
             return exc_list[-1][1]
 
-    def execute_action(self, aname, value, data):
+    def execute_action(self, aname, value):
 
-        # act_name = aname.lower()
-        #
-        # if act_name in DEVICE_ACTION:
-        #     action.execute_device_action(self.device_action,aname, value)
-
-        if aname.startswith('network'):
-            self.device_action.network_change(value)
-        elif aname.startswith('update_date'):
-            sleep(3)
-            self.device_action.update_time(value)
-        elif aname.startswith('clear_app'):
-            self.device_action.clear_app()
-        elif aname.startswith('install_app'):
-            self.device_action.install_app(value)
-        elif aname.startswith('access_other_app'):
-            self.device_action.access_other_app(value)
-        elif aname.startswith('reboot'):
-            self.device_action.reboot_device(value)
-        elif aname.startswith('unlock_screen'):
-            self.device_action.unlock_screen(value)
-        elif aname.startswith('update_para'):
-            self.device_action.update_para(value)
-        elif aname.startswith('task_init_source'):
-            self.device_action.task_init_resource(value)
-        elif aname.startswith('log_start'):
-            logger.debug('Step: start to collect log')
-            self.dump_log_start(self.pid)
-        elif aname.startswith('log_stop'):
-            logger.debug('Step: stop collecting log')
-            self.dump_log_stop()
-        elif aname.startswith('wait_time'):
-            logger.debug('Step: wait time: ' + str(value))
-            sleep(value)
-        elif aname.startswith('screen_on'):
-            logger.debug('Step: Screen on operation')
-            DEVICE.screen_on_off(value)
-            sleep(2)
-        else:
+        try:
+            if aname.startswith('log_start'):
+                logger.debug('Step: start to collect log')
+                self.dump_log_start(self.pid)
+            elif aname.startswith('log_stop'):
+                logger.debug('Step: stop collecting log')
+                self.dump_log_stop()
+            elif aname.startswith('wait_time'):
+                logger.debug('Step: wait time: ' + str(value))
+                sleep(value)
+            else:
+                aname = aname.split('-')[0]
+                self.device_action.choose(aname, value)
+        except Exception, ex:
             self.result = False
-            print 'Unknown action name:' + aname
+            print ex
+            logger.error('Unknown action name:' + aname)
 
     def dump_log_start(self, pid):
 
@@ -187,13 +164,15 @@ class TestTimerTask(unittest.TestCase):
         dict_data = json.loads(values)
 
         vpname = tc.get_vp_name(data['teca_vp_id'])
-        self.pid = self.get_pid(vpname)
+
         temp = {}
         business_order = tc.get_action_list(data['teca_comp_id'])
         prev_act = ''
         vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
         try:
             for act in business_order:
+                if len(self.pid) == 0:
+                    self.pid = self.get_pid(vpname)
                 # pid is changed after reboot device and unlock_screen
                 if prev_act.startswith('reboot'):
                     self.pid = self.get_pid(vpname)
@@ -204,14 +183,13 @@ class TestTimerTask(unittest.TestCase):
                     temp[act] += 1
                     act = '-'.join([act,str(temp[act])])
                 act = act.encode('gbk')
-                self.execute_action(act,dict_data[act], new_data)
+                self.execute_action(act, dict_data[act])
                 prev_act = act
 
                 if not self.result:
                     break
             if self.result:
                 sleep(5)
-
                 self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, new_data['teca_expe_result'])
 
         except Exception, ex:
