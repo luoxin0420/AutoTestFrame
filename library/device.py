@@ -399,9 +399,3 @@ class Device(object):
 
         self.shellPIPE(cmd)
 
-    def pull_big_file(self, action, orig_path, dest_path):
-
-        if action.upper() == "PULL":
-            cmd = "".join(["adb -s ", self.uid, " pull ",orig_path," ",dest_path])
-
-        os.popen(cmd)
