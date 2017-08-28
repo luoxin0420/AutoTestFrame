@@ -93,7 +93,7 @@ class MysqlDB(object):
             return (query_result,True)
         except Exception as e:
             logger.error('query database is failed：%s' % e)
-            db_cursor.close()
+            #db_cursor.close()
             return(e,False)
 
     def select_many_record(self, query, data=""):
@@ -110,7 +110,7 @@ class MysqlDB(object):
             return query_result
         except Exception as e:
             logger.error('query database is failed：%s' % e)
-            db_cursor.close()
+            #db_cursor.close()
             exit()
 
     def close(self):

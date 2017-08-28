@@ -104,8 +104,15 @@ class Device(object):
             fileno = out_temp.fileno()
             p = subprocess.Popen(cmd, shell=True, stdout=fileno, stderr=subprocess.STDOUT)
             p.wait()
+            out_temp.seek(0)
+            lines = out_temp.readlines()
+            print lines
         except Exception,ex:
             print ex
+        finally:
+            if out_temp:
+                out_temp.close()
+
 
     def app_operation(self,action,pkg='',path=''):
 
@@ -244,16 +251,22 @@ class Device(object):
             cmd = "".join(["adb -s ", self.uid, " shell am stopservice -n ", service])
         self.shellPIPE(cmd)
 
+    def get_memory_hprof(self,pname, outfile):
+
+        cmd = "".join(["adb -s ", self.uid, " shell am dumpheap ", pname, " ", outfile])
+        p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p.wait()
+
     def get_device_screenshot(self,fname):
 
-        cmd = "".join(["adb -s ",self.uid," shell /system/bin/screencap -p /sdcard/screenshot.png "])
+        cmd = "".join(["adb -s ", self.uid, " shell /system/bin/screencap -p /sdcard/screenshot.png "])
         self.shellPIPE(cmd)
-        cmd = "".join(["adb -s ",self.uid," pull /sdcard/screenshot.png ", fname])
+        cmd = "".join(["adb -s ", self.uid, " pull /sdcard/screenshot.png ", fname])
         self.shellPIPE(cmd)
 
     def device_reboot(self):
 
-        cmd = ''.join(["adb -s ",self.uid," reboot"])
+        cmd = ''.join(["adb -s ", self.uid, " reboot"])
         self.shellPIPE(cmd)
 
     def device_kill_pid(self, pid):
@@ -386,7 +399,9 @@ class Device(object):
 
         self.shellPIPE(cmd)
 
+    def pull_big_file(self, action, orig_path, dest_path):
 
+        if action.upper() == "PULL":
+            cmd = "".join(["adb -s ", self.uid, " pull ",orig_path," ",dest_path])
 
-
-
+        os.popen(cmd)
