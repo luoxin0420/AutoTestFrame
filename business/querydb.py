@@ -179,7 +179,7 @@ def insert_info_to_db(filename,ts,uid,version,dtype):
                 if len(value) > 0:
                     temp = value[0].replace('K','')
                     pss = temp.replace(',','').strip()
-                    query = "insert into TestCaseManage_meminfo(mi_uid,mi_ts,mi_ver,mi_vss,mi_rss) values('{0}','{1}','{2}',{3},{4})".\
+                    query = "insert into TestCaseManage_meminfo(mi_uid,mi_ts,mi_ver,mi_uss,mi_pss) values('{0}','{1}','{2}',{3},{4})".\
                         format(uid, ts, version, int(0), int(pss))
                     result = autodb.execute_insert(query)
                     if not result:
