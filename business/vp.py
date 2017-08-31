@@ -5,6 +5,7 @@ import re
 from library.myglobal import logger, device_config
 from business import querydb as tc
 from library import pXml
+from library import device
 
 
 def verify_module_data_pkg(uid,text):
@@ -147,12 +148,16 @@ def verify_moduleupdate_log(uid, logname, match_type, findstr=''):
     return res
 
 
-def filter_log_result(logname, pid_list, match_type, findstr=''):
+def filter_log_result(logname, pid_list, match_type,  device_name, findstr=''):
 
     logger.debug('Step: Start to filter test log')
 
     result_dict = {}
     qindex = 0
+    if findstr.find('SLAVE_PKG_NAME') != -1:
+        slave_service = device_config.getValue(device_name,'slave_service') + ':main'
+        findstr = findstr.replace('SLAVE_PKG_NAME',slave_service)
+
     expe_list = findstr.split("||")
 
     if match_type.upper() in ['MATCH']:
@@ -275,6 +280,78 @@ def verify_excepted_number(value_list, vp_type_name, expected, dtype):
         print 'Actual Max CPU Value:' + str(max_value)
         logger.debug('Actual last CPU Value:' + str(last_value))
         print 'Actual last CPU Value:' + str(last_value)
+
+    return result
+
+
+# verify content of login package
+def verify_login_pkg_content(dname, contents, filter_result):
+
+    result = True
+    DEVICE = device.Device(dname)
+    verify_node = ['uid','lockscreen_id','wallpaper_id','imei','mac','platform','product','product_soft','promotion']
+    #verify_node = ['uid','lockscreen_id','wallpaper_id','imei','mac','platform','product','promotion']
+    find_node = []
+    for cont in contents:
+
+        data = pXml.parseXml(cont)
+        for name in verify_node:
+            try:
+                if name != 'platform' and name != 'product_soft':
+                    value = data.get_elements_text(name)[0]
+                elif name == 'platform':
+                    value = data.get_elements_attribute_value(name,'version')[0]
+                else:
+                    value = data.get_elements_attribute_value(name,'soft')[0]
+                filter_result[name] = value
+                find_node.append(name)
+            except Exception,ex:
+                    continue
+
+    # verify if node not found
+    diff_node = list(set(verify_node).difference(set(find_node)))
+    for name in diff_node:
+        print name + ' node is not found '
+        result = False
+
+    # verify wallpaper/lockscreen_id according to different product
+    try:
+        lsid = filter_result['lockscreen_id']
+        wpid = filter_result['wallpaper_id']
+        result = self.verify_wallpaper_lockscreen_id(lsid,wpid)
+        print 'wallpaper/lockscreen_id value is right'
+    except Exception,ex:
+        result = False
+        print 'wallpaper/lockscreen_id value is not right'
+
+    # start to verify detailed content
+    for key, value in filter_result.items():
+
+        flag = False
+        if key == 'lockscreen_id' or key == 'wallpaper_id':
+            continue
+        else:
+            print key + ': actual value is ' + str(value)
+            if key == 'mac':
+                exp_mac = DEVICE.get_device_mac_address()
+                print 'Expected mac address:' + str(exp_mac)
+                if exp_mac.upper().strip() != value.strip():
+                    result = False
+                    flag = True
+            if key == 'imei':
+                exp_imei = DEVICE.get_IMEI()
+                print 'Expected IMEI:' + str(exp_imei)
+            if str(exp_imei) != str(value):
+                    result = False
+                    flag = True
+            if key == 'platform':
+                exp_ver = DEVICE.get_os_version()
+                print 'Expected Android Version:' + str(exp_ver)
+                if exp_ver != int(value.split('.')[0]):
+                    result = False
+                    flag = True
+        if flag:
+            print key + ': value is not right'
 
     return result
 

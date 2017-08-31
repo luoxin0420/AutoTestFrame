@@ -4,12 +4,14 @@
 from time import sleep
 import os
 import re
+import threading
 
 from library import device
-from library.myglobal import logger,  device_config, html_config
+from library.myglobal import logger,  device_config, PATH
 from business import magazine, theme, config_srv
 # from NeoPySwitch import PySwitch,SwitchCase
 from business import querydb as tc
+from business import testdata as td
 
 
 class DeviceAction(object):
@@ -24,7 +26,6 @@ class DeviceAction(object):
         self.dname = dname
         self.pname = device_config.getValue(dname, 'product_type')
         self.pkg = device_config.getValue(dname, 'slave_service')
-        self.ptype = device_config.getValue(dname, 'product_type')
         self.func_dict = {'network': self.network_change,
                           'clear_app': self.clear_app,
                           'access_other_app': self.access_other_app,
@@ -40,7 +41,55 @@ class DeviceAction(object):
                           'task_init_source': self.task_init_resource,
                           'unlock_screen': self.unlock_screen,
                           'update_para': self.update_para,
-                          'update_date': self.update_time}
+                          'update_date': self.update_time,
+                          'sdcard_action': self.sdcard_action,
+                          'third_app_operation': self.install_third_app,
+                          'kill_process': self.kill_process}
+
+    def install_third_app(self, operation):
+
+        logger.debug('Step: install APP:' + operation)
+        find_text = [u"安装", u"允许"]
+        try:
+            threads = []
+            install_app = threading.Thread(target=self.third_app_operation, args=(operation,))
+            proc_process = threading.Thread(target=self.device.do_popup_windows, args=(5, find_text))
+            threads.append(proc_process)
+            threads.append(install_app)
+            for t in threads:
+                t.setDaemon(True)
+                t.start()
+                sleep(3)
+            t.join()
+        except Exception, ex:
+            pass
+
+    # default third party of app is com.vlife.qateam.advhelp
+    def third_app_operation(self, operation):
+
+        if operation.upper() != 'NONE':
+            app_path = PATH(PATH('../external/' + 'advhelp.apk'))
+            self.device.install_app_from_desktop('INSTALL',app_path)
+            pkg_name = device_config.getValue(self.dname,'custom_third_app').split('/')[0]
+            out = self.device.find_package(pkg_name)
+            if out.find(pkg_name) != -1:
+                find_flag = True
+            else:
+                find_flag = False
+            if operation.upper() == 'FIRST_INSTALL':
+                logger.debug('Install the third party of APP')
+                if find_flag:
+                    self.device.app_operation('CLEAR', pkg=pkg_name)
+                self.device.install_app_from_desktop('INSTALL')
+            if operation.upper() == 'COVER_INSTALL':
+                logger.debug('Cover install the third party of APP')
+                if not find_flag:
+                    self.device.install_app_from_desktop('INSTALL')
+                self.device.install_app_from_desktop('COVER_INSTALL')
+            if operation.upper() == 'UNINSTALL':
+                logger.debug('Uninstall the third party of APP')
+                if find_flag:
+                    self.device.app_operation('UNINSTALL', pkg=pkg_name)
 
     def choose(self, act, value):
         return self.func_dict[act](value)
@@ -70,6 +119,10 @@ class DeviceAction(object):
             self.device.gprs_operation(action[1])
             sleep(5)
 
+    def sdcard_action(self,value):
+
+        pass
+
     def update_time(self, value):
 
         """
@@ -96,12 +149,12 @@ class DeviceAction(object):
         """
         if value.upper() != 'NONE':
             logger.debug('Step:start_app')
-            if self.ptype.upper() == 'MAGAZINE':
+            if self.pname.upper() == 'MAGAZINE':
                 self.device.app_operation('START', pkg=self.pkg)
                 sleep(5)
-            elif self.ptype.upper() == 'THEME':
+            elif self.pname.upper() == 'THEME':
                 theme.set_device_theme(self.dname, 'vlife')
-            elif self.ptype.upper() == 'WALLPAPER':
+            elif self.pname.upper() == 'WALLPAPER':
                 pass
             else:
                 pass
@@ -112,7 +165,7 @@ class DeviceAction(object):
         :return:
         """
         if value.upper() != 'NONE':
-            if self.ptype.upper() == 'MAGAZINE':
+            if self.pname == 'MAGAZINE' or self.pname.upper() == 'THEME':
                 self.device.app_operation('CLOSE', pkg=self.pkg)
                 sleep(5)
 
@@ -189,7 +242,7 @@ class DeviceAction(object):
         if value.upper() != 'NONE':
             logger.debug('Step:reboot device')
             self.device.device_reboot()
-            sleep(25)
+            sleep(30)
 
     def click_screen(self, value):
 
@@ -233,11 +286,13 @@ class DeviceAction(object):
             sleep(15)
             self.network_change(actions[1])
 
-    def kill_process(self, pid, value):
+    def kill_process(self, value):
 
-        logger.debug('Step: kill pid ' + str(pid) + ':' + value)
-        if value.upper() == 'TRUE':
-            self.device.device_kill_pid(pid)
+        logger.debug('Step: kill process:' + value)
+        if value.upper() != 'NONE':
+            if value.upper() == 'MAIN':
+                pid = td.get_pid_by_vpname(self.dname,'MAIN')
+                self.device.device_kill_pid(pid)
 
     def update_para(self, value):
 
@@ -310,16 +365,16 @@ class DeviceAction(object):
         :return:
         """
         if value.upper() != 'NONE':
-            if self.pname == 'magazine':
+            if self.pname.lower() == 'magazine':
                 logger.debug('Step: set resource for magazine')
                 magazine.magazine_task_init_resource(self.dname,value)
-            elif self.pname == 'theme':
+            elif self.pname.lower() == 'theme':
                 logger.debug('Step: set resource for theme')
                 theme.theme_task_init_resource(self.dname,value)
-            elif self.pname == 'wallpaper':
+            elif self.pname.lower() == 'wallpaper':
                 logger.debug('Step: set resource for wallpaper')
                 pass
-            elif self.pname == 'theme_wallpaper':
+            elif self.pname.lower() == 'theme_wallpaper':
                 logger.debug('Step: set resource for theme_wallpaper')
                 pass
             else:
@@ -365,4 +420,4 @@ class DeviceAction(object):
 if __name__ == '__main__':
 
     mydevice = DeviceAction('ZX1G22TG4F')
-    mydevice.choose('network','ONLYWIFI')
+    mydevice.choose('third_app_operation', 'FIRST_INSTALL')

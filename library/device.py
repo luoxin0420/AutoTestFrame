@@ -178,7 +178,7 @@ class Device(object):
     def find_package(self,pkg):
 
         out = ''
-        cmd = "".join(["adb -s ", self.uid, " shell pm list package ", pkg])
+        cmd = "".join(["adb -s ", self.uid, " shell pm list package | grep ", pkg])
         out = self.shellPIPE(cmd)
         return out
 

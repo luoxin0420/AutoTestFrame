@@ -17,8 +17,9 @@ from library import device
 from library import desktop
 from library import HTMLTestRunner
 from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,DEVICE_ACTION,TASK_COMPONENT
-from business import action,vp
+from business import action, vp
 from business import querydb as tc
+from business import testdata as td
 
 
 def get_test_data():
@@ -95,7 +96,7 @@ class TestTimerTask(unittest.TestCase):
         try:
             if aname.startswith('log_start'):
                 logger.debug('Step: start to collect log')
-                self.dump_log_start(self.pid)
+                self.dump_log_start()
             elif aname.startswith('log_stop'):
                 logger.debug('Step: stop collecting log')
                 self.dump_log_stop()
@@ -110,12 +111,12 @@ class TestTimerTask(unittest.TestCase):
             print ex
             logger.error('Unknown action name:' + aname)
 
-    def dump_log_start(self, pid):
+    def dump_log_start(self):
 
         name = ''.join([self._testMethodName,'_',str(LOOP_NUM),'_',str(self.log_count)])
         self.log_name = os.path.join(LogPath,name)
         self.log_count += 1
-        self.log_reader = dumplog.DumpLogcatFileReader(self.log_name,DEVICENAME,pid)
+        self.log_reader = dumplog.DumpLogcatFileReader(self.log_name, DEVICENAME)
         self.log_reader.clear_logcat()
         self.log_reader.start()
 
@@ -123,59 +124,60 @@ class TestTimerTask(unittest.TestCase):
 
         self.log_reader.stop()
 
-    def get_pid(self,value):
-
-        pid_list = []
-
-        try:
-            if value.upper() == 'DOUBLE_LOG':
-                plist = [self.slave_main_process, self.master_service]
-            elif value.upper() == 'SYSTEM_LOG':
-                plist = [self.master_service]
-            else:
-                plist = [self.slave_main_process]
-
-            for name in plist:
-                pid = dumplog.DumpLogcatFileReader.get_PID(DEVICENAME,name)
-                if str(pid) > 0:
-                    pid[0] = pid[0].strip()
-                    pid_list.append(pid[0])
-        except Exception,ex:
-            print 'canot get correlative PID'
-            return []
-
-        return pid_list
+    # def get_pid(self,value):
+    #
+    #     pid_list = []
+    #
+    #     try:
+    #         if value.upper() == 'DOUBLE_LOG':
+    #             plist = [self.slave_main_process, self.master_service]
+    #         elif value.upper() == 'SYSTEM_LOG':
+    #             plist = [self.master_service]
+    #         else:
+    #             plist = [self.slave_main_process]
+    #
+    #         for name in plist:
+    #             pid = dumplog.DumpLogcatFileReader.get_PID(DEVICENAME,name)
+    #             if str(pid) > 0:
+    #                 pid[0] = pid[0].strip()
+    #                 pid_list.append(pid[0])
+    #     except Exception,ex:
+    #         print 'canot get correlative PID'
+    #         return []
+    #
+    #     return pid_list
 
     @ddt.data(*get_test_data())
     def test_timer_task(self,data):
 
         print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
-        # unicode to str
-        new_data = {}
-        for key, value in data.items():
-
-            if isinstance(value,unicode):
-                new_data[key.encode('gbk')] = value.encode('gbk')
-            else:
-                new_data[key.encode('gbk')] = value
-
-        values = new_data['teca_action_detail']
-        dict_data = json.loads(values)
-
+        # # unicode to str
+        # new_data = {}
+        # for key, value in data.items():
+        #
+        #     if isinstance(value,unicode):
+        #         new_data[key.encode('gbk')] = value.encode('gbk')
+        #     else:
+        #         new_data[key.encode('gbk')] = value
+        #
+        # values = new_data['teca_action_detail']
+        # dict_data = json.loads(values)
+        #
+        # vpname = tc.get_vp_name(data['teca_vp_id'])
+        #
+        # temp = {}
+        # business_order = tc.get_action_list(data['teca_comp_id'])
+        # prev_act = ''
+        # vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
+        new_data, dict_data, business_order, vp_type_name = td.handle_db_data(data)
         vpname = tc.get_vp_name(data['teca_vp_id'])
-
         temp = {}
-        business_order = tc.get_action_list(data['teca_comp_id'])
-        prev_act = ''
-        vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
         try:
             for act in business_order:
-                if len(self.pid) == 0:
-                    self.pid = self.get_pid(vpname)
-                # pid is changed after reboot device and unlock_screen
-                if prev_act.startswith('reboot'):
-                    self.pid = self.get_pid(vpname)
+                if len(self.pid) == 0 or prev_act.startswith('reboot'):
+                    self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
+
                 if act not in temp.keys():
                     temp[act] = 0
                 # maybe same action is executed multiple times
@@ -190,7 +192,7 @@ class TestTimerTask(unittest.TestCase):
                     break
             if self.result:
                 sleep(5)
-                self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, new_data['teca_expe_result'])
+                self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, DEVICENAME, new_data['teca_expe_result'])
 
         except Exception, ex:
             logger.error(ex)
@@ -199,6 +201,7 @@ class TestTimerTask(unittest.TestCase):
             self.assertEqual(self.result, True)
         else:
             self.assertEqual(self.result, False)
+
 
 def run(dname, loop, rtype):
 

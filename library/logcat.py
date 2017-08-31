@@ -41,11 +41,8 @@ class DumpLogcatFileReader(threading.Thread):
 
     def __get_basic_filter_command(self):
 
-        if self._pkg.find('system') != -1:
-
-            cmd = 'logcat -b main -b system -v threadtime'
-        else:
-            cmd = 'logcat -b main -v threadtime'
+        # get all log
+        cmd = 'logcat -b main -b system -v threadtime'
 
         return cmd
 

@@ -35,8 +35,10 @@ def get_pid_by_vpname(dname, value):
     try:
         if value.upper() == 'DOUBLE_LOG':
             plist = [slave_service, master_service]
-        elif value.upper() == 'SYSTEM_LOG':
+        elif value.upper() == 'SYSTEMUI_LOG':
             plist = [master_service]
+        elif value.upper() == 'SYSTEM_LOG':
+            plist = ['system_server']
         else:
             plist = [slave_service]
 

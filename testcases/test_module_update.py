@@ -93,9 +93,7 @@ class TestModuleUpdate(unittest.TestCase):
     def execute_action(self, aname, value):
         try:
 
-            if aname.startswith('kill_process'):
-                self.device_action.kill_process(self.pid, value)
-            elif aname.startswith('log_start'):
+            if aname.startswith('log_start'):
                 logger.debug('Step: start to collect log')
                 self.dump_log_start()
             elif aname.startswith('log_stop'):
@@ -147,8 +145,8 @@ class TestModuleUpdate(unittest.TestCase):
                     temp[act] += 1
                     act = '-'.join([act,str(temp[act])])
                 act = act.encode('gbk')
-                if act.startswith('kill_process'):
-                    self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
+                # if act.startswith('kill_process'):
+                #     self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
                 self.execute_action(act, dict_data[act])
                 # if execute action is failed , then exit
                 if not self.result:
