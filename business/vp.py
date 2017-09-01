@@ -153,7 +153,7 @@ def filter_log_result(logname, pid_list, match_type,  device_name, findstr=''):
     logger.debug('Step: Start to filter test log')
 
     result_dict = {}
-    qindex = 0
+    find_lines = []
     if findstr.find('SLAVE_PKG_NAME') != -1:
         slave_service = device_config.getValue(device_name,'slave_service') + ':main'
         findstr = findstr.replace('SLAVE_PKG_NAME',slave_service)
@@ -166,6 +166,7 @@ def filter_log_result(logname, pid_list, match_type,  device_name, findstr=''):
         for pi in pid_list:
             logger.debug('Filter log according to PID:' + str(pi))
             result_dict[pi] = False
+            qindex = 0
             re_flag = False
             try:
                 with open(logname) as reader:
@@ -180,6 +181,7 @@ def filter_log_result(logname, pid_list, match_type,  device_name, findstr=''):
                                 if text.find(expe_list[qindex]) != -1:
                                     print 'Find log:' + line
                                     logger.debug('Find log:' + line)
+                                    find_lines.append(line)
                                     qindex += 1
                             else:
                                 if not re_flag:
@@ -191,6 +193,7 @@ def filter_log_result(logname, pid_list, match_type,  device_name, findstr=''):
                                     value = match.group(1)
                                     print 'Find log:' + line
                                     logger.debug('Find log:' + line)
+                                    find_lines.append(line)
                                     qindex += 1
                                     re_flag = False
                         # exit loop when find all matched logs
@@ -206,10 +209,12 @@ def filter_log_result(logname, pid_list, match_type,  device_name, findstr=''):
         res = True
         for key, value in result_dict.items():
             logger.debug('PID:' + str(key) + ':Found all log:' + str(value))
-            res = res and value
+            if not value:
+                res = False
+                break
     else:
         res = False
-    return res
+    return res, find_lines
 
 
 def get_current_memory_info(ts, DEVICENAME, vpname, version):
@@ -284,29 +289,67 @@ def verify_excepted_number(value_list, vp_type_name, expected, dtype):
     return result
 
 
-# verify content of login package
-def verify_login_pkg_content(dname, contents, filter_result):
+def verify_wallpaper_lockscreen_id(dname, lsid,wpid):
 
     result = True
+    build_type = device_config.getValue(dname,'build_type')
+
+    print 'Actual lockscreen_id:' + lsid
+    print 'Actual wallpaper_id:' + wpid
+
+    lsid = int(lsid)
+    wpid = int(wpid)
+
+    if build_type.upper() == 'MAGAZINE':
+        if lsid !=0 or wpid !=0:
+            print 'id value is not right, expected value is 0'
+            result = False
+
+    if build_type.upper() == 'THEMELOCK':
+        if lsid ==0 or wpid !=0:
+            print 'Excepted lockscreen_id is not 0'
+            print 'Excepted wallpaper_id is 0'
+            result = False
+
+    if build_type.upper() == 'WALLPAPER':
+        if lsid !=0 or wpid ==0:
+            print 'Excepted lockscreen_id is  0'
+            print 'Excepted wallpaper_id is not 0'
+            result = False
+
+    if build_type.upper() == 'WALLPAPER_THEMELOCK':
+        if lsid ==0 or wpid ==0:
+            print 'Excepted lockscreen_id is not 0'
+            print 'Excepted wallpaper_id is not 0'
+            result = False
+
+    return result
+
+
+# verify content of login package
+def verify_login_pkg_content(dname, contents):
+
+
     DEVICE = device.Device(dname)
     verify_node = ['uid','lockscreen_id','wallpaper_id','imei','mac','platform','product','product_soft','promotion']
     #verify_node = ['uid','lockscreen_id','wallpaper_id','imei','mac','platform','product','promotion']
     find_node = []
-    for cont in contents:
+    filter_result = {}
 
-        data = pXml.parseXml(cont)
-        for name in verify_node:
-            try:
-                if name != 'platform' and name != 'product_soft':
-                    value = data.get_elements_text(name)[0]
-                elif name == 'platform':
-                    value = data.get_elements_attribute_value(name,'version')[0]
-                else:
-                    value = data.get_elements_attribute_value(name,'soft')[0]
-                filter_result[name] = value
-                find_node.append(name)
-            except Exception,ex:
-                    continue
+
+    data = pXml.parseXml(contents)
+    for name in verify_node:
+        try:
+            if name == 'platform':
+                value = data.get_elements_attribute_value(name,'version')[0]
+            elif name == 'product_soft':
+                value = data.get_elements_attribute_value(name,'soft')[0]
+            else:
+                value = data.get_elements_text(name)[0]
+            filter_result[name] = value
+            find_node.append(name)
+        except Exception, ex:
+                continue
 
     # verify if node not found
     diff_node = list(set(verify_node).difference(set(find_node)))
@@ -318,11 +361,10 @@ def verify_login_pkg_content(dname, contents, filter_result):
     try:
         lsid = filter_result['lockscreen_id']
         wpid = filter_result['wallpaper_id']
-        result = self.verify_wallpaper_lockscreen_id(lsid,wpid)
-        print 'wallpaper/lockscreen_id value is right'
+        result = verify_wallpaper_lockscreen_id(lsid,wpid)
     except Exception,ex:
         result = False
-        print 'wallpaper/lockscreen_id value is not right'
+        print 'wallpaper/lockscreen_id not found'
 
     # start to verify detailed content
     for key, value in filter_result.items():
@@ -341,9 +383,9 @@ def verify_login_pkg_content(dname, contents, filter_result):
             if key == 'imei':
                 exp_imei = DEVICE.get_IMEI()
                 print 'Expected IMEI:' + str(exp_imei)
-            if str(exp_imei) != str(value):
-                    result = False
-                    flag = True
+                if str(exp_imei) != str(value):
+                        result = False
+                        flag = True
             if key == 'platform':
                 exp_ver = DEVICE.get_os_version()
                 print 'Expected Android Version:' + str(exp_ver)
@@ -353,11 +395,55 @@ def verify_login_pkg_content(dname, contents, filter_result):
         if flag:
             print key + ': value is not right'
 
+    if result:
+        logger.debug('Login package contents is right')
+    else:
+        logger.debug('Login package contents is not right')
+
     return result
+
+
+def verify_user_id(dict1, dict2, compare_type):
+
+    result = True
+    if len(dict1) == len(dict2):
+        for v in dict1.values():
+            if v in dict2.values():
+                continue
+            else:
+                result = False
+    if compare_type == 'EQUAL' and result:
+        return True
+    elif compare_type == 'NOTEQUAL' and not result:
+        return True
+    else:
+        return True
 
 if __name__ == '__main__':
 
-    logname = r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1521TestModuleUpdate\test_module_update_3_0_1'
-    fstr = '(.*new_download_task currentNetworkType & getFlag\(\) == 0 pause.*)||(.*new_download_task current net is wifi re_start.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onFinish logcat taskType plugin_update.*)'
-    result = verify_moduleupdate_log('ZX1G22TG4F',logname, 'Match', fstr)
-    print result
+    logname = r'E:\AutoTestFrame\log\20170901\ZX1G22TG4F_\1118TestTasks\test_timer_task_3_0_1'
+    lines = ['[auto_test           ][DEBUG  ]  Find log:04-20 15:03:07.459 22586 22709 I vi : [vi][21728][tid_245](79)preference name:userinfo getString key:uid,value:10464745784057']
+    lines.append('[auto_test           ][DEBUG  ]  Find log:04-20 15:03:07.461 22586 22714 I tq : [tq][21730][tid_248](127)Request content : <body rid="3" count="1" wait="2" sid="eef2e312100106cb@a1.stage.vlife.com"><iq to="a1.stage.vlife.com" id="aeda67ac3cf9664" type="get"><query xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"><uid>10464745784057</uid><password>ea4Az88W0x</password><resource>android-2.1-pet</resource><unique>135091771c90d9494982d705259bdbd9</unique><platform version="7.0">android</platform><product soft="5.171" micro="1">android-transsion-wallpaper</product><plugin><item package="com.summit.android.wallpaper.num2061" version="5171"/></plugin><plugin_version>140</plugin_version><promotion>998</promotion><android_id>85dedb2176c53154</android_id><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.summit.android.wallpaper.num2061</package><host>com.summit.android.wallpaper.num2061:main</host><paper_id>293112</paper_id><elapsed_realtime>21357938</elapsed_realtime><apk_path>/system/app/vlife.apk</apk_path><device>shamu</device><brand>Android</brand><board>shamu</board><display>aosp_shamu-eng 7.0 NBD90Z eng.tugang.20170117.112541 debug,test-keys</display><system_id>NBD90Z</system_id><incremental>eng.tugang.20170117.112541</incremental><manufacturer>motorola</manufacturer><model>AOSP on Shamu</model><release>7.0</release><system_product>aosp_shamu</system_product><sdk_int>24</sdk_int><user>tuganglei</user><finger_print>Android/aosp_shamu/shamu:7.0/NBD90Z/tugang01171125:eng/debug,test-keys</finger_print><manufacturer>motorola</manufacturer><tags>debug,test-keys</tags><type>eng</type><serial>ZX1G22TG4F</serial></query></iq></body>')
+    #fstr = '(.*new_download_task currentNetworkType & getFlag\(\) == 0 pause.*)||(.*new_download_task current net is wifi re_start.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onFinish logcat taskType plugin_update.*)'
+    #fstr= '(.*key:uid,value:\d+.*)||(.*jabber:iq:auth.*)'
+    #result = verify_moduleupdate_log('ZX1G22TG4F',logname, 'Match', fstr)
+    #result = filter_log_result(logname,[1078,5227],'Match','ZX1G22TG4F',fstr)
+    # result = True
+    # res = False
+    # for ln in lines:
+    #     if ln.find('jabber:iq:auth') != -1:
+    #         keyword =r'.*(<query.*/query>).*'
+    #         content = re.compile(keyword)
+    #         m = content.match(ln)
+    #         if m:
+    #             contents = m.group(1)
+    #             res = verify_login_pkg_content('ZX1G22TG4F', contents)
+    #     result = result and res
+    # print result
+    for ln in lines:
+        keyword =r'.*key:uid,value:(\d+).*'
+        content = re.compile(keyword)
+        m = content.match(ln)
+        if m:
+            value = m.group(1)
+            print value

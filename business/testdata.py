@@ -33,11 +33,11 @@ def get_pid_by_vpname(dname, value):
     slave_service = device_config.getValue(dname,'slave_service') + ':main'
 
     try:
-        if value.upper() == 'DOUBLE_LOG':
+        if value.upper().find('DOUBLE') != -1:
             plist = [slave_service, master_service]
-        elif value.upper() == 'SYSTEMUI_LOG':
+        elif value.upper().find('SYSTEMUI') != -1:
             plist = [master_service]
-        elif value.upper() == 'SYSTEM_LOG':
+        elif value.upper().find('SYSTEM') != -1:
             plist = ['system_server']
         else:
             plist = [slave_service]

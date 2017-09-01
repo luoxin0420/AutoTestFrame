@@ -23,9 +23,9 @@ def set_device_theme(dname, theme_type):
     DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
     sleep(2)
     if theme_type.upper() == 'VLIFE':
-        vlife_theme_path = theme_config.getValue(dname,'vlife_theme_path').split(',')
+        vlife_theme_path = theme_config.getValue(dname,'vlife_theme_path').split('|')
     else:
-        vlife_theme_path = theme_config.getValue(dname,'system_theme_path').split(',')
+        vlife_theme_path = theme_config.getValue(dname,'system_theme_path').split('|')
     element = uiautomator.Element(dname)
     event = uiautomator.Event(dname)
 

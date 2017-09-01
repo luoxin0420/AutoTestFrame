@@ -5,6 +5,7 @@ __author__ = 'Xuxh'
 import os
 import ddt
 import json
+import re
 import sys
 try:
     import unittest2 as unittest
@@ -49,6 +50,8 @@ class TestTimerTask(unittest.TestCase):
         self.result = True
         self.log_count = 1
         self.pid = []
+        self.run_loop = 1
+        self.filter_log = {}
 
     def tearDown(self):
 
@@ -124,83 +127,89 @@ class TestTimerTask(unittest.TestCase):
 
         self.log_reader.stop()
 
-    # def get_pid(self,value):
-    #
-    #     pid_list = []
-    #
-    #     try:
-    #         if value.upper() == 'DOUBLE_LOG':
-    #             plist = [self.slave_main_process, self.master_service]
-    #         elif value.upper() == 'SYSTEM_LOG':
-    #             plist = [self.master_service]
-    #         else:
-    #             plist = [self.slave_main_process]
-    #
-    #         for name in plist:
-    #             pid = dumplog.DumpLogcatFileReader.get_PID(DEVICENAME,name)
-    #             if str(pid) > 0:
-    #                 pid[0] = pid[0].strip()
-    #                 pid_list.append(pid[0])
-    #     except Exception,ex:
-    #         print 'canot get correlative PID'
-    #         return []
-    #
-    #     return pid_list
+    def verify_login_package(self, lines):
+        result = True
+        res = False
+        for ln in lines:
+            if ln.find('jabber:iq:auth') != -1:
+                keyword =r'.*(<query.*/query>).*'
+                content = re.compile(keyword)
+                m = content.match(ln)
+                if m:
+                    contents = m.group(1)
+                    res = vp.verify_login_pkg_content(DEVICENAME,contents)
+            result = result and res
+        return result
+
+    def get_user_id(self,lines):
+        res = []
+        for ln in lines:
+            keyword =r'.*key:uid,value:(\d+).*'
+            content = re.compile(keyword)
+            m = content.match(ln)
+            if m:
+                logger.debug('UID is:' + str(m.group(1)))
+                res.append(m.group(1))
+        return res
 
     @ddt.data(*get_test_data())
     def test_timer_task(self,data):
 
         print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
-        # # unicode to str
-        # new_data = {}
-        # for key, value in data.items():
-        #
-        #     if isinstance(value,unicode):
-        #         new_data[key.encode('gbk')] = value.encode('gbk')
-        #     else:
-        #         new_data[key.encode('gbk')] = value
-        #
-        # values = new_data['teca_action_detail']
-        # dict_data = json.loads(values)
-        #
-        # vpname = tc.get_vp_name(data['teca_vp_id'])
-        #
-        # temp = {}
-        # business_order = tc.get_action_list(data['teca_comp_id'])
-        # prev_act = ''
-        # vp_type_name = tc.get_vp_type(new_data['teca_vp_type_id'])
         new_data, dict_data, business_order, vp_type_name = td.handle_db_data(data)
         vpname = tc.get_vp_name(data['teca_vp_id'])
-        temp = {}
+        # action will be run multiple times,for compare uid value
+        if vpname.find('Verify_Register_UID') != -1:
+            self.run_loop = 2
         try:
-            for act in business_order:
-                if len(self.pid) == 0 or prev_act.startswith('reboot'):
-                    self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
+            for loop_num in range(self.run_loop):
+                temp = {}
+                for act in business_order:
+                    if len(self.pid) == 0 or prev_act.startswith('reboot'):
+                        self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
 
-                if act not in temp.keys():
-                    temp[act] = 0
-                # maybe same action is executed multiple times
-                else:
-                    temp[act] += 1
-                    act = '-'.join([act,str(temp[act])])
-                act = act.encode('gbk')
-                self.execute_action(act, dict_data[act])
-                prev_act = act
+                    if act not in temp.keys():
+                        temp[act] = 0
+                    # maybe same action is executed multiple times
+                    else:
+                        temp[act] += 1
+                        act = '-'.join([act,str(temp[act])])
+                    act = act.encode('gbk')
+                    self.execute_action(act, dict_data[act])
+                    prev_act = act
 
-                if not self.result:
-                    break
-            if self.result:
-                sleep(5)
-                self.result = vp.filter_log_result(self.log_name, self.pid, vp_type_name, DEVICENAME, new_data['teca_expe_result'])
+                    if not self.result:
+                        break
+                # find special log
+                if self.result:
+                    self.result, found_lines= vp.filter_log_result(self.log_name, self.pid, 'MATCH', DEVICENAME, new_data['teca_expe_result'])
+                    # if log is found, then get detail content and compare
+                    if self.result:
+                        if vpname.upper().find('LOG') != -1 and data['teca_comp_id'] == 5:
+                            # verify detail log contents(login package, register & login)
+                            logger.debug('Verify contentS of login package')
+                            self.result = self.verify_login_package(found_lines)
+                        # get uid according to log
+                        elif vpname.find('Verify_Register_UID') != -1:
+                            value = self.get_user_id(found_lines)
+                            self.filter_log[loop_num] = value
+                            # waiting for session invalid
+                            logger.debug('Step: waiting for session invalid')
+                            sleep(120)
+
+                    else:
+                        break
+
 
         except Exception, ex:
             logger.error(ex)
 
-        if vp_type_name in POSITIVE_VP_TYPE:
-            self.assertEqual(self.result, True)
-        else:
-            self.assertEqual(self.result, False)
+        # Verify UID for register precoess
+        if vpname.find('Verify_Register_UID') != -1 and len(self.filter_log.keys())> 1:
+            self.result = vp.verify_user_id(self.filter_log[0],self.filter_log[1],vp_type_name)
+
+        self.assertEqual(self.result, True)
 
 
 def run(dname, loop, rtype):
