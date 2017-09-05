@@ -113,7 +113,6 @@ class Device(object):
             if out_temp:
                 out_temp.close()
 
-
     def app_operation(self,action,pkg='',path=''):
 
         if pkg != '':
