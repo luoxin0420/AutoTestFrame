@@ -23,6 +23,11 @@ magazine_config = configuration.configuration()
 fname = PATH('../config/magazine.ini')
 magazine_config.fileConfig(fname)
 
+# wallpaper configuration file
+wallpaper_config = configuration.configuration()
+fname = PATH('../config/wallpaper.ini')
+wallpaper_config.fileConfig(fname)
+
 # device config
 device_config = configuration.configuration()
 fname = PATH('../config/device.ini')

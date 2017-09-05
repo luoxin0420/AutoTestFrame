@@ -166,8 +166,8 @@ class TestTimerTask(unittest.TestCase):
             for loop_num in range(self.run_loop):
                 temp = {}
                 for act in business_order:
-                    if len(self.pid) == 0 or prev_act.startswith('reboot'):
-                        self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
+                    # if len(self.pid) == 0 or prev_act.startswith('reboot'):
+                    self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
 
                     if act not in temp.keys():
                         temp[act] = 0
@@ -197,10 +197,8 @@ class TestTimerTask(unittest.TestCase):
                             # waiting for session invalid
                             logger.debug('Step: waiting for session invalid')
                             sleep(120)
-
                     else:
                         break
-
 
         except Exception, ex:
             logger.error(ex)

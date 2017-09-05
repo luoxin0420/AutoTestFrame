@@ -8,7 +8,7 @@ import threading
 
 from library import device
 from library.myglobal import logger,  device_config, PATH
-from business import magazine, theme, config_srv
+from business import magazine, theme, config_srv, wallpaper
 # from NeoPySwitch import PySwitch,SwitchCase
 from business import querydb as tc
 from business import testdata as td
@@ -176,10 +176,9 @@ class DeviceAction(object):
         """
         if value.upper() != 'NONE':
             logger.debug('Step: clear app')
-            if self.pname == 'MAGAZINE' or self.pname.upper() == 'THEME':
-                self.device.app_operation('CLEAR', pkg=self.pkg)
-                self.device.app_operation('CLEAR', pkg='com.android.systemui')
-                sleep(5)
+            self.device.app_operation('CLEAR', pkg=self.pkg)
+            self.device.app_operation('CLEAR', pkg='com.android.systemui')
+            sleep(5)
 
     def unlock_screen(self, value):
 
@@ -373,6 +372,7 @@ class DeviceAction(object):
                 theme.theme_task_init_resource(self.dname,value)
             elif self.pname.lower() == 'wallpaper':
                 logger.debug('Step: set resource for wallpaper')
+                wallpaper.wallpaper_task_init_resource(self.dname,value)
                 pass
             elif self.pname.lower() == 'theme_wallpaper':
                 logger.debug('Step: set resource for theme_wallpaper')
