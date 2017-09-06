@@ -235,6 +235,16 @@ def get_module_info(id):
 
     return res
 
+
+def update_push_interval(ruleID, value):
+
+    pass
+
+
+def update_switch(ruleID,stype,action):
+
+    pass
+
 if __name__ == '__main__':
 
     insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')

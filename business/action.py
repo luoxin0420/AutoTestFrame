@@ -44,7 +44,33 @@ class DeviceAction(object):
                           'update_date': self.update_time,
                           'sdcard_action': self.sdcard_action,
                           'third_app_operation': self.install_third_app,
-                          'kill_process': self.kill_process}
+                          'kill_process': self.kill_process,
+                          'SrvConfig_Switch': self.set_srvcon_switch,
+                          'SrvConfig_Push_Interval': self.set_srvcon_Interval}
+
+    def set_srvcon_switch(self, value):
+
+        if value.upper() != 'NONE':
+
+            logger.debug('Step: set switch' + str(value))
+
+            stype, action = value.split(':')
+            rule_id = device_config.getValue(self.dname, 'background_rule_id')
+
+            # update database
+            tc.update_switch(rule_id,stype,action)
+            config_srv.enableModule()
+
+    def set_srvcon_Interval(self,value):
+
+        if value.upper() != 'NONE':
+
+            logger.debug('Step: set push interval in server side:' + str(value))
+            rule_id = device_config.getValue(self.dname, 'background_rule_id')
+
+            # update database
+            tc.update_push_interval(rule_id, value)
+            config_srv.enableModule()
 
     def install_third_app(self, operation):
 
@@ -281,7 +307,7 @@ class DeviceAction(object):
             actions = value.split(':')
 
             self.network_change(actions[0])
-            self.update_time('hour-24')
+            self.update_time('hour-7')
             sleep(15)
             self.network_change(actions[1])
 

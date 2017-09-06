@@ -50,6 +50,8 @@ DEVICE_ACTION = [
             'screen_on',
             'task_init_source']
 
-TASK_COMPONENT = ['Task_NetChange', 'Task_NetChange_With_Reboot', 'Task_Timer', 'Task_Wallpaper_Visible', 'Task_Screen_On', 'Task_Timer_Alarm', 'Self_Activation', 'Register']
+TASK_COMPONENT = ['Task_NetChange', 'Task_NetChange_With_Reboot', 'Task_Timer', 'Task_Wallpaper_Visible',\
+                  'Task_Screen_On', 'Task_Timer_Alarm', 'Self_Activation', 'Register',\
+                  'Push_TaskType', 'Push_TimeInterval', 'Push_Switch']
 PERFORMANCE_COMPONENT = ['Magazine_Monitor_Memory', 'Magazine_Monitor_CPU']
 MODULE_COMPONENT = ['ModuleUpdate']

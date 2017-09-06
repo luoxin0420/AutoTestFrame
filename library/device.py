@@ -135,7 +135,6 @@ class Device(object):
             except Exception,ex:
                 print ex
 
-
     def get_os_version(self):
 
         cmd = "".join(["adb -s ", self.uid, " shell getprop ro.build.version.release "])
