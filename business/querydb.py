@@ -238,12 +238,38 @@ def get_module_info(id):
 
 def update_push_interval(ruleID, value):
 
-    pass
+    interval = int(value)*60*1000
+
+    query = "update fun_wallpaper_limit set sequence={0} where id=-1 and rule_id = {1} and type = '{2}'".format(str(interval), ruleID, 'push')
+    stagedb.execute_update(query)
 
 
-def update_switch(ruleID,stype,action):
+def update_switch(ruleID, stype, action):
 
-    pass
+    key = ''.join([stype, ':', action.upper()])
+
+    # current this id is not changed, so here is hard code
+    switcher = {
+        'dev_statistic:OFF': 75,
+        'dev_statistic:ON': 66,
+        'init_operation_module:OFF': 91,
+        'init_operation_module:ON': 89
+    }
+    id = switcher.get(key, 0)
+
+    if id != 0:
+        query = "select * from fun_wallpaper_limit where id={0} and rule_id = {1} and type = '{2}'".format(id, ruleID, 'switch')
+        result = stagedb.select_one_record(query)
+        if result[0] is None:
+            query = "insert into fun_wallpaper_limit(id, rule_id, type, enabled, sequence, priority) values({0},{1},'{2}',1,0,0)".format(id,ruleID, 'switch')
+            stagedb.execute_insert(query)
+        if id == 75 or id == 66:
+            diff_id = list(set([75,66]) - set([id]))
+        if id == 91 or id == 89:
+            diff_id = list(set([91,89]) - set([id]))
+
+        query = "update fun_wallpaper_limit set enabled=0 where id={0} and rule_id = {1} and type = '{2}'".format(diff_id[0], ruleID, 'switch')
+        stagedb.execute_update(query)
 
 if __name__ == '__main__':
 

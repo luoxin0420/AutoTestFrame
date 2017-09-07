@@ -79,6 +79,20 @@ class MysqlDB(object):
             db_cursor.close()
             return (e, False)
 
+    def execute_delete(self, query, data=""):
+        logger.info('query：%s  data：%s' % (query, data))
+        try:
+            db_cursor = self.dbconn.cursor()
+            db_cursor.execute(query, data)
+            db_cursor.execute('commit')
+            db_cursor.close()
+            return True
+        except Exception as e:
+            logger.error('Delete database is failed：%s' % e)
+            db_cursor.execute('rollback')
+            db_cursor.close()
+            exit()
+
     def select_one_record(self, query, data=""):
 
         logger.info('query：%s  data：%s' % (query, data))

@@ -59,18 +59,18 @@ class DeviceAction(object):
 
             # update database
             tc.update_switch(rule_id,stype,action)
-            config_srv.enableModule()
+            config_srv.enableModule('STAGECONFIG')
 
     def set_srvcon_Interval(self,value):
 
-        if value.upper() != 'NONE':
+        if value != 0:
 
             logger.debug('Step: set push interval in server side:' + str(value))
             rule_id = device_config.getValue(self.dname, 'background_rule_id')
 
             # update database
             tc.update_push_interval(rule_id, value)
-            config_srv.enableModule()
+            config_srv.enableModule('STAGECONFIG')
 
     def install_third_app(self, operation):
 

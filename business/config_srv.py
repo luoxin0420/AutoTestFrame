@@ -38,6 +38,7 @@ def enableModule(sname):
         else:
             logger.error('Enable module is not failed ' + comp)
     # need wait for 5 minutes and enable validate on side
+    logger.debug('Have to wait for 5 minutes server take effect ')
     time.sleep(300)
 if __name__ == '__main__':
 
