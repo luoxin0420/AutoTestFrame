@@ -200,7 +200,6 @@ def insert_info_to_db(filename,ts,uid,version,dtype):
 
     return True
 
-
 # update stage db for module update
 def update_stage_module_network(dname, wififlag):
 

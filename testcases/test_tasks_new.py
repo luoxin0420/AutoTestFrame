@@ -105,7 +105,7 @@ class TestTimerTask(unittest.TestCase):
                 self.dump_log_stop()
             elif aname.startswith('wait_time'):
                 logger.debug('Step: wait time: ' + str(value))
-                sleep(value)
+                sleep(int(value))
             else:
                 aname = aname.split('-')[0]
                 self.device_action.choose(aname, value)
@@ -176,8 +176,13 @@ class TestTimerTask(unittest.TestCase):
                         temp[act] += 1
                         act = '-'.join([act,str(temp[act])])
                     act = act.encode('gbk')
-                    self.execute_action(act, dict_data[act])
-                    prev_act = act
+                    #self.execute_action(act, dict_data[act])
+                    # Just for duplicate single action
+                    vlist = str(dict_data[act]).split('|')
+                    try:
+                        self.execute_action(act, vlist[loop_num])
+                    except Exception, ex:
+                        self.execute_action(act, vlist[0])
 
                     if not self.result:
                         break

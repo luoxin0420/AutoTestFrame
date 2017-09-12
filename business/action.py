@@ -63,7 +63,7 @@ class DeviceAction(object):
 
     def set_srvcon_Interval(self,value):
 
-        if value != 0:
+        if int(value) != 0:
 
             logger.debug('Step: set push interval in server side:' + str(value))
             rule_id = device_config.getValue(self.dname, 'background_rule_id')
