@@ -42,7 +42,7 @@ def set_device_wallpaper(dname, theme_type):
             value = unicode(text.split(':')[0])
             x = text.split(':')[1]
             y = text.split(':')[2]
-
+        # There is no name for some component
         if value == u'坐标':
             event.touch(int(x), int(y))
         else:
