@@ -28,7 +28,7 @@ def set_device_wallpaper(dname, theme_type):
         activity_name = wallpaper_config.getValue(dname,'set_system_wallpaper_pkg')
         DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
         sleep(2)
-        vlife_path = wallpaper_config.getValue(dname,'wallpaper_wallpaper_path').split('|')
+        vlife_path = wallpaper_config.getValue(dname,'system_wallpaper_path').split('|')
     element = uiautomator.Element(dname)
     event = uiautomator.Event(dname)
 

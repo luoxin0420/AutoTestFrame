@@ -8,7 +8,7 @@ autodb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'AUTOTEST')
 stagedb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'STAGE')
 
 
-def filter_cases(suite_id, comp_list):
+def filter_cases(suite_id, comp_list, pid):
 
     """
     filter test cases according to test suite ID
@@ -23,8 +23,9 @@ def filter_cases(suite_id, comp_list):
         comp.append(str(temp))
     compstr = ','.join(comp)
 
-    query = 'select * from TestCaseManage_testcase where teca_enable=1 and teca_comp_id in ({0}) and teca_id in (select tsca_teca_id from TestCaseManage_testsuitecase ' \
-            'where tsca_tesu_id in ({1}))'.format(compstr, suite_id)
+    query = 'select * from TestCaseManage_testcase where teca_enable=1 and teca_comp_id in ({0}) ' \
+            'and teca_prod_id in ({1}) and teca_id in (select tsca_teca_id from TestCaseManage_testsuitecase ' \
+            'where tsca_tesu_id in ({2}))'.format(compstr, pid, suite_id)
     cases = autodb.select_many_record(query)
     return cases
 
@@ -110,6 +111,22 @@ def get_prodcut_name_byID(pid):
     result = autodb.select_one_record(query)
     pname = result[0]['prod_name']
     return pname
+
+
+def get_product_ID_byName(pname):
+
+    """
+
+    :param pname:
+    :return:
+    """
+
+    query = "select prod_id from TestCaseManage_product where prod_name REGEXP '[[:<:]]{0}[[:>:]]'".format(pname.lower())
+    result = autodb.select_many_record(query)
+    res = []
+    for re in result:
+        res.append(str(re['prod_id']))
+    return res
 
 
 def get_memory_info(uid,ts,version,qtype):
