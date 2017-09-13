@@ -260,7 +260,6 @@ def run(dname, loop, rtype):
             else:
                 desktop.summary_result(utest_log, False, RESULT_DICT)
 
-
     except Exception, ex:
         print ex
 
