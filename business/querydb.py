@@ -217,24 +217,22 @@ def insert_info_to_db(filename,ts,uid,version,dtype):
 
     return True
 
+
 # update stage db for module update
-def update_stage_module_network(dname, wififlag):
+def update_stage_module_network(mid, exp_network, exp_killself):
 
     updateFlag = False
-    mid = device_config.getValue(dname,'background_module_id1')
-    query = 'select network from fun_plugin_file where id = {0}'.format(mid)
+    query = 'select * from fun_plugin_file where id = {0}'.format(mid)
     result = stagedb.select_one_record(query)
-    value = result[0]['network']
-
-    query1 = ''
-    if wififlag.upper() == 'TRUE' and int(value) != 1:
-        query1 = 'update fun_plugin_file set network = 1 where id = {0}'.format(mid)
-    if wififlag.upper() == 'FALSE' and int(value) != 5:
-        query1 = 'update fun_plugin_file set network = 5 where id = {0}'.format(mid)
-
-    if query1 != '':
-        stagedb.execute_update(query1)
+    network = result[0]['network']
+    killself = result[0]['killself']
+    query = ''
+    if exp_network != network or exp_killself != killself:
+        query = 'update fun_plugin_file set network = {0},killself={1} where id = {2}'.format(exp_network, exp_killself, mid)
+    if query != '':
+        stagedb.execute_update(query)
         updateFlag = True
+
 
     return updateFlag
 
@@ -287,7 +285,47 @@ def update_switch(ruleID, stype, action):
         query = "update fun_wallpaper_limit set enabled=0 where id={0} and rule_id = {1} and type = '{2}'".format(diff_id[0], ruleID, 'switch')
         stagedb.execute_update(query)
 
+
+def start_c_process(ruleID, action):
+
+    updateFlag = False
+    query = "select * from fun_wallpaper_limit where id={0} and rule_id = {1} and type = '{2}'".format(7, ruleID, 'upgrade_c_setup')
+    result = stagedb.select_one_record(query)
+    value = result[0]['enabled']
+
+    query = ''
+    if action != value:
+        query = "update fun_wallpaper_limit set enabled={0} where id={1} and rule_id = {2} and type = '{3}'".format(action, 7, ruleID, 'upgrade_c_setup')
+
+    if query != '':
+        stagedb.execute_update(query)
+        updateFlag = True
+
+    return updateFlag
+
+
+# update stage db for operation module
+# value format: wifi:killself
+def update_operation_module(mid, exp_network, exp_killself, exp_enabled):
+
+    updateFlag = False
+    query = 'select * from fun_upgrade_operation where id = {0}'.format(mid)
+    result = stagedb.select_one_record(query)
+    network = result[0]['network_type']
+    killself = result[0]['killself']
+    enabled = result[0]['enable']
+    query = ''
+    if exp_network != network or exp_killself != killself or exp_enabled != enabled:
+        query = 'update fun_upgrade_operation set network_type = {0},killself={1}, enable={2} where id = {3}'.format(exp_network, exp_killself, exp_enabled, mid)
+
+    if query != '':
+        stagedb.execute_update(query)
+        updateFlag = True
+
+    return updateFlag
+
 if __name__ == '__main__':
 
-    insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')
+    #insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')
     #value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
+    pass

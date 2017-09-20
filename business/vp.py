@@ -403,21 +403,19 @@ def verify_login_pkg_content(dname, contents):
     return result
 
 
-def verify_user_id(dict1, dict2, compare_type):
+def verify_user_id(list1, list2, compare_type):
 
-    result = True
-    if len(dict1) == len(dict2):
-        for v in dict1.values():
-            if v in dict2.values():
-                continue
-            else:
-                result = False
-    if compare_type == 'EQUAL' and result:
-        return True
-    elif compare_type == 'NOTEQUAL' and not result:
-        return True
+    if len(list1) == len(list2):
+        s1 = set(list1)
+        s2 = set(list2)
+        sub = s1 - s2
+        if (compare_type == 'EQUAL' and len(sub) == 0) or (compare_type == 'NOTEQUAL' and sub == s1):
+            return True
+        else:
+            return False
     else:
-        return True
+        return False
+
 
 if __name__ == '__main__':
 

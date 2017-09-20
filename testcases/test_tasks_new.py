@@ -4,7 +4,6 @@ __author__ = 'Xuxh'
 
 import os
 import ddt
-import json
 import re
 import sys
 try:
@@ -156,7 +155,7 @@ class TestTimerTask(unittest.TestCase):
         return res
 
     @ddt.data(*get_test_data())
-    def test_timer_task(self,data):
+    def test_tasks(self,data):
 
         print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
@@ -170,8 +169,9 @@ class TestTimerTask(unittest.TestCase):
                 temp = {}
                 for act in business_order:
                     # if len(self.pid) == 0 or prev_act.startswith('reboot'):
-                    self.pid = td.get_pid_by_vpname(DEVICENAME, vpname)
-
+                    plist = td.get_pid_by_vpname(DEVICENAME, vpname)
+                    if len(plist) > 0:
+                        self.pid = plist
                     if act not in temp.keys():
                         temp[act] = 0
                     # maybe same action is executed multiple times

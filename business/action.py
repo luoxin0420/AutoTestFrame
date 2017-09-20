@@ -5,6 +5,7 @@ from time import sleep
 import os
 import re
 import threading
+import json
 
 from library import device
 from library.myglobal import logger,  device_config, PATH
@@ -46,7 +47,50 @@ class DeviceAction(object):
                           'third_app_operation': self.install_third_app,
                           'kill_process': self.kill_process,
                           'SrvConfig_Switch': self.set_srvcon_switch,
-                          'SrvConfig_Push_Interval': self.set_srvcon_Interval}
+                          'SrvConfig_Push_Interval': self.set_srvcon_Interval,
+                          'oper_startup_main': self.oper_startup_main,
+                          'oper_module_config': self.oper_module_config}
+
+    def oper_startup_main(self,value):
+
+        if value.upper() != 'NONE':
+            logger.debug('Step: startup main process ' + str(value))
+            action = device_config.getValue(self.dname, 'operation_startup_main')
+            if action.upper() == 'INITSOURCE_NCHANGE_REBOOT':
+
+                self.task_init_resource('vlife')
+                self.network_change('CLOSE_ALL')
+                self.network_change('ONLY_WIFI')
+                logger.debug('Step: wait for 30 seconds')
+                self.reboot_device('default')
+                self.unlock_screen('default')
+
+    def oper_module_config(self,value):
+
+        if value.upper != 'NONE':
+            logger.debug('Step: set operation module ' + str(value))
+            config_para = device_config.getValue(self.dname, 'operation_module_upgrade')
+            config_dict = json.loads(config_para)
+            exp_dict = eval(value)
+            flag = False
+            module_take_effect = False
+            for key, value in exp_dict.items():
+                key = key.encode('utf8')
+                value = value.encode('utf8')
+                if key in ['b','c','so']:
+                    enabled, network, selfkill = value.split(':')
+                    flag = tc.update_operation_module(int(config_dict[key]), int(network), int(selfkill), int(enabled))
+                if key == 'c_rule':
+                    flag = tc.start_c_process(int(config_dict[key]),int(value))
+                if key == 'module':
+                    network, selfkill = value.split(':')
+                    flag = tc.update_stage_module_network(int(config_dict[key]), int(network), int(selfkill))
+
+                if flag:
+                    module_take_effect = True
+
+            if module_take_effect:
+                config_srv.enableModule('STAGECONFIG')
 
     def set_srvcon_switch(self, value):
 
@@ -76,10 +120,15 @@ class DeviceAction(object):
 
         logger.debug('Step: install APP:' + operation)
         find_text = [u"安装", u"允许"]
+        if operation.upper().find('VLIFE') == -1:
+            app_path = PATH(PATH('../external/' + 'advhelp.apk'))
+        else:
+            app_name = device_config.getValue(self.dname, 'vlife_app')
+            app_path = PATH(PATH('../external/' + app_name))
         try:
             threads = []
-            install_app = threading.Thread(target=self.third_app_operation, args=(operation,))
-            proc_process = threading.Thread(target=self.device.do_popup_windows, args=(5, find_text))
+            install_app = threading.Thread(target=self.third_app_operation, args=(operation,app_path))
+            proc_process = threading.Thread(target=self.device.do_popup_windows, args=(10, find_text))
             threads.append(proc_process)
             threads.append(install_app)
             for t in threads:
@@ -89,30 +138,34 @@ class DeviceAction(object):
             t.join()
         except Exception, ex:
             pass
+        print 'test'
 
     # default third party of app is com.vlife.qateam.advhelp
-    def third_app_operation(self, operation):
+    def third_app_operation(self, operation, app_path):
 
         if operation.upper() != 'NONE':
-            app_path = PATH(PATH('../external/' + 'advhelp.apk'))
-            self.device.install_app_from_desktop('INSTALL',app_path)
-            pkg_name = device_config.getValue(self.dname,'custom_third_app').split('/')[0]
+            #self.device.install_app_from_desktop('INSTALL',app_path)
+            # Identify whether install vlife or other apps
+            if operation.upper().find('VLIFE') == -1:
+                pkg_name = device_config.getValue(self.dname,'custom_third_app').split('/')[0]
+            else:
+                pkg_name = device_config.getValue(self.dname,'slave_service')
             out = self.device.find_package(pkg_name)
             if out.find(pkg_name) != -1:
                 find_flag = True
             else:
                 find_flag = False
-            if operation.upper() == 'FIRST_INSTALL':
+            if operation.upper().startswith('FIRST_INSTALL'):
                 logger.debug('Install the third party of APP')
                 if find_flag:
                     self.device.app_operation('CLEAR', pkg=pkg_name)
-                self.device.install_app_from_desktop('INSTALL')
-            if operation.upper() == 'COVER_INSTALL':
+                self.device.install_app_from_desktop('INSTALL', app_path)
+            if operation.upper().startswith('COVER_INSTALL'):
                 logger.debug('Cover install the third party of APP')
                 if not find_flag:
                     self.device.install_app_from_desktop('INSTALL')
-                self.device.install_app_from_desktop('COVER_INSTALL')
-            if operation.upper() == 'UNINSTALL':
+                self.device.install_app_from_desktop('COVER_INSTALL', app_path)
+            if operation.upper().startswith('UNINSTALL'):
                 logger.debug('Uninstall the third party of APP')
                 if find_flag:
                     self.device.app_operation('UNINSTALL', pkg=pkg_name)
@@ -411,7 +464,9 @@ class DeviceAction(object):
 
         if value.upper() != 'NONE':
             logger.debug('Step: update database and make module effective')
-            flag = tc.update_stage_module_network(self.dname, value)
+            mid = device_config.getValue(self.dname,'background_module_id1')
+            network, killself = value.split(':')
+            flag = tc.update_stage_module_network(int(mid), int(network), int(killself))
             if flag:
                 config_srv.enableModule('STAGECONFIG')
             else:

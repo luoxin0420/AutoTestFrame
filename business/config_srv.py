@@ -22,7 +22,8 @@ def enableModule(sname):
     version = 'major'
     t = str(int(time.time()) * 1000)
     t1 = '1500878198000'
-    component = ['interactive','adcenter']
+    # first two items for module download.'adcenter, cloud-upgrade for operation module upgrade'
+    component = ['interactive', 'adcenter', 'cloud-upgrade']
     username = 'auto_test'
 
     for comp in component:
@@ -38,8 +39,9 @@ def enableModule(sname):
         else:
             logger.error('Enable module is not failed ' + comp)
     # need wait for 5 minutes and enable validate on side
-    logger.debug('Have to wait for 5 minutes server take effect ')
-    time.sleep(300)
+    logger.debug('Have to wait for 3 minutes server take effect')
+    time.sleep(180)
+
 if __name__ == '__main__':
 
     enableModule('test','test')
