@@ -51,6 +51,7 @@ class DeviceAction(object):
                           'oper_startup_main': self.oper_startup_main,
                           'oper_module_config': self.oper_module_config}
 
+
     def oper_startup_main(self,value):
 
         if value.upper() != 'NONE':
