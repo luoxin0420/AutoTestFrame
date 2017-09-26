@@ -397,3 +397,21 @@ class Device(object):
 
         self.shellPIPE(cmd)
 
+    def find_file_from_appfolder(self,fname):
+
+        pkg = device_config.getValue(self.uid, 'slave_service')
+        path = os.path.dirname(fname)
+        basename = os.path.basename(fname)
+
+        # find path '/data/data/pkg_name/'
+        cmd = "".join(["adb -s ", self.uid, " shell run-as ", pkg, " ls ", path])
+        out = self.shellPIPE(cmd)
+        if out.find(basename) != -1:
+            return True
+        else:
+            return False
+
+if __name__ == '__main__':
+
+    device = Device('329af263')
+    result = device.find_file_from_appfolder('test')

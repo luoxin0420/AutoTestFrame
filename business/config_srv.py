@@ -23,7 +23,7 @@ def enableModule(sname):
     t = str(int(time.time()) * 1000)
     t1 = '1500878198000'
     # first two items for module download.'adcenter, cloud-upgrade for operation module upgrade'
-    component = ['interactive', 'adcenter', 'cloud-upgrade']
+    component = ['cm', 'adcenter', 'cloud-upgrade']
     username = 'auto_test'
 
     for comp in component:

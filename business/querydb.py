@@ -3,6 +3,7 @@
 
 from library.myglobal import PATH,device_config
 from library.db import dbmysql
+from library.myglobal import logger
 
 autodb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'AUTOTEST')
 stagedb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'STAGE')
@@ -27,6 +28,8 @@ def filter_cases(suite_id, comp_list, pid):
             'and teca_prod_id in ({1}) and teca_id in (select tsca_teca_id from TestCaseManage_testsuitecase ' \
             'where tsca_tesu_id in ({2}))'.format(compstr, pid, suite_id)
     cases = autodb.select_many_record(query)
+    if len(cases) == 0:
+        logger.warning('There are not test cases')
     return cases
 
 
@@ -233,7 +236,6 @@ def update_stage_module_network(mid, exp_network, exp_killself):
         stagedb.execute_update(query)
         updateFlag = True
 
-
     return updateFlag
 
 
@@ -243,11 +245,40 @@ def get_module_info(id):
     result = stagedb.select_one_record(query)
     res = {}
     res['path'] = result[0]['encryption_client_path'].encode('utf8')
-    res['length'] = result[0]['encryption_length']
+    res['length'] = str(result[0]['encryption_length'])
     res['url'] = result[0]['encryption_path'].encode('utf8')
     res['hash'] = result[0]['encryption_hash'].encode('utf8')
-
     return res
+
+
+def get_operation_module_info(key, id):
+
+    if key.lower() == 'module':
+        query = 'select path, length, hash, encryption_path from fun_plugin_file where id = {0}'.format(id)
+    else:
+        query = 'select path, length, hash, client_path from fun_upgrade_operation where id = {0}'.format(id)
+    result = stagedb.select_one_record(query)
+    res = {}
+    res['path'] = result[0]['path'].encode('utf8')
+    res['length'] = str(result[0]['length'])
+    res['hash'] = result[0]['hash'].encode('utf8')
+    if key.lower() != 'module':
+        res['cpath'] = result[0]['client_path'].encode('utf8')
+    else:
+        res['cpath'] = result[0]['encryption_path'].encode('utf8')
+    return res
+
+
+def get_all_module_info(conf_dict):
+
+    result = {}
+
+    for key, value in conf_dict.items():
+        if key.lower() == 'c_rule':
+            continue
+        else:
+            result[key] = get_operation_module_info(key, value)
+    return result
 
 
 def update_push_interval(ruleID, value):

@@ -21,28 +21,34 @@ def set_device_theme(dname, theme_type):
     activity_name = theme_config.getValue(dname,'set_theme_pkg')
     DEVICE = device.Device(dname)
     DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
-    sleep(2)
+    sleep(5)
     if theme_type.upper() == 'VLIFE':
         vlife_theme_path = theme_config.getValue(dname,'vlife_theme_path').split('|')
     else:
         vlife_theme_path = theme_config.getValue(dname,'system_theme_path').split('|')
-    element = uiautomator.Element(dname)
-    event = uiautomator.Event(dname)
+    # element = uiautomator.Element(dname)
+    # event = uiautomator.Event(dname)
 
-    for text in vlife_theme_path:
-        x = 0
-        y = 0
-        if text.find(':') == -1:
-            value = unicode(text)
-        # because there is not 'click' action on text, so have to click next to element
-        else:
-            value = unicode(text.split(':')[0])
-            x = text.split(':')[1]
-            y = text.split(':')[2]
-        ele = element.findElementByName(value)
-        if ele is not None:
-            event.touch(ele[0]-int(x), ele[1]-int(y))
-            sleep(2)
+    try:
+
+        for text in vlife_theme_path:
+            x = 0
+            y = 0
+            element = uiautomator.Element(dname)
+            event = uiautomator.Event(dname)
+            if text.find(':') == -1:
+                value = unicode(text)
+            # because there is not 'click' action on text, so have to click next to element
+            else:
+                value = unicode(text.split(':')[0])
+                x = text.split(':')[1]
+                y = text.split(':')[2]
+            ele = element.findElementByName(value)
+            if ele is not None:
+                event.touch(ele[0]-int(x), ele[1]-int(y))
+                sleep(2)
+    except Exception,ex:
+        print ex
     # return to HOME
     DEVICE.send_keyevent(3)
 

@@ -164,6 +164,15 @@ class TestTimerTask(unittest.TestCase):
         # action will be run multiple times,for compare uid value
         if vpname.find('Verify_Register_UID') != -1:
             self.run_loop = 2
+
+        # set parameters value for operation_module_upgrade
+        if vpname.startswith('OperModule_Upgrade'):
+            module_config = device_config.getValue(DEVICENAME, 'operation_module_upgrade_first')
+            device_config.setValue(DEVICENAME, 'operation_module_upgrade_current', module_config)
+        elif vpname.starswith('OperModule_Second_Upgrade'):
+            module_config = device_config.getValue(DEVICENAME, 'operation_module_upgrade_second')
+            device_config.setValue(DEVICENAME, 'operation_module_upgrade_current', module_config)
+
         try:
             for loop_num in range(self.run_loop):
                 temp = {}

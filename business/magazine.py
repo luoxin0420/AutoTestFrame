@@ -66,7 +66,7 @@ def set_security_magazine_switch(dname,action):
     DEVICE = device.Device(dname)
     value = magazine_config.getValue(dname,'security_setting')
     DEVICE.app_operation('LAUNCH', pkg=value)
-    sleep(1)
+    sleep(5)
 
      # click setting button
     setting_path = magazine_config.getValue(dname,'security_magazine_switch').split('::')

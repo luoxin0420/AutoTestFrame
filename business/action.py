@@ -7,7 +7,7 @@ import re
 import threading
 import json
 
-from library import device
+from library import device,noroot
 from library.myglobal import logger,  device_config, PATH
 from business import magazine, theme, config_srv, wallpaper
 # from NeoPySwitch import PySwitch,SwitchCase
@@ -51,25 +51,66 @@ class DeviceAction(object):
                           'oper_startup_main': self.oper_startup_main,
                           'oper_module_config': self.oper_module_config}
 
+    def _network_change_root(self, root_flag):
+
+        if root_flag.upper() == 'TRUE':
+            self.network_change('CLOSE_ALL')
+            logger.debug('Step: wait for 20s make sure network change valid')
+            sleep(30)
+            self.network_change('ONLY_WIFI')
+            logger.debug('Step: wait for 20s module downing')
+            sleep(20)
+        else:
+            noroot.set_wifi_connection(self.dname,'off')
+            logger.debug('Step: wait for 20s make sure network change valid')
+            sleep(30)
+            noroot.set_wifi_connection(self.dname, 'on')
+            logger.debug('Step: wait for 20s module downing')
+            sleep(20)
+
     def oper_startup_main(self,value):
 
         if value.upper() != 'NONE':
             logger.debug('Step: startup main process ' + str(value))
             action = device_config.getValue(self.dname, 'operation_startup_main')
+            root_flag = device_config.getValue(self.dname, 'root_flag')
             if action.upper() == 'INITSOURCE_NCHANGE_REBOOT':
 
                 self.task_init_resource('vlife')
-                self.network_change('CLOSE_ALL')
-                self.network_change('ONLY_WIFI')
-                logger.debug('Step: wait for 30 seconds')
-                self.reboot_device('default')
-                self.unlock_screen('default')
+                self._network_change_root(root_flag)
+                # verify if module is downing
+                config_para = device_config.getValue(self.dname, 'operation_module_upgrade_current')
+                config_dict = json.loads(config_para)
+                result = tc.get_all_module_info(config_dict)
+                res = self.device.find_file_from_appfolder(result['module']['path'])
+                if res:
+                    logger.debug('Step: module download success, file is found ' + result['module']['path'])
+                    # start to verify c, so file
+                    self.reboot_device('default')
+                    self.unlock_screen('default')
+                    logger.debug('Step: wait for 30s b downloading')
+                    sleep(30)
+                    # check if b has downloaded
+                    res = self.device.find_file_from_appfolder('databases/server.db')
+                    if res:
+                        logger.debug('Step: b download success, file is found ' + 'server.db')
+                    self.kill_process('MAIN')
+                    sleep(20)
+                    self._network_change_root(root_flag)
+                    timeout = device_config.getValue(self.dname, 'operation_timeout')
+                    logger.debug('Step: waiting for c, so files downloading about ' + timeout)
+                    sleep(int(timeout))
+                    for key, value in config_dict.items():
+                        if key.lower() == 'c' or key.lower() == 'so':
+                            res = self.device.find_file_from_appfolder(result[key]['cpath'])
+                            if res:
+                                logger.debug('Step: ' + key + ' download success, file is found ' + result[key]['cpath'])
 
-    def oper_module_config(self,value):
+    def oper_module_config(self, value):
 
         if value.upper != 'NONE':
             logger.debug('Step: set operation module ' + str(value))
-            config_para = device_config.getValue(self.dname, 'operation_module_upgrade')
+            config_para = device_config.getValue(self.dname, 'operation_module_upgrade_current')
             config_dict = json.loads(config_para)
             exp_dict = eval(value)
             flag = False
@@ -77,7 +118,7 @@ class DeviceAction(object):
             for key, value in exp_dict.items():
                 key = key.encode('utf8')
                 value = value.encode('utf8')
-                if key in ['b','c','so']:
+                if key in ['b', 'c', 'so']:
                     enabled, network, selfkill = value.split(':')
                     flag = tc.update_operation_module(int(config_dict[key]), int(network), int(selfkill), int(enabled))
                 if key == 'c_rule':
@@ -119,7 +160,7 @@ class DeviceAction(object):
     def install_third_app(self, operation):
 
         logger.debug('Step: install APP:' + operation)
-        find_text = [u"安装", u"允许"]
+        find_text = [u"好",u"安装", u"允许"]
         if operation.upper().find('VLIFE') == -1:
             app_path = PATH(PATH('../external/' + 'advhelp.apk'))
         else:
@@ -134,7 +175,7 @@ class DeviceAction(object):
             for t in threads:
                 t.setDaemon(True)
                 t.start()
-                sleep(3)
+                sleep(2)
             t.join()
         except Exception, ex:
             pass
@@ -360,7 +401,7 @@ class DeviceAction(object):
             actions = value.split(':')
 
             self.network_change(actions[0])
-            self.update_time('hour-7')
+            self.update_time('hour-24')
             sleep(15)
             self.network_change(actions[1])
 

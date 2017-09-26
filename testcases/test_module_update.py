@@ -23,8 +23,11 @@ from business import testdata as td
 
 def get_test_data():
 
+    dname = sys.argv[1]
+    prod_name = device_config.getValue(dname, 'product_type')
+    pid = ','.join(tc.get_product_ID_byName(prod_name))
     suite_list = sys.argv[2]
-    return tc.filter_cases(suite_list, MODULE_COMPONENT)
+    return tc.filter_cases(suite_list, MODULE_COMPONENT, pid)
 
 
 @ddt.ddt

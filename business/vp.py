@@ -419,13 +419,15 @@ def verify_user_id(list1, list2, compare_type):
 
 if __name__ == '__main__':
 
-    logname = r'E:\AutoTestFrame\log\20170906\ZX1G426D5C_\1202TestTasks\test_timer_task_1_0_1'
-    fstr = '(.*Judgment result can run , task type is ua_time_send.*)||(.*Judgment result can run , task type is plugin_update.*)||(.*Judgment result can run , task type is get_push_message.*)'
+    logname = r'E:\test_module_update_1_0_1'
+    fstr = '(.*modulePluginData.*)||(.*new_download_task onStart logcat taskType plugin_update.*):opt||(.*new_download_task onRun logcat taskType plugin_update.*):opt||(.*new_download_task onFinish logcat taskType plugin_update.*)'
+    #fstr = '(.*Judgment result can not run , reason :Minimum time interval is not satisfied, task type is (get_push_message|magazine_update|ua_time_send|plugin_update).*)'
+    #fstr = '(.*Judgment result can run , task type is ua_time_send.*)||(.*Judgment result can run , task type is plugin_update.*)||(.*Judgment result can run , task type is get_push_message.*)'
     # lines = ['[auto_test           ][DEBUG  ]  Find log:04-20 15:03:07.459 22586 22709 I vi : [vi][21728][tid_245](79)preference name:userinfo getString key:uid,value:10464745784057']
     # lines.append('[auto_test           ][DEBUG  ]  Find log:04-20 15:03:07.461 22586 22714 I tq : [tq][21730][tid_248](127)Request content : <body rid="3" count="1" wait="2" sid="eef2e312100106cb@a1.stage.vlife.com"><iq to="a1.stage.vlife.com" id="aeda67ac3cf9664" type="get"><query xmlns="http://jabber.com/features/iq-query/jabber:iq:auth"><uid>10464745784057</uid><password>ea4Az88W0x</password><resource>android-2.1-pet</resource><unique>135091771c90d9494982d705259bdbd9</unique><platform version="7.0">android</platform><product soft="5.171" micro="1">android-transsion-wallpaper</product><plugin><item package="com.summit.android.wallpaper.num2061" version="5171"/></plugin><plugin_version>140</plugin_version><promotion>998</promotion><android_id>85dedb2176c53154</android_id><timezone>Asia/Shanghai</timezone><language>zh_CN</language><package>com.summit.android.wallpaper.num2061</package><host>com.summit.android.wallpaper.num2061:main</host><paper_id>293112</paper_id><elapsed_realtime>21357938</elapsed_realtime><apk_path>/system/app/vlife.apk</apk_path><device>shamu</device><brand>Android</brand><board>shamu</board><display>aosp_shamu-eng 7.0 NBD90Z eng.tugang.20170117.112541 debug,test-keys</display><system_id>NBD90Z</system_id><incremental>eng.tugang.20170117.112541</incremental><manufacturer>motorola</manufacturer><model>AOSP on Shamu</model><release>7.0</release><system_product>aosp_shamu</system_product><sdk_int>24</sdk_int><user>tuganglei</user><finger_print>Android/aosp_shamu/shamu:7.0/NBD90Z/tugang01171125:eng/debug,test-keys</finger_print><manufacturer>motorola</manufacturer><tags>debug,test-keys</tags><type>eng</type><serial>ZX1G22TG4F</serial></query></iq></body>')
     #fstr = '(.*new_download_task currentNetworkType & getFlag\(\) == 0 pause.*)||(.*new_download_task current net is wifi re_start.*)||(.*new_download_task onRun logcat taskType plugin_update.*)||(.*new_download_task onFinish logcat taskType plugin_update.*)'
-    #result = verify_moduleupdate_log('ZX1G22TG4F',logname, 'Match', fstr)
-    result = filter_log_result(logname,[8382],'Match','ZX1G426D5C',fstr)
+    result = verify_moduleupdate_log('ZX1G22TG4F',logname, 'Match', fstr)
+    #result = filter_log_result(logname,[30099],'Match','ZX1G426D5C',fstr)
     # result = True
     # res = False
     # for ln in lines:

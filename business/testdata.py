@@ -48,7 +48,7 @@ def get_pid_by_vpname(dname, value):
                 pid[0] = pid[0].strip()
                 pid_list.append(pid[0])
     except Exception,ex:
-        print 'canot get correlative PID'
+        #print 'canot get correlative PID'
         return []
 
     return pid_list

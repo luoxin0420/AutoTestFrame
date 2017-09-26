@@ -20,10 +20,10 @@ class Element(object):
 
     def __uidump(self):
 
-        # get control tree of current activity
-        cmd = "adb -s {0} shell uiautomator dump /data/local/tmp/uidump.xml".format(self.uid)
+        # get control tree of current activity /data/local/tmp/uidump.xml
+        cmd = "adb -s {0} shell uiautomator dump /sdcard/uidump.xml".format(self.uid)
         device.Device.shellPIPE(cmd)
-        cmd = "adb -s {0} pull /data/local/tmp/uidump.xml {1}".format(self.uid,self.tempFile)
+        cmd = "adb -s {0} pull /sdcard/uidump.xml {1}".format(self.uid,self.tempFile)
         device.Device.shellPIPE(cmd)
 
     def __element(self, attrib, name):
