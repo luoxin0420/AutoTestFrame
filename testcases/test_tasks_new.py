@@ -169,7 +169,7 @@ class TestTimerTask(unittest.TestCase):
         if vpname.startswith('OperModule_Upgrade'):
             module_config = device_config.getValue(DEVICENAME, 'operation_module_upgrade_first')
             device_config.setValue(DEVICENAME, 'operation_module_upgrade_current', module_config)
-        elif vpname.starswith('OperModule_Second_Upgrade'):
+        elif vpname.startswith('OperModule_Second_Upgrade'):
             module_config = device_config.getValue(DEVICENAME, 'operation_module_upgrade_second')
             device_config.setValue(DEVICENAME, 'operation_module_upgrade_current', module_config)
 
