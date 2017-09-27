@@ -308,6 +308,9 @@ def update_switch(ruleID, stype, action):
         if result[0] is None:
             query = "insert into fun_wallpaper_limit(id, rule_id, type, enabled, sequence, priority) values({0},{1},'{2}',1,0,0)".format(id,ruleID, 'switch')
             stagedb.execute_insert(query)
+        else:
+            query = "update fun_wallpaper_limit set enabled=1 where id={0} and rule_id = {1} and type = '{2}'".format(id, ruleID, 'switch')
+            stagedb.execute_update(query)
         if id == 75 or id == 66:
             diff_id = list(set([75,66]) - set([id]))
         if id == 91 or id == 89:
@@ -359,4 +362,5 @@ if __name__ == '__main__':
 
     #insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')
     #value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
+    update_switch('3423', 'dev_statistic', 'off')
     pass
