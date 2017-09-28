@@ -487,15 +487,12 @@ class DeviceAction(object):
             if self.pname.lower() == 'magazine':
                 logger.debug('Step: set resource for magazine')
                 magazine.magazine_task_init_resource(self.dname,value)
-            elif self.pname.lower() == 'theme':
+            elif self.pname.lower() == 'theme' or self.pname.lower() == 'theme_wallpaper':
                 logger.debug('Step: set resource for theme')
                 theme.theme_task_init_resource(self.dname,value)
             elif self.pname.lower() == 'wallpaper':
                 logger.debug('Step: set resource for wallpaper')
                 wallpaper.wallpaper_task_init_resource(self.dname,value)
-                pass
-            elif self.pname.lower() == 'theme_wallpaper':
-                logger.debug('Step: set resource for theme_wallpaper')
                 pass
             else:
                 logger.error('Unknown product type')
