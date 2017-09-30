@@ -4,6 +4,8 @@
 from library.myglobal import PATH,device_config
 from library.db import dbmysql
 from library.myglobal import logger
+import time
+import datetime
 
 autodb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'AUTOTEST')
 stagedb = dbmysql.MysqlDB(PATH('../config/dbconfig.ini'),'STAGE')
@@ -221,6 +223,21 @@ def insert_info_to_db(filename,ts,uid,version,dtype):
     return True
 
 
+def insert_runinfo(slist,dname, vname, loop,ltype):
+
+    cur_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    if ltype.upper() == 'ALL':
+        lt = 0
+    else:
+        lt = 1
+
+    for sid in slist.split(','):
+        query = "insert into TestCaseManage_runinfo(run_tesu_id,run_device_name,run_build_name,run_date,run_loop_number, run_loop_type) " \
+                "values({0},'{1}','{2}','{3}',{4},{5})".format(sid, dname, vname, cur_date, loop, lt)
+        autodb.execute_insert(query)
+
+
 # update stage db for module update
 def update_stage_module_network(mid, exp_network, exp_killself):
 
@@ -319,6 +336,9 @@ def update_switch(ruleID, stype, action):
         query = "update fun_wallpaper_limit set enabled=0 where id={0} and rule_id = {1} and type = '{2}'".format(diff_id[0], ruleID, 'switch')
         stagedb.execute_update(query)
 
+        # update switch
+        update_switch_time()
+
 
 def start_c_process(ruleID, action):
 
@@ -357,6 +377,15 @@ def update_operation_module(mid, exp_network, exp_killself, exp_enabled):
         updateFlag = True
 
     return updateFlag
+
+
+def update_switch_time():
+
+    t = time.time()
+    timestamp = (int(round(t * 1000)))
+    query = 'update fun_push_public set time={0} where type={1}'.format(timestamp, 'switch')
+    result = stagedb.execute_update(query)
+
 
 if __name__ == '__main__':
 

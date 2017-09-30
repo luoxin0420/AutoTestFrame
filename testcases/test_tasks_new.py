@@ -16,7 +16,7 @@ from library import logcat as dumplog
 from library import device
 from library import desktop
 from library import HTMLTestRunner
-from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,DEVICE_ACTION,TASK_COMPONENT
+from library.myglobal import device_config,logger,TASK_COMPONENT
 from business import action, vp
 from business import querydb as tc
 from business import testdata as td
@@ -246,9 +246,16 @@ def run(dname, loop, rtype):
     FAIL_CASE = []
 
     try:
+        # insert run info to database
+        dname = sys.argv[1]
+        slist = sys.argv[2]
+        vname = device_config.getValue(dname,'version')
+        tc.insert_runinfo(slist, dname, vname, loop, rtype)
+
+        # start to test
         for LOOP_NUM in range(loop):
 
-            fileobj = file(utest_log,'a+')
+            fileobj = file(utest_log, 'a+')
             if LOOP_NUM == 0 or rtype.upper() == 'ALL':
                 suite = unittest.TestLoader().loadTestsFromTestCase(TestTimerTask)
             else:
