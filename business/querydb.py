@@ -232,10 +232,40 @@ def insert_runinfo(slist,dname, vname, loop,ltype):
     else:
         lt = 1
 
-    for sid in slist.split(','):
-        query = "insert into TestCaseManage_runinfo(run_tesu_id,run_device_name,run_build_name,run_date,run_loop_number, run_loop_type) " \
-                "values({0},'{1}','{2}','{3}',{4},{5})".format(sid, dname, vname, cur_date, loop, lt)
-        autodb.execute_insert(query)
+    query = "insert into TestCaseManage_runinfo(run_tesu_id,run_device_name,run_build_name,run_date,run_loop_number, run_loop_type) " \
+                "values('{0}','{1}','{2}','{3}',{4},{5})".format(slist, dname, vname, cur_date, loop, lt)
+    autodb.execute_insert(query)
+
+    # get new id value
+    query = "select MAX(run_id) from TestCaseManage_runinfo"
+    result = autodb.select_one_record(query)
+    id = str(result[0]['MAX(run_id)'])
+    return id
+
+
+def insert_test_result(run_id, teca_id, lp_num, teca_result, log):
+
+    # get suite id
+    query = "select run_tesu_id from TestCaseManage_runinfo where run_id={0}".format(run_id)
+    result = autodb.select_one_record(query)
+    sid = result[0]['run_tesu_id'].encode('utf8').split(',')
+
+    # get case mapping suite_id
+    query = "select distinct tsca_tesu_id from TestCaseManage_testsuitecase where tsca_teca_id = {0}".format(teca_id)
+    result = autodb.select_many_record(query)
+    sid2 = []
+    for re in result:
+        sid2.append(str(re['tsca_tesu_id']))
+    # get insection set
+    final_sid = ','.join(list(set(sid) & set(sid2)))
+
+    # insert result to db
+    cur_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log = log.replace('\\', '/')
+    query = "insert into TestCaseManage_testresult(resu_run_id,resu_tesu_id,resu_teca_id,resu_loop,resu_date_time, resu_result, resu_log_info) " \
+                "values({0},'{1}',{2},{3},'{4}','{5}','{6}')".format(run_id, final_sid, teca_id, lp_num, cur_date, teca_result, log)
+    autodb.execute_insert(query)
+
 
 
 # update stage db for module update
@@ -391,5 +421,6 @@ if __name__ == '__main__':
 
     #insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')
     #value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
-    update_switch('3423', 'dev_statistic', 'off')
+    #update_switch('3423', 'dev_statistic', 'off')
+    insert_test_result(7, 1, 3, 'pass', '/test/log.txt')
     pass

@@ -51,6 +51,7 @@ class TestModuleUpdate(unittest.TestCase):
         self.result = True
         self.log_count = 1
         self.pid = []
+        self.case_id = None
 
     def tearDown(self):
 
@@ -73,11 +74,13 @@ class TestModuleUpdate(unittest.TestCase):
             if ok:
                 RESULT_DICT[self._testMethodName]['Result'].append('PASS')
                 RESULT_DICT[self._testMethodName]['Log'].append('')
+                tc.insert_test_result(RUN_ID, self.case_id, LOOP_NUM, 'PASS', os.path.abspath(self.log_name))
             else:
                 RESULT_DICT[self._testMethodName]['Result'].append('FAILED')
                 RESULT_DICT[self._testMethodName]['Log'].append(os.path.basename(self.log_name))
                 # insert into fail case list
                 FAIL_CASE.append(self._testMethodName)
+                tc.insert_test_result(RUN_ID, self.case_id, LOOP_NUM, 'FAILED', os.path.abspath(self.log_name))
 
         except Exception,ex:
 
@@ -134,7 +137,7 @@ class TestModuleUpdate(unittest.TestCase):
 
         print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
-
+        self.case_id = data['teca_id']
         new_data, dict_data, business_order, vp_type_name = td.handle_db_data(data)
         vpname = tc.get_vp_name(data['teca_vp_id'])
 
@@ -170,7 +173,7 @@ class TestModuleUpdate(unittest.TestCase):
 def run(dname, loop, rtype):
 
     global DEVICENAME, DEVICE, LogPath
-    global LOOP_NUM, RESULT_DICT, FAIL_CASE
+    global LOOP_NUM, RESULT_DICT, FAIL_CASE, RUN_ID
 
 
     DEVICENAME = dname
@@ -185,6 +188,11 @@ def run(dname, loop, rtype):
     RESULT_DICT = {}
     FAIL_CASE = []
 
+    # insert run info to database
+    dname = sys.argv[1]
+    slist = sys.argv[2]
+    vname = device_config.getValue(dname,'version')
+    RUN_ID = tc.insert_runinfo(slist, dname, vname, loop, rtype)
     try:
         for LOOP_NUM in range(loop):
 

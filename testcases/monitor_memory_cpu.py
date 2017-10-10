@@ -51,6 +51,7 @@ class TestMemoryCPU(unittest.TestCase):
         self.pid = []
         self.ts = None
         self.monitor_type = None
+        self.case_id = None
 
     def tearDown(self):
 
@@ -73,11 +74,13 @@ class TestMemoryCPU(unittest.TestCase):
             if ok:
                 RESULT_DICT[self._testMethodName]['Result'].append('PASS')
                 RESULT_DICT[self._testMethodName]['Log'].append('')
+                tc.insert_test_result(RUN_ID, self.case_id, LOOP_NUM, 'PASS', os.path.abspath(self.log_name))
             else:
                 RESULT_DICT[self._testMethodName]['Result'].append('FAILED')
                 RESULT_DICT[self._testMethodName]['Log'].append(os.path.basename(self.log_name))
                 # insert into fail case list
                 FAIL_CASE.append(self._testMethodName)
+                tc.insert_test_result(RUN_ID, self.case_id, LOOP_NUM, 'PASS', os.path.abspath(self.log_name))
 
         except Exception,ex:
 
@@ -131,6 +134,7 @@ class TestMemoryCPU(unittest.TestCase):
 
         print('CaseName:' + data['teca_mname'])
         logger.debug('CaseName:' + data['teca_mname'])
+        self.case_id = data['teca_id']
         # handle with database data, unicode to str
         new_data = {}
         for key, value in data.items():
@@ -192,7 +196,7 @@ class TestMemoryCPU(unittest.TestCase):
 def run(dname, loop, rtype):
 
     global DEVICENAME, DEVICE, LogPath
-    global LOOP_NUM, RESULT_DICT, FAIL_CASE
+    global LOOP_NUM, RESULT_DICT, FAIL_CASE, RUN_ID
 
 
     DEVICENAME = dname
@@ -206,6 +210,12 @@ def run(dname, loop, rtype):
     # ##RESULT_DICT format {casename:{Result:['PASS','PASS'],Log:['','']}}#####
     RESULT_DICT = {}
     FAIL_CASE = []
+
+    # insert run info to database
+    dname = sys.argv[1]
+    slist = sys.argv[2]
+    vname = device_config.getValue(dname,'version')
+    RUN_ID = tc.insert_runinfo(slist, dname, vname, loop, rtype)
 
     try:
         for LOOP_NUM in range(loop):
