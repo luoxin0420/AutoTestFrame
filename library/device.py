@@ -224,7 +224,8 @@ class Device(object):
             expe_time = datetime.datetime.strftime(expe_time,'%Y%m%d.%H%M%S')
             cmd = 'adb -s {0} shell su 0 date -s {1} '.format(self.uid,expe_time)
 
-            if self.name.upper().find('VIVO') != -1:
+            name = device_config.getValue(self.uid,'name')
+            if name.upper().find('VIVO') != -1:
                 cmd = 'adb -s {0} shell date -s {1} '.format(self.uid,expe_time)
 
         else:
@@ -410,6 +411,12 @@ class Device(object):
             return True
         else:
             return False
+
+    # special Language&Input setting and method (ADBKeyBoard)
+    def input_unicode_by_adb(self, text):
+
+        cmd = "".join(["adb -s ", self.uid, " shell am broadcast -a ADB_INPUT_TEXT --es msg ", "'", text, "'"])
+        self.shellPIPE(cmd)
 
 if __name__ == '__main__':
 

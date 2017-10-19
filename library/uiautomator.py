@@ -129,7 +129,7 @@ def get_element_attribute(uid,id,index,attrib):
 
     element = Element(uid)
 
-    find_eles = element.findElementsById(id,attribute=attrib)
+    find_eles = element.findElementsById(id, attribute=attrib)
     i = 0
     for el in find_eles:
         if i == index:

@@ -82,7 +82,7 @@ def create_logger(filename):
     return logger
 
 
-def get_log_name(device_name,basename):
+def get_log_name(device_name,basename, suffix='.log'):
 
     cur_date = datetime.datetime.now().strftime("%Y%m%d")
     now = datetime.datetime.now().strftime("%H%M")
@@ -93,7 +93,8 @@ def get_log_name(device_name,basename):
     if not os.path.isdir(parent_path):
         os.makedirs(parent_path)
 
-    filename = os.path.join(parent_path,'result.log')
+    dname = 'result' + suffix
+    filename = os.path.join(parent_path,dname)
 
     return filename
 

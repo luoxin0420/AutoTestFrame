@@ -35,6 +35,20 @@ def filter_cases(suite_id, comp_list, pid):
     return cases
 
 
+def filter_image_source(vendor):
+
+    # get vendor ID
+    query = 'select id  from resource_vendor where vendor="{0}"'.format(vendor)
+    result = autodb.select_one_record(query)
+    vid = str(result[0]['id'])
+
+    query = 'select A.*, B.alias from resource_image A INNER JOIN resource_verification B ON A.id = B.img_id where B.vendor_id = {0} and B.enable = 1'.format(vid)
+    cases = autodb.select_many_record(query)
+    if len(cases) == 0:
+        logger.warning('There are not test cases')
+    return cases
+
+
 def get_action_list(comp_id):
 
     """
@@ -232,14 +246,17 @@ def insert_runinfo(slist,dname, vname, loop,ltype):
     else:
         lt = 1
 
-    query = "insert into TestCaseManage_runinfo(run_tesu_id,run_device_name,run_build_name,run_date,run_loop_number, run_loop_type) " \
-                "values('{0}','{1}','{2}','{3}',{4},{5})".format(slist, dname, vname, cur_date, loop, lt)
+    query = "insert into TestCaseManage_runinfo(run_tesu_id,run_device_name,run_build_name,run_date,run_loop_number, run_loop_type, run_name) " \
+                "values('{0}','{1}','{2}','{3}',{4},{5}, '{6}')".format(slist, dname, vname, cur_date, loop, lt, 'qatest')
     autodb.execute_insert(query)
 
     # get new id value
     query = "select MAX(run_id) from TestCaseManage_runinfo"
     result = autodb.select_one_record(query)
     id = str(result[0]['MAX(run_id)'])
+
+    # update run name
+    query = ""
     return id
 
 
