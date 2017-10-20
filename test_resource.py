@@ -143,7 +143,7 @@ def set_resource_action(uid, action, qstr):
                         index = len(ele) - 1
                         event.touch(ele[index][0]-int(x), ele[index][1]-int(y))
                     else:
-                        my_logger.write('TEST_STEP','Click ' + text)
+                        #my_logger.write('TEST_STEP','Click ' + value)
                         event.touch(ele[0]-int(x), ele[1]-int(y))
                         sleep(5)
     except Exception, ex:
@@ -153,44 +153,51 @@ def set_resource_action(uid, action, qstr):
 def unlock_screen(uid, dt):
 
     # actual screen size
+    my_logger.write('TEST_STEP', 'Unlock Screen')
     uobj = ul.unlockScreen(uid)
-
     # reference_resolution
-
     res = dt['ref_resolution'].split(',')
-
     # start point
-    if dt['start_point'] is not None:
+    if dt['start_point'] is not None and dt['start_point'] != '':
         start = dt['start_point'].split(',')
     else:
         start = [0,0]
-
     actu_start = uobj.convert_coordinate(int(start[0]),int(start[1]),int(res[0]),int(res[1]))
-
     # end point
-    if dt['end_point'] is not None:
+    if dt['end_point'] is not None and dt['start_point'] != '':
         end = dt['end_point'].split(',')
     else:
         end = [0,0]
     actu_end = uobj.convert_coordinate(int(end[0]),int(end[1]),int(res[0]),int(res[1]))
-
-    distance = dt['distance']
-    duration = dt['duration']
+    # distance
+    if dt['distance'] is not None and dt['distance'] != '':
+        distance = int(dt['distance'])
+    else:
+        distance = 0
+    #duration
+    if dt['duration'] is not None and dt['duration'] != '':
+        duration = int(dt['duration'])
+    else:
+        duration = 200
+    #unlock type
+    utype = int(dt['unlock_type'])
 
     # unlock screen according to different type
-    if dt['unlock_type'] == 4:
-        uobj.right_slide(actu_start,actu_end,distance,duration)
-    elif dt['unlock_type'] == 3:
-        uobj.left_slide(actu_start,actu_end,distance,duration)
-    elif dt['unlock_type'] == 2:
-        uobj.down_slide(actu_start,actu_end,distance,duration)
-    elif dt['unlock_type'] == 1:
-        uobj.up_slide(actu_start,actu_end,distance,duration)
+    if utype == 4:
+        uobj.right_slide(actu_start,actu_end,distance, duration)
+    elif utype == 3:
+        uobj.left_slide(actu_start,actu_end,distance, duration)
+    elif utype == 2:
+        uobj.down_slide(actu_start,actu_end,distance, duration)
+    elif utype == 1:
+        uobj.up_slide(actu_start,actu_end,distance, duration)
     else:
-        uobj.other_slide(actu_start,actu_end,distance,duration)
+        uobj.other_slide(actu_start,actu_end,distance, duration)
+
+    sleep(2)
 
 
-def verify_animation(dt,sname):
+def verify_animation(dt,sname,uid):
 
     loop = 0
     # verify loop image resource
@@ -207,12 +214,14 @@ def verify_animation(dt,sname):
     # Verify animation effect
     loop += 1
     action = dt['animation_action']
+    desc = dt['animation_desc']
     if dt['animation_flag'] != 0:
         my_logger.write('TEST_STEP', 'Verify animation effect')
+        my_logger.write('TEST_DEBUG', desc.encode('gbk'))
         try:
             threads = []
-            install_app = threading.Thread(target=screen_operation, args=(action,10))
             proc_process = threading.Thread(target=save_animation_screenshot, args=(3, sname, loop))
+            install_app = threading.Thread(target=screen_operation, args=(uid, action,10))
             threads.append(proc_process)
             threads.append(install_app)
             for t in threads:
@@ -222,26 +231,42 @@ def verify_animation(dt,sname):
             t.join()
         except Exception, ex:
             pass
+    sleep(2)
 
-
-def screen_operation(action, duration):
+# duration unit is second
+def screen_operation(uid, action, duration):
 
     #sleep
     if action == 4:
         sleep(duration)
+
+    width, height = my_device.get_screen_size()
     # swipe
     if action == 3:
-        pass
+        loop = int(duration/3)
+        for i in range(loop):
+            cmd = "adb -s {0} shell input swipe {1} {2} {3} {4} {5}".format \
+                    (uid,int(width/10),int(height/10*3),int(width/10),int(height/5*2), 500)
+            my_device.shellPIPE(cmd)
+            cmd = "adb -s {0} shell input swipe {1} {2} {3} {4} {5}".format \
+                    (uid,int(width/10),int(height/5*2),int(width/10),int(height/10*3), 500)
+            my_device.shellPIPE(cmd)
+            sleep(2)
+    # click
+    if action == 1:
+        loop = int(duration/0.5)
+        for i in range(loop):
+            my_device.click_screen_by_coordinate(width/10,height/10)
+            sleep(0.5)
 
 
 def save_animation_screenshot(number, sname, loop):
 
     for i in range(number):
+        sleep(3)
         name = sname + '_' + str(loop)
         save_screenshots(name)
         loop += 1
-        sleep(3)
-
 
 
 def save_screenshots(name):
@@ -287,7 +312,7 @@ if __name__ == '__main__':
     try:
         for dt in datas:
 
-            if dt['alias'] is not None:
+            if dt['alias'] is not None and dt['alias'] != '':
                 search_name = dt['alias'].encode('gbk')
             else:
                 search_name = dt['name'].encode('gbk')
@@ -298,9 +323,8 @@ if __name__ == '__main__':
             set_resource_action(uid, 'search', search_name)
             # input resource name
             my_device.input_unicode_by_adb(search_name)
-            sleep(5)
+            sleep(15)
             # access to the next cycle
-            sleep(3)
             my_logger.write('TEST_STEP','Set new resource')
             set_resource_action(uid, 'set', search_name)
 
@@ -317,11 +341,9 @@ if __name__ == '__main__':
             save_screenshots(search_name)
 
             #animation effect verify
+            verify_animation(dt, search_name,uid)
 
-            #verify_animation(dt)
-
-
-            # unlock screen and screenshots
+            #unlock screen and screenshots
             unlock_screen(uid, dt)
             save_screenshots(search_name+'_unlock')
             cmd = "".join(["adb -s ", uid, " dumpsys activity activities"])
@@ -331,9 +353,11 @@ if __name__ == '__main__':
                 break
             else:
                 my_logger.write('TEST_PASS','Unlock screen is success')
+
+            sleep(2)
     except Exception,ex:
 
-        my_logger.write('TEST_WARN','Unlock screen is success')
+        my_logger.write('TEST_WARN','Unlock screen is failed')
 
 
 
