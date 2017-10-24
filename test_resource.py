@@ -17,6 +17,10 @@ from business import querydb as tc
 from library import unlock as ul
 
 
+# 需要安装ADBKEYBOARD 输入法
+# 需要设置开发者选项-屏幕是亮屏状态
+
+
 def write_html_header(logname,title):
 
     htmlhead = '''<html>
@@ -169,9 +173,15 @@ def unlock_screen(uid, dt):
     else:
         end = [0,0]
     actu_end = uobj.convert_coordinate(int(end[0]),int(end[1]),int(res[0]),int(res[1]))
+    #unlock type
+    utype = int(dt['unlock_type'])
     # distance
     if dt['distance'] is not None and dt['distance'] != '':
         distance = int(dt['distance'])
+        if utype == 3 or utype == 4:
+            distance = (distance * uobj.width)/int(res[0])
+        else:
+            distance = (distance * uobj.height)/int(res[1])
     else:
         distance = 0
     #duration
@@ -179,8 +189,7 @@ def unlock_screen(uid, dt):
         duration = int(dt['duration'])
     else:
         duration = 200
-    #unlock type
-    utype = int(dt['unlock_type'])
+
 
     # unlock screen according to different type
     if utype == 4:
@@ -220,14 +229,14 @@ def verify_animation(dt,sname,uid):
         my_logger.write('TEST_DEBUG', desc.encode('gbk'))
         try:
             threads = []
-            proc_process = threading.Thread(target=save_animation_screenshot, args=(3, sname, loop))
+            proc_process = threading.Thread(target=save_animation_screenshot, args=(4, sname, loop))
             install_app = threading.Thread(target=screen_operation, args=(uid, action,10))
-            threads.append(proc_process)
             threads.append(install_app)
+            threads.append(proc_process)
             for t in threads:
                 t.setDaemon(True)
                 t.start()
-                sleep(2)
+                sleep(1)
             t.join()
         except Exception, ex:
             pass
@@ -263,10 +272,10 @@ def screen_operation(uid, action, duration):
 def save_animation_screenshot(number, sname, loop):
 
     for i in range(number):
-        sleep(3)
         name = sname + '_' + str(loop)
         save_screenshots(name)
         loop += 1
+        sleep(2)
 
 
 def save_screenshots(name):
@@ -330,6 +339,9 @@ if __name__ == '__main__':
 
             # return back HOME
             my_logger.write('TEST_STEP', 'Return back Home screen')
+            for i in range(3):
+                my_device.send_keyevent(4)
+                sleep(1)
             my_device.send_keyevent(3)
             sleep(2)
 

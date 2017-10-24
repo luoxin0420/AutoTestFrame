@@ -26,7 +26,7 @@ class unlockScreen(object):
 
         if orig[0] == 0 and orig[1] == 0:
             cmd = "adb -s {0} shell input swipe {1} {2} {3} {4} {5}".format \
-                (self.uid,int(self.width/5),int(self.height/4*3),int(self.width/5*4),int(self.height/4*3), duration)
+                (self.uid,int(self.width/5),int(self.height/6*5),int(self.width/5*4),int(self.height/6*5), duration)
         if orig[0] != 0 and dest[0] == 0:
             cmd = "adb -s {0} shell input swipe {1} {2} {3} {4} {5}".format \
                 (self.uid,int(orig[0]),int(orig[1]),int(orig[0] + distance), int(orig[1]), duration)
@@ -40,7 +40,7 @@ class unlockScreen(object):
 
         if orig[0] == 0 and orig[1] == 0:
             cmd = "adb -s {0} shell input swipe {1} {2} {3} {4} {5}".format \
-                (self.uid,int(self.width/2),int(self.height/4*3),int(self.width/2),int(self.height/2), duration)
+                (self.uid,int(self.width/2),int(self.height/6*5),int(self.width/2),int(self.height/2), duration)
         if orig[0] != 0 and dest[0] == 0:
             cmd = "adb -s {0} shell input swipe {1} {2} {3} {4} {5}".format \
                 (self.uid,int(orig[0]),int(orig[1]),int(orig[0]), int(orig[1]-distance), duration)

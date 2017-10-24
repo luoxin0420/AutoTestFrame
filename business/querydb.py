@@ -439,5 +439,15 @@ if __name__ == '__main__':
     #insert_info_to_db(r'E:\AutoTestFrame\log\20170817\ZX1G22TG4F_\1801TestMemory\test_memory_cpu_1_0_1','201708081629','ZX1G22TG4F','2.01','memory')
     #value = get_memory_info('ZX1G22TG4F', '201708081629', '1.01', 'avg')
     #update_switch('3423', 'dev_statistic', 'off')
-    insert_test_result(7, 1, 3, 'pass', '/test/log.txt')
+    #insert_test_result(7, 1, 3, 'pass', '/test/log.txt')
+
+    import csv
+
+    with open(r'E:\work\vivo.csv') as rfile:
+        reader = csv.reader(rfile)
+        for line in reader:
+            #name = unicode(line[0],'gbk')
+            #query = 'insert resource_image(name,fid,xml_id) values("{0}",{1},{2})'.format(name, line[1], line[2])
+            query = 'insert resource_verification(vendor_id, img_id, enable) values({0},{1},{2})'.format(line[3],line[4],line[5])
+            autodb.execute_insert(query)
     pass
