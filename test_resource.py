@@ -17,8 +17,9 @@ from business import querydb as tc
 from library import unlock as ul
 
 
-# 需要安装ADBKEYBOARD 输入法
-# 需要设置开发者选项-屏幕是亮屏状态
+# 需要安装ADBKEYBOARD 输入法,并且设置为默认输入法
+# 需要设置开发者选项-保持响醒状态
+# 确保设置锁屏或者主题的应用是在其主界面
 
 
 def write_html_header(logname,title):
@@ -149,7 +150,11 @@ def set_resource_action(uid, action, qstr):
                     else:
                         #my_logger.write('TEST_STEP','Click ' + value)
                         event.touch(ele[0]-int(x), ele[1]-int(y))
-                        sleep(5)
+                    if text.find(u'下载') != -1:
+                        timeout = resource_config.getValue(uid,'download_timeout')
+                        sleep(int(timeout))
+                    else:
+                        sleep(3)
     except Exception, ex:
         print ex
 
@@ -224,13 +229,17 @@ def verify_animation(dt,sname,uid):
     loop += 1
     action = dt['animation_action']
     desc = dt['animation_desc']
+    if dt['animation_para'] is not None:
+        location = dt['animation_para'].split(',')
+    else:
+        location = [0,0]
     if dt['animation_flag'] != 0:
         my_logger.write('TEST_STEP', 'Verify animation effect')
         my_logger.write('TEST_DEBUG', desc.encode('gbk'))
         try:
             threads = []
             proc_process = threading.Thread(target=save_animation_screenshot, args=(4, sname, loop))
-            install_app = threading.Thread(target=screen_operation, args=(uid, action,10))
+            install_app = threading.Thread(target=screen_operation, args=(uid, action, 10, location))
             threads.append(install_app)
             threads.append(proc_process)
             for t in threads:
@@ -242,8 +251,9 @@ def verify_animation(dt,sname,uid):
             pass
     sleep(2)
 
+
 # duration unit is second
-def screen_operation(uid, action, duration):
+def screen_operation(uid, action, duration, location):
 
     #sleep
     if action == 4:
@@ -264,18 +274,23 @@ def screen_operation(uid, action, duration):
     # click
     if action == 1:
         loop = int(duration/0.5)
+        if int(location[0]) == 0 and int(location[1]) == 0:
+            x, y = width/10, height/10
+        else:
+            x, y = location[0], location[1]
         for i in range(loop):
-            my_device.click_screen_by_coordinate(width/10,height/10)
+            my_device.click_screen_by_coordinate(x, y)
             sleep(0.5)
 
 
 def save_animation_screenshot(number, sname, loop):
 
     for i in range(number):
+        sleep(2)
         name = sname + '_' + str(loop)
         save_screenshots(name)
         loop += 1
-        sleep(2)
+
 
 
 def save_screenshots(name):
@@ -289,6 +304,9 @@ if __name__ == '__main__':
 
     global my_logger
     global my_device, logdir
+
+
+
 
     newParser = argparse.ArgumentParser()
     newParser.add_argument("-u", "--uid", dest="uid", help="Your device uid")
@@ -356,6 +374,8 @@ if __name__ == '__main__':
             verify_animation(dt, search_name,uid)
 
             #unlock screen and screenshots
+            sleep(1)
+            my_logger.write('TEST_STEP', 'Unlock Screen')
             unlock_screen(uid, dt)
             save_screenshots(search_name+'_unlock')
             cmd = "".join(["adb -s ", uid, " dumpsys activity activities"])
