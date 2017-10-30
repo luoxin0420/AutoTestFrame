@@ -3,7 +3,7 @@
 
 from time import sleep
 
-from library import uiautomator
+from library import myuiautomator
 from library import device
 from library.myglobal import magazine_config
 
@@ -29,20 +29,20 @@ def set_magazine_app_switch(dname,action):
     index = int(temp[1])
 
     # click setting button
-    uiautomator.click_element_by_id(dname,location,index)
+    myuiautomator.click_element_by_id(dname,location,index)
     sleep(1)
 
     # get current state of switch
     temp =  setting_path[1].split('::')
     location = temp[0]
     index = int(temp[1])
-    state = uiautomator.get_element_attribute(dname,location,index,'checked')
+    state = myuiautomator.get_element_attribute(dname,location,index,'checked')
 
     if action.upper() == 'ON' and state != 'true':
-        uiautomator.click_element_by_id(dname,location,index)
+        myuiautomator.click_element_by_id(dname,location,index)
 
     if action.upper() == 'OFF' and state == 'true':
-        uiautomator.click_element_by_id(dname,location,index)
+        myuiautomator.click_element_by_id(dname,location,index)
 
     DEVICE.do_popup_windows(2,[u'关闭'])
     sleep(1)
@@ -74,13 +74,13 @@ def set_security_magazine_switch(dname,action):
     index = int(setting_path[1])
 
     # check current state
-    state = uiautomator.get_element_attribute(dname,location,index,'checked')
+    state = myuiautomator.get_element_attribute(dname,location,index,'checked')
 
     if action.upper() == 'ON' and state != 'true':
-        uiautomator.click_element_by_id(dname,location,index)
+        myuiautomator.click_element_by_id(dname,location,index)
 
     if action.upper() == 'OFF' and state == 'true':
-        uiautomator.click_element_by_id(dname,location,index)
+        myuiautomator.click_element_by_id(dname,location,index)
 
     #return back to HOME
     DEVICE.send_keyevent(3)

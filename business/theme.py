@@ -3,7 +3,7 @@
 
 from time import sleep
 
-from library import uiautomator
+from library import myuiautomator
 from library import device
 from library.myglobal import theme_config
 
@@ -26,16 +26,16 @@ def set_device_theme(dname, theme_type):
         vlife_theme_path = theme_config.getValue(dname,'vlife_theme_path').split('|')
     else:
         vlife_theme_path = theme_config.getValue(dname,'system_theme_path').split('|')
-    # element = uiautomator.Element(dname)
-    # event = uiautomator.Event(dname)
+    # element = myuiautomator.Element(dname)
+    # event = myuiautomator.Event(dname)
 
     try:
 
         for text in vlife_theme_path:
             x = 0
             y = 0
-            element = uiautomator.Element(dname)
-            event = uiautomator.Event(dname)
+            element = myuiautomator.Element(dname)
+            event = myuiautomator.Event(dname)
             if text.find(':') == -1:
                 value = unicode(text)
             # because there is not 'click' action on text, so have to click next to element

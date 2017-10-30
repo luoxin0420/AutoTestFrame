@@ -146,3 +146,4 @@ if __name__ == '__main__':
     # print
     # e2 = element.findElementByName(u"信息")
     # evevt.touch(e2[0], e2[1])
+

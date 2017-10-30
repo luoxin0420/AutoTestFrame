@@ -11,7 +11,7 @@ import threading
 from library import device
 from library.mylog.logger import log
 from library import desktop
-from library import uiautomator
+from library import myuiautomator
 from library.myglobal import resource_config
 from business import querydb as tc
 from library import unlock as ul
@@ -137,8 +137,8 @@ def set_resource_action(uid, action, qstr):
                 my_device.click_screen_by_coordinate(x, y)
                 sleep(2)
             else:
-                element = uiautomator.Element(uid)
-                event = uiautomator.Event(uid)
+                element = myuiautomator.Element(uid)
+                event = myuiautomator.Event(uid)
                 if text.find('RNAME') == -1:
                     ele = element.findElementByName(unicode(value))
                 else:

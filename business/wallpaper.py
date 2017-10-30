@@ -3,7 +3,7 @@
 
 from time import sleep
 
-from library import uiautomator
+from library import myuiautomator
 from library import device
 from library.myglobal import wallpaper_config
 
@@ -29,8 +29,8 @@ def set_device_wallpaper(dname, theme_type):
         DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
         sleep(2)
         vlife_path = wallpaper_config.getValue(dname,'system_wallpaper_path').split('|')
-    element = uiautomator.Element(dname)
-    event = uiautomator.Event(dname)
+    element = myuiautomator.Element(dname)
+    event = myuiautomator.Event(dname)
 
     for text in vlife_path:
         x = 0

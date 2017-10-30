@@ -11,7 +11,7 @@ import platform
 import os
 from os import path
 
-import uiautomator
+import myuiautomator
 from library.myglobal import device_config,logger
 
 
@@ -352,7 +352,7 @@ class Device(object):
     def do_popup_windows(self,number, find_text):
 
         for i in range(number):
-            uiautomator.click_popup_window(self.uid,find_text)
+            myuiautomator.click_popup_window(self.uid,find_text)
 
     def unlock_screen(self):
 
