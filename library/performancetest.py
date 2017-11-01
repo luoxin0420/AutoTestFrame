@@ -78,21 +78,21 @@ class CaseExecutor(object):
             instance.tear_down()
         instance.suite_down()
 
-def class_loader(cls):
-    _class = getattr(adbtools,cls)
-    return _class()
-
-def get_kw_list():
-    for m in adbtools.__all__:
-        _class = class_loader(m)
-        for name,value in inspect.getmembers(_class):
-            if not name.startswith("_"):
-                func_list.append(name)
-    return func_list
+# def class_loader(cls):
+#     _class = getattr(adbtools,cls)
+#     return _class()
+#
+# def get_kw_list():
+#     for m in adbtools.__all__:
+#         _class = class_loader(m)
+#         for name,value in inspect.getmembers(_class):
+#             if not name.startswith("_"):
+#                 func_list.append(name)
+#     return func_list
 
 if __name__ == '__main__':
 
-    func_list = get_kw_list()
+    # func_list = get_kw_list()
 
     cases = CaseExecutor(1)
     cases.exec_test_case('MagazineLaunchSpeed')
