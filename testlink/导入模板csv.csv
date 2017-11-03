@@ -1,0 +1,175 @@
+支持产品类型,厂商（列表没有，需要在TESTLINK加）,执行类型（手动1，自动2）,用例优先级（1高，2中，3低）,一级目录（不能为空，列表没有，需要在TESTLINK加）,二级目录（不能为空，列表没有，需要在TESTLINK加）,用例名（不能重）,摘要,前提条件,步骤,期望结果,,,,,,,,,
+All,All,1,1,自激活,main进程自激活,重启验证自激活1,首次启动,"1、被测APK预置在System/app或system/priv-app内
+2、打开DDMS，手机已通过USB线连接电脑
+3、被测APK在AndroidManifest.xml中静态注册了BReceiver
+
+
+","全新内置，不启动vlife引擎
+1、重启手机，在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动
+2、手机重启后，进入data/data/vlife目录下查看userinfo.xml文件。","1. 重启手机后，应用程序可以自启动
+2. 目录中，会有shared_prefs目录，里面的userinfo.xml会记录first_run_time的时间。
+若checkrunday=0，目录中也会有shared_prefs目录，里面的userinfo.xml会记录",,,,,,,,,
+All,All,1,1,自激活,main进程自激活,重启验证自激活2,非首次启动,"
+2、打开DDMS，手机已通过USB线连接电脑
+3、被测APK在AndroidManifest.xml中静态注册了BReceiver
+
+
+","已启动过vlife引擎
+1、重启手机，在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxx.wallpaper）是否自启动
+","重启手机后，应用程序可以自启动
+",,,,,,,,,
+All,All,1,1,自激活,main进程自激活,切网验证自激活1,首次启动,"打开DDMS，手机已通过USB线连接电脑，wifi正常联网情况下,进程不在","1、关闭wifi，在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动
+","关闭wifi后，应用程序可以自启动
+",,,,,,,,,
+All,All,1,1,自激活,main进程自激活,切网验证自激活2,非首次启动,打开DDMS，手机已通过USB线连接电脑，wifi正常联网情况下，进程不在,"已启动过vlife引擎
+1、关闭wifi，在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动
+",关闭wifi后，应用程序可以自启动,,,,,,,,,
+All,All,1,1,自激活,main进程自激活,安装验证自激活,,已安装微乐引擎，main进程不在,"1、随意安装一个软件
+2、在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动",安装成功后，应用程序可以自启动,,,,,,,,,
+All,All,1,1,自激活,main进程自激活,卸载验证自激活,,已安装微乐引擎，main进程不在,"1、随意卸载一个软件
+2、在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动",覆盖安装成功后，应用程序可以自启动,,,,,,,,,
+All,All,1,1,自激活,main进程自激活,插入sd卡验证自激活,,手机内无sd卡,"1、插入sd卡
+2、在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动",插入sd卡，应用程序可以自启动,,,,,,,,,
+All,All,1,1,自激活,main进程自激活,拔出sd卡验证自激活,,手机内有sd卡,"1、拔出sd卡
+2、在DDMS中通过“start proc”关键字查询应用程序（com.vlife.xxxx.wallpaper）是否自启动",拔出sd卡，应用程序可以自启动,,,,,,,,,
+All,All,1,1,自激活,main进程自激活,被杀/自杀进程自激活,,,"1、资源管理器杀掉主进程或主进程已自杀
+2、向后调整时间1天，触发定期联网",主进程启动,,,,,,,,,
+All,All,1,1,自激活,保活,锁屏进程拉活主进程,,"1、真锁屏合作
+2、满足三小时时间间隔","1、cmd命令“adb shell am force-stop com.vlife.xxx.wallpaper”杀掉主进程
+2、向后调整时间3小时
+3、查看主进程状态",主进程启动,,,,,,,,,"1.老版本只有使用我们锁屏时才可以3小时拉活主进程
+2.新版本不管使用或者是未使用我们，都可以每隔3小时拉活一次主进程"
+All,All,1,1,自激活,兼容,兼容测试,双imei（双卡）手机,手机有双imei,测试以上场景,功能正常,,,,,,,,,
+All,All,1,1,启动注册,注册,"主进程首次注册
+","首次向服务器发送请求-生成uid-主进程
+",开启wifi/grps,"1、未启动主进程的情况下，通过以上自激活方式激活进程或者通过启动杂志/主题进行激活；
+2、通过key:uid关键字查看主进程在服务器端注册log中的uid信息；
+3、通过jabber:iq:reg 关键字查看注册包","2、首次启动主进程，通过key:uid关键字可以查到客户端在服务器端注册log中的uid信息；
+3.通过jabber:iq:reg 关键字可以查看注册包内容",,,,,,,,,
+All,All,1,1,启动注册,注册,主进程清缓存重新注册,清缓存，再注册可生成新uid-主进程,开启wifi/grps,"1、保持上面第13行用例的基础上；
+2、查询到uid后，清空应用程序缓存（adb shell pm clear package_name）；
+3、再次通过自激活方式激活进程或者通过启动杂志/主题进行激活；
+4、通过key:uid关键字查看主进程在服务器端注册log中的uid信息。","清空应用程序缓存后主进程再次向服务器发送请求，重新生成新的uid（第2步与第4步uid不同）。
+",,,,,,,,,
+All,All,1,1,启动注册,注册,主进程首次注册-无自激活,"首次向服务器发送请求-生成uid-主进程
+",开启wifi/grps,"1、未启动主进程的情况下，通过预览主题/壁纸进行激活；
+2、通过key:uid关键字查看主进程在服务器端注册log中的uid信息；
+3、通过jabber:iq:reg 关键字查看注册包
+注：执行前确认项目形态","2、预览主题或壁纸后，通过key:uid关键字可以查到客户端在服务器端注册log中的uid信息；
+3.通过jabber:iq:reg 关键字可以查看注册包内容",,,,,,,,,
+All,All,1,1,启动注册,注册,主进程清缓存重新注册-无自激活,清缓存，再注册可生成新uid-主进程,开启wifi/grps,"1、执行上面第15行用例；
+2、查询到uid后，清空应用程序缓存（adb shell pm clear package_name）；
+3、再次通过预览主题/壁纸进行激活进行激活；
+4、通过key:uid关键字查看主进程在服务器端注册log中的uid信息。
+注：执行前确认项目形态","清空应用程序缓存，预览主题或壁纸后，主进程再次向服务器发送请求，重新生成新的uid（第2步与第4步uid不同）。
+",,,,,,,,,
+All,All,1,1,启动注册,注册,systemui进程首次注册,首次向服务器发送请求-生成uid-systemui进程,开启wifi/grps,"1、cmd命令“adb shell kill -9 pid”杀掉systemui进程，等待systemui进程重启；
+2、通过key:uid关键字查看systemui进程在服务器端注册log中的uid信息；
+3、通过jabber:iq:reg 关键字查看注册包","2、启动systemui进程，通过key:uid关键字可以查到systemui进程在服务器端注册log中的uid信息；
+3.通过jabber:iq:reg 关键字可以查看注册包内容",,,,,,,,,只有systemui进程有联网权限才可实现此功能
+All,All,1,1,启动注册,注册,systemui进程清缓存重新注册,,开启wifi/grps,"1、保持上面第15行用例的基础上；
+2、查询到uid后，清空应用程序缓存（adb shell pm clear com.android.systemui）；
+4、等待systemui进程重新启动；
+5、通过key:uid关键字查看systemui进程在服务器端注册log中的uid信息。","清空应用程序缓存后systemui进程再次向服务器发送请求，重新生成新的uid（第2步与第4步uid不同）。
+",,,,,,,,,
+All,All,1,1,启动注册,注册,"同用户触发push主进程不重复注册
+","同一用户不重复注册，只有一个uid-主进程
+",开启wifi/grps,"1、未启动主进程的情况下，通过以上自激活方式激活进程或者通过启动杂志/主题进行激活；
+2、通过request_push关键字查询客户端是否向服务器端发送push请求；
+3、通过key:uid查询到uid后，调整手机系统时间，向后调整6小时；
+4、通过切换网络来触发push；
+5、再次通过key:uid关键字来查看主进程在服务器端注册log中的uid信息。",到达push时间间隔后再次向服务器发送请求，uid不会变。,,,,,,,,,
+All,All,1,1,启动注册,注册,"同用户重启主进程不重复注册
+","同一用户不重复注册，只有一个uid-主进程
+",开启wifi/grps,"1、未启动主进程的情况下，通过以上自激活方式激活进程或者通过启动杂志/主题进行激活；
+2、通过request_push关键字查询客户端是否向服务器端发送push请求；
+3、通过key:uid查询到uid后，向后调整一天时间，重启手机；
+4、再次通过key:uid关键字来查看主进程在服务器端注册log中的uid信息。",重启手机后再次向服务器发送请求，uid不会变。,,,,,,,,,
+All,All,1,1,启动注册,注册,"同用户主进程重启不重复注册
+","同一用户不重复注册，只有一个uid-主进程
+",开启wifi/grps,"1、未启动主进程的情况下，通过以上自激活方式激活进程或者通过启动杂志/主题进行激活；
+2、通过request_push关键字查询客户端是否向服务器端发送push请求；
+3、通过key:uid查询到uid后，查询到uid后，杀掉进程；
+4、再次通过以上自激活方式激活进程或者通过启动杂志/主题进行激活
+4、再次通过key:uid关键字来查看主进程在服务器端注册log中的uid信息。",进程重启后再次向服务器发送请求，uid不会变。,,,,,,,,,
+All,All,1,1,启动注册,注册,同用户触发push systemui进不重复注册,"同一用户不重复注册，只有一个uid-systemui进程
+",开启wifi/grps,"1、cmd命令“adb shell kill -9 pid”杀掉systemui进程，等待systemui进程重启；
+2、通过request_push关键字查询客户端是否向服务器端发送push请求；
+3、查询到uid后，向后调整时间1天，切换网络；
+4、再次通过key:uid关键字来查看systemui进程在服务器端注册log中的uid信息。",到达push时间间隔后再次向服务器发送请求，systemui进程的uid都不会变。,,,,,,,,,
+All,All,1,1,启动注册,注册,同用户重启systemui进程不重复注册1,,开启wifi/grps,"1、继续第20行用例；
+2、通过request_push关键字查询客户端是否向服务器端发送push请求；
+3、查询到uid后，向后调整时间1天，重启手机；
+4、再次通过key:uid关键字来查看systemui进程在服务器端注册log中的uid信息。",重启手机后再次向服务器发送请求，systemui进程uid不会变。,,,,,,,,,
+All,All,1,1,启动注册,注册,"同用户重启systemui进程不重复注册2
+",,开启wifi/grps,"1、继续第21行用例；
+2、通过request_push关键字查询客户端是否向服务器端发送push请求；
+3、查询到uid后，向后调整时间1天，通过cmd命令“adb shell kill -9 pid”杀掉systemui进程，等待systemui进程重启；
+4、再次通过key:uid关键字来查看systemui进程在服务器端注册log中的uid信息。",重启进程后再次向服务器发送请求，systemui进程uid不会变。,,,,,,,,,
+All,All,1,1,启动注册,注册,wifi网络环境注册,网络环境-验证WIFI是否可正常注册,,1、WIFI下通过以上自激活方式激活进程或者通过启动杂志/主题进行激活,wifi网络可注册，生成uid,,,,,,,,,
+All,All,1,1,启动注册,注册,gprs网络环境注册,网络环境-验证gprs是否可正常注册,,1、蜂窝网下通过以上自激活方式激活进程或者通过启动杂志/主题进行激活,gprs网络可注册，生成uid,,,,,,,,,
+All,All,1,1,启动注册,注册,注册失败重试,,,"1、中断网络，任意方式激活活启动应用，造成满足注册条件注册失败的场景
+2、恢复网络连接，查看能否正常重新进行注册",网络恢复后能重新注册成功,,,,,,,,,
+All,All,1,1,启动注册,注册,登录包uid检查1,登录包内容检查-uid-主进程,开启wifi/grps,"1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查uid",主进程uid不为空,,,,,,,,,
+All,All,1,1,启动注册,注册,登录包uid检查2,登录包内容检查-uid-systemui进程,开启wifi/grps,"1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查uid",systemui进程uid不为空,,,,,,,,,
+All,All,1,1,启动注册,注册,登录包版本号和渠道号检查,"登录包内容检查-版本号和渠道号
+（主进程-systemui进程）",开启wifi/grps,"1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查product soft/promotion","product标签中，属性值能正常记录三位版本号，key值为product信息，如：
+
+<product soft=""6.111"" micro=""4"">android-karbonn-magazine</product>
+
+promotion标签key值与签名工具签署的一致，当签名工具签署的与打包时Manifest中配置不同时，以工具签署id为准，如：
+<promotion>2057</promotion>
+",,,,,,,,,
+All,All,1,1,启动注册,注册,登录包资源id检查1,登录包内容检查-资源id-主题合作(锁屏+壁纸)-主进程,"注：测试该case时，先与对应项目负责人确认该产品与如下哪种形态相符,均不相符的需另外补充预期结果","1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查lockscreen_id
+3、检查wallpaper_id
+","当前使用id为a的主题时
+wallpaper_id和lockscreen_id均记录为a，支持混搭的需另外确认需求
+切换为成其他三方引擎（如掌酷）主题或系统默认锁屏时，wallpaper_id和lockscreen_id均为0（注：一定不能是b，这里出过事故，一定小心验证）",,,,,,,,,
+All,All,1,1,启动注册,注册,登录包资源id检查2,登录包内容检查-资源id-主题合作(锁屏+壁纸)-systemui进程,"注：测试该case时，先与对应项目负责人确认该产品与如下哪种形态相符,均不相符的需另外补充预期结果","1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查lockscreen_id
+3、检查wallpaper_id
+","当前使用id为a的主题时
+主进程wallpaper_id记录为a，lockscreen_id记录为0，锁屏进程wallpaper_id记录为0，lockscreen_id记录为a，支持混搭的需另外确认需求
+切换为成其他三方引擎（如掌酷）主题或系统默认锁屏时，wallpaper_id和lockscreen_id均为0（注：一定不能是b，这里出过事故，一定小心验证）",,,,,,,,,
+All,All,1,1,启动注册,注册,登录包资源id检查3,登录包内容检查-资源id-主题合作(锁屏)-主进程,"注：测试该case时，先与对应项目负责人确认该产品与如下哪种形态相符,均不相符的需另外补充预期结果","1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查lockscreen_id
+3、检查wallpaper_id
+","当前使用id为a的主题时
+lockscreen_id记a，wallpaper_id为0，支持混搭的需另外确认需求
+切换为成其他三方引擎（如掌酷）主题或系统默认锁屏时，wallpaper_id和lockscreen_id均为0（注：一定不能是b，这里出过事故，一定小心验证）",,,,,,,,,
+All,All,1,1,启动注册,注册,登录包资源id检查4,登录包内容检查-资源id-主题合作(锁屏)-systemui进程,"注：测试该case时，先与对应项目负责人确认该产品与如下哪种形态相符,均不相符的需另外补充预期结果","1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查lockscreen_id
+3、检查wallpaper_id
+","当前使用id为a的主题时
+主进程wallpaper_id记录为0，lockscreen_id记录为0，锁屏进程wallpaper_id记录为0，lockscreen_id记录为a，支持混搭的需另外确认需求
+切换为成其他三方引擎（如掌酷）主题或系统默认锁屏时，wallpaper_id和lockscreen_id均为0（注：一定不能是b，这里出过事故，一定小心验证）",,,,,,,,,
+All,All,1,1,启动注册,注册,登录包资源id检查5,登录包内容检查-资源id-动态壁纸-主进程,"注：测试该case时，先与对应项目负责人确认该产品与如下哪种形态相符,均不相符的需另外补充预期结果",4、检查wallpaper_id,"当前使用id为a的壁纸时
+wallpaper_id记录为a，支持混搭的需另外确认需求
+切换为成其他三方壁纸时，wallpaper_id为0（注：一定不能是b，这里出过事故，一定小心验证）",,,,,,,,,
+All,All,1,1,启动注册,注册,登录包imei检查,"登录包内容检查-imei
+（主进程-systemui进程）",,"1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查imei",登录包中imei号与手机imei号一致,,,,,,,,,
+All,All,1,1,启动注册,注册,登录包mac检查,"登录包内容检查-mac
+（主进程-systemui进程）",,"1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查mac",登录包中mac地址与手机mac地址一致,,,,,,,,,
+All,All,1,1,启动注册,注册,登录包android版本检查,"登录包内容检查-android版本
+（主进程-systemui进程）",,"1、通过""< iq或jabber:iq:auth""关键字来查客户端发送的登陆包
+2、检查android版本",登录包中android版本与手机android版本一致,,,,,,,,,
+All,All,1,1,启动注册,注册,session已失效重新登录,"session已失效的情况下触发定期网
+（主进程-systemui进程）",,1、距上次发登录包5分钟后，再次触发定期联网(可通过定时器，切网，壁纸可见性，开关屏等方式),1、距上次发登录包5分钟后，再次触发定期联网后会再次发登陆包,,,,,,,,,
+All,All,1,1,启动注册,注册,session未失效不再登录,"session未失效的情况下触发定期网
+（主进程-systemui进程）",,"1、上次发送完登录包1分钟内，再次触发定期联网(可通过定时器，切网，壁纸可见性，开关屏等方式)
+","不会再次发送登录包。
+",,,,,,,,,
+All,All,1,1,启动注册,注册,"进程重启动触发定期联网登录
+","进程重新启动后触发定期联网
+（主进程-systemui进程）",,1、上次发送完登录包1分钟内，再次触发定期联网(可通过定时器，切网，壁纸可见性，开关屏等方式)进程重启。 ,可以发送登录包。,,,,,,,,,
+All,All,1,1,启动注册,注册,每次登录uid均相同,每次登录uid均相同,,"成功发送一次登录包后，记录uid
+
+再次触发定期联网，查看能否再次发登录包，uid与第一次是否相同
+","触发定期联网，可再次发登录包，且uid与第一次相同
+",,,,,,,,,
