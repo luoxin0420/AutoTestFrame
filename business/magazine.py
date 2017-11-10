@@ -4,7 +4,7 @@
 from time import sleep
 
 from library import myuiautomator
-from library import device
+from library import device, adbtools
 from library.myglobal import magazine_config
 
 
@@ -88,7 +88,17 @@ def set_security_magazine_switch(dname,action):
 
 def magazine_task_init_resource(dname,parameter):
 
+    device = adbtools.AdbTools(dname)
+
     if parameter.upper() == 'SYSTEM':
-        set_security_magazine_switch(dname, 'OFF')
+        device.set_magazine_keyguard(False)
     else:
-        set_security_magazine_switch(dname, 'ON')
+        #set_security_magazine_switch(dname, 'ON')
+
+        device.set_magazine_keyguard(True)
+        # start main process using start magazine apk or the third party app
+        activity_name = magazine_config.getValue(dname,'magazine_pkg')
+        device.start_application(activity_name)
+        sleep(1)
+        findstr = [u'开启',u'安装',u'允许',u'确定']
+        device.do_popup_windows(6,findstr)

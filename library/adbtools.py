@@ -6,7 +6,7 @@ import platform
 import re
 import time
 import utils
-
+import myuiautomator
 
 class AdbTools(object):
 
@@ -643,6 +643,19 @@ class AdbTools(object):
         else:
             self.shell('su -c svc wifi disable').read().strip()
 
+    def set_magazine_keyguard(self, state):
+
+        """
+        开启/关闭 magazine_keyguard in the setting page
+        :param state:
+        :return:
+        """
+        if state:
+            self.shell('settings put system use_magazine_keyguard 1').read().strip()
+        else:
+            self.shell('settings put system use_magazine_keyguard 0').read().strip()
+
+
     def data(self, power):
         """
         开启/关闭蜂窝数据
@@ -735,6 +748,11 @@ class AdbTools(object):
         :return:
         """
         return self.shell('am instrument %s' % command).read()
+
+    def do_popup_windows(self,number, find_text):
+
+        for i in range(number):
+            myuiautomator.click_popup_window(self.__device_id, find_text)
 
     def export_apk(self, package, target_path='', timeout=5000):
         """

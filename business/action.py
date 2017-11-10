@@ -318,7 +318,10 @@ class DeviceAction(object):
                     sleep(2)
                     self.device.screen_on_off("ON")
                     sleep(2)
-                    self.device.emulate_swipe_action()
+                    count = device_config.getValue(self.dname, 'unlock_loop')
+                    for i in range(int(count)):
+                        self.device.emulate_swipe_action()
+                        sleep(1)
                     break
                 else:
                     sleep(5)
@@ -362,6 +365,9 @@ class DeviceAction(object):
             logger.debug('Step:reboot device')
             self.device.device_reboot()
             sleep(30)
+
+        findstr = [u'开启',u'安装',u'允许',u'确定']
+        self.device.do_popup_windows(6,findstr)
 
     def click_screen(self, value):
 
