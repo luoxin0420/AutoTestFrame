@@ -8,6 +8,7 @@ from time import sleep
 import sys
 import adbtools
 import inspect
+import uiautomator
 
 
 class LaunchSpeedTest(object):

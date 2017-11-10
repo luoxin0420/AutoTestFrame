@@ -866,5 +866,7 @@ class KeyCode:
 
 
 if __name__ == '__main__':
-    a = AdbTools()
+    device = AdbTools('02c7306fd0241732')
+
+    device.fill_external_sdcard('fillname',10485760)
     pass

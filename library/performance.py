@@ -10,6 +10,8 @@ import threading
 import time
 import re
 import subprocess
+from library import pJson
+import csv
 
 
 class Performance(object):
@@ -334,3 +336,57 @@ class UIFPSCollector(Performance):
     def stop(self):
         self.timer.cancel()
         self.__collect_data()
+
+
+# parse .har file by fiddler generate
+class TrafficDataCollector(object):
+
+    def __init__(self):
+
+        self.json_path_list = ["$.log.entries[*].time",\
+                      "$.log.entries[*].request.headersSize",\
+                      "$.log.entries[*].request.bodySize",\
+                      "$.log.entries[*].request.url",\
+                      "$.log.entries[*].response.headersSize",\
+                      "$.log.entries[*].response.bodySize"]
+
+    def parse_data(self, fname, outfile,urlfile):
+        with open(fname) as rfile:
+            data = rfile.read()
+            data = data[3:]
+            results = []
+            myJson = pJson.parseJson(data)
+
+            for jp in self.json_path_list:
+                res = myJson.extract_element_value(jp)
+                results.append(res)
+
+        #url_set = set(results[3][0])
+        with open(outfile, 'wb+') as wfile, open(urlfile, 'r') as rfile:
+            writer = csv.writer(wfile)
+            writer.writerow(['url','send_count','avg_response_time', 'max_response_time', 'min_response_time',\
+                             'sum_send_data', 'max_send_data', 'min_send_data',\
+                             'sum_receive_data', 'max_receive_data', 'min_receive_data'])
+            for url in rfile:
+                time = []
+                send_data = []
+                receive_data = []
+                url = url.replace('\n', '')
+                for i in range(len(results[3][0])):
+                    if results[3][0][i].find(url) != -1:
+                        time.append(results[0][0][i])
+                        send_data.append(results[1][0][i] + results[2][0][i])
+                        receive_data.append(results[4][0][i] + results[5][0][i])
+                if len(time) > 0:
+                    temp = [url, len(time), sum(time)/float(len(time)), max(time), min(time), sum(send_data), max(send_data), min(send_data),\
+                            sum(receive_data), max(receive_data), min(receive_data)]
+                else:
+                    temp = [url] + [0]*10
+                writer.writerow(temp)
+
+
+if __name__ == '__main__':
+
+    tdata = TrafficDataCollector()
+
+    tdata.parse_data(r'E:\test1.har', r'E:\output_traffic.csv', r'E:\urllist.txt')
