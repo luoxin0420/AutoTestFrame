@@ -12,6 +12,7 @@ import re
 import subprocess
 from library import pJson
 import csv
+import os
 
 
 class Performance(object):
@@ -29,6 +30,7 @@ class Performance(object):
         self.result_path = resultpath
         if resultpath is None:
             self.result_path = self.__class__.__name__ + ".csv"
+            print os.path.abspath(self.result_path)
         self.log = log
         if log is None:
             self.log = dt.create_logger(self.__class__.__name__)
@@ -191,11 +193,13 @@ class LaunchTimeCollector(Performance):
         super(LaunchTimeCollector, self).__init__(deviceId, processName, resultpath, log)
         self.__launch_speed_list = []
         self.timer = None
-        self.logcat_file = "temp.txt"
+        self.logcat_file = "temp1.txt"
 
     def start(self):
 
-        cmd = "logcat -v time ActivityManager:I *:S >> {0}".format(self.logcat_file)
+        # clear logcat
+        self.adbTunnel.adb('logcat -c')
+        cmd = "logcat -v time ActivityManager:I *:S > {0}".format(self.logcat_file)
         self.timer = threading.Timer(1, self.adbTunnel.adb(cmd))
         self.timer.start()
 

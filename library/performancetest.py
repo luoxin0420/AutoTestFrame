@@ -51,10 +51,10 @@ class MagazineLaunchSpeed(LaunchSpeedTest):
 
 class CaseExecutor(object):
 
-    def __init__(self, times):
+    def __init__(self, times, uid, pkg):
         self.__times = times
-        self.__dviceId = '02c7306fd0241732'
-        self.__name = 'com.android.dialer/.DialtactsActivity'
+        self.__dviceId = uid
+        self.__name = pkg
         pass
 
     __alias = {
@@ -94,6 +94,8 @@ class CaseExecutor(object):
 if __name__ == '__main__':
 
     # func_list = get_kw_list()
-
-    cases = CaseExecutor(1)
+    loop = sys.argv[1]
+    uid = sys.argv[2]
+    pkg = sys.argv[3]
+    cases = CaseExecutor(loop, '02c7306fd0241732', 'com.android.dialer/.DialtactsActivity')
     cases.exec_test_case('MagazineLaunchSpeed')
