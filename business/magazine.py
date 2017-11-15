@@ -22,6 +22,11 @@ def set_magazine_app_switch(dname,action):
     findstr = [u'开启', u'安装', u'允许', u'确定']
     DEVICE.do_popup_windows(6, findstr)
 
+    # access to setting screen of the third party of app
+    setting_page = magazine_config.getValue(dname, 'activity_setting_page')
+    if setting_page.upper() != 'NONE':
+        DEVICE.app_operation('LAUNCH', setting_page)
+
     # click setting button
     setting_path = magazine_config.getValue(dname, 'magazine_wifi_switch').split('|')
     temp = setting_path[0].split('::')
@@ -36,7 +41,7 @@ def set_magazine_app_switch(dname,action):
     temp = setting_path[1].split('::')
     location = temp[0]
     index = int(temp[1])
-    state = myuiautomator.get_element_attribute(dname,location,index,'checked')
+    state = myuiautomator.get_element_attribute(dname, location, index, 'checked')
 
     if action.upper() == 'ON' and state != 'true':
         myuiautomator.click_element_by_id(dname,location,index)
