@@ -13,6 +13,7 @@ from business import magazine, theme, config_srv, wallpaper
 # from NeoPySwitch import PySwitch,SwitchCase
 from business import querydb as tc
 from business import testdata as td
+from library import unlock as ul
 
 
 class DeviceAction(object):
@@ -300,14 +301,43 @@ class DeviceAction(object):
             self.device.app_operation('CLEAR', pkg='com.android.systemui')
             sleep(5)
 
+    def __unlock_by_setting(self,type_list, location_list):
+
+        uobj = ul.unlockScreen(self.dname)
+
+        for (utype,location) in zip(type_list,location_list):
+            info = json.loads(location)
+            start, end, distance, duration = info["orig"],info["dest"],info["distance"],info["duration"]
+
+            if utype.upper() == 'RIGHT':
+                uobj.right_slide(start,end,distance, duration)
+            elif utype.upper() == 'LEFT':
+                uobj.left_slide(start,end,distance, duration)
+            elif utype.upper() == 'DOWN':
+                uobj.down_slide(start,end,distance, duration)
+            elif utype.upper() == 'UP':
+                uobj.up_slide(start,end,distance, duration)
+            else:
+                uobj.other_slide(start,end,distance, duration)
+
+            sleep(2)
+
     def unlock_screen(self, value):
 
         """
         :param value:
         :return:
         """
+
+        unlock_type = device_config.getValue(self.dname, 'unlock_style').split('|')
+        unlock_location = device_config.getValue(self.dname,'unlock_location').split('|')
+
         if value.upper() == 'NONE':
             print 'do nothing'
+        elif len(unlock_type) != len(unlock_location):
+            logger.warning("Unlock parameters are not right, testing stop")
+            # just for an exception , and stop testing
+            res = 1/0
         elif value.upper() == 'DEFAULT':
             logger.debug('Step:unlock screen')
             # sometimes device start up is very slowly, so will try multiple times
@@ -318,10 +348,7 @@ class DeviceAction(object):
                     sleep(2)
                     self.device.screen_on_off("ON")
                     sleep(2)
-                    count = device_config.getValue(self.dname, 'unlock_loop')
-                    for i in range(int(count)):
-                        self.device.emulate_swipe_action()
-                        sleep(1)
+                    self.__unlock_by_setting(unlock_type, unlock_location)
                     break
                 else:
                     sleep(5)
@@ -333,7 +360,7 @@ class DeviceAction(object):
                 sleep(2)
                 self.device.screen_on_off("ON")
                 sleep(2)
-                self.device.emulate_swipe_action()
+                self.__unlock_by_setting(unlock_type, unlock_location)
                 sleep(5)
 
     def screen_on(self, value):
@@ -544,5 +571,5 @@ class DeviceAction(object):
 
 if __name__ == '__main__':
 
-    mydevice = DeviceAction('ZX1G22TG4F')
-    mydevice.choose('third_app_operation', 'FIRST_INSTALL')
+    mydevice = DeviceAction('8681-M02-0x718b3dff')
+    mydevice.unlock_screen('DEFAULT')

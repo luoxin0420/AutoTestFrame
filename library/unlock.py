@@ -7,7 +7,6 @@ import device
 
 class unlockScreen(object):
 
-
     def __init__(self,uid):
 
         self.device = device.Device(uid)
