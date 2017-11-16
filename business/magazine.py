@@ -19,37 +19,32 @@ def set_magazine_app_switch(dname,action):
     activity_name = magazine_config.getValue(dname,'magazine_pkg')
     DEVICE.app_operation('START', pkg=activity_name)
     sleep(1)
-    findstr = [u'开启', u'安装', u'允许', u'确定']
-    DEVICE.do_popup_windows(6, findstr)
+    findstr = [u'允许', u'确定']
+    DEVICE.do_popup_windows(2, findstr)
 
     # access to setting screen of the third party of app
     setting_page = magazine_config.getValue(dname, 'activity_setting_page')
     if setting_page.upper() != 'NONE':
         DEVICE.app_operation('LAUNCH', setting_page)
 
-    # click setting button
     setting_path = magazine_config.getValue(dname, 'magazine_wifi_switch').split('|')
-    temp = setting_path[0].split('::')
-    location = temp[0]
-    index = int(temp[1])
+    action_flag = False
+    for ind, value in enumerate(setting_path):
+        ltype, location, index = value.split('::')
+        # check if this is the last option of setting path
+        if ind == len(setting_path)-1:
+            state = myuiautomator.get_element_attribute(dname, value, int(index), 'checked')
+            if (action.upper() == 'ON' and state != 'true') or (action.upper() == 'OFF' and state == 'true'):
+                action_flag = True
+        if ind < len(setting_path)-1 or action_flag:
+            if ltype.upper() == 'CLASS':
+                myuiautomator.click_element_by_class(dname, location, int(index))
+            if ltype.upper() == 'ID':
+                myuiautomator.click_element_by_id(dname, location, int(index))
+            if ltype.upper() == 'NAME':
+                myuiautomator.click_element_by_name(dname, location, int(index))
 
-    # click setting button
-    myuiautomator.click_element_by_id(dname, location, index)
-    sleep(1)
-
-    # get current state of switch
-    temp = setting_path[1].split('::')
-    location = temp[0]
-    index = int(temp[1])
-    state = myuiautomator.get_element_attribute(dname, location, index, 'checked')
-
-    if action.upper() == 'ON' and state != 'true':
-        myuiautomator.click_element_by_id(dname,location,index)
-
-    if action.upper() == 'OFF' and state == 'true':
-        myuiautomator.click_element_by_id(dname,location,index)
-
-    DEVICE.do_popup_windows(2, [u'关闭'])
+    DEVICE.do_popup_windows(2, [u'关闭',u'打开'])
     sleep(1)
     #return back to HOME
     DEVICE.send_keyevent(4)
@@ -106,3 +101,6 @@ def magazine_task_init_resource(dname, parameter):
         sleep(1)
         findstr = [u'开启', u'安装', u'允许', u'确定']
         device.do_popup_windows(6, findstr)
+
+if __name__ == '__main__':
+    set_magazine_app_switch('8681-M02-0x718b3dff','ON')

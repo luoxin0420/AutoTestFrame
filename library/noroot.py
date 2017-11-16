@@ -4,7 +4,7 @@ __author__ = 'Xuxh'
 
 from library.myglobal import device_config
 import device
-import uiautomator
+import myuiautomator
 from time import sleep
 
 
@@ -16,8 +16,8 @@ def set_wifi_connection(dname,action):
     sleep(5)
 
     # click WLAN
-    element = uiautomator.Element(dname)
-    event = uiautomator.Event(dname)
+    element = myuiautomator.Element(dname)
+    event = myuiautomator.Event(dname)
     try:
         ele = element.findElementByName("WLAN")
         if ele is not None:
@@ -34,7 +34,7 @@ def set_wifi_connection(dname,action):
     # Whether checked nor non_checked, attribute value are both 'false' on VIVO
     name = device_config.getValue(dname,'name')
     if name.upper().find('VIVO') != -1:
-        element = uiautomator.Element(dname)
+        element = myuiautomator.Element(dname)
         try:
             ele = element.findElementByName(u"选取网络")
             if ele is None:
@@ -45,13 +45,13 @@ def set_wifi_connection(dname,action):
             print ex
     else:
         # check current state
-        state = uiautomator.get_element_attribute(dname,location,index,'checked')
+        state = myuiautomator.get_element_attribute(dname,location,index,'checked')
 
     if action.upper() == 'ON' and state != 'true':
-        uiautomator.click_element_by_id(dname,location,index)
+        myuiautomator.click_element_by_id(dname,location,index)
 
     if action.upper() == 'OFF' and state == 'true':
-        uiautomator.click_element_by_id(dname,location,index)
+        myuiautomator.click_element_by_id(dname,location,index)
 
     #return back to HOME
     DEVICE.send_keyevent(3)
