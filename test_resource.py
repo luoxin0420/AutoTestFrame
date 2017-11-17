@@ -387,9 +387,9 @@ if __name__ == '__main__':
                 my_logger.write('TEST_PASS','Unlock screen is success')
 
             sleep(2)
-    except Exception,ex:
+    except Exception, ex:
 
-        my_logger.write('TEST_WARN','Unlock screen is failed')
+        my_logger.write('TEST_WARN', 'Unlock screen is failed')
 
 
 

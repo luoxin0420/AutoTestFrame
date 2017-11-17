@@ -284,7 +284,7 @@ def run(dname, loop, rtype):
         print ex
 
 if __name__ == '__main__':
-    run("ZX1G22TG4F",1,'all')
+    run("ZX1G22TG4F", 1, 'all')
 
 
 

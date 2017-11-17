@@ -103,4 +103,4 @@ def magazine_task_init_resource(dname, parameter):
         device.do_popup_windows(6, findstr)
 
 if __name__ == '__main__':
-    set_magazine_app_switch('8681-M02-0x718b3dff','ON')
+    set_magazine_app_switch('8681-M02-0x718b3dff', 'ON')

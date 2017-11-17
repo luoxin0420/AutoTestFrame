@@ -594,6 +594,13 @@ class AdbTools(object):
         """
         return self.shell('kill %s' % pid).read().strip()
 
+    def kill_server(self):
+        """
+        杀死ADB SERVER
+        :return:
+        """
+        return self.adb('kill-server').read().strip()
+
     def quit_app(self, package):
         """
         退出应用
@@ -885,7 +892,11 @@ class KeyCode:
 
 if __name__ == '__main__':
     device = AdbTools('02c7306fd0241732')
-    result = device.root()
+    # result = device.root()
+    #
+    # device.fill_external_sdcard('fillname',10485760)
+    device.adb('logcat -c')
+    cmd = "logcat -v time ActivityManager:I *:S "
+    device.adb(cmd)
 
-    device.fill_external_sdcard('fillname',10485760)
     pass

@@ -37,6 +37,12 @@ html_config = configuration.configuration()
 fname = PATH('../config/htmlconfig.ini')
 html_config.fileConfig(fname)
 
+# performance config
+# device config
+performance_config = configuration.configuration()
+fname = PATH('../config/performance.ini')
+performance_config.fileConfig(fname)
+
 
 resource_config = configuration.configuration()
 fname = PATH('../config/resource.ini')

@@ -99,6 +99,20 @@ def get_log_name(device_name,basename, suffix='.log'):
     return filename
 
 
+def get_log_path(dname, basename):
+
+    cur_date = datetime.datetime.now().strftime("%Y%m%d")
+    now = datetime.datetime.now().strftime("%H%M")
+    name = CONFIG.getValue(dname,'name')
+    parent_path = os.path.join('log',cur_date, dname+'_'+name, now+basename)
+
+    # create multi layer directory
+    if not os.path.isdir(parent_path):
+        os.makedirs(parent_path)
+
+    return parent_path
+
+
 def launch_appium(uid, port, bport):
 
     status = ""

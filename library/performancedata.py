@@ -6,6 +6,7 @@ from time import sleep
 import ctypes
 import inspect
 
+
 class ADBShell(object):
 
     @staticmethod
@@ -28,8 +29,7 @@ class AppInfo(object):
         length = 0
         cmd = "adb -s %s shell ps | grep %s" % (self.sn, self.packagename)
         try:
-
-            popen = subprocess.Popen(cmd,shell=True, stdout=subprocess.PIPE)
+            popen = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
             popen.wait()
             for ln in popen.stdout.readlines():
 
@@ -115,7 +115,6 @@ class TrafficInfo(object):
 
     def get_networkTraffic(self):
 
-
         floatTotalNetTraffic = 0.0
         cmd = "adb -s %s shell cat /proc/net/xt_qtaguid/stats" % (self.sn)
         popen = subprocess.Popen(cmd,shell=True, stdout=subprocess.PIPE)
@@ -142,7 +141,6 @@ class TrafficInfo(object):
             except:
                 print "[ERROR]: cannot get the /proc/net/xt_qtaguid/stats, return 0.0"
                 return 0.0
-
         else:
             try:
                 scmd = "adb -s % shell cat /proc/uid_stat/%s/tcp_snd" % (self.sn, self.app.getAppUID())

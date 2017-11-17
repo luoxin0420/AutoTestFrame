@@ -13,6 +13,7 @@ import subprocess
 from library import pJson
 import csv
 import os
+from library.myglobal import performance_config
 
 
 class Performance(object):
@@ -27,13 +28,16 @@ class Performance(object):
         self.isFirst = True
         self.adbTunnel = adbtools.AdbTools(deviceId)
         self.pid = self.adbTunnel.get_pid(processName)
+        pre_log_path = performance_config.getValue(deviceId, 'result_path')
+        self.logcat = os.path.join(pre_log_path, 'logcat.txt')
         self.result_path = resultpath
         if resultpath is None:
-            self.result_path = self.__class__.__name__ + ".csv"
-            print os.path.abspath(self.result_path)
+            #self.result_path = self.__class__.__name__ + ".csv"
+            self.result_path = os.path.join(pre_log_path, 'result.csv')
         self.log = log
         if log is None:
-            self.log = dt.create_logger(self.__class__.__name__)
+            fname = os.path.join(pre_log_path, 'log.txt')
+            self.log = dt.create_logger(fname)
 
         pass
 
@@ -99,7 +103,7 @@ class MemoryCollector(Performance):
 
         if item:
             fp = open(self.result_path, "a")
-            line = ",".join([str(item.format_time),str(item.totalmem), "\n"])
+            line = ",".join([str(item.format_time), str(item.totalmem), "\n"])
             fp.write(line)
             fp.close()
 
@@ -171,7 +175,7 @@ class CPUJiffiesCollector(Performance):
 
         if item:
             fp = open(self.result_path, "a")
-            line = ",".join([str(item.format_time),str(item.utime), str(item.stime), "\n"])
+            line = ",".join([str(item.format_time), str(item.utime), str(item.stime), "\n"])
             fp.write(line)
             fp.close()
 
@@ -193,14 +197,13 @@ class LaunchTimeCollector(Performance):
         super(LaunchTimeCollector, self).__init__(deviceId, processName, resultpath, log)
         self.__launch_speed_list = []
         self.timer = None
-        self.logcat_file = "temp1.txt"
 
     def start(self):
 
         # clear logcat
         self.adbTunnel.adb('logcat -c')
-        cmd = "logcat -v time ActivityManager:I *:S > {0}".format(self.logcat_file)
-        self.timer = threading.Timer(1, self.adbTunnel.adb(cmd))
+        cmd = "logcat -v time ActivityManager:I *:S > {0}".format(self.logcat)
+        self.timer = threading.Thread(target=self.adbTunnel.adb, args=cmd)
         self.timer.start()
 
     #log example "Displayed com.qihoo.appstore/com.morgoo.droidplugin.stub.ActivityStub$P01SingleInstance00: +4s906ms (total +5s243ms)
@@ -223,7 +226,7 @@ class LaunchTimeCollector(Performance):
 
     def __collect_data(self):
 
-        with open(self.logcat_file) as rfile:
+        with open(self.logcat) as rfile:
             for line in rfile:
                 if "Displayed" not in line:
                     continue
@@ -245,7 +248,7 @@ class LaunchTimeCollector(Performance):
                 wfile.write(line)
 
     def stop(self):
-        self.timer.cancel()
+        os.system('adb kill')
         self.__collect_data()
 
 
@@ -354,7 +357,7 @@ class TrafficDataCollector(object):
                       "$.log.entries[*].response.headersSize",\
                       "$.log.entries[*].response.bodySize"]
 
-    def parse_data(self, fname, outfile,urlfile):
+    def parse_data(self, fname, outfile, urlfile):
         with open(fname) as rfile:
             data = rfile.read()
             data = data[3:]
