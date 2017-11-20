@@ -393,8 +393,10 @@ class DeviceAction(object):
             self.device.device_reboot()
             sleep(30)
 
-        findstr = [u'开启',u'安装',u'允许',u'确定']
-        self.device.do_popup_windows(6,findstr)
+            findstr = [u'开启', u'安装', u'允许', u'确定']
+            self.device.do_popup_windows(6,findstr)
+        else:
+            logger.debug('Step: do nothing for reboot')
 
     def click_screen(self, value):
 

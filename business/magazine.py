@@ -18,9 +18,11 @@ def set_magazine_app_switch(dname,action):
     DEVICE = device.Device(dname)
     activity_name = magazine_config.getValue(dname,'magazine_pkg')
     DEVICE.app_operation('START', pkg=activity_name)
-    sleep(1)
-    findstr = [u'允许', u'确定']
-    DEVICE.do_popup_windows(2, findstr)
+    sleep(5)
+    # there are some popup windows when start-up app
+    findstr = [u'开启', u'安装', u'允许', u'确定', u'同意']
+    DEVICE.do_popup_windows(3, findstr)
+    sleep(2)
 
     # access to setting screen of the third party of app
     setting_page = magazine_config.getValue(dname, 'activity_setting_page')
@@ -96,11 +98,12 @@ def magazine_task_init_resource(dname, parameter):
         #set_security_magazine_switch(dname, 'ON')
         device.set_magazine_keyguard(True)
         # start main process using start magazine apk or the third party app
-        activity_name = magazine_config.getValue(dname, 'magazine_pkg')
-        device.start_application(activity_name)
-        sleep(1)
-        findstr = [u'开启', u'安装', u'允许', u'确定']
-        device.do_popup_windows(6, findstr)
+        set_magazine_app_switch(dname, 'ON')
+        # activity_name = magazine_config.getValue(dname, 'magazine_pkg')
+        # device.start_application(activity_name)
+        # sleep(1)
+        # findstr = [u'开启', u'安装', u'允许', u'确定']
+        # device.do_popup_windows(6, findstr)
 
 if __name__ == '__main__':
     set_magazine_app_switch('8681-M02-0x718b3dff', 'ON')
