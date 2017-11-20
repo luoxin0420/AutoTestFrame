@@ -191,20 +191,46 @@ class LaunchTimeUnit(object):
         self.launch_time = ltime
 
 
+class DumpLogcat(threading.Thread):
+
+    def __init__(self, out,uid,cmd):
+
+        threading.Thread.__init__(self)
+        self.logcat = out
+        self.uid = uid
+        self.process = None
+        self.cmd = cmd
+
+    def clear_logcat(self):
+
+        cmd = 'adb -s {0} logcat -c'.format(self.uid)
+        subprocess.call(cmd, shell=True)
+
+    def run(self):
+
+        with open(self.logcat, 'w') as self.outfile:
+            self.process = subprocess.Popen(self.cmd, shell=True, stdout=self.outfile)
+
+    def stop(self):
+        try:
+            self.process.kill()
+            time.sleep(3)
+        except Exception, ex:
+            print ex
+
+
 class LaunchTimeCollector(Performance):
 
     def __init__(self, deviceId='', processName= '', resultpath=None, log=None):
         super(LaunchTimeCollector, self).__init__(deviceId, processName, resultpath, log)
         self.__launch_speed_list = []
         self.timer = None
+        self.log_reader = None
 
     def start(self):
-
-        # clear logcat
-        self.adbTunnel.adb('logcat -c')
-        cmd = "logcat -v time ActivityManager:I *:S > {0}".format(self.logcat)
-        self.timer = threading.Thread(target=self.adbTunnel.adb, args=cmd)
-        self.timer.start()
+        cmd = "adb -s {0} logcat -v time ActivityManager:I *:S ".format(self.deviceId)
+        self.log_reader = DumpLogcat(self.logcat, self.deviceId, cmd)
+        self.log_reader.start()
 
     #log example "Displayed com.qihoo.appstore/com.morgoo.droidplugin.stub.ActivityStub$P01SingleInstance00: +4s906ms (total +5s243ms)
     @staticmethod
@@ -248,7 +274,8 @@ class LaunchTimeCollector(Performance):
                 wfile.write(line)
 
     def stop(self):
-        os.system('adb kill')
+        self.log_reader.stop()
+        self.adbTunnel.kill_server()
         self.__collect_data()
 
 

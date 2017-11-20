@@ -8,6 +8,7 @@ from library import desktop
 from library.myglobal import  performance_config
 from time import sleep
 import sys
+import os
 
 
 class LaunchSpeedTest(object):
@@ -68,7 +69,6 @@ class CaseExecutor(object):
             result_path = desktop.get_log_path(self.__dviceId, testcase)
             performance_config.setValue(self.__dviceId, 'result_path', result_path)
             self.exec_test_case(testcase)
-        pass
 
     def exec_test_case(self, caseName):
 
