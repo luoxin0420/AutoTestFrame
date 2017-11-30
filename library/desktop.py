@@ -189,6 +189,21 @@ def get_file_rows(filename):
     return count
 
 
+def get_time_stamp(time_str, delta=0):
+
+    """
+    return millisecond time stamp according to format time string
+    :param time_str:
+    :return:
+    """
+    # time_str = "2017-11-23 00:00:00"
+    date_obj = datetime.datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")
+    date_obj = date_obj + datetime.timedelta(days=delta)
+    time_stamp = int(time.mktime(date_obj.timetuple())) * 1000
+
+    return time_stamp
+
+
 def summary_result(logname,flag,RESULT_DICT):
 
     #logname = r'E:\AutoTestDemo\TestLockScreen\log\20170713\ZX1G22TG4F_Nesux6\1523TestTasks\unittest.html'

@@ -272,7 +272,7 @@ class AdbTools(object):
         从手机端删除文件
         :return:
         """
-        self.shell('rm %s' % (path,))
+        self.shell('rm -rf %s' % (path,))
 
     def clear_app_data(self, package):
         """
@@ -342,14 +342,15 @@ class AdbTools(object):
         l = self.adb('uninstall %s' % (package,)).read()
         print(l)
 
-    def screenshot(self, target_path=''):
+    def screenshot(self, filename, target_path=''):
         """
         手机截图
         :param target_path: 目标路径
         :return:
         """
         format_time = utils.timetools.timestamp('%Y%m%d%H%M%S')
-        self.shell('screencap -p /sdcard/%s.png' % (format_time,))
+        fname = filename + format_time
+        self.shell('screencap -p /sdcard/%s.png' % (fname,))
         time.sleep(1)
         if target_path == '':
             self.pull('/sdcard/%s.png' % (format_time,), os.path.expanduser('~'))
@@ -662,7 +663,6 @@ class AdbTools(object):
         else:
             self.shell('settings put system use_magazine_keyguard 0').read().strip()
 
-
     def data(self, power):
         """
         开启/关闭蜂窝数据
@@ -756,10 +756,24 @@ class AdbTools(object):
         """
         return self.shell('am instrument %s' % command).read()
 
-    def do_popup_windows(self,number, find_text):
+    def do_popup_windows(self, number, find_text):
+        """
+        处理弹出窗口
+        :param number:
+        :param find_text:
+        :return:
+        """
 
         for i in range(number):
             myuiautomator.click_popup_window(self.__device_id, find_text)
+
+    def find_file_from_appfolder(self, pkg, full_path):
+
+
+        # find path '/data/data/pkg_name/'
+        #cmd = "".join(["run-as ", pkg, " ls ", full_path])
+        cmd = "".join(["ls ", full_path])
+        return self.shell(cmd).read()
 
     def export_apk(self, package, target_path='', timeout=5000):
         """
@@ -787,6 +801,18 @@ class AdbTools(object):
                     if os.path.exists(os.path.join(os.path.expanduser('~'), 'base.apk')):
                         os.rename(os.path.join(os.path.expanduser('~'), 'base.apk'),
                                   os.path.join(os.path.expanduser('~'), '%s.apk' % package))
+
+    def get_lock_screen_state(self):
+
+        """
+        获取锁屏状态
+        :return: 锁屏/非锁屏
+        the other command: adb shell dumpsys window policy|grep mShowingLockscreen(mShowingLockscreen=false)
+        """
+        l = self.shell('dumpsys dumpsys window policy|grep isStatusBarKeyguard').readlines()
+        for i in l:
+            if 'isStatusBarKeyguard=' in i:
+                return i.split()[-1] == 'isStatusBarKeyguard=true'
 
 
 class KeyCode:
@@ -892,6 +918,7 @@ class KeyCode:
 
 if __name__ == '__main__':
     device = AdbTools('02c7306fd0241732')
+    result = device.get_display_state()
     # result = device.root()
     #
     # device.fill_external_sdcard('fillname',10485760)

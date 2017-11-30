@@ -331,7 +331,7 @@ def verify_login_pkg_content(dname, contents):
 
 
     DEVICE = device.Device(dname)
-    verify_node = ['uid','lockscreen_id','wallpaper_id','imei','mac','platform','product','product_soft','promotion']
+    verify_node = ['uid','lockscreen_id','wallpaper_id','mac','platform','product','product_soft','promotion']
     #verify_node = ['uid','lockscreen_id','wallpaper_id','imei','mac','platform','product','promotion']
     find_node = []
     filter_result = {}

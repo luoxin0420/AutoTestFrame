@@ -4,6 +4,7 @@
 from library.myglobal import PATH,device_config
 from library.db import dbmysql
 from library.myglobal import logger
+from library import desktop
 import time
 import datetime
 
@@ -284,7 +285,6 @@ def insert_test_result(run_id, teca_id, lp_num, teca_result, log):
     autodb.execute_insert(query)
 
 
-
 # update stage db for module update
 def update_stage_module_network(mid, exp_network, exp_killself):
 
@@ -303,6 +303,16 @@ def update_stage_module_network(mid, exp_network, exp_killself):
     return updateFlag
 
 
+# update stage db for module enalbe/disable
+def update_stage_module_status(mid, flag):
+
+    if flag:
+        query = 'update fun_plugin_file set enable = {0} where id = {2}'.format(1, mid)
+    else:
+        query = 'update fun_plugin_file set enable = {0} where id = {2}'.format(0, mid)
+    stagedb.execute_update(query)
+
+
 def get_module_info(id):
 
     query = 'select encryption_client_path, encryption_length, encryption_path, encryption_hash from fun_plugin_file where id = {0}'.format(id)
@@ -312,7 +322,26 @@ def get_module_info(id):
     res['length'] = str(result[0]['encryption_length'])
     res['url'] = result[0]['encryption_path'].encode('utf8')
     res['hash'] = result[0]['encryption_hash'].encode('utf8')
+    res['soft_version'] = result[0]['soft_version']
     return res
+
+
+def check_amount_limit(mid):
+
+    flag = False
+    cur_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    cur_date = " ".join([cur_date, "00:00:00"])
+    start_time = desktop.get_time_stamp(cur_date, 0)
+    end_time = desktop.get_time_stamp(cur_date, 1)
+
+    query = "select * from fun_plugin_amount_limit where id= {0} and start_time= {1}".format(mid, start_time)
+    result = stagedb.select_one_record(query)
+    if result[0] is None:
+        query = "insert into fun_plugin_amount_limit(plugin_file_id, enable, start_time, end_time, max_get_amount) values({0},1,{1},{2},1000)".format(mid, start_time,end_time)
+        stagedb.execute_insert(query)
+        flag = True
+
+    return flag
 
 
 def get_operation_module_info(key, id):

@@ -48,6 +48,9 @@ resource_config = configuration.configuration()
 fname = PATH('../config/resource.ini')
 resource_config.fileConfig(fname)
 
+module_config = configuration.configuration()
+fname = PATH('../config/smoke_module.ini')
+module_config.fileConfig(fname)
 
 POSITIVE_VP_TYPE = ['CONTAIN', 'EQUAL', 'MATCH', 'LESSTHAN', 'GREATERTHAN']
 DEVICE_ACTION = [

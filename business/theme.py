@@ -8,7 +8,7 @@ from library import device
 from library.myglobal import theme_config
 
 
-def set_device_theme(dname, theme_type):
+def set_device_theme(dname, theme_type, number=0):
 
     """
     SET theme accroding to configration theme path in advance
@@ -22,12 +22,16 @@ def set_device_theme(dname, theme_type):
     DEVICE = device.Device(dname)
     DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
     sleep(5)
-    if theme_type.upper() == 'VLIFE':
-        vlife_theme_path = theme_config.getValue(dname,'vlife_theme_path').split('|')
+    if number == 0:
+        if theme_type.upper() == 'VLIFE':
+            vlife_theme_path = theme_config.getValue(dname, 'vlife_theme_path').split('|')
+        elif theme_type.upper() == 'SYSTEM':
+            vlife_theme_path = theme_config.getValue(dname, 'system_theme_path').split('|')
+        else:
+            vlife_theme_path = theme_config.getValue(dname, 'third_party_theme_path').split('|')
     else:
-        vlife_theme_path = theme_config.getValue(dname,'system_theme_path').split('|')
-    # element = myuiautomator.Element(dname)
-    # event = myuiautomator.Event(dname)
+        tag = 'vlife_theme_path_' + str(number)
+        vlife_theme_path = theme_config.getValue(dname, tag).split('|')
 
     try:
 

@@ -427,6 +427,7 @@ class DeviceAction(object):
         """
         self.network_change('CLOSE_ALL')
 
+    # "connect_network_trigger":"CLOSE_ALL:ONLY_GPRS"
     def connect_network_trigger(self, value):
 
         logger.debug('Step: connect network by change of network status ' + value)

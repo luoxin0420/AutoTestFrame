@@ -82,7 +82,7 @@ class parseXml(object):
 
         return value
 
-    def get_elements_attribute(self,name):
+    def get_elements_attribute(self, name):
 
         value = []
 
@@ -91,7 +91,7 @@ class parseXml(object):
         try:
             for ele in elements:
                 value.append(ele.attrib)
-        except Exception,ex:
+        except Exception, ex:
             print ex
 
         return value
