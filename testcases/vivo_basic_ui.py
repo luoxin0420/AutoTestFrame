@@ -97,7 +97,7 @@ class TestVivoBasicUI(unittest.TestCase):
     def test_vlife_theme(self):
 
         logger.debug(u'TestCase: 下载并应用主题')
-        self.case_id = '11'
+        self.case_id = '130'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
 
@@ -106,7 +106,7 @@ class TestVivoBasicUI(unittest.TestCase):
     def test_multiple_vlife_theme(self):
 
         logger.debug(u'TestCase: 切换不同vlife主题')
-        self.case_id = '12'
+        self.case_id = '131'
         for i in range(3):
 
             # set theme1
@@ -121,7 +121,7 @@ class TestVivoBasicUI(unittest.TestCase):
     def test_vlife_system_switch(self):
 
         logger.debug(u'TestCase:不同引擎间多次切换')
-        self.case_id = '13'
+        self.case_id = '132'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
         self.assertEqual(True, result)
@@ -131,8 +131,8 @@ class TestVivoBasicUI(unittest.TestCase):
 
     def test_third_party_theme(self):
 
-        logger.debug(u'TestCase: 解锁到三方应用')
-        self.case_id = '14'
+        logger.debug(u'TestCase:解锁到三方应用')
+        self.case_id = '133'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         # access to the third party of app
         custom_app = device_config.getValue(DEVICENAME, 'custom_third_app')
@@ -143,8 +143,8 @@ class TestVivoBasicUI(unittest.TestCase):
         DEVICE.screenshot(self._testMethodName, self.log_path)
 
     def test_dropdown_notification_recovery(self):
-        logger.debug(u'TestCase: 下拉通知栏可复原')
-        self.case_id = '15'
+        logger.debug(u'TestCase:下拉通知栏可复原')
+        self.case_id = '134'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
         width, height = DEVICE.get_screen_normal_size()
@@ -157,7 +157,7 @@ class TestVivoBasicUI(unittest.TestCase):
     def test_home_back_key(self):
 
         logger.debug(u'TestCase: Home、Back键不会解锁')
-        self.case_id = '16'
+        self.case_id = '135'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
 
         DEVICE.send_keyevent(26)
@@ -178,7 +178,7 @@ class TestVivoBasicUI(unittest.TestCase):
     def test_reboot(self):
 
         logger.debug(u'TestCase: 有sim卡重启验证锁屏')
-        self.case_id = '17'
+        self.case_id = '136'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
         self.assertEqual(True, result)
@@ -190,7 +190,7 @@ class TestVivoBasicUI(unittest.TestCase):
 
         logger.debug(u'TestCase: 反复亮灭屏')
         theme.set_device_theme(DEVICENAME, 'VLIFE')
-        self.case_id = '18'
+        self.case_id = '137'
         for i in range(30):
             DEVICE.send_keyevent(26)
             sleep(2)
@@ -201,7 +201,7 @@ class TestVivoBasicUI(unittest.TestCase):
 
         logger.debug(u'TestCase: 反复亮灭屏解锁')
         theme.set_device_theme(DEVICENAME, 'VLIFE')
-        self.case_id = '19'
+        self.case_id = '138'
         for i in range(30):
             result = self.unlock_screen()
             self.assertEqual(True, result)
@@ -211,7 +211,7 @@ class TestVivoBasicUI(unittest.TestCase):
 
         logger.debug(u'TestCase: 三方应用横屏状态锁屏解锁')
         theme.set_device_theme(DEVICENAME, 'VLIFE')
-        self.case_id = '20'
+        self.case_id = '139'
         custom_app = device_config.getValue(DEVICENAME, 'custom_third_app')
         DEVICE.start_application(custom_app)
         sleep(2)

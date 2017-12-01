@@ -917,8 +917,9 @@ class KeyCode:
 
 
 if __name__ == '__main__':
-    device = AdbTools('02c7306fd0241732')
+    device = AdbTools('ZX1G426D5C')
     result = device.get_display_state()
+    print device._AdbTools__find
     # result = device.root()
     #
     # device.fill_external_sdcard('fillname',10485760)

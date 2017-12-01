@@ -3,7 +3,7 @@
 
 __author__ = 'Xuxh'
 
-import adbtools
+from adbtools import AdbTools
 import desktop as dt
 from abc import abstractmethod,ABCMeta
 import threading
@@ -23,10 +23,11 @@ class Performance(object):
     def __init__(self, deviceId='', processName='', resultpath=None, log=None):
 
         self.processName = processName
-        self.pkg_name = self.__get_pkg_name(processName)
+        self.start_activity = performance_config.getValue(deviceId, 'app_start_activity')
+        self.pkg_name = self.__get_pkg_name(self.start_activity)
         self.deviceId = deviceId
         self.isFirst = True
-        self.adbTunnel = adbtools.AdbTools(deviceId)
+        self.adbTunnel = AdbTools(deviceId)
         self.pid = self.adbTunnel.get_pid(processName)
         pre_log_path = performance_config.getValue(deviceId, 'result_path')
         self.logcat = os.path.join(pre_log_path, 'logcat.txt')
@@ -45,7 +46,7 @@ class Performance(object):
 
         pkg = ''
         if name.find('/'):
-            pkg = self.processName.split('/')[0]
+            pkg = name.split('/')[0]
         return pkg
 
 
@@ -82,7 +83,7 @@ class MemoryCollector(Performance):
 
     def __get_mem(self):
 
-        cmd = "dumpsys meminfo {0} | {1} TOTAL".format(self.processName, self.adbTunnel.find)
+        cmd = "dumpsys meminfo {0} | {1} TOTAL".format(self.processName, self.adbTunnel._AdbTools__find)
         output = self.adbTunnel.shell(cmd).read()
         try:
             return output.strip().split()[1]
@@ -232,7 +233,7 @@ class LaunchTimeCollector(Performance):
         self.log_reader = DumpLogcat(self.logcat, self.deviceId, cmd)
         self.log_reader.start()
 
-    #log example "Displayed com.qihoo.appstore/com.morgoo.droidplugin.stub.ActivityStub$P01SingleInstance00: +4s906ms (total +5s243ms)
+    #"Displayed com.qihoo.appstore/com.morgoo.droidplugin.stub.ActivityStub$P01SingleInstance00: +4s906ms (total +5s243ms)
     @staticmethod
     def get_launchspeed_from_line(log_line):
 
