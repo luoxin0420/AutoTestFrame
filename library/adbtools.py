@@ -129,7 +129,7 @@ class AdbTools(object):
         :return:
         """
         if self.__system is "Windows":
-            pid_command = self.shell("ps | %s %s$" % (self.__find, package_name)).read()
+            pid_command = self.shell("ps | %s %s" % (self.__find, package_name)).read()
         else:
             pid_command = self.shell("ps | %s -w %s" % (self.__find, package_name)).read()
         return pid_command

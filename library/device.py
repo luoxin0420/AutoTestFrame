@@ -200,7 +200,7 @@ class Device(object):
                     cmd = "".join(["adb -s ", self.uid, " shell input keyevent 26"])
                     out = self.shellPIPE(cmd)
 
-    def update_android_time(self,delta,interval_unit='hour'):
+    def update_android_time(self, delta, interval_unit='hour'):
 
         # delta is interval time, like 1, -1
         interval_num = int(delta)
@@ -208,8 +208,8 @@ class Device(object):
         # get android time, then get expected time stamp
         cmd = "".join(["adb -s ", self.uid, " shell date +%Y%m%d.%H%M%S "])
         out = self.shellPIPE(cmd)
-        for char in ['\r','\n']:
-            out = out.replace(char,'')
+        for char in ['\r', '\n']:
+            out = out.replace(char, '')
         cur_time = datetime.datetime.strptime(out,'%Y%m%d.%H%M%S')
         if interval_unit.lower() == 'hour':
             expe_time = cur_time + datetime.timedelta(hours=interval_num)
@@ -221,12 +221,12 @@ class Device(object):
         version = self.get_os_version()
 
         if version < 6:
-            expe_time = datetime.datetime.strftime(expe_time,'%Y%m%d.%H%M%S')
+            expe_time = datetime.datetime.strftime(expe_time, '%Y%m%d.%H%M%S')
             cmd = 'adb -s {0} shell su 0 date -s {1} '.format(self.uid,expe_time)
 
             name = device_config.getValue(self.uid,'name')
             if name.upper().find('VIVO') != -1:
-                cmd = 'adb -s {0} shell date -s {1} '.format(self.uid,expe_time)
+                cmd = 'adb -s {0} shell date -s {1} '.format(self.uid, expe_time)
 
         else:
             expe_time = datetime.datetime.strftime(expe_time,'%m%d%H%M%Y.00')

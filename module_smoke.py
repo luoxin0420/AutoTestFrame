@@ -22,6 +22,8 @@ from library import pXml
 
 def filter_log_result(logname, findstr, pid):
 
+    find_content = ''
+
     with open(logname,'rb') as reader:
         for line in reader:
             # remove redundance space
@@ -32,7 +34,8 @@ def filter_log_result(logname, findstr, pid):
                 text = ' '.join(values[6:])
                 if values[2] == pid:
                     if text.find(findstr) != -1:
-                        keyword =r'.*(<query.*/query>).*'
+                        #keyword =r'.*(<query.*/query>).*'
+                        keyword = r'.*(<product.*/product>).*'
                         content = re.compile(keyword)
                         m = content.match(text)
                         if m:
@@ -44,15 +47,16 @@ def filter_log_result(logname, findstr, pid):
     return find_content
 
 
-def verify_pkg_content(logname, exp_value):
+def verify_pkg_content(loginfo, exp_value):
 
-    data = pXml.parseXml(logname)
-    value = data.get_elements_attribute_value('product','soft')[0]
     try:
-        if value == exp_value:
-            return True
-        else:
-            return False
+        if len(loginfo) > 0:
+            data = pXml.parseXml(loginfo.split(':::')[1])
+            value = data.get_elements_attribute_value('product', 'soft')[0]
+            if value == exp_value:
+                return True
+            else:
+                return False
     except Exception, ex:
         return False
 
@@ -80,16 +84,16 @@ def init_module_version(uid, test_path):
     # target = module_config.getValue(test_path, 'push_dest_path')
     # logger.debug('step: push apk file to device')
     # device.push(source, target)
-    #
+
+    #########################################################################
     # # reboot and unlock screen
-    # da = action.DeviceAction(uid)
-    # logger.debug('step: reboot device and unlock screen')
-    # da.reboot_device('default')
-    # da.unlock_screen('default')
+    da = action.DeviceAction(uid)
+    logger.debug('step: reboot device and unlock screen')
+    da.reboot_device('default')
+    da.unlock_screen('default')
 
     # self-activation
     pkg_name = module_config.getValue(test_path, 'pkg_name')
-    da = action.DeviceAction(uid)
     acti_flag = module_config.getValue(test_path, 'self_activation')
     product_type = device_config.getValue(uid, 'product_type')
     if acti_flag.upper() == 'FALSE':
@@ -103,62 +107,75 @@ def init_module_version(uid, test_path):
     # configure server option
 
     mid_list = module_config.getValue(test_path, 'module_upgrade_path').split(';')
-
-    for mid in mid_list:
-        logger.debug('step: config server and enable module ')
-        tc.update_stage_module_status(mid, False)
-        flag1 = tc.update_stage_module_network(int(mid), 1, 0)
-        flag2 = tc.check_amount_limit(int(mid))
-        if flag1 or flag2:
-            config_srv.enableModule('STAGECONFIG')
-        #connect network and waiting for module download
-        logger.debug('step: connect network and download module')
-        for i in range(2):
-            da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
-
-        #check module has download
-
-        config_dict = {"module": mid}
-        result = tc.get_all_module_info(config_dict)
-        search_path = result['module']['path']
-        soft_version = result['module']['soft_version']
-        base_name = os.path.basename(search_path)
-        res = device.find_file_from_appfolder(pkg_name, search_path)
-
-        if res.find(base_name) != -1:
-            logger.debug('step: module is download successfully, ' + search_path + ' has found')
-
-            # reboot and unlock screen
-            logger.debug('step: reboot device')
-            da.reboot_device('default')
-            da.unlock_screen('default')
-
-
-            # start collect log
-            name = desktop.get_log_name(uid, 'SmokeModule')
-            LogPath = os.path.dirname(os.path.abspath(name))
-            logname = os.path.join(LogPath, name)
-            log_reader = dumplog.DumpLogcatFileReader(logname, uid)
-            log_reader.clear_logcat()
-            log_reader.start()
+    count = 0
+    try:
+        for mid in mid_list:
+            logger.debug('step: config server and enable module ')
+            tc.update_stage_module_status(int(mid), True)
+            flag1 = tc.update_stage_module_network(int(mid), 1, 0)
+            flag2 = tc.check_amount_limit(int(mid))
+            if flag1 or flag2:
+                config_srv.enableModule('STAGECONFIG')
             #connect network and waiting for module download
             logger.debug('step: connect network and download module')
             for i in range(2):
                 da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
-            sleep(20)
-            log_reader.stop()
 
-            #check log for login package and verify if module update
-            loginfo = filter_log_result(logname, 'jabber:iq:auth', pkg_pid)
-            init_result = verify_pkg_content(loginfo, soft_version)
+            #check module has download
 
-        if init_result:
-            logger.debug('step: module is made effect for ' + str(mid))
-        else:
-            logger.error('step: module is not made effect for ' + str(mid))
-            break
+            config_dict = {"module": mid}
+            result = tc.get_all_module_info(config_dict)
+            search_path = result['module']['path']
+            soft_version = result['module']['version']
+            full_path= os.path.join(r'/data/data/', pkg_name, os.path.dirname(search_path)).replace('\\', '/')
+            base_name = os.path.basename(search_path)
+            res = device.find_file_from_appfolder(pkg_name, full_path)
 
-    return init_result
+            if res.find(base_name) != -1:
+                logger.debug('step: module is download successfully, ' + search_path + ' has found')
+                # reboot and unlock screen for applying module
+                logger.debug('step: reboot device')
+                da.reboot_device('default')
+                da.unlock_screen('default')
+
+                # start collect log
+                name = desktop.get_log_name(uid, 'SmokeModule')
+                #LogPath = os.path.dirname(os.path.abspath(name))
+                log_reader = dumplog.DumpLogcatFileReader(name, uid)
+                log_reader.clear_logcat()
+                log_reader.start()
+                #connect network and waiting for module download
+                logger.debug('step: connect network and download module')
+                for i in range(2):
+                    da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
+                sleep(20)
+                log_reader.stop()
+
+                #check log for login package and verify if module update
+                loginfo = filter_log_result(name, 'jabber:iq:auth', pkg_pid)
+                init_result = verify_pkg_content(loginfo, soft_version)
+
+            if init_result:
+                logger.debug('step: module is made effect for ' + str(mid))
+                if count == len(mid_list) - 2:
+                    sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
+                    cmd = ' '.join(['run', uid, str(sid)])
+                    subprocess.Popen(cmd, shell=True, stdout=None)
+
+                    # test new module for upgrade
+                    device_config.setValue(uid,'background_module_id1', mid_list[count+1])
+                    sid = module_config.getValue('COMMON', 'upgrade_fun_suite_id')
+                    cmd = ' '.join(['run', uid, str(sid)])
+                    subprocess.Popen(cmd, shell=True, stdout=None)
+                    break
+                count += 1
+            else:
+                logger.error('step: module is not made effect for ' + str(mid))
+                break
+    except Exception,ex:
+        print ex
+
+
 
 if __name__ == '__main__':
 
@@ -180,18 +197,7 @@ if __name__ == '__main__':
 
     test_paths = module_config.getValue('COMMON', 'tags').split(';')
     for tp in test_paths:
-        result = init_module_version(uid, tp)
-
-        # if init result is success, then test detail functions
-        if result:
-            sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
-            cmd = ' '.join(['run', uid, str(sid)])
-            subprocess.Popen(cmd, shell=True, stdout=None)
-
-        # test new module for upgrade
-            sid = module_config.getValue('COMMON', 'upgrade_fun_suite_id')
-            cmd = ' '.join(['run', uid, str(sid)])
-            subprocess.Popen(cmd, shell=True, stdout=None)
+        init_module_version(uid, tp)
 
         # set all module to disable
         mid_list = module_config.getValue(tp, 'module_upgrade_path').split(';')

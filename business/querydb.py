@@ -307,9 +307,10 @@ def update_stage_module_network(mid, exp_network, exp_killself):
 def update_stage_module_status(mid, flag):
 
     if flag:
-        query = 'update fun_plugin_file set enable = {0} where id = {2}'.format(1, mid)
+        query = 'update fun_plugin_file set enable = {0} where id = {1}'.format(1, mid)
     else:
-        query = 'update fun_plugin_file set enable = {0} where id = {2}'.format(0, mid)
+        query = 'update fun_plugin_file set enable = {0} where id = {1}'.format(0, mid)
+
     stagedb.execute_update(query)
 
 
@@ -334,7 +335,7 @@ def check_amount_limit(mid):
     start_time = desktop.get_time_stamp(cur_date, 0)
     end_time = desktop.get_time_stamp(cur_date, 1)
 
-    query = "select * from fun_plugin_amount_limit where id= {0} and start_time= {1}".format(mid, start_time)
+    query = "select * from fun_plugin_amount_limit where plugin_file_id= {0} and start_time= {1}".format(mid, start_time)
     result = stagedb.select_one_record(query)
     if result[0] is None:
         query = "insert into fun_plugin_amount_limit(plugin_file_id, enable, start_time, end_time, max_get_amount) values({0},1,{1},{2},1000)".format(mid, start_time,end_time)
@@ -347,9 +348,9 @@ def check_amount_limit(mid):
 def get_operation_module_info(key, id):
 
     if key.lower() == 'module':
-        query = 'select path, length, hash, encryption_path from fun_plugin_file where id = {0}'.format(id)
+        query = 'select path, length, hash, encryption_path, soft_version from fun_plugin_file where id = {0}'.format(id)
     else:
-        query = 'select path, length, hash, client_path from fun_upgrade_operation where id = {0}'.format(id)
+        query = 'select path, length, hash, client_path,version from fun_upgrade_operation where id = {0}'.format(id)
     result = stagedb.select_one_record(query)
     res = {}
     res['path'] = result[0]['path'].encode('utf8')
@@ -357,8 +358,10 @@ def get_operation_module_info(key, id):
     res['hash'] = result[0]['hash'].encode('utf8')
     if key.lower() != 'module':
         res['cpath'] = result[0]['client_path'].encode('utf8')
+        res['version'] = result[0]['version']
     else:
         res['cpath'] = result[0]['encryption_path'].encode('utf8')
+        res['version'] = result[0]['soft_version']
     return res
 
 
