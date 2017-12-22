@@ -155,24 +155,27 @@ def init_module_version(uid, test_path):
                 loginfo = filter_log_result(name, 'jabber:iq:auth', pkg_pid)
                 init_result = verify_pkg_content(loginfo, soft_version)
 
-            if init_result:
-                logger.debug('step: module is made effect for ' + str(mid))
-                if count == len(mid_list) - 2:
-                    sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
-                    cmd = ' '.join(['run', uid, str(sid)])
-                    subprocess.Popen(cmd, shell=True, stdout=None)
+                if init_result:
+                    logger.debug('step: module is made effect for ' + str(mid))
+                    if count == len(mid_list) - 2:
+                        sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
+                        cmd = ' '.join(['run', uid, str(sid)])
+                        subprocess.Popen(cmd, shell=True, stdout=None)
 
-                    # test new module for upgrade
-                    device_config.setValue(uid,'background_module_id1', mid_list[count+1])
-                    sid = module_config.getValue('COMMON', 'upgrade_fun_suite_id')
-                    cmd = ' '.join(['run', uid, str(sid)])
-                    subprocess.Popen(cmd, shell=True, stdout=None)
+                        # test new module for upgrade
+                        device_config.setValue(uid,'background_module_id1', mid_list[count+1])
+                        sid = module_config.getValue('COMMON', 'upgrade_fun_suite_id')
+                        cmd = ' '.join(['run', uid, str(sid)])
+                        subprocess.Popen(cmd, shell=True, stdout=None)
+                        break
+                    count += 1
+                else:
+                    logger.error('step: module is not made effect for ' + str(mid))
                     break
-                count += 1
-            else:
-                logger.error('step: module is not made effect for ' + str(mid))
-                break
-    except Exception,ex:
+            logger.error('step: module is not downloaded successfully')
+            break
+
+    except Exception, ex:
         print ex
 
 
