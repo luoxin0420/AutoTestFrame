@@ -5,7 +5,7 @@ import os
 import platform
 import re
 import time
-import utils
+import datetime
 import myuiautomator
 
 class AdbTools(object):
@@ -348,15 +348,15 @@ class AdbTools(object):
         :param target_path: 目标路径
         :return:
         """
-        format_time = utils.timetools.timestamp('%Y%m%d%H%M%S')
+        format_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         fname = filename + format_time
         self.shell('screencap -p /sdcard/%s.png' % (fname,))
         time.sleep(1)
         if target_path == '':
-            self.pull('/sdcard/%s.png' % (format_time,), os.path.expanduser('~'))
+            self.pull('/sdcard/%s.png' % (fname,), os.path.expanduser('~'))
         else:
-            self.pull('/sdcard/%s.png' % (format_time,), target_path)
-        self.remove('/sdcard/%s.png' % (format_time,))
+            self.pull('/sdcard/%s.png' % (fname,), target_path)
+        self.remove('/sdcard/%s.png' % (fname,))
 
     def get_cache_logcat(self):
         """
@@ -602,6 +602,14 @@ class AdbTools(object):
         """
         return self.adb('kill-server').read().strip()
 
+    def start_server(self):
+
+        """
+        启动ADB SERVER
+        :return:
+        """
+        return self.adb('start-server').read().strip()
+
     def quit_app(self, package):
         """
         退出应用
@@ -809,7 +817,7 @@ class AdbTools(object):
         :return: 锁屏/非锁屏
         the other command: adb shell dumpsys window policy|grep mShowingLockscreen(mShowingLockscreen=false)
         """
-        l = self.shell('dumpsys dumpsys window policy|grep isStatusBarKeyguard').readlines()
+        l = self.shell('dumpsys window policy|grep isStatusBarKeyguard').readlines()
         for i in l:
             if 'isStatusBarKeyguard=' in i:
                 return i.split()[-1] == 'isStatusBarKeyguard=true'
