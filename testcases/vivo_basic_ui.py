@@ -72,7 +72,9 @@ class TestVivoBasicUI(unittest.TestCase):
         desktop.close_all_program('adb')
         # restart adb server
         sleep(1)
-        DEVICE.restart_adb_server()
+        DEVICE.kill_server()
+        sleep(2)
+        DEVICE.start_server()
         sleep(5)
 
     def list2reason(self, exc_list):
@@ -94,6 +96,7 @@ class TestVivoBasicUI(unittest.TestCase):
             result = DEVICE.get_lock_screen_state()
         return result
 
+
     def test_vlife_theme(self):
 
         logger.debug(u'TestCase: 下载并应用主题')
@@ -101,7 +104,7 @@ class TestVivoBasicUI(unittest.TestCase):
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
 
-        self.assertEqual(True, result)
+        self.assertEqual(False, result)
 
     def test_multiple_vlife_theme(self):
 
@@ -112,11 +115,11 @@ class TestVivoBasicUI(unittest.TestCase):
             # set theme1
             theme.set_device_theme(DEVICENAME, 'VLIFE')
             result = self.unlock_screen()
-            self.assertEqual(True, result)
+            self.assertEqual(False, result)
             # set theme2
             theme.set_device_theme(DEVICENAME, 'VLIFE', 1)
             result = self.unlock_screen()
-            self.assertEqual(True, result)
+            self.assertEqual(False, result)
 
     def test_vlife_system_switch(self):
 
@@ -124,10 +127,10 @@ class TestVivoBasicUI(unittest.TestCase):
         self.case_id = '132'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
-        self.assertEqual(True, result)
+        self.assertEqual(False, result)
         theme.set_device_theme(DEVICENAME, 'SYSTEM')
         result = self.unlock_screen()
-        self.assertEqual(True, result)
+        self.assertEqual(False, result)
 
     def test_third_party_theme(self):
 
@@ -139,7 +142,7 @@ class TestVivoBasicUI(unittest.TestCase):
         DEVICE.start_application(custom_app)
         sleep(2)
         result = self.unlock_screen()
-        self.assertEqual(True,result)
+        self.assertEqual(False,result)
         DEVICE.screenshot(self._testMethodName, self.log_path)
 
     def test_dropdown_notification_recovery(self):
@@ -152,7 +155,7 @@ class TestVivoBasicUI(unittest.TestCase):
         DEVICE.send_keyevent(26)
         sleep(2)
         result = self.unlock_screen()
-        self.assertEqual(True, result)
+        self.assertEqual(False, result)
 
     def test_home_back_key(self):
 
@@ -168,12 +171,12 @@ class TestVivoBasicUI(unittest.TestCase):
         DEVICE.send_keyevent(3)
         sleep(1)
         result = DEVICE.get_lock_screen_state()
-        self.assertEqual(False, result)
+        self.assertEqual(True, result)
         # press back key
         DEVICE.send_keyevent(3)
         sleep(1)
         result = DEVICE.get_lock_screen_state()
-        self.assertEqual(False, result)
+        self.assertEqual(True, result)
 
     def test_reboot(self):
 
@@ -181,7 +184,7 @@ class TestVivoBasicUI(unittest.TestCase):
         self.case_id = '136'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
-        self.assertEqual(True, result)
+        self.assertEqual(False, result)
         DEVICE.reboot()
         sleep(20)
         DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
@@ -204,7 +207,7 @@ class TestVivoBasicUI(unittest.TestCase):
         self.case_id = '138'
         for i in range(30):
             result = self.unlock_screen()
-            self.assertEqual(True, result)
+            self.assertEqual(False, result)
             DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
 
     def test_landscape_app(self):
@@ -218,7 +221,7 @@ class TestVivoBasicUI(unittest.TestCase):
         DEVICE.rotation_screen(1)
         sleep(2)
         result = self.unlock_screen()
-        self.addCleanup(True, result)
+        self.assertEqual(False, result)
 
 
 def run(dname, loop, rtype):
@@ -228,7 +231,7 @@ def run(dname, loop, rtype):
 
 
     DEVICENAME = dname
-    DEVICE = adbtools.device(DEVICENAME)
+    DEVICE = adbtools.AdbTools(DEVICENAME)
 
     # run test case
     logname = desktop.get_log_name(dname,'TestVivoBasicUI')
@@ -273,4 +276,4 @@ def run(dname, loop, rtype):
         print ex
 
 if __name__ == '__main__':
-    run("ZX1G22TG4F", 1, 'all')
+    run("82e2aaad", 1, 'all')
