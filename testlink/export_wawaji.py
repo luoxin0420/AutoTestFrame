@@ -5,7 +5,9 @@ __author__ = "Administrator"
 from xml.dom.minidom import *
 import csv
 import argparse
-
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 def format_steps(steps_obj, dom):
 

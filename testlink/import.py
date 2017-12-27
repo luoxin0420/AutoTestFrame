@@ -6,7 +6,9 @@ from xml.dom.minidom import Document
 import csv
 import datetime
 import argparse
-
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 def format_preconditions(input_str):
     out_str = ""
