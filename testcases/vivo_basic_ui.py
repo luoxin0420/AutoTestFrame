@@ -16,6 +16,12 @@ from business import querydb as tc
 from library import HTMLTestRunner
 from business import theme, action
 
+#注意测试下列用例请满足下面条件
+#请安装advhelp.apk,或者在device.ini中的custom_third_app设置的应用是被安装的
+#保证无论是VLIFE\SYSTEM\第三方主题都采用同样的解锁方式（因为device.ini中只有下面参数设置解锁方式
+# 类似unlock_style = right
+# unlock_location = {"orig":[0,0],"dest":[0,0],"distance":200, "duration":500}
+
 
 class TestVivoBasicUI(unittest.TestCase):
 
@@ -83,19 +89,24 @@ class TestVivoBasicUI(unittest.TestCase):
 
     def unlock_screen(self):
 
-        result = False
         # screen off/on
-        if DEVICE.get_display_state():
+        if not DEVICE.get_display_state():
             DEVICE.send_keyevent(26)
-            sleep(2)
-            DEVICE.send_keyevent(26)
-            DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
-            # unlock
-            device_action = action.DeviceAction(DEVICENAME)
-            device_action.unlock_screen('default')
-            result = DEVICE.get_lock_screen_state()
+
+        DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
+        # unlock
+        device_action = action.DeviceAction(DEVICENAME)
+        device_action.unlock_screen('default')
+        result = DEVICE.get_lock_screen_state()
+
         return result
 
+    def get_device_state(self):
+
+        if not DEVICE.get_display_state():
+            DEVICE.send_keyevent(26)
+        result = DEVICE.get_lock_screen_state()
+        return result
 
     def test_vlife_theme(self):
 
@@ -150,8 +161,10 @@ class TestVivoBasicUI(unittest.TestCase):
         self.case_id = '134'
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         result = self.unlock_screen()
+        self.assertEqual(False, result)
         width, height = DEVICE.get_screen_normal_size()
-        DEVICE.shell('input swipe {1} {2} {3} {4} 200'.format(width/2, 50, width/2, height/2))
+        DEVICE.shell('input swipe {0} {1} {2} {3} 200'.format(int(width)/2, 50, int(width)/2, int(height)/2))
+        sleep(2)
         DEVICE.send_keyevent(26)
         sleep(2)
         result = self.unlock_screen()
@@ -173,10 +186,13 @@ class TestVivoBasicUI(unittest.TestCase):
         result = DEVICE.get_lock_screen_state()
         self.assertEqual(True, result)
         # press back key
-        DEVICE.send_keyevent(3)
+        DEVICE.send_keyevent(4)
         sleep(1)
         result = DEVICE.get_lock_screen_state()
         self.assertEqual(True, result)
+
+        # recovery to initial state
+        self.unlock_screen()
 
     def test_reboot(self):
 
@@ -186,8 +202,12 @@ class TestVivoBasicUI(unittest.TestCase):
         result = self.unlock_screen()
         self.assertEqual(False, result)
         DEVICE.reboot()
-        sleep(20)
+        sleep(30)
         DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
+        result = self.get_device_state()
+        self.assertEqual(True, result)
+        # recovery to initial state
+        self.unlock_screen()
 
     def test_screen_on_off_30(self):
 
@@ -199,6 +219,10 @@ class TestVivoBasicUI(unittest.TestCase):
             sleep(2)
             DEVICE.send_keyevent(26)
         DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
+        result = self.get_device_state()
+        self.assertEqual(True, result)
+        # recovery to initial state
+        self.unlock_screen()
 
     def test_unlock_30(self):
 
@@ -206,9 +230,15 @@ class TestVivoBasicUI(unittest.TestCase):
         theme.set_device_theme(DEVICENAME, 'VLIFE')
         self.case_id = '138'
         for i in range(30):
+            if DEVICE.get_lock_screen_state():
+                DEVICE.send_keyevent(26)
+                sleep(1)
+                DEVICE.send_keyevent(26)
+            else:
+                DEVICE.send_keyevent(26)
+
             result = self.unlock_screen()
             self.assertEqual(False, result)
-            DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
 
     def test_landscape_app(self):
 
