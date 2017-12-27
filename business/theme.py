@@ -4,8 +4,32 @@
 from time import sleep
 
 from library import myuiautomator
-from library import device
 from library.myglobal import theme_config
+from library import adbtools
+
+
+def click_text(dname,text):
+
+    flag = False
+
+    x = 0
+    y = 0
+    element = myuiautomator.Element(dname)
+    event = myuiautomator.Event(dname)
+    if text.find(':') == -1:
+        value = unicode(text)
+    # because there is not 'click' action on text, so have to click next to element
+    else:
+        value = unicode(text.split(':')[0])
+        x = text.split(':')[1]
+        y = text.split(':')[2]
+    ele = element.findElementByName(value)
+    if ele is not None:
+        event.touch(ele[0]-int(x), ele[1]-int(y))
+        sleep(2)
+        flag = True
+
+    return flag
 
 
 def set_device_theme(dname, theme_type, number=0):
@@ -19,8 +43,10 @@ def set_device_theme(dname, theme_type, number=0):
 
     # log in theme app like i theme
     activity_name = theme_config.getValue(dname,'set_theme_pkg')
-    DEVICE = device.Device(dname)
-    DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
+    #DEVICE = device.Device(dname)
+    #DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
+    DEVICE = adbtools.AdbTools(dname)
+    DEVICE.start_application(activity_name)
     sleep(5)
     if number == 0:
         if theme_type.upper() == 'VLIFE':
@@ -33,28 +59,54 @@ def set_device_theme(dname, theme_type, number=0):
         tag = 'vlife_theme_path_' + str(number)
         vlife_theme_path = theme_config.getValue(dname, tag).split('|')
 
+    width, height = DEVICE.get_screen_normal_size()
+
     try:
 
         for text in vlife_theme_path:
-            x = 0
-            y = 0
-            element = myuiautomator.Element(dname)
-            event = myuiautomator.Event(dname)
-            if text.find(':') == -1:
-                value = unicode(text)
-            # because there is not 'click' action on text, so have to click next to element
+            # try to swipe screen multiple times
+            if text.startswith('NAME'):
+                search_text = text.split('_')[1]
+                for i in range(3):
+                    result = click_text(dname, search_text)
+                    if result:
+                        break
+                    else:
+                        # swipe screen
+                        cmd = 'input swipe {0} {1} {2} {3} 200'.format(int(width)/2, int(height)/2, int(width)/2, int(height)/2-300)
+                        DEVICE.shell(cmd)
+                        sleep(1)
             else:
-                value = unicode(text.split(':')[0])
-                x = text.split(':')[1]
-                y = text.split(':')[2]
-            ele = element.findElementByName(value)
-            if ele is not None:
-                event.touch(ele[0]-int(x), ele[1]-int(y))
-                sleep(2)
+                click_text(dname,text)
+
+            # for i in range(3):
+            #     x = 0
+            #     y = 0
+            #     element = myuiautomator.Element(dname)
+            #     event = myuiautomator.Event(dname)
+            #     if text.find(':') == -1:
+            #         value = unicode(text)
+            #     # because there is not 'click' action on text, so have to click next to element
+            #     else:
+            #         value = unicode(text.split(':')[0])
+            #         x = text.split(':')[1]
+            #         y = text.split(':')[2]
+            #     ele = element.findElementByName(value)
+            #     if ele is not None:
+            #         event.touch(ele[0]-int(x), ele[1]-int(y))
+            #         sleep(2)
+            #         break
+            #     else:
+            #         # swipe screen
+            #         cmd = 'input swipe {0} {1} {2} {3} 200'.format(int(width)/2, int(height)/2, int(width)/2, int(height)/2-300)
+            #         DEVICE.shell(cmd)
+            #         sleep(1)
+
     except Exception,ex:
         print ex
     # return to HOME
-    DEVICE.send_keyevent(3)
+    for i in range(3):
+        DEVICE.send_keyevent(4)
 
 
 def theme_task_init_resource(dname, parameter):
