@@ -179,7 +179,6 @@ def init_module_version(uid, test_path):
         print ex
 
 
-
 if __name__ == '__main__':
 
     global device

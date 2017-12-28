@@ -85,26 +85,49 @@ if __name__ == '__main__':
         logger.debug('Start to grasp the log')
         log_reader = DumpLogcat(outfile, uid, cmd)
         log_reader.start()
-        my_action.network_change('CLOSE_ALL')
-        sleep(1)
+        ######verify main process
+        # my_action.network_change('CLOSE_ALL')
+        # sleep(1)
+        # my_action.network_change('ONLY_WIFI')
+        # sleep(60)
+        # log_reader.stop()
+        # logger.debug('Stop logging')
+        # result = verify_log(outfile)
+        #
+        # # if find log, then exit loop
+        # if result:
+        #     Found = True
+        #     break
+        #
+        # # otherwise, clear app data and reboot
+        # my_device.clear_app_data(pkg)
+        # sleep(1)
+        # my_device.clear_app_data('com.android.systemui')
+        #
+        # my_device.reboot()
+        # sleep(30)
+        # my_action.unlock_screen('DEFAULT')
+
+        ###### verify systemui process
+
         my_action.network_change('ONLY_WIFI')
-        sleep(60)
-        log_reader.stop()
-        logger.debug('Stop logging')
-        result = verify_log(outfile)
-
-        # if find log, then exit loop
-        if result:
-            Found = True
-            break
-
         # otherwise, clear app data and reboot
         my_device.clear_app_data(pkg)
         sleep(1)
         my_device.clear_app_data('com.android.systemui')
-
-        my_device.reboot()
-        sleep(30)
+        sleep(1)
+        pid = my_device.get_pid('com.android.systemui')
+        if pid is not None:
+            cmd = 'kill -9 {0}'.format(pid)
+            my_device.shell(cmd)
+        sleep(10)
+        log_reader.stop()
+        logger.debug('Stop logging')
+        result = verify_log(outfile)
+        # if find log, then exit loop
+        if result:
+            Found = True
+            break
         my_action.unlock_screen('DEFAULT')
 
     if not Found:
