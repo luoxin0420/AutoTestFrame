@@ -100,15 +100,18 @@ def parseXmlToCsv(infile,outfile):
             #     summary_text = node._get_data().decode("utf-8").encode("gbk")
 
             # preconditions
-            preconditions = tc.getElementsByTagName("preconditions")[0]
-            node = preconditions._get_childNodes()[0]
-            if node.nodeType == dom.CDATA_SECTION_NODE:
-                preconditions_text = node._get_data().decode("utf-8").encode("gbk")
-                for char in ["</li>", "<ol>", "</ol>", "<li>", "<p>", "</p>"]:
-                    if char == "</li>":
-                        preconditions_text = preconditions_text.replace(char, "\n")
-                    else:
-                        preconditions_text = preconditions_text.replace(char, "")
+            try:
+                preconditions = tc.getElementsByTagName("preconditions")[0]
+                node = preconditions._get_childNodes()[0]
+                if node.nodeType == dom.CDATA_SECTION_NODE:
+                    preconditions_text = node._get_data().decode("utf-8").encode("gbk")
+                    for char in ["</li>", "<ol>", "</ol>", "<li>", "<p>", "</p>"]:
+                        if char == "</li>":
+                            preconditions_text = preconditions_text.replace(char, "\n")
+                        else:
+                            preconditions_text = preconditions_text.replace(char, "")
+            except Exception,ex:
+                preconditions_text = ''
 
             #exe_type
             exe_type = tc.getElementsByTagName("execution_type")[0]
