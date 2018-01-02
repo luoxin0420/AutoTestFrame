@@ -53,12 +53,19 @@ def verify_pkg_content(loginfo, exp_value):
         if len(loginfo) > 0:
             data = pXml.parseXml(loginfo.split(':::')[1])
             value = data.get_elements_attribute_value('product', 'soft')[0]
-            if value == exp_value:
+
+            temp = exp_value.encode('utf-8').split('.')
+            length = len(temp)
+            temp = '.'.join(temp[0:length-1])
+
+            if value == temp:
                 return True
             else:
                 return False
     except Exception, ex:
-        return False
+        print ex
+
+    return False
 
 
 def init_module_version(uid, test_path):
@@ -101,9 +108,6 @@ def init_module_version(uid, test_path):
         if product_type.upper() == 'THEME':
             theme.set_device_theme(uid, 'vlife')
 
-    # get pid of app
-    pkg_pid = device.get_pid(pkg_name)
-
     # configure server option
 
     mid_list = module_config.getValue(test_path, 'module_upgrade_path').split(';')
@@ -141,6 +145,7 @@ def init_module_version(uid, test_path):
                 # start collect log
                 name = desktop.get_log_name(uid, 'SmokeModule')
                 #LogPath = os.path.dirname(os.path.abspath(name))
+
                 log_reader = dumplog.DumpLogcatFileReader(name, uid)
                 log_reader.clear_logcat()
                 log_reader.start()
@@ -148,9 +153,11 @@ def init_module_version(uid, test_path):
                 logger.debug('step: connect network and download module')
                 for i in range(2):
                     da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
-                sleep(20)
+                sleep(10)
                 log_reader.stop()
 
+                # get pid of app
+                pkg_pid = device.get_pid(pkg_name)
                 #check log for login package and verify if module update
                 loginfo = filter_log_result(name, 'jabber:iq:auth', pkg_pid)
                 init_result = verify_pkg_content(loginfo, soft_version)
@@ -172,8 +179,9 @@ def init_module_version(uid, test_path):
                 else:
                     logger.error('step: module is not made effect for ' + str(mid))
                     break
-            logger.error('step: module is not downloaded successfully')
-            break
+            else:
+                logger.error('step: module is not downloaded successfully')
+                break
 
     except Exception, ex:
         print ex
@@ -196,11 +204,9 @@ if __name__ == '__main__':
     if uid not in devices:
         print "Device is not connected, please check"
         sys.exit(0)
-
     test_paths = module_config.getValue('COMMON', 'tags').split(';')
     for tp in test_paths:
         init_module_version(uid, tp)
-
         # set all module to disable
         mid_list = module_config.getValue(tp, 'module_upgrade_path').split(';')
         for mid in mid_list:

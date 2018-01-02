@@ -257,7 +257,7 @@ class DeviceAction(object):
             logger.debug('Step:update time:' + value)
             unit,num = value.split('-')
             if int(num) != 0:
-                self.device.update_android_time(num,interval_unit=unit)
+                self.device.update_android_time(num, interval_unit=unit)
                 sleep(3)
                 logger.debug('Step:update time is success')
             else:
