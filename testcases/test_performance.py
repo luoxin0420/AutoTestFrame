@@ -8,6 +8,8 @@ from library import desktop
 from library.myglobal import  performance_config
 from time import sleep
 from library import myuiautomator
+from library import dataAnalysis
+from library import diagram
 import sys
 import os
 from uiautomator import Device
@@ -40,6 +42,7 @@ class MemoryTest(object):
     def __init__(self, deviceId, processname):
         self.launch = performance.MemoryCollector(deviceId, processname)
         self.robot = self.launch.adbTunnel
+        self.result = []
 
     def suite_up(self):
         pass
@@ -50,10 +53,15 @@ class MemoryTest(object):
     def test(self):
         pass
 
-    def tear_down(self):
+    def tear_down(self, data_type):
         self.launch.stop()
+        value = dataAnalysis.handle_performance_data(self.launch.result_path, data_type)
+        self.result.append(value)
 
-    def suite_down(self):
+    def suite_down(self, diagram_type):
+
+        if diagram_type.lower() == 'plot':
+            diagram.draw_plot(range(1), self.result, ['test'])
         sys.exit(0)
 
 
@@ -72,10 +80,10 @@ class CPUTimeTest(object):
     def test(self):
         pass
 
-    def tear_down(self):
+    def tear_down(self, data_type):
         self.launch.stop()
 
-    def suite_down(self):
+    def suite_down(self, diagram):
         sys.exit(0)
 
 
@@ -94,10 +102,10 @@ class UIFPSTest(object):
     def test(self):
         pass
 
-    def tear_down(self):
+    def tear_down(self, data_type):
         self.launch.stop()
 
-    def suite_down(self):
+    def suite_down(self, diagram):
         sys.exit(0)
 
 
@@ -156,19 +164,28 @@ class CaseExecutor(object):
 
         if caselist and len(caselist) == 0:
             print "no case in your caselist"
+            sys.exit(0)
+
+        diagram_type = performance_config.getValue(self.__dviceId, 'diagram_type')
+        data_type = performance_config.getValue(self.__dviceId, 'collect_data_type').split(';')
+        index = 0
         for testcase in caselist:
             result_path = desktop.get_log_path(self.__dviceId, testcase)
             performance_config.setValue(self.__dviceId, 'result_path', result_path)
-            self.exec_test_case(testcase)
+            try:
+                self.exec_test_case(testcase, data_type[index], diagram_type)
+            except Exception,ex:
+                self.exec_test_case(testcase, 'avg', diagram_type)
+            index += 1
 
-    def exec_test_case(self, caseName):
+    def exec_test_case(self, caseName, data_type, diagram):
 
         instance = self.__alias[caseName](self.__dviceId, self.__name)
         instance.suite_up()
         for i in range(0, self.__times):
             instance.set_up()
             instance.test()
-            instance.tear_down()
-        instance.suite_down()
+            instance.tear_down(data_type)
+        instance.suite_down(diagram)
 
 
