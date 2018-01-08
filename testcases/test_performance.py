@@ -12,7 +12,46 @@ from library import dataAnalysis
 from library import diagram
 import sys
 import os
+import shutil
+from numpy import mean
 from uiautomator import Device
+
+
+def common_tear_down(data_file, number, data_type):
+
+    # get statistical data
+    value = dataAnalysis.handle_performance_data(data_file, data_type)
+
+    # get suffix name
+    temp = os.path.splitext(data_file)
+    desfile = ''.join([temp[0], '_', str(number), temp[1]])
+    shutil.copy(data_file, desfile)
+    with open(data_file, 'wb') as wfile:
+         wfile.write('')
+
+    return value
+
+
+def common_suite_down(uid, result_list, diagram_type, desc_list, flag):
+
+    out_path = performance_config.getValue(uid,'result_path')
+    out_file = os.path.join(out_path,diagram_type+'.png')
+
+    max_length = max(map(len, [result_list]))
+
+    if diagram_type.lower() == 'plot':
+        diagram.draw_plot(range(max_length), [result_list], desc_list, out_file, flag)
+
+    if diagram_type.lower() == 'bar':
+        diagram.draw_bar(range(max_length), [result_list], desc_list, out_file, flag)
+
+    # write summary result to file
+
+    summary = os.path.join(out_path, 'summary.txt')
+
+    with open(summary,'wb') as wfile:
+        wfile.write(','.join(result_list))
+        wfile.write(mean(result_list))
 
 
 class LaunchSpeedTest(object):
@@ -20,6 +59,7 @@ class LaunchSpeedTest(object):
     def __init__(self, deviceId, processname):
         self.launch = performance.LaunchTimeCollector(deviceId, processname)
         self.robot = self.launch.adbTunnel
+        self.result = []
 
     def suite_up(self):
         pass
@@ -30,10 +70,13 @@ class LaunchSpeedTest(object):
     def test(self):
         pass
 
-    def tear_down(self):
-        self.launch.stop()
+    def tear_down(self, num, data_type):
 
-    def suite_down(self):
+        self.launch.stop()
+        value = common_tear_down(self.launch.result_path, num, data_type)
+        self.result.append(value)
+
+    def suite_down(self, uid, diagram):
         sys.exit(0)
 
 
@@ -53,16 +96,15 @@ class MemoryTest(object):
     def test(self):
         pass
 
-    def tear_down(self, data_type):
+    def tear_down(self, num, data_type):
+
         self.launch.stop()
-        value = dataAnalysis.handle_performance_data(self.launch.result_path, data_type)
+        value = common_tear_down(self.launch.result_path, num, data_type)
         self.result.append(value)
 
-    def suite_down(self, diagram_type):
+    def suite_down(self, uid, diagram_type):
 
-        if diagram_type.lower() == 'plot':
-            diagram.draw_plot(range(1), self.result, ['test'])
-        sys.exit(0)
+        common_suite_down(uid, self.result, diagram_type, ['memory'], 'MEMORY')
 
 
 class CPUTimeTest(object):
@@ -83,7 +125,7 @@ class CPUTimeTest(object):
     def tear_down(self, data_type):
         self.launch.stop()
 
-    def suite_down(self, diagram):
+    def suite_down(self, uid, diagram):
         sys.exit(0)
 
 
@@ -105,7 +147,7 @@ class UIFPSTest(object):
     def tear_down(self, data_type):
         self.launch.stop()
 
-    def suite_down(self, diagram):
+    def suite_down(self, uid, diagram):
         sys.exit(0)
 
 
@@ -173,9 +215,10 @@ class CaseExecutor(object):
             result_path = desktop.get_log_path(self.__dviceId, testcase)
             performance_config.setValue(self.__dviceId, 'result_path', result_path)
             try:
-                self.exec_test_case(testcase, data_type[index], diagram_type)
+                dtype = data_type[index]
             except Exception,ex:
-                self.exec_test_case(testcase, 'avg', diagram_type)
+                dtype = 'avg'
+            self.exec_test_case(testcase, dtype, diagram_type)
             index += 1
 
     def exec_test_case(self, caseName, data_type, diagram):
@@ -185,7 +228,7 @@ class CaseExecutor(object):
         for i in range(0, self.__times):
             instance.set_up()
             instance.test()
-            instance.tear_down(data_type)
-        instance.suite_down(diagram)
+            instance.tear_down(i, data_type)
+        instance.suite_down(self.__dviceId, diagram)
 
 

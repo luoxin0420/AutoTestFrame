@@ -13,9 +13,15 @@ import math
 # https://pypi.python.org/pypi/matplotlib
 # http://matplotlib.org/index.html
 
+DIAGRAM_DICT = {'MEMORY': {'title': 'Memory Monitoring', 'ylabel': 'Total Memory(KB)', 'xlabel': 'Loop Number'},\
+                'CPU': {'title': 'CPU Monitoring','ylabel': 'CPU Time(MS)', 'xlabel': 'Loop Number'}, \
+                'LAUNCH TIME': {'title': 'Launch Time (Hard Time/Soft Time)', 'ylabel': 'Launch Time (MS)', 'xlabel':'Loop Number'},\
+                'TRAFFIC': {'title': 'Traffic Data', 'ylabel': 'Send/Receive(Bytes)', 'xlabel': 'Loop Number'},\
+                'UI FLUENCY': {'title': 'UI Fluency Monitoring', 'ylabel': 'Launch Time (MS)', 'xlabel':'Loop Number'}}
+
 
 # multial_bars
-def draw_bar(labels, data_list, data_desc, width):
+def draw_bar(labels, data_list, data_desc, width, out_file, dict_flag):
     """
 
     :param labels: xticklables, this is list
@@ -34,30 +40,30 @@ def draw_bar(labels, data_list, data_desc, width):
         i += 1
 
     plt.xticks(x + total_width/2 - width/2, labels)
-    plt.xlabel('API Alias')
-    plt.ylabel('Send/Receive(Bytes)')
+    plt.xlabel(DIAGRAM_DICT[dict_flag]['xlabel'])
+    plt.ylabel(DIAGRAM_DICT[dict_flag]['ylabel'])
     # # title
-    plt.title('API Traffic Data', bbox={'facecolor':'0.8', 'pad':5})
+    plt.title(DIAGRAM_DICT[dict_flag]['title'], bbox={'facecolor':'0.8', 'pad':5})
     plt.legend()
     plt.grid(True)
-    plt.savefig(r"E:\bar.png")
+    plt.savefig(out_file)
     #plt.show()
     plt.close()
 
 
-def draw_plot(labels, data_list, data_desc):
+def draw_plot(labels, data_list, data_desc, out_file, dict_flag):
 
     i = 0
     for dt in data_list:
         plt.plot(labels,dt, "+-",label=data_desc[i])
         i += 1
-    plt.xlabel('Loop Times')
-    plt.ylabel('Launch Time (MS)')
+    plt.xlabel(DIAGRAM_DICT[dict_flag]['xlabel'])
+    plt.ylabel(DIAGRAM_DICT[dict_flag]['ylabel'])
     # # title
-    plt.title('Launch Time (Hard Time/Soft Time)', bbox={'facecolor':'0.8', 'pad':5})
+    plt.title(DIAGRAM_DICT[dict_flag]['title'], bbox={'facecolor':'0.8', 'pad':5})
     plt.legend()
     plt.grid(True)
-    plt.savefig(r"E:\bar1.png")
+    plt.savefig(out_file)
     #plt.show()
     plt.close()
 
@@ -83,22 +89,25 @@ if __name__ == '__main__':
     #     width = 0.4
     # draw_bar(xticklables, bar_list, data_description, width)
 
-    with open(r'E:\LaunchTimeCollector.csv', 'r') as rfile:
-        data_description = ['Soft reboot', 'Hard reboot']
-        soft = []
-        hard = []
-        count = 0
-        plot = []
-        reader = csv.reader(rfile)
-        for line in reader:
-            if count % 2 == 0:
-                soft.append(line[1])
-            else:
-                hard.append(line[1])
-            count += 1
-        plot.append(soft)
-        plot.append(hard)
-        xtick = range((len(soft) if len(soft) > len(hard) else len(hard)))
-        draw_plot(xtick, plot, data_description)
+    # with open(r'E:\LaunchTimeCollector.csv', 'r') as rfile:
+    #     data_description = ['Soft reboot', 'Hard reboot']
+    #     soft = []
+    #     hard = []
+    #     count = 0
+    #     plot = []
+    #     reader = csv.reader(rfile)
+    #     for line in reader:
+    #         if count % 2 == 0:
+    #
+    #             soft.append(line[1])
+    #         else:
+    #             hard.append(line[1])
+    #         count += 1
+    #     plot.append(soft)
+    #     plot.append(hard)
+    #     xtick = range((len(soft) if len(soft) > len(hard) else len(hard)))
+    #     outfile = r"e://plot.png"
+    #     draw_plot(xtick, plot, data_description, outfile,'MEMORY')
 
-
+    outfile = r"e://plot2.png"
+    draw_plot(range(8), [[79123, 79331, 79000, 82340, 90000, 87000, 93450, 95000]], ['memory'], outfile, 'MEMORY')
