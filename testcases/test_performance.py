@@ -10,11 +10,13 @@ from time import sleep
 from library import myuiautomator
 from library import dataAnalysis
 from library import diagram
+from business import action
 import sys
 import os
 import shutil
 from numpy import mean
 from uiautomator import Device
+from business import theme
 
 
 def common_tear_down(data_file, number, data_type):
@@ -85,6 +87,7 @@ class MemoryTest(object):
     def __init__(self, deviceId, processname):
         self.launch = performance.MemoryCollector(deviceId, processname)
         self.robot = self.launch.adbTunnel
+        self.uid = deviceId
         self.result = []
 
     def suite_up(self):
@@ -186,6 +189,148 @@ class MagazineMemoryMonitor(MemoryTest):
                 myuiautomator.click_popup_window(self.launch.deviceId, te)
                 sleep(2)
         except Exception,ex:
+            print ex
+
+
+class MemoryPeakOnLockScreen(MemoryTest):
+
+    def set_up(self):
+
+        super(MemoryPeakOnLockScreen, self).set_up()
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        # clear background app
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(MemoryPeakOnLockScreen, self).test()
+
+            # screen on/off
+            state = self.robot.get_display_state()
+            if state != 'ON':
+                self.robot.send_keyevent(24)
+            else:
+                self.robot.send_keyevent(24)
+                sleep(1)
+                self.robot.send_keyevent(24)
+
+            s_size = self.robot.get_screen_normal_size()
+
+            width = int(s_size[0])
+            cmd = 'adb shell input swipe {0} {1} {2} {3} 200'.format(width-200, 100, width-300, 100)
+            for i in range(30):
+                self.robot.shell(cmd)
+                sleep(1)
+        except Exception, ex:
+            print ex
+
+
+class MemoryNoLoad(MemoryTest):
+
+    def set_up(self):
+
+        super(MemoryNoLoad, self).set_up()
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        # clear background app
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(MemoryNoLoad, self).test()
+
+            # screen on/off
+            state = self.robot.get_display_state()
+            if state == 'ON':
+                self.robot.send_keyevent(24)
+            sleep(30)
+        except Exception, ex:
+            print ex
+
+
+class MemoryReboot(MemoryTest):
+
+    def set_up(self):
+
+        super(MemoryReboot, self).set_up()
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        self.robot.reboot()
+        sleep(10)
+        # screen on/off
+        state = self.robot.get_display_state()
+        if state == 'ON':
+            self.robot.send_keyevent(24)
+
+        # unlock screen
+        myaction = action.DeviceAction(self.uid)
+        myaction.unlock_screen('DEFAULT')
+        # clear background app
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(MemoryReboot, self).test()
+            sleep(20)
+        except Exception, ex:
+            print ex
+
+
+class MemoryReboot_ScreenOnOff(MemoryTest):
+
+    def set_up(self):
+
+        super(MemoryReboot_ScreenOnOff, self).set_up()
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        self.robot.reboot()
+        sleep(120)
+
+        # clear background app
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(MemoryReboot_ScreenOnOff, self).test()
+            # screen on/off
+            state = self.robot.get_display_state()
+
+            for i in range(200):
+                self.robot.send_keyevent(24)
+                sleep(1)
+
+        except Exception, ex:
+            print ex
+
+
+class MemoryReboot_ScreenOnOff_Unlock(MemoryTest):
+
+    def set_up(self):
+
+        super(MemoryReboot_ScreenOnOff_Unlock, self).set_up()
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        self.robot.reboot()
+        sleep(120)
+        # clear background app
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(MemoryReboot_ScreenOnOff_Unlock, self).test()
+            # screen on/off
+            for i in range(200):
+                state = self.robot.get_display_state()
+                if state != 'ON':
+                    self.robot.send_keyevent(24)
+                # unlock screen
+                myaction = action.DeviceAction(self.uid)
+                myaction.unlock_screen('DEFAULT')
+                # screen off
+                self.robot.send_keyevent(24)
+                sleep(1)
+        except Exception, ex:
             print ex
 
 
