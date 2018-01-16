@@ -29,7 +29,7 @@ if __name__ == '__main__':
         loop = performance_config.getValue(uid, 'loop')
         process_name = performance_config.getValue(uid, 'app_process_name')
         case_list = performance_config.getValue(uid, 'case_list').split(';')
-        case_exe = test_performance.CaseExecutor(int(loop), uid, process_name)
+        case_exe = test_performance.CaseExecutor(int(loop), uid)
         case_exe.exec_test_cases(case_list)
 
     except Exception, ex:

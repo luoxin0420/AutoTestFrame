@@ -15,16 +15,23 @@ def get_special_value(data_list, data_type):
 
     fun = {
     "max": max,
-    "avg": mean,  # 平均值
+    "mean": mean,  # 矩阵平均值
     "median": median, # 中位数
-    "mode": mode,  # 众数
+    "mode": mode,  # 众数,
     "xmax-xmin": ptp,  # 极差
     "variance": var,  # 方差
-    "std-deviation": std, # 标准差
-    "cv": std(data_list)/mean(data_list)}
+    "std-deviation": std}# 标准差
 
-    return fun[data_type](data_list)
+    if data_type in fun.keys():
+        value = fun[data_type](data_list)
+    elif data_type == 'avg':
+        value = sum(data_list)/len(data_list)
+    elif data_type == 'cv':
+        value = std(data_list)/mean(data_list) # 变异
+    else:
+        value = 0
 
+    return value
 
 def get_special_list(start, end, size, data_type):
 

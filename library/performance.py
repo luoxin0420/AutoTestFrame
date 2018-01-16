@@ -90,7 +90,7 @@ class MemoryCollector(Performance):
 
     def __fun_get_mem(self):
         timestamp = time.time()
-        self.timer = threading.Timer(3, self.__fun_get_mem)
+        self.timer = threading.Timer(2, self.__fun_get_mem)
         self.timer.start()
         memItem = MemoryUnit(timestamp, self.__get_mem())
         self.__mem_list.append(memItem)
