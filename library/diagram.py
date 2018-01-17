@@ -14,7 +14,7 @@ import math
 # http://matplotlib.org/index.html
 
 DIAGRAM_DICT = {'MEMORY': {'title': 'Memory Monitoring', 'ylabel': 'Total Memory(KB)', 'xlabel': 'Loop Number'},\
-                'CPU': {'title': 'CPU Monitoring','ylabel': 'CPU Time(MS)', 'xlabel': 'Loop Number'}, \
+                'CPU': {'title': 'CPU Monitoring','ylabel': 'CPU Percent(%)', 'xlabel': 'Loop Number'}, \
                 'LAUNCH TIME': {'title': 'Launch Time (Hard Time/Soft Time)', 'ylabel': 'Launch Time (MS)', 'xlabel':'Loop Number'},\
                 'TRAFFIC': {'title': 'Traffic Data', 'ylabel': 'Send/Receive(Bytes)', 'xlabel': 'Loop Number'},\
                 'UI FLUENCY': {'title': 'UI Fluency Monitoring', 'ylabel': 'Launch Time (MS)', 'xlabel':'Loop Number'}}

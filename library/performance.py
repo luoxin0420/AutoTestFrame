@@ -3,8 +3,6 @@
 
 __author__ = 'Xuxh'
 
-from adbtools import AdbTools
-import desktop as dt
 from abc import abstractmethod,ABCMeta
 import threading
 import time
@@ -13,7 +11,10 @@ import subprocess
 from library import pJson
 import csv
 import os
+import string
 from library.myglobal import performance_config
+from adbtools import AdbTools
+import desktop as dt
 
 
 class Performance(object):
@@ -28,7 +29,6 @@ class Performance(object):
         self.deviceId = deviceId
         self.isFirst = True
         self.adbTunnel = AdbTools(deviceId)
-        self.pid = self.adbTunnel.get_pid(processName)
         pre_log_path = performance_config.getValue(deviceId, 'result_path')
         self.logcat = os.path.join(pre_log_path, 'logcat.txt')
         self.result_path = resultpath
@@ -135,7 +135,8 @@ class CPUJiffiesCollector(Performance):
 
     def __get_jiffs(self):
 
-        cmd = "cat /proc/{0}/stat".format(self.pid)
+        pid = self.adbTunnel.get_pid(self.processName)
+        cmd = "cat /proc/{0}/stat".format(pid)
         output = self.adbTunnel.shell(cmd).read()
         if not output:
             return -1, -1
@@ -174,6 +175,60 @@ class CPUJiffiesCollector(Performance):
         if item:
             fp = open(self.result_path, "a")
             line = ",".join([str(item.format_time), str(item.utime), str(item.stime), "\n"])
+            fp.write(line)
+            fp.close()
+
+    def stop(self):
+        self.timer.cancel()
+
+
+class CPUUnit(object):
+
+    def __init__(self,ts,cpu_value):
+
+        self.format_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(ts))
+        self.cpu = cpu_value
+
+
+class CPUUtilizationCollector(Performance):
+
+    def __init__(self, deviceId='', processName= '', resultpath=None, log=None):
+        super(CPUUtilizationCollector, self).__init__(deviceId, processName, resultpath, log)
+        self.__cpu_list = []
+        self.timer = None
+
+    def start(self):
+
+        self.timer = threading.Timer(1, self.__fun_get_cpu)
+        self.timer.start()
+
+    def __get_cpu_usage(self):
+
+        cmd = "dumpsys cpuinfo | {0} {1}".format( self.adbTunnel._AdbTools__find, self.processName)
+        output = self.adbTunnel.shell(cmd).read()
+
+        try:
+
+            temp = output.strip().split()[0].replace('%', '')
+            return string.atof(temp)
+        except Exception:
+            pass
+        return 0
+
+    def __fun_get_cpu(self):
+        timestamp = time.time()
+        self.timer = threading.Timer(2, self.__fun_get_cpu)
+        self.timer.start()
+        cpuItem = CPUUnit(timestamp, self.__get_cpu_usage())
+        self.__cpu_list.append(cpuItem)
+        self.__write_line(cpuItem)
+        print cpuItem.format_time, ",", cpuItem.cpu
+
+    def __write_line(self, item=None):
+
+        if item:
+            fp = open(self.result_path, "a")
+            line = ",".join([str(item.format_time), str(item.cpu), "\n"])
             fp.write(line)
             fp.close()
 

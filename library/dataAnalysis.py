@@ -7,6 +7,7 @@ from scipy.stats import mode
 from numpy import ptp, var, std
 from numpy import array
 from numpy.random import normal, randint
+import string
 
 
 def get_special_value(data_list, data_type):
@@ -57,7 +58,7 @@ def handle_performance_data(fname, data_type):
     with open(fname,'rb') as rfile:
 
         for ln in rfile:
-            data.append(int(ln.split(',')[1]))
+            data.append(string.atof(ln.split(',')[1]))
 
     return get_special_value(data, data_type)
 

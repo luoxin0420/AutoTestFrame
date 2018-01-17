@@ -10,6 +10,7 @@ from time import sleep
 from library import myuiautomator
 from library import dataAnalysis
 from library import diagram
+from library import adbtools
 from business import action
 import sys
 import os
@@ -56,12 +57,47 @@ def common_suite_down(uid, result_list, diagram_type, desc_list, flag):
         wfile.write('average:' + str(sum(result_list)/len(result_list)))
 
 
+def get_name(pname):
+
+    if pname.lower() == 'com.android.systemui':
+        return 'system'
+    else:
+        return 'vlife'
+
+
+class UIFPSTest(object):
+
+    def __init__(self, deviceId, processname):
+        self.launch = performance.UIFPSCollector(deviceId, processname)
+        self.robot = self.launch.adbTunnel
+        self.uid = deviceId
+        self.result = []
+        self.name = get_name(processname)
+
+    def suite_up(self):
+        pass
+
+    def set_up(self):
+        self.launch.start()
+
+    def test(self):
+        pass
+
+    def tear_down(self, data_type):
+        self.launch.stop()
+
+    def suite_down(self, uid, diagram_type):
+        common_suite_down(uid, self.result, diagram_type, ['Launch Speed'], 'UI FLUENCY')
+
+
 class LaunchSpeedTest(object):
 
     def __init__(self, deviceId, processname):
         self.launch = performance.LaunchTimeCollector(deviceId, processname)
         self.robot = self.launch.adbTunnel
+        self.uid = deviceId
         self.result = []
+        self.name = get_name(processname)
 
     def suite_up(self):
         pass
@@ -82,58 +118,14 @@ class LaunchSpeedTest(object):
         value = common_tear_down(self.launch.result_path, num, data_type)
         self.result.append(value)
 
-    def suite_down(self, uid, diagram):
-        pass
+    def suite_down(self, uid, diagram_type):
+        common_suite_down(uid, self.result, diagram_type, ['Launch Speed'], 'LAUNCH TIME')
 
 
-class CPUTimeTest(object):
-
-    def __init__(self, deviceId, processname):
-        self.launch = performance.CPUJiffiesCollector(deviceId, processname)
-        self.robot = self.launch.adbTunnel
-
-    def suite_up(self):
-        pass
-
-    def set_up(self):
-        self.launch.start()
+class TestMagazineLaunchSpeed(LaunchSpeedTest):
 
     def test(self):
-        pass
-
-    def tear_down(self, data_type):
-        self.launch.stop()
-
-    def suite_down(self, uid, diagram):
-        pass
-
-
-class UIFPSTest(object):
-
-    def __init__(self, deviceId, processname):
-        self.launch = performance.UIFPSCollector(deviceId, processname)
-        self.robot = self.launch.adbTunnel
-
-    def suite_up(self):
-        pass
-
-    def set_up(self):
-        self.launch.start()
-
-    def test(self):
-        pass
-
-    def tear_down(self, data_type):
-        self.launch.stop()
-
-    def suite_down(self, uid, diagram):
-        pass
-
-
-class MagazineLaunchSpeed(LaunchSpeedTest):
-
-    def test(self):
-        super(MagazineLaunchSpeed, self).test()
+        super(TestMagazineLaunchSpeed, self).test()
         for i in range(0, 2):
             self.robot.clear_app_data(self.launch.pkg_name)
             sleep(1)
@@ -146,6 +138,199 @@ class MagazineLaunchSpeed(LaunchSpeedTest):
             self.robot.send_keyevent(4)
 
 
+class CPUUTimeTest(object):
+
+    def __init__(self, deviceId, processname):
+        self.launch = performance.CPUJiffiesCollector(deviceId, processname)
+        self.robot = self.launch.adbTunnel
+        self.uid = deviceId
+        self.result = []
+        self.name = get_name(processname)
+
+    def suite_up(self):
+        pass
+
+    def set_up(self):
+        self.launch.start()
+
+    def test(self):
+        pass
+
+    def tear_down(self, loop_num, data_type):
+        self.launch.stop()
+        if self.robot.get_lock_screen_state():
+            # unlock screen
+            myaction = action.DeviceAction(self.uid)
+            myaction.unlock_screen('DEFAULT')
+        value = common_tear_down(self.launch.result_path, loop_num, data_type)
+        self.result.append(value)
+
+    def suite_down(self, uid, diagram_type):
+        common_suite_down(uid, self.result, diagram_type, ['CPU'], 'CPU')
+
+
+class CPUUsageTest(object):
+
+    def __init__(self, deviceId, processname):
+        self.launch = performance.CPUUtilizationCollector(deviceId, processname)
+        self.robot = self.launch.adbTunnel
+        self.uid = deviceId
+        self.result = []
+        self.name = get_name(processname)
+
+    def suite_up(self):
+        pass
+
+    def set_up(self):
+        self.launch.start()
+
+    def test(self):
+        pass
+
+    def tear_down(self, loop_num, data_type):
+        self.launch.stop()
+        if self.robot.get_lock_screen_state():
+            # unlock screen
+            myaction = action.DeviceAction(self.uid)
+            myaction.unlock_screen('DEFAULT')
+        value = common_tear_down(self.launch.result_path, loop_num, data_type)
+        self.result.append(value)
+
+    def suite_down(self, uid, diagram_type):
+        common_suite_down(uid, self.result, diagram_type, ['CPU'], 'CPU')
+
+
+class TestCPUScreenOn(CPUUsageTest):
+
+    def set_up(self):
+
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        state = self.robot.get_display_state()
+        if state:
+            self.robot.send_keyevent(26)
+        sleep(30)
+
+        # screen on and unlock screen
+        myaction = action.DeviceAction(self.uid)
+        myaction.unlock_screen('DEFAULT')
+        sleep(1)
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(TestCPUScreenOn, self).test()
+            # screen on
+            sleep(30)
+        except Exception, ex:
+            print ex
+
+
+class TestCPUScreenOff(CPUUsageTest):
+
+    def set_up(self):
+
+        # set vlife theme
+        theme.set_device_theme(self.uid, 'VLIFE')
+        state = self.robot.get_display_state()
+        if state:
+            self.robot.send_keyevent(26)
+        sleep(30)
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(TestCPUScreenOff, self).test()
+            # screen on
+            sleep(30)
+        except Exception, ex:
+            print ex
+
+
+class TestCPUSwipeScreen(CPUUsageTest):
+
+    def set_up(self):
+
+        # set vlife theme
+        theme.set_device_theme(self.uid, self.name)
+        state = self.robot.get_display_state()
+        if state:
+            self.robot.send_keyevent(26)
+        sleep(30)
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(TestCPUSwipeScreen, self).test()
+            s_size = self.robot.get_screen_normal_size()
+            width = int(s_size[0])
+            height = int(s_size[1])
+            cmd = 'input swipe {0} {1} {2} {3} 200'.format(int(width/3), int(height/4), int(width/3)*2, int(height/4))
+            # screen on/off
+            state = self.robot.get_display_state()
+            if not state:
+                self.robot.send_keyevent(26)
+            for i in range(30):
+                self.robot.shell(cmd)
+                sleep(1)
+        except Exception, ex:
+            print ex
+
+
+class TestCPUScreenOnOff(CPUUsageTest):
+
+    def set_up(self):
+
+        # set vlife theme
+        theme.set_device_theme(self.uid, self.name)
+        state = self.robot.get_display_state()
+        if state:
+            self.robot.send_keyevent(26)
+        sleep(30)
+        self.launch.start()
+
+    def test(self):
+        try:
+            super(TestCPUScreenOnOff, self).test()
+            for i in range(10):
+                self.robot.send_keyevent(26)
+                sleep(1)
+                self.robot.send_keyevent(26)
+            state = self.robot.get_display_state()
+            if not state:
+                self.robot.send_keyevent(26)
+        except Exception, ex:
+            print ex
+
+
+class TestCPUScreenUnlock(CPUUsageTest):
+
+    def set_up(self):
+
+        # set vlife theme
+        theme.set_device_theme(self.uid, self.name)
+        state = self.robot.get_display_state()
+        if state:
+            self.robot.send_keyevent(26)
+        sleep(30)
+        self.launch.start()
+
+    def test(self):
+        try:
+            for i in range(10):
+                self.robot.send_keyevent(26)
+                sleep(1)
+                myaction = action.DeviceAction(self.uid)
+                myaction.unlock_screen('DEFAULT')
+                self.robot.send_keyevent(26)
+
+            state = self.robot.get_display_state()
+            if not state:
+                self.robot.send_keyevent(26)
+        except Exception, ex:
+            print ex
+
+
 class MemoryTest(object):
 
     def __init__(self, deviceId, processname):
@@ -153,14 +338,7 @@ class MemoryTest(object):
         self.robot = self.launch.adbTunnel
         self.uid = deviceId
         self.result = []
-        self.name = self.__get_name(processname)
-
-    def __get_name(self,pname):
-
-        if pname.lower() == 'com.android.systemui':
-            return 'system'
-        else:
-            return 'vlife'
+        self.name = get_name(processname)
 
     def suite_up(self):
         pass
@@ -186,11 +364,11 @@ class MemoryTest(object):
         common_suite_down(uid, self.result, diagram_type, ['memory'], 'MEMORY')
 
 
-class MagazineMemoryMonitor(MemoryTest):
+class TestMagazineMemoryMonitor(MemoryTest):
 
     def test(self):
         try:
-            super(MagazineMemoryMonitor, self).test()
+            super(TestMagazineMemoryMonitor, self).test()
             self.robot.clear_app_data(self.launch.pkg_name)
             sleep(1)
             self.robot.start_application(self.launch.start_activity)
@@ -208,7 +386,7 @@ class MagazineMemoryMonitor(MemoryTest):
             print ex
 
 
-class MemoryPeakOnLockScreen(MemoryTest):
+class TestMemoryPeakLockScreen(MemoryTest):
 
     def set_up(self):
 
@@ -219,7 +397,7 @@ class MemoryPeakOnLockScreen(MemoryTest):
 
     def test(self):
         try:
-            super(MemoryPeakOnLockScreen, self).test()
+            super(TestMemoryPeakLockScreen, self).test()
 
             s_size = self.robot.get_screen_normal_size()
             width = int(s_size[0])
@@ -240,7 +418,7 @@ class MemoryPeakOnLockScreen(MemoryTest):
             print ex
 
 
-class MemoryNoLoad(MemoryTest):
+class TestMemoryNoLoad(MemoryTest):
 
     def set_up(self):
 
@@ -250,7 +428,7 @@ class MemoryNoLoad(MemoryTest):
 
     def test(self):
         try:
-            super(MemoryNoLoad, self).test()
+            super(TestMemoryNoLoad, self).test()
             # screen on/off
             state = self.robot.get_display_state()
             if state:
@@ -264,7 +442,7 @@ class MemoryNoLoad(MemoryTest):
             print ex
 
 
-class MemoryReboot(MemoryTest):
+class TestMemoryReboot(MemoryTest):
 
     def set_up(self):
 
@@ -286,13 +464,13 @@ class MemoryReboot(MemoryTest):
 
     def test(self):
         try:
-            super(MemoryReboot, self).test()
+            super(TestMemoryReboot, self).test()
             sleep(60)
         except Exception, ex:
             print ex
 
 
-class MemoryReboot_ScreenOnOff(MemoryTest):
+class TestMemoryRebootScreenOnOff(MemoryTest):
 
     def set_up(self):
 
@@ -306,7 +484,7 @@ class MemoryReboot_ScreenOnOff(MemoryTest):
 
     def test(self):
         try:
-            super(MemoryReboot_ScreenOnOff, self).test()
+            super(TestMemoryRebootScreenOnOff, self).test()
 
             for i in range(200):
                 self.robot.send_keyevent(26)
@@ -316,7 +494,7 @@ class MemoryReboot_ScreenOnOff(MemoryTest):
             print ex
 
 
-class MemoryReboot_ScreenOnOff_Unlock(MemoryTest):
+class TestMemoryRebootScreenOnOffUnlock(MemoryTest):
 
     def set_up(self):
 
@@ -329,7 +507,7 @@ class MemoryReboot_ScreenOnOff_Unlock(MemoryTest):
 
     def test(self):
         try:
-            super(MemoryReboot_ScreenOnOff_Unlock, self).test()
+            super(TestMemoryRebootScreenOnOffUnlock, self).test()
             # screen on/off
             for i in range(200):
                 state = self.robot.get_display_state()
@@ -345,7 +523,7 @@ class MemoryReboot_ScreenOnOff_Unlock(MemoryTest):
             print ex
 
 
-class MemoryLeak(MemoryTest):
+class TestMemoryLeak(MemoryTest):
 
     def set_up(self):
 
@@ -356,7 +534,7 @@ class MemoryLeak(MemoryTest):
 
     def test(self):
         try:
-            super(MemoryLeak, self).test()
+            super(TestMemoryLeak, self).test()
             # screen on/off
             for i in range(2):
                 state = self.robot.get_display_state()
@@ -381,14 +559,19 @@ class CaseExecutor(object):
         pass
 
     __alias = {
-        "MagazineLaunchSpeed": MagazineLaunchSpeed,
-        "MagazineMemoryMonitor": MagazineMemoryMonitor,
-        "MemoryNoLoad": MemoryNoLoad,
-        "MemoryPeakOnLockScreen": MemoryPeakOnLockScreen,
-        "MemoryReboot": MemoryReboot,
-        "MemoryReboot_ScreenOnOff": MemoryReboot_ScreenOnOff,
-        "MemoryReboot_ScreenOnOff_Unlock": MemoryReboot_ScreenOnOff_Unlock,
-        "MemoryLeak": MemoryLeak
+        "MagazineLaunchSpeed": TestMagazineLaunchSpeed,
+        "MagazineMemoryMonitor": TestMagazineMemoryMonitor,
+        "MemoryNoLoad": TestMemoryNoLoad,
+        "MemoryPeakLockScreen": TestMemoryPeakLockScreen,
+        "MemoryReboot": TestMemoryReboot,
+        "MemoryReboot_ScreenOnOff": TestMemoryRebootScreenOnOff,
+        "MemoryReboot_ScreenOnOff_Unlock": TestMemoryRebootScreenOnOffUnlock,
+        "MemoryLeak": TestMemoryLeak,
+        "CPUSwipeScreen": TestCPUSwipeScreen,
+        "CPUScreenOn": TestCPUScreenOn,
+        "CPUScreenOff": TestCPUScreenOff,
+        "CPUScreenOnOff": TestCPUScreenOnOff,
+        "CPUScreenUnlock": TestCPUScreenUnlock
         }
 
     def exec_test_cases(self, caselist=None):
@@ -428,7 +611,3 @@ class CaseExecutor(object):
             instance.tear_down(i, data_type)
         instance.suite_down(self.__dviceId, diagram)
 
-
-if __name__ == '__main__':
-
-    temp = MemoryPeakOnLockScreen('abc', 'com.vlife.com' )
