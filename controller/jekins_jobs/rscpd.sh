@@ -11,16 +11,13 @@ set host [lindex $argv 0]
 spawn scp -r $user@$host:$srcfolder $desfolder
 
 expect {
-    "Connection refused" exit
-    "Name or service not known" exit
-    "continue connecting" {send "yes\r";exp_continue}
-    "password:" {send "$pw\r"}
-    #"Last login" {send "$cmd\n";exp_continue}
-    #"#" exit
+    "Connection refused" {exit}
+    "Name or service not known" {exit}
+    "continue connecting"{send "yes\r"}
+    "password:" {send "$pw\r"; exp_continue}
 }
-
 
 expect eof
 exit
 
-#./ssh_nopass.sh 192.168.0.212 111111 ls
+

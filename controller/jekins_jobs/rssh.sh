@@ -15,11 +15,10 @@ expect {
     "continue connecting" {send "yes\r";exp_continue}
     "password:" {send "$pw\r";exp_continue}
     "Last login" {send "$cmd\nexit\n"}
-    #"*anaconda-ks.cfg*" {send "ls\n"}
-    #"#" exit
+
 }
 
 expect eof
 exit
 
-#./ssh_nopass.sh 192.168.0.212 111111 ls
+
