@@ -34,6 +34,7 @@ def get_special_value(data_list, data_type):
 
     return value
 
+
 def get_special_list(start, end, size, data_type):
 
     data_type = data_type.lower()

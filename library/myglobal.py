@@ -43,6 +43,10 @@ performance_config = configuration.configuration()
 fname = PATH('../config/performance.ini')
 performance_config.fileConfig(fname)
 
+# testlink configuration file
+testlink_config = configuration.configuration()
+fname = PATH('../config/testlink.ini')
+testlink_config.fileConfig(fname)
 
 resource_config = configuration.configuration()
 fname = PATH('../config/resource.ini')
