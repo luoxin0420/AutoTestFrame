@@ -819,8 +819,10 @@ class AdbTools(object):
         """
         l = self.shell('dumpsys window policy|grep isStatusBarKeyguard').readlines()
         for i in l:
-            if 'isStatusBarKeyguard=' in i:
-                return i.split()[-1] == 'isStatusBarKeyguard=true'
+            if 'isStatusBarKeyguard=true' in i:
+                return True
+            else:
+                return False
 
 
 class KeyCode:

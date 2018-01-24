@@ -67,7 +67,7 @@ def set_device_theme(dname, theme_type, number=0):
             # try to swipe screen multiple times
             if text.startswith('NAME'):
                 search_text = text.split('_')[1]
-                for i in range(3):
+                for i in range(5):
                     result = click_text(dname, search_text)
                     if result:
                         break

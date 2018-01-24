@@ -41,6 +41,8 @@ class TestVivoBasicUI(unittest.TestCase):
         self.run_loop = 1
         self.filter_log = {}
         self.case_id = None
+         # recovery to initial state
+        self.unlock_screen()
 
     def tearDown(self):
 
@@ -121,7 +123,7 @@ class TestVivoBasicUI(unittest.TestCase):
 
         logger.debug(u'TestCase: 切换不同vlife主题')
         self.case_id = '131'
-        for i in range(3):
+        for i in range(1):
 
             # set theme1
             theme.set_device_theme(DEVICENAME, 'VLIFE')
@@ -181,34 +183,36 @@ class TestVivoBasicUI(unittest.TestCase):
         DEVICE.send_keyevent(26)
         DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
         # press home
+        logger.debug('Press Home Key')
         DEVICE.send_keyevent(3)
         sleep(1)
         result = DEVICE.get_lock_screen_state()
+        logger.debug('Verify state of lock screen')
         self.assertEqual(True, result)
         # press back key
         DEVICE.send_keyevent(4)
         sleep(1)
         result = DEVICE.get_lock_screen_state()
+        logger.debug('Verify state of lock screen')
         self.assertEqual(True, result)
 
-        # recovery to initial state
-        self.unlock_screen()
 
-    def test_reboot(self):
 
-        logger.debug(u'TestCase: 有sim卡重启验证锁屏')
-        self.case_id = '136'
-        theme.set_device_theme(DEVICENAME, 'VLIFE')
-        result = self.unlock_screen()
-        self.assertEqual(False, result)
-        DEVICE.reboot()
-        sleep(30)
-        DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
-        result = self.get_device_state()
-        self.assertEqual(True, result)
-        # recovery to initial state
-        self.unlock_screen()
-
+    # def test_reboot(self):
+    #
+    #     logger.debug(u'TestCase: 有sim卡重启验证锁屏')
+    #     self.case_id = '136'
+    #     theme.set_device_theme(DEVICENAME, 'VLIFE')
+    #     result = self.unlock_screen()
+    #     self.assertEqual(False, result)
+    #     DEVICE.reboot()
+    #     sleep(30)
+    #     DEVICE.screenshot(self._testMethodName, target_path=self.log_path)
+    #     result = self.get_device_state()
+    #     self.assertEqual(True, result)
+    #     # recovery to initial state
+    #     self.unlock_screen()
+    #
     def test_screen_on_off_30(self):
 
         logger.debug(u'TestCase: 反复亮灭屏')
@@ -240,18 +244,18 @@ class TestVivoBasicUI(unittest.TestCase):
             result = self.unlock_screen()
             self.assertEqual(False, result)
 
-    def test_landscape_app(self):
-
-        logger.debug(u'TestCase: 三方应用横屏状态锁屏解锁')
-        theme.set_device_theme(DEVICENAME, 'VLIFE')
-        self.case_id = '139'
-        custom_app = device_config.getValue(DEVICENAME, 'custom_third_app')
-        DEVICE.start_application(custom_app)
-        sleep(2)
-        DEVICE.rotation_screen(1)
-        sleep(2)
-        result = self.unlock_screen()
-        self.assertEqual(False, result)
+    # def test_landscape_app(self):
+    #
+    #     logger.debug(u'TestCase: 三方应用横屏状态锁屏解锁')
+    #     theme.set_device_theme(DEVICENAME, 'VLIFE')
+    #     self.case_id = '139'
+    #     custom_app = device_config.getValue(DEVICENAME, 'custom_third_app')
+    #     DEVICE.start_application(custom_app)
+    #     sleep(2)
+    #     DEVICE.rotation_screen(1)
+    #     sleep(2)
+    #     result = self.unlock_screen()
+    #     self.assertEqual(False, result)
 
 
 def run(dname, loop, rtype):
@@ -306,4 +310,4 @@ def run(dname, loop, rtype):
         print ex
 
 if __name__ == '__main__':
-    run("82e2aaad", 1, 'all')
+    run("db6964a4", 1, 'all')
