@@ -15,6 +15,8 @@ from library import myuiautomator
 from library.myglobal import resource_config
 from business import querydb as tc
 from library import unlock as ul
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 
 # 需要安装ADBKEYBOARD 输入法,并且设置为默认输入法
