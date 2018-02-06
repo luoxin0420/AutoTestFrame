@@ -8,6 +8,7 @@ from time import sleep
 import subprocess
 import argparse
 import sys
+import threading
 
 from library import adbtools
 from library.myglobal import device_config,module_config, logger
@@ -53,10 +54,11 @@ def verify_pkg_content(loginfo, exp_value):
         if len(loginfo) > 0:
             data = pXml.parseXml(loginfo.split(':::')[1])
             value = data.get_elements_attribute_value('product', 'soft')[0]
+            temp = exp_value.encode('utf-8')
 
-            temp = exp_value.encode('utf-8').split('.')
-            length = len(temp)
-            temp = '.'.join(temp[0:length-1])
+            # temp = exp_value.encode('utf-8').split('.')
+            # length = len(temp)
+            # temp = '.'.join(temp[0:length-1])
 
             if value == temp:
                 return True
@@ -105,8 +107,7 @@ def collect_log(uid):
     # get root
     device.adb('root')
     device.adb('remount')
-    for i in range(2):
-        da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
+
     # start collect log
     name = desktop.get_log_name(uid, 'SmokeModule')
     log_reader = dumplog.DumpLogcatFileReader(name, uid)
@@ -124,8 +125,21 @@ def install_new_shell(shell_path, pkg_name, soft_version, uid):
 
     # cover install
     logger.debug('Cover install new shell')
-    files = get_full_name(shell_path, '.apk')
-    device.adb('install -r ' + files[0])
+    find_text = [u'安装']
+    try:
+        threads = []
+        cmd = 'install -r ' + shell_path
+        install_app = threading.Thread(target=device.adb, args=cmd)
+        proc_process = threading.Thread(target=device.do_popup_windows, args=(2, find_text))
+        threads.append(proc_process)
+        threads.append(install_app)
+        for t in threads:
+            t.setDaemon(True)
+            t.start()
+            sleep(2)
+        t.join()
+    except Exception, ex:
+        print ex
 
     # collect log
     name = collect_log(uid)
@@ -198,6 +212,10 @@ def init_module_version(uid, orig_path):
         flag2 = tc.check_amount_limit(int(mid))
         if flag1 or flag2:
             config_srv.enableModule('STAGECONFIG')
+
+        logger.debug('step: set date to after two months')
+        da.update_time('DAYS-61')
+        da.unlock_screen('default')
         #connect network and waiting for module download
         logger.debug('step: connect network and download module')
         for i in range(2):
@@ -218,7 +236,8 @@ def init_module_version(uid, orig_path):
             # reboot and unlock screen for applying module
             name = collect_log(uid)
             # get pid of app
-            pkg_pid = device.get_pid(pkg_name)
+            pkg_process = pkg_name + ':main'
+            pkg_pid = device.get_pid(pkg_process)
             #check log for login package and verify if module update
             loginfo = filter_log_result(name, 'jabber:iq:auth', pkg_pid)
             init_result = verify_pkg_content(loginfo, soft_version)
@@ -264,6 +283,7 @@ if __name__ == '__main__':
         sys.exit(0)
     test_paths = module_config.getValue('SHELL_MODULE', 'orig_shell_path').split(';')
     for tp in test_paths:
+        logger.debug('Start testing:******************')
         init_module_version(uid, tp)
         # delete files
         delete_files_from_device()
