@@ -207,7 +207,9 @@ def get_time_stamp(time_str, delta=0):
 def summary_result(logname,flag,RESULT_DICT):
 
     #logname = r'E:\AutoTestDemo\TestLockScreen\log\20170713\ZX1G22TG4F_Nesux6\1523TestTasks\unittest.html'
-    #RESULT_DICT = {'TEST1':{'Result':['pass','fail'],'Log': ['test1','test2']},'TEST2':{'Result':['pass','fail'],'Log':['test1','test2']}}
+    #RESULT_DICT = {'TEST1':{'Result':['pass','fail'],'Log': ['test1','test2'],'TLID':'986'},'TEST2':{'Result':['pass','fail'],'Log':['test1','test2'],'TLID':'986'}}
+
+    # write html report
     count = get_file_rows(logname)
     report = os.path.join(os.path.dirname(logname),'summary_report.html')
     count2 = get_file_rows(report)

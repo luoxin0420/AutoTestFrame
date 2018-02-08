@@ -20,6 +20,7 @@ from library import HTMLTestRunner
 from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,PERFORMANCE_COMPONENT
 from business import action, vp
 from business import querydb as tc
+from library import TestLinkObj
 
 
 def get_test_data():
@@ -52,6 +53,7 @@ class TestMemoryCPU(unittest.TestCase):
         self.ts = None
         self.monitor_type = None
         self.case_id = None
+        self.testlink_id = None
 
     def tearDown(self):
 
@@ -70,6 +72,7 @@ class TestMemoryCPU(unittest.TestCase):
             if LOOP_NUM == 0:
                 RESULT_DICT.setdefault(self._testMethodName, {})['Result'] = []
                 RESULT_DICT.setdefault(self._testMethodName, {})['Log'] = []
+                RESULT_DICT.setdefault(self._testMethodName, {})['TLID'] = self.testlink_id
 
             if ok:
                 RESULT_DICT[self._testMethodName]['Result'].append('PASS')
@@ -132,9 +135,10 @@ class TestMemoryCPU(unittest.TestCase):
     @ddt.data(*get_test_data())
     def test_memory_cpu(self,data):
 
-        print('CaseName:' + data['teca_mname'])
-        logger.debug('CaseName:' + data['teca_mname'])
+        print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
+        logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         self.case_id = data['teca_id']
+        self.testlink_id = data['teca_mid']
         # handle with database data, unicode to str
         new_data = {}
         for key, value in data.items():
@@ -238,6 +242,7 @@ def run(dname, loop, rtype):
             # write log to summary report
             if LOOP_NUM == loop - 1:
                 desktop.summary_result(utest_log, True, RESULT_DICT)
+                TestLinkObj.write_result_to_testlink(DEVICENAME, RESULT_DICT)
             else:
                 desktop.summary_result(utest_log, False, RESULT_DICT)
 

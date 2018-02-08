@@ -20,6 +20,7 @@ from library.myglobal import device_config,POSITIVE_VP_TYPE,logger,MODULE_COMPON
 from business import action,vp
 from business import querydb as tc
 from business import testdata as td
+from library import TestLinkObj
 
 def get_test_data():
 
@@ -52,6 +53,7 @@ class TestModuleUpdate(unittest.TestCase):
         self.log_count = 1
         self.pid = []
         self.case_id = None
+        self.testlink_id = None
 
     def tearDown(self):
 
@@ -70,6 +72,7 @@ class TestModuleUpdate(unittest.TestCase):
             if LOOP_NUM == 0:
                 RESULT_DICT.setdefault(self._testMethodName, {})['Result'] = []
                 RESULT_DICT.setdefault(self._testMethodName, {})['Log'] = []
+                RESULT_DICT.setdefault(self._testMethodName, {})['TLID'] = self.testlink_id
 
             if ok:
                 RESULT_DICT[self._testMethodName]['Result'].append('PASS')
@@ -138,6 +141,7 @@ class TestModuleUpdate(unittest.TestCase):
         print('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         logger.debug('CaseName:' + str(data['teca_mid']) + '_' + data['teca_mname'])
         self.case_id = data['teca_id']
+        self.testlink_id = data['teca_mid']
         new_data, dict_data, business_order, vp_type_name = td.handle_db_data(data)
         vpname = tc.get_vp_name(data['teca_vp_id'])
 
@@ -213,6 +217,7 @@ def run(dname, loop, rtype):
             # write log to summary report
             if LOOP_NUM == loop - 1:
                 desktop.summary_result(utest_log, True, RESULT_DICT)
+                TestLinkObj.write_result_to_testlink(DEVICENAME, RESULT_DICT)
             else:
                 desktop.summary_result(utest_log, False, RESULT_DICT)
 
