@@ -4,6 +4,7 @@
 import testlink
 from library.myglobal import testlink_config
 
+# reference doc: https://github.com/lczub/TestLink-API-Python-client/blob/master/example/TestLinkExample.py
 
 def write_result_to_testlink(uid, RESULT_DICT):
 
