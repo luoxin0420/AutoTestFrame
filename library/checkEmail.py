@@ -217,7 +217,7 @@ def my_unicode(s, encoding):
 if __name__ =="__main__":
 
     eobj = emailObject('imap.exmail.qq.com', 993, 'smtp.exmail.qq.com', 465)
-    conn = eobj.login('autotest@nebulaera.com','Vlife123')
+    conn = eobj.login('autotest@nebulaera.com','xxxxxx')
     temp = eobj.list()
     temp = eobj.inbox()
     # get the latest email
