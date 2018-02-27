@@ -173,7 +173,7 @@ def init_module_version(uid, test_path):
                         device_config.setValue(uid,'background_module_id1', mid_list[count+1])
                         sid = module_config.getValue('COMMON', 'upgrade_fun_suite_id')
                         cmd = ' '.join(['run', uid, str(sid)])
-                        subprocess.Popen(cmd, shell=True, stdout=None)
+                        subprocess.call(cmd, shell=True, stdout=None)
                         break
                     count += 1
                 else:

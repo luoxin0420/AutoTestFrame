@@ -129,7 +129,7 @@ def install_new_shell(shell_path, pkg_name, soft_version, uid):
     try:
         threads = []
         cmd = 'install -r ' + shell_path
-        install_app = threading.Thread(target=device.adb, args=cmd)
+        install_app = threading.Thread(target=device.adb, args=(cmd,))
         proc_process = threading.Thread(target=device.do_popup_windows, args=(2, find_text))
         threads.append(proc_process)
         threads.append(install_app)
@@ -247,18 +247,24 @@ def init_module_version(uid, orig_path):
                 # test basic func
                 sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
                 cmd = ' '.join(['run', uid, str(sid)])
-                subprocess.Popen(cmd, shell=True, stdout=None)
+                subprocess.call(cmd, shell=True, stdout=None)
 
                 # test new shell for upgrade
                 shell_paths = module_config.getValue('SHELL_MODULE', 'upgrade_shell_path').split(';')
                 for tp in shell_paths:
                     result = install_new_shell(tp, pkg_name, soft_version, uid)
                     if result:
-                        device.clear_app_data(pkg_name)
-                        device.clear_app_data('com.android.systemui')
-                        device.uninstall(pkg_name)
+                        logger.debug('Install new shell is success')
+                    else:
+                        logger.error('Install new shell is failed. content of login package is not right')
+                    device.clear_app_data(pkg_name)
+                    device.clear_app_data('com.android.systemui')
+                    device.uninstall(pkg_name)
+
             else:
-                logger.error('step: module is not downloaded successfully')
+                logger.error('Login package content is not right, made effect is failed')
+        else:
+            logger.error('step: module is not downloaded successfully')
 
     except Exception, ex:
         print ex
@@ -281,6 +287,7 @@ if __name__ == '__main__':
     if uid not in devices:
         print "Device is not connected, please check"
         sys.exit(0)
+
     test_paths = module_config.getValue('SHELL_MODULE', 'orig_shell_path').split(';')
     for tp in test_paths:
         logger.debug('Start testing:******************')
