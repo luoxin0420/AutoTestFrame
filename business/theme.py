@@ -6,7 +6,7 @@ from time import sleep
 from library import myuiautomator
 from library.myglobal import theme_config
 from library import adbtools
-
+import threading
 
 def click_text(dname,text):
 
@@ -46,7 +46,21 @@ def set_device_theme(dname, theme_type, number=0):
     #DEVICE = device.Device(dname)
     #DEVICE.app_operation(action='LAUNCH', pkg=activity_name)
     DEVICE = adbtools.AdbTools(dname)
-    DEVICE.start_application(activity_name)
+    #DEVICE.start_application(activity_name)
+    find_text = [u'忽略本次']
+    try:
+        threads = []
+        install_app = threading.Thread(target=DEVICE.start_application(), args=(activity_name,))
+        proc_process = threading.Thread(target=DEVICE.do_popup_windows, args=(5, find_text))
+        threads.append(proc_process)
+        threads.append(install_app)
+        for t in threads:
+            t.setDaemon(True)
+            t.start()
+            sleep(2)
+        t.join()
+    except Exception, ex:
+        print ex
     sleep(5)
     if number == 0:
         if theme_type.upper() == 'VLIFE':
