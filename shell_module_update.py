@@ -220,7 +220,7 @@ def init_module_version(uid, orig_path, path_index, loop_number):
         device.adb('root')
         device.adb('remount')
 
-        # push .xml file to /data/data/com.vlife.vivo.wallpaper/shared_prefs
+        # push .xml file to /data/data/com.vlife.vivo.wallpaper/shared_prefs#
         device.push('/home/lang/testfile/function.xml','/data/data/com.vlife.vivo.wallpaper/shared_prefs')
 
         # self-activation
