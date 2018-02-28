@@ -124,6 +124,7 @@ class TestTimerTask(unittest.TestCase):
 
     def dump_log_start(self):
 
+        sleep(2)
         name = ''.join([self._testMethodName,'_',str(LOOP_NUM),'_',str(self.log_count)])
         self.log_name = os.path.join(LogPath,name)
         self.log_count += 1
