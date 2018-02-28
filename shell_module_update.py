@@ -9,6 +9,7 @@ import subprocess
 import argparse
 import sys
 import threading
+import datetime
 
 from library import adbtools
 from library.myglobal import device_config,module_config, logger
@@ -98,7 +99,25 @@ def get_full_name(file_path,suffix):
     return file_list
 
 
-def collect_log(uid):
+def get_log_name(device_name,basename, path_index, loop_number, shell_index, suffix='.log'):
+
+    cur_date = datetime.datetime.now().strftime("%Y%m%d")
+    now = datetime.datetime.now().strftime("%H%M")
+    name = device_config.getValue(device_name,'name')
+    temp = now+basename+'PATH'+str(path_index)+'_'+'LOOP'+str(loop_number)+'_' +'SHELL' + str(shell_index)
+    parent_path = os.path.join('log',cur_date, device_name+'_'+name, temp)
+
+    # create multi layer directory
+    if not os.path.isdir(parent_path):
+        os.makedirs(parent_path)
+
+    dname = 'result' + suffix
+    filename = os.path.join(parent_path,dname)
+
+    return filename
+
+
+def collect_log(uid, path_index, loop_number, shell_index=0):
 
     da = action.DeviceAction(uid)
     logger.debug('Reboot device and unlock screen')
@@ -109,7 +128,7 @@ def collect_log(uid):
     device.adb('remount')
 
     # start collect log
-    name = desktop.get_log_name(uid, 'SmokeModule')
+    name = get_log_name(uid, 'ShellModuleUpdate', path_index,loop_number,shell_index)
     log_reader = dumplog.DumpLogcatFileReader(name, uid)
     log_reader.clear_logcat()
     log_reader.start()
@@ -121,7 +140,7 @@ def collect_log(uid):
     return name
 
 
-def install_new_shell(shell_path, pkg_name, soft_version, uid):
+def install_new_shell(shell_path, pkg_name, soft_version, uid, path_index, loop_number, new_shell_index):
 
     # cover install
     logger.debug('Cover install new shell')
@@ -130,7 +149,7 @@ def install_new_shell(shell_path, pkg_name, soft_version, uid):
         threads = []
         cmd = 'install -r ' + shell_path
         install_app = threading.Thread(target=device.adb, args=(cmd,))
-        proc_process = threading.Thread(target=device.do_popup_windows, args=(2, find_text))
+        proc_process = threading.Thread(target=device.do_popup_windows, args=(5, find_text))
         threads.append(proc_process)
         threads.append(install_app)
         for t in threads:
@@ -142,7 +161,7 @@ def install_new_shell(shell_path, pkg_name, soft_version, uid):
         print ex
 
     # collect log
-    name = collect_log(uid)
+    name = collect_log(uid,path_index,loop_number,new_shell_index)
     # get pid of app
     pkg_pid = device.get_pid(pkg_name)
     #check log for login package and verify if module update
@@ -152,122 +171,141 @@ def install_new_shell(shell_path, pkg_name, soft_version, uid):
     return result
 
 
-def init_module_version(uid, orig_path):
+def init_module_version(uid, orig_path, path_index, loop_number):
 
-    # get root
-    device.adb('root')
-    device.adb('remount')
-
-    # delete files
-    delete_files_from_device()
-
-    # clear app
-    pkg_name = module_config.getValue('SHELL_MODULE', 'pkg_name')
-    logger.debug('step: clear pkg content ' + pkg_name)
-    device.clear_app_data(pkg_name)
-    logger.debug('step: clear system ui')
-    device.clear_app_data('com.android.systemui')
-
-    # push new api file
-    apk_path = module_config.getValue('SHELL_MODULE', 'push_apk_path')
-    so_path = module_config.getValue('SHELL_MODULE', 'push_so_path')
-    logger.debug('step: push apk file to device')
-    files = get_full_name(orig_path, '.apk')
-    device.push(files[0], apk_path)
-    desktop_path = os.path.join(orig_path, 'so')
-    files = get_full_name(desktop_path, '.so')
-    logger.debug('step: push so files to device')
-    for fl in files:
-        device.push(fl, so_path)
-
-    #########################################################################
-    # # reboot and unlock screen
-    da = action.DeviceAction(uid)
-    logger.debug('step: reboot device and unlock screen')
-    da.reboot_device('default')
-    da.unlock_screen('default')
-
-    # set root permission before reboot
-    device.adb('root')
-    device.adb('remount')
-
-    # self-activation
-    pkg_name = module_config.getValue('SHELL_MODULE', 'pkg_name')
-    acti_flag = module_config.getValue('SHELL_MODULE', 'self_activation')
-    product_type = device_config.getValue(uid, 'product_type')
-    if acti_flag.upper() == 'FALSE':
-        logger.debug('step: access to vlife theme, start-up main process')
-        if product_type.upper() == 'THEME':
-            theme.set_device_theme(uid, 'vlife')
-
-    # configure server option
-
-    mid = module_config.getValue('SHELL_MODULE', 'module_id')
+    shell_paths = module_config.getValue('SHELL_MODULE', 'upgrade_shell_path').split(';')
+    result_list = []
     count = 0
-    try:
+    for new_shell in shell_paths:
 
-        logger.debug('step: config server and enable module ')
-        tc.update_stage_module_status(int(mid), True)
-        flag1 = tc.update_stage_module_network(int(mid), 1, 0)
-        flag2 = tc.check_amount_limit(int(mid))
-        if flag1 or flag2:
-            config_srv.enableModule('STAGECONFIG')
+        logger.debug('***key step****: upgrade to ' + new_shell)
+        test_result = True
+        new_shell_index = shell_paths.index(new_shell) + 1
 
-        logger.debug('step: set date to after two months')
-        da.update_time('DAYS-61')
+        # get root
+        device.adb('root')
+        device.adb('remount')
+
+        # delete files
+        delete_files_from_device()
+
+        # clear app
+        pkg_name = module_config.getValue('SHELL_MODULE', 'pkg_name')
+        logger.debug('step: clear pkg content ' + pkg_name)
+        device.clear_app_data(pkg_name)
+        logger.debug('step: clear system ui')
+        device.clear_app_data('com.android.systemui')
+        device.uninstall(pkg_name)
+
+        # push new api file
+        apk_path = module_config.getValue('SHELL_MODULE', 'push_apk_path')
+        so_path = module_config.getValue('SHELL_MODULE', 'push_so_path')
+        logger.debug('step: push apk file to device')
+        files = get_full_name(orig_path, '.apk')
+        device.push(files[0], apk_path)
+        desktop_path = os.path.join(orig_path, 'so')
+        files = get_full_name(desktop_path, '.so')
+        logger.debug('step: push so files to device')
+        for fl in files:
+            device.push(fl, so_path)
+
+        #########################################################################
+        # # reboot and unlock screen
+        da = action.DeviceAction(uid)
+        logger.debug('step: reboot device and unlock screen')
+        da.reboot_device('default')
         da.unlock_screen('default')
-        #connect network and waiting for module download
-        logger.debug('step: connect network and download module')
-        for i in range(2):
-            da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
 
-        #check module has download
+        # set root permission before reboot
+        device.adb('root')
+        device.adb('remount')
 
-        config_dict = {"module": mid}
-        result = tc.get_all_module_info(config_dict)
-        search_path = result['module']['path']
-        soft_version = result['module']['version']
-        full_path= os.path.join(r'/data/data/', pkg_name, os.path.dirname(search_path)).replace('\\', '/')
-        base_name = os.path.basename(search_path)
-        res = device.find_file_from_appfolder(pkg_name, full_path)
+        # self-activation
+        pkg_name = module_config.getValue('SHELL_MODULE', 'pkg_name')
+        acti_flag = module_config.getValue('SHELL_MODULE', 'self_activation')
+        product_type = device_config.getValue(uid, 'product_type')
+        if acti_flag.upper() == 'FALSE':
+            logger.debug('step: access to vlife theme, start-up main process')
+            if product_type.upper() == 'THEME':
+                theme.set_device_theme(uid, 'vlife')
 
-        if res.find(base_name) != -1:
-            logger.debug('step: module is download successfully, ' + search_path + ' has found')
-            # reboot and unlock screen for applying module
-            name = collect_log(uid)
-            # get pid of app
-            pkg_process = pkg_name + ':main'
-            pkg_pid = device.get_pid(pkg_process)
-            #check log for login package and verify if module update
-            loginfo = filter_log_result(name, 'jabber:iq:auth', pkg_pid)
-            init_result = verify_pkg_content(loginfo, soft_version)
+        # configure server option
 
-            if init_result:
-                logger.debug('step: module is made effect for ' + str(mid))
-                # test basic func
-                sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
-                cmd = ' '.join(['run', uid, str(sid)])
-                subprocess.call(cmd, shell=True, stdout=None)
+        mid = module_config.getValue('SHELL_MODULE', 'module_id')
+        try:
 
-                # test new shell for upgrade
-                shell_paths = module_config.getValue('SHELL_MODULE', 'upgrade_shell_path').split(';')
-                for tp in shell_paths:
-                    result = install_new_shell(tp, pkg_name, soft_version, uid)
+            logger.debug('step: config server and enable module ')
+            tc.update_stage_module_status(int(mid), True)
+            flag1 = tc.update_stage_module_network(int(mid), 1, 0)
+            flag2 = tc.check_amount_limit(int(mid))
+            if flag1 or flag2:
+                config_srv.enableModule('STAGECONFIG')
+
+            logger.debug('step: set date to after two months')
+            da.update_time('DAYS-61')
+            da.unlock_screen('default')
+            #connect network and waiting for module download
+            logger.debug('step: connect network and download module')
+            for i in range(2):
+                da.connect_network_trigger('CLOSE_ALL:ONLY_WIFI')
+
+            #check module has download
+
+            config_dict = {"module": mid}
+            result = tc.get_all_module_info(config_dict)
+            search_path = result['module']['path']
+            soft_version = result['module']['version']
+            full_path= os.path.join(r'/data/data/', pkg_name, os.path.dirname(search_path)).replace('\\', '/')
+            base_name = os.path.basename(search_path)
+            res = device.find_file_from_appfolder(pkg_name, full_path)
+
+            if res.find(base_name) != -1:
+                logger.debug('***key step***: module is download successfully, ' + search_path + ' has found')
+                # reboot and unlock screen for applying module
+                name = collect_log(uid, path_index, loop_number)
+                # get pid of app
+                pkg_process = pkg_name + ':main'
+                pkg_pid = device.get_pid(pkg_process)
+                #check log for login package and verify if module update
+                loginfo = filter_log_result(name, 'jabber:iq:auth', pkg_pid)
+                init_result = verify_pkg_content(loginfo, soft_version)
+
+                if init_result:
+                    logger.debug('***key step***: module is made effect for ' + str(mid))
+                    # test basic func
+                    sid = module_config.getValue('COMMON', 'basic_fun_suite_id')
+                    cmd = ' '.join(['run', uid, str(sid)])
+                    if count == 0:
+                        logger.debug('***key step***: start to run basic test cases')
+                        subprocess.call(cmd, shell=True, stdout=None)
+
+                    # test new shell for upgrade
+                    result = install_new_shell(new_shell, pkg_name, soft_version, uid, path_index, loop_number, new_shell_index)
                     if result:
-                        logger.debug('Install new shell is success')
+                        logger.debug('***key step***:Install new shell is success for SHELL' + str(new_shell_index))
                     else:
-                        logger.error('Install new shell is failed. content of login package is not right')
-                    device.clear_app_data(pkg_name)
-                    device.clear_app_data('com.android.systemui')
-                    device.uninstall(pkg_name)
+                        logger.error('***key step***:Install new shell is failed. login package is not right for SHELL' + str(new_shell_index))
+                        test_result = False
 
+                else:
+                    logger.error('***key step***:Login package content is not right, made effect is failed')
+                    test_result = False
             else:
-                logger.error('Login package content is not right, made effect is failed')
-        else:
-            logger.error('step: module is not downloaded successfully')
+                logger.error('***key step***: module is not downloaded successfully')
+                test_result = False
+        except Exception, ex:
+            print ex
+            test_result = False
 
-    except Exception, ex:
-        print ex
+        count +=1
+
+        result_list.append(test_result)
+
+        # device.clear_app_data(pkg_name)
+        # device.clear_app_data('com.android.systemui')
+        # device.uninstall(pkg_name)
+
+    return result_list
 
 
 if __name__ == '__main__':
@@ -276,8 +314,10 @@ if __name__ == '__main__':
 
     newParser = argparse.ArgumentParser()
     newParser.add_argument("uid", help="Your device uid")
+    newParser.add_argument("-l", "--ln", dest="lnum", default=1, type=int, help="Loop number")
     args = newParser.parse_args()
     uid = args.uid
+    loop_number = args.lnum
     if uid is None:
         sys.exit(0)
 
@@ -289,9 +329,29 @@ if __name__ == '__main__':
         sys.exit(0)
 
     test_paths = module_config.getValue('SHELL_MODULE', 'orig_shell_path').split(';')
+
     for tp in test_paths:
-        logger.debug('Start testing:******************')
-        init_module_version(uid, tp)
-        # delete files
-        delete_files_from_device()
+        index = test_paths.index(tp)
+        logger.debug('***key step***:Start to test ========PATH_' + str(index))
+        loop_result = []
+        for i in range(loop_number):
+            logger.debug('***key step***:========LOOP_' + str(i))
+            result_list = init_module_version(uid, tp, index, i)
+            for re in result_list:
+                ind = result_list.index(re)
+                if re:
+                    logger.debug('***key step****:upgrade success form A_' + str(index) + 'to B_' + str(ind))
+                else:
+                    logger.error('***key step****:upgrade failed form A_ ' + str(index) + 'to B_' + str(ind))
+            if False not in result_list:
+                loop_result.append(True)
+                break
+            else:
+                loop_result.append(False)
+
+        if False not in loop_result:
+            logger.debug('***key step****:========Test successful on PATH_' + str(index))
+        else:
+            logger.debug('***key step****:========Test failed on PATH_ ' + str(index))
+
 
