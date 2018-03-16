@@ -11,6 +11,8 @@ import sys
 import threading
 import datetime
 import math
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 from library import adbtools
@@ -40,15 +42,15 @@ def get_rectangle_location(loop_number):
         x1 = 1224 - mid
         y1 = 320 - mid
 
-    if 2<mid<=5:
+    if 2 < mid <= 5:
         x1 = 1224 - mid
         y1 = 370 - mid
 
-    if 5<mid<=7:
+    if 5 < mid <= 7:
         x1 = 1324 +(mid-5)
         y1 = 370 - mid
 
-    if 7<mid<=9:
+    if 7 < mid <= 9:
         x1 = 1324 + (mid-5)
         y1 = 420 + (mid-5)
 
@@ -65,19 +67,46 @@ def get_big_rectangle_location(loop_number):
         x1 = 120 - mid
         y1 = 480 - mid
 
-    if 2<mid<=5:
+    if 2 < mid <= 5:
         x1 = 120 - mid
         y1 = 816 - mid
 
-    if 5<mid<=7:
+    if 5 < mid <= 7:
         x1 = 1320 + mid
         y1 = 816 + mid
 
-    if 7<mid<=9:
+    if 7 < mid <= 9:
         x1 = 1320 + mid
         y1 = 2112 + mid
 
     return x1, y1
+
+
+def get_point(triangle_point):
+
+    x1, y1 = triangle_point[0][0], triangle_point[0][1]
+    x3, y3 = triangle_point[1][0],triangle_point[1][1]
+    x2, y2 = triangle_point[2][0],triangle_point[2][1]
+    sample_size = 500
+    theta = np.arange(0,1,0.001)
+    x = theta * x1 + (1 - theta) * x2
+    y = theta * y1 + (1 - theta) * y2
+    plt.plot(x,y,'g--',linewidth=2)
+    x = theta * x1 + (1 - theta) * x3
+    y = theta * y1 + (1 - theta) * y3
+    plt.plot(x, y, 'g--', linewidth=2)
+    x = theta * x2 + (1 - theta) * x3
+    y = theta * y2 + (1 - theta) * y3
+    plt.plot(x, y, 'g--', linewidth=2)
+    rnd1 = np.random.random(size = sample_size)
+    rnd2 = np.random.random(size=sample_size)
+    rnd2 = np.sqrt(rnd2)
+    x = rnd2 * (rnd1 * x1 + (1 - rnd1) * x2) + (1 - rnd2) * x3
+    y = rnd2 * (rnd1 * y1 + (1 - rnd1) * y2) + (1 - rnd2) * y3
+
+    length = len(x)
+
+    return x, y
 
 
 def run(uid, device, loop_number, loop_unit):
@@ -131,10 +160,29 @@ def run(uid, device, loop_number, loop_unit):
         value = imagemagick.compare_image(crop_name, r'E:/crop_expected.png')
         if value:
             valid_count += 1
+            if valid_count > 160:
+                break
             logger.debug('Advertisement is pop-up successful')
             # x1, y1 = get_circle_location(valid_count)
             # device.shell('input tap {0} {1}'.format(x1, y1))
             # sleep(1)
+            index = 0
+            if int(valid_count/loop_number) == 0:
+                index = 0
+            if int(valid_count/loop_unit) + 1 > (valid_count/loop_unit) >= int(valid_count/loop_unit):
+                index = int(valid_count/loop_unit)
+
+            triangle = [[[0, 95], [180, 95], [0, 2560]], [[180, 2560], [180, 95], [0, 2560]],
+                    [[180, 95], [220, 550], [1230, 550]], [[180, 95], [1230, 95], [1230, 550]],
+                    [[1230, 95], [1230, 2560], [1440, 2560]], [[1230, 95], [1440, 95], [1440, 2560]],
+                    [[210, 2050], [210, 2560], [1220, 2560]], [[210, 2050], [210, 2560], [1220, 2560]]]
+
+            x1, y1 = get_point(triangle[index])
+            x = x1[valid_count]
+            y = y1[valid_count]
+            logger.debug('click x1,y1'+str(x)+','+str(y))
+            device.shell('input tap {0} {1}'.format(x, y))
+            sleep(1)
         else:
             logger.debug('Advertisement is not pop-up')
 
@@ -143,25 +191,32 @@ def run(uid, device, loop_number, loop_unit):
             output = device.shell('ls -l /data/data/com.vlife.vivo.wallpaper/files/ua/log/f7235a61fd.dat').readlines()[0].split(' ')
             logger.debug('*****file size:*****' + output[12])
 
-        if int(valid_count/loop_unit) == 1:
-            x1, y1 = get_circle_location(valid_count)
-            device.shell('input tap {0} {1}'.format(x1, y1))
-            sleep(1)
-        if int(valid_count/loop_unit) == 2:
-            x1, y1 = get_rectangle_location(valid_count)
-            device.shell('input tap {0} {1}'.format(x1, y1))
-            sleep(1)
-        if int(valid_count/loop_unit) == 3:
-            x1, y1 = get_big_rectangle_location(valid_count)
-            device.shell('input tap {0} {1}'.format(x1, y1))
-            sleep(1)
-
-        sleep(1)
+        # if int(valid_count/loop_unit) < 1:
+        #     x1, y1 = get_circle_location(valid_count)
+        #     logger.debug('click x1,y1'+str(x1)+','+str(y1))
+        #     device.shell('input tap {0} {1}'.format(x1, y1))
+        #     sleep(1)
+        # if 1 < int(valid_count/loop_unit) <= 2:
+        #     x1, y1 = get_rectangle_location(valid_count)
+        #     logger.debug('click x1,y1'+str(x1)+','+str(y1))
+        #     device.shell('input tap {0} {1}'.format(x1, y1))
+        #     sleep(1)
+        # if 2 < int(valid_count/loop_unit) <= 3:
+        #     x1, y1 = get_big_rectangle_location(valid_count)
+        #     logger.debug('click x1,y1'+str(x1)+','+str(y1))
+        #     device.shell('input tap {0} {1}'.format(x1, y1))
+        #     sleep(1)
 
 
 if __name__ == '__main__':
 
     global device
+    # triangle = [[[0, 95], [180, 95], [0, 2560]], [[180, 2560], [180, 95], [0, 2560]],
+    #     [[180, 95], [220, 550], [1230, 550]], [[180, 95], [1230, 95], [1230, 550]],
+    #     [[1230, 95], [1230, 2560], [1440, 2560]], [[1230, 95], [1440, 95], [1440, 2560]],
+    #     [[210, 2050], [210, 2560], [1220, 2560]], [[210, 2050], [210, 2560], [1220, 2560]]]
+    # x, y = get_point(triangle[0])
+    # x1 = x[0]
 
     newParser = argparse.ArgumentParser()
     newParser.add_argument("uid", help="Your device uid")
